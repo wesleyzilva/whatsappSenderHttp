@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Configuration status="INFO">
+    <Appenders>
+        <!-- Define o arquivo de log -->
+        <File name="FileAppender" fileName="app.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <!-- Define o logger para a classe FileReader -->
+        <Logger name="com.wesley.FileReader" level="info" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+        <!-- Define o logger para a classe DriverInitializer -->
+        <Logger name="com.wesley.DriverInitializer" level="info" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+        <!-- Define o logger raiz -->
+        <Root level="info">
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

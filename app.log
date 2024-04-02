@@ -1,0 +1,40 @@
+abr. 02, 2024 4:27:41 PM com.wesley.App main
+INFORMAÇÕES: Total de números de telefone lidos: 4
+abr. 02, 2024 4:27:41 PM com.wesley.App main
+INFORMAÇÕES: Mensagem lida: TesteMensagemWesleyJava
+abr. 02, 2024 4:27:50 PM com.wesley.App main
+INFORMAÇÕES: Aguardando 2 segundos para proximo número.
+abr. 02, 2024 4:27:50 PM com.wesley.App main
+INFORMAÇÕES: Navegando para: https://api.whatsapp.com/send?phone=5516997212966&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:51 PM com.wesley.App main
+INFORMAÇÕES: Classe '_9vcv' encontrada. Iniciando conversa...
+abr. 02, 2024 4:27:51 PM com.wesley.App main
+GRAVE: Classe '_9vcv' não encontrada. Verifique sua conexão ou o HTML da página.
+abr. 02, 2024 4:27:51 PM com.wesley.App main
+INFORMAÇÕES: Navegação concluída para: https://api.whatsapp.com/send?phone=5516997212966&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:51 PM com.wesley.App main
+INFORMAÇÕES: Navegando para: https://api.whatsapp.com/send?phone=5516997828835&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Classe '_9vcv' encontrada. Iniciando conversa...
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+GRAVE: Classe '_9vcv' não encontrada. Verifique sua conexão ou o HTML da página.
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Navegação concluída para: https://api.whatsapp.com/send?phone=5516997828835&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Navegando para: https://api.whatsapp.com/send?phone=5555992306835&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Classe '_9vcv' encontrada. Iniciando conversa...
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+GRAVE: Classe '_9vcv' não encontrada. Verifique sua conexão ou o HTML da página.
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Navegação concluída para: https://api.whatsapp.com/send?phone=5555992306835&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Navegando para: https://api.whatsapp.com/send?phone=5516999999999&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:52 PM com.wesley.App main
+INFORMAÇÕES: Classe '_9vcv' encontrada. Iniciando conversa...
+abr. 02, 2024 4:27:53 PM com.wesley.App main
+GRAVE: Classe '_9vcv' não encontrada. Verifique sua conexão ou o HTML da página.
+abr. 02, 2024 4:27:53 PM com.wesley.App main
+INFORMAÇÕES: Navegação concluída para: https://api.whatsapp.com/send?phone=5516999999999&text=TesteMensagemWesleyJava
+abr. 02, 2024 4:27:53 PM com.wesley.App main
+INFORMAÇÕES: Execução finalizada.
