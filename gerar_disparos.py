@@ -31,6 +31,7 @@ SAIDA_DIR     = BASE_DIR / "disparos"
 ARQ_PACIENTES = BASE_DIR / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
 ARQ_CONTACTS  = BASE_DIR / "contacts.csv"
 ARQ_INFO      = BASE_DIR / "informacoescliente.txt"
+ARQ_BLACKLIST = BASE_DIR / "blacklist.txt"  # números que pediram opt-out
 
 INSTAGRAM  = "https://www.instagram.com/dradaianaferrazsc/"
 SITE       = "https://wesleyzilva.github.io/dradaianaferraz_gold/"
@@ -59,6 +60,19 @@ BLACKLIST_TERMOS = [
 # ──────────────────────────────────────────────────────────────────────────────
 # UTILITÁRIOS
 # ──────────────────────────────────────────────────────────────────────────────
+
+def carregar_blacklist() -> set:
+    """Carrega números de opt-out do blacklist.txt (um por linha, # = comentário)."""
+    if not ARQ_BLACKLIST.exists():
+        return set()
+    numeros = set()
+    for linha in ARQ_BLACKLIST.read_text(encoding="utf-8").splitlines():
+        linha = linha.strip()
+        if not linha or linha.startswith("#"):
+            continue
+        numeros.add(limpar_fone(linha))
+    return numeros
+
 
 def normalizar(texto: str) -> str:
     """Remove acentos e caixa para comparação."""
@@ -526,10 +540,10 @@ def msg_aniversario(nome: str, genero: str, fez: bool) -> str:
     periodo = "recentemente" if fez else "este mês"
     return (
         f"Oi, {pn}! 🎉\n\n"
-        f"Que {periodo} especial — e a gente não podia deixar passar!\n\n"
-        "Como presente, estamos enviando um *voucher exclusivo* "
-        "para você aproveitar em um de nossos serviços.\n\n"
-        "*É só responder esta mensagem e a gente garante o melhor horário para você!* 💛"
+        f"Aniversário {periodo} — que data especial!\n\n"
+        "A Dra. Daiana e a equipe mandam um abraço enorme e desejam um ano cheio de saúde, "
+        "leveza e momentos incríveis pra você! 💛\n\n"
+        "Quando quiser comemorar se cuidando, é só chamar — adoraríamos te receber!"
         f"{COMENTARIO_DIA}"
         f"{ASSINATURA}"
     )
@@ -538,11 +552,8 @@ def msg_orcamento_aberto(nome: str, genero: str, valor: str = "") -> str:
     pn = primeiro_nome(nome)
     return (
         f"Oi, {pn}! Tudo bem? 😊\n\n"
-        "Lembrei de você — ainda temos aquele orçamento guardado por aqui!\n\n"
-        "Adoraríamos te receber e conversar sobre as *melhores condições para você*. "
-        "Conseguimos encaixar no horário que ficar melhor!\n\n"
-        "*Que tal a gente marcar ainda essa semana?*\n"
-        "É só mandar uma mensagem aqui! 😄"
+        "Lembrei de você hoje — ainda tenho aquele orçamento aqui e fico feliz em retomá-lo quando quiser!\n\n"
+        "Não precisa de nada formal, só manda um oi que a gente marca um horário tranquilo pra conversar. 💛"
         f"{COMENTARIO_DIA}"
         f"{ASSINATURA}"
     )
@@ -563,11 +574,9 @@ def msg_paciente_antigo(nome: str, genero: str) -> str:
     pn = primeiro_nome(nome)
     return (
         f"Oi, {pn}! 😊\n\n"
-        "Já faz um tempinho que não nos vemos, e a gente estava pensando em você!\n\n"
-        "Temos novidades incríveis e adoraríamos te contar pessoalmente. "
-        "Passa aqui — será um prazer te receber de volta! 💛\n\n"
-        f"*Dá uma olhada no nosso novo site:*\n"
-        f"{SITE}"
+        "Já faz um tempinho que não te vejo, e lembrei de você hoje!\n\n"
+        "Espero que esteja tudo bem. Quando quiser voltar pra uma consulta ou só tirar uma dúvida, "
+        "pode chamar — a porta está sempre aberta pra você! 💛"
         f"{COMENTARIO_DIA}"
         f"{ASSINATURA}"
     )
@@ -576,12 +585,9 @@ def msg_orcamento_vencido(nome: str, genero: str, valor: str = "") -> str:
     pn = primeiro_nome(nome)
     return (
         f"Oi, {pn}! Tudo bem? 😊\n\n"
-        "Passamos para dar um oi — aquele orçamento que você tinha com a gente "
-        "ainda pode ser retomado!\n\n"
-        "Sabemos que a vida agita e às vezes os planos ficam para depois. "
-        "Mas cuidar da saúde bucal não precisa ser complicado — "
-        "a gente encontra a opção que cabe no seu momento!\n\n"
-        "*Que tal a gente conversar? É só mandar uma mensagem!* 😄"
+        "Passando pra dar um oi e lembrar que aquele orçamento ainda está aqui, guardado pra você!\n\n"
+        "A vida fica corrida mesmo — sem pressão nenhuma. "
+        "Quando sentir que é a hora, é só me chamar que a gente retoma tranquilo! 💛"
         f"{COMENTARIO_DIA}"
         f"{ASSINATURA}"
     )
@@ -603,11 +609,10 @@ def msg_sem_historico(nome: str, genero: str) -> str:
     pn = primeiro_nome(nome)
     return (
         f"Oi, {pn}! 😊\n\n"
-        "Aqui é a equipe da clínica de odontologia e harmonização facial Vila Nery, "
-        "em São Carlos!\n\n"
-        "Passamos para nos apresentar e dizer que estaremos por aqui sempre que precisar. "
-        "Seja para uma consulta, avaliação ou só tirar dúvidas — pode chamar à vontade!\n\n"
-        "*Adoraríamos te conhecer!* 💛"
+        "Aqui é a Daiana, de São Carlos!\n\n"
+        "Trabalho com harmonização orofacial e odontologia estética, e queria me apresentar. "
+        "Qualquer dúvida, curiosidade ou quando quiser marcar uma avaliação — "
+        "pode chamar à vontade, sem compromisso! 💛"
         f"{COMENTARIO_DIA}"
         f"{ASSINATURA}"
     )
@@ -693,6 +698,16 @@ def main():
     antes = len(unificado)
     unificado = {k: v for k, v in unificado.items() if not eh_profissional(v)}
     print(f"   🚫 Profissionais removidos: {antes - len(unificado)}")
+
+    # 4b) Remove opt-outs do blacklist.txt
+    blacklist = carregar_blacklist()
+    if blacklist:
+        antes_bl = len(unificado)
+        unificado = {k: v for k, v in unificado.items()
+                     if limpar_fone(v["fone"]) not in blacklist}
+        bl_rm = antes_bl - len(unificado)
+        if bl_rm:
+            print(f"   🚫 Opt-outs removidos (blacklist.txt): {bl_rm}")
 
     # 5) Filtro de campanha
     lista = list(unificado.values())

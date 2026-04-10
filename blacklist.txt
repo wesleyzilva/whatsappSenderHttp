@@ -1,0 +1,9 @@
+# Blacklist de opt-out — números que pediram para não receber mensagens
+# Formato: um número por linha (com ou sem DDI/DDD, o sistema normaliza)
+# Linhas começando com # são ignoradas
+#
+# Exemplo:
+# 16991234567
+# 5516991234567
+#
+# Adicione aqui qualquer número que responder "não quero receber" ou "me tire da lista"
