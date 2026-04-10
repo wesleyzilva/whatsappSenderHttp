@@ -1,0 +1,11 @@
+node_modules/
+.wwebjs_auth*/
+.wwebjs_cache/
+log/run_*.json
+__pycache__/
+*.pyc
+log/sent_log.json
+.vscode/
+backup/
+target/
+
