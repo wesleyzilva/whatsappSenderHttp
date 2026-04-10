@@ -88,11 +88,38 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
+/**
+ * Migra chaves legadas no formato  numero_categoria_YYYY-MM-DD
+ * para o formato atual              numero_categoria_YYYYMM
+ * Garante deduplicação correta entre runs antigas e novas.
+ */
+function migrateLegacyLogKeys(log) {
+  const LEGACY = /^(.+_[a-z_]+)_(\d{4})-(\d{2})-\d{2}$/;
+  let changed = false;
+  for (const oldKey of Object.keys(log)) {
+    const m = oldKey.match(LEGACY);
+    if (m) {
+      const newKey = `${m[1]}_${m[2]}${m[3]}`;
+      if (!log[newKey]) {
+        log[newKey] = log[oldKey];
+      }
+      delete log[oldKey];
+      changed = true;
+    }
+  }
+  return changed;
+}
+
 function readSentLog() {
   ensureDir(LOG_DIR);
   if (!fs.existsSync(SENT_LOG)) return {};
-  try   { return JSON.parse(fs.readFileSync(SENT_LOG, 'utf8')); }
+  let log;
+  try   { log = JSON.parse(fs.readFileSync(SENT_LOG, 'utf8')); }
   catch { return {}; }
+  // migra chaves legadas e persiste se houve alteração
+  const changed = migrateLegacyLogKeys(log);
+  if (changed) writeSentLog(log);
+  return log;
 }
 
 function writeSentLog(log) {
