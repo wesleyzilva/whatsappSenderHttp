@@ -73,9 +73,9 @@ const SEND_WINDOWS = [
 ];
 
 const DIR         = __dirname;
-const LOG_DIR     = path.join(DIR, 'log');
+const LOG_DIR     = path.join(DIR, '03_log');
 const SENT_LOG    = path.join(LOG_DIR, 'sent_log.json');
-const DEFAULT_CSV = path.join(DIR, 'disparos', 'lista_disparos_A_20260408.csv');
+const DEFAULT_CSV = path.join(DIR, '02_disparos', 'lista_disparos_A_20260408.csv');
 
 // ── Argumentos ───────────────────────────────────────────────────────────────
 const args      = process.argv.slice(2);

@@ -1,0 +1,302 @@
+{
+  "runId": "2026-04-10T17-22-44",
+  "csvFile": "lista_disparos_A_20260410.csv",
+  "executedAt": "2026-04-10T18:02:39.136Z",
+  "dryRun": false,
+  "summary": {
+    "total": 56,
+    "sent": 39,
+    "failed": 4,
+    "notRegistered": 13
+  },
+  "sent": [
+    {
+      "numero": "16991921208",
+      "nome": "Aloisio Andrade Alvés",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992097412",
+      "nome": "Anderson do Nascimento",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992123154",
+      "nome": "Adriana Alvez Siqueira",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992430715",
+      "nome": "Andreia Fabiano Souza",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992449665",
+      "nome": "André Luiz Domingues Mazak",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16993070434",
+      "nome": "Aline Franciane Bruno dos Santos",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16993201725",
+      "nome": "Antonio Marcos Rizzo",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16994192452",
+      "nome": "Artur Fonseca de Lima",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16996204793",
+      "nome": "Andresa aparecida dos Santos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16996320085",
+      "nome": "Andrey Oliveira Agapito Santos",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16997038696",
+      "nome": "Aline Santa Rosa Silva",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16997341903",
+      "nome": "Ana Paula dos Santos Oliveira",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997924429",
+      "nome": "Alice Aparecida da Silva",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16999622413",
+      "nome": "ana rocielma do nascimento de matos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16988575100",
+      "nome": "Andreia Emanuela Frias Zago",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "11985000848",
+      "nome": "Aline leite da silva cruz",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16981868268",
+      "nome": "Alice Lima da Silva Ramos",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16991253126",
+      "nome": "ALESSANDRO DONIZETE GAVA",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16991477503",
+      "nome": "Aldemiro Rodrigues de Almeida Filho",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992191515",
+      "nome": "Ana Carolina Maximiano",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992365048",
+      "nome": "Aline Paiva",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16993611160",
+      "nome": "Ana Paula Franco",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16993668313",
+      "nome": "Aline Jessica Placeres",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16996185422",
+      "nome": "ANDREY MIGUEL DE OLIVEIRA",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16996299113",
+      "nome": "Aline Roberta Silva Santos",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16996383956",
+      "nome": "Agnes Alves Novaes",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16997114872",
+      "nome": "Aline Jacomassi",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16997308583",
+      "nome": "Angela Maria Oliveira Machado Silva",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997843352",
+      "nome": "Ana Lucia",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "11984101700",
+      "nome": "ALE MOREIRA",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "11984205521",
+      "nome": "Alessandro Rapanelli",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "11985330923",
+      "nome": "Ariane de Fatima",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "11997357605",
+      "nome": "Antônio Gonçalves",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16981820868",
+      "nome": "Ana Paula Vieira",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16982318215",
+      "nome": "ALINE CRISTINA",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16988161137",
+      "nome": "Ademir Soares fernandes",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992461775",
+      "nome": "ANGELA MARIA DA SILVA",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992667015",
+      "nome": "Ana Beatriz Peres Pereira",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992842223",
+      "nome": "Alice Carvalho Liberato",
+      "categoria": "paciente_antigo"
+    }
+  ],
+  "failed": [
+    {
+      "numero": "65999723153",
+      "nome": "André Mauro Gomes",
+      "categoria": "paciente_antigo",
+      "error": "No LID for user\nnew Error (<anonymous>:6:31)"
+    },
+    {
+      "numero": "98984511330",
+      "nome": "Ana Lucia Galvão Caricati",
+      "categoria": "sem_historico",
+      "error": "No LID for user\nnew Error (<anonymous>:6:31)"
+    },
+    {
+      "numero": "35988000998",
+      "nome": "Aline Josiana de Carvalho Ferreira",
+      "categoria": "sem_historico",
+      "error": "No LID for user\nnew Error (<anonymous>:6:31)"
+    },
+    {
+      "numero": "48988422943",
+      "nome": "Arthur Júnior Rabello",
+      "categoria": "paciente_antigo",
+      "error": "No LID for user\nnew Error (<anonymous>:6:31)"
+    }
+  ],
+  "notRegistered": [
+    {
+      "numero": "16991131690",
+      "nome": "Adriana Branco De Moares",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992714897",
+      "nome": "Alessandra Francisco",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16996022375",
+      "nome": "Azat Tipeev",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16998415077",
+      "nome": "Andreia Cristina Valeriano *Atualizar cadastro",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16999606401",
+      "nome": "Adão Soares da Silva",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "19983352248",
+      "nome": "Adriano Ap. de Toledo",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16981235131",
+      "nome": "Airton Donizete Bianque *Atualizar cadastro",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16982193818",
+      "nome": "Allan da Silva Souza",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16992744420",
+      "nome": "Augusto Oliveira",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16993100969",
+      "nome": "angelica cristina de oliveira",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16996177679",
+      "nome": "Antonella Leal Lopes",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16999913764",
+      "nome": "Alexandra Cristina Ramos",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16991777810",
+      "nome": "Aparecida Esposito Barbosa",
+      "categoria": "sem_historico"
+    }
+  ]
+}

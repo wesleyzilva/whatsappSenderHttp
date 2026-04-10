@@ -13,9 +13,9 @@ function Show-Banner {
 }
 
 function Select-CSV {
-    $csvFiles = Get-ChildItem -Path "$DIR\disparos" -Filter "*.csv" | Sort-Object Name
+    $csvFiles = Get-ChildItem -Path "$DIR\02_disparos" -Filter "*.csv" | Sort-Object Name
     if ($csvFiles.Count -eq 0) {
-        Write-Host "  Nenhum CSV encontrado em .\disparos\" -ForegroundColor Red
+        Write-Host "  Nenhum CSV encontrado em .\02_disparos\" -ForegroundColor Red
         return $null
     }
     Write-Host "  CSVs disponiveis:" -ForegroundColor Cyan

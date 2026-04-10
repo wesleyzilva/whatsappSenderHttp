@@ -1,0 +1,252 @@
+{
+  "runId": "2026-04-10T12-31-09",
+  "csvFile": "lista_disparos_A_20260410.csv",
+  "executedAt": "2026-04-10T13:09:20.645Z",
+  "dryRun": false,
+  "summary": {
+    "total": 47,
+    "sent": 41,
+    "failed": 0,
+    "notRegistered": 6
+  },
+  "sent": [
+    {
+      "numero": "16981705151",
+      "nome": "Anne Eda Nunes Barbosa",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16991400423",
+      "nome": "Ana paulina Lagoi",
+      "categoria": "orcamento_vencido"
+    },
+    {
+      "numero": "16997746929",
+      "nome": "Ariane Fondato Quirino",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16991623454",
+      "nome": "Alline Mantovani",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16999612451",
+      "nome": "ADRIANA",
+      "categoria": "agenda_ativa"
+    },
+    {
+      "numero": "11992922427",
+      "nome": "Andrey da Silva Gomes",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16981077616",
+      "nome": "Arthur Ricioli Pascon",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16982481700",
+      "nome": "Aretuza Rubim Almeida",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16988148027",
+      "nome": "Arthur Redondo de Araújo",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16991026234",
+      "nome": "ANA HELENA ITALIANO FREITAS VIDAL",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992065484",
+      "nome": "Ailton Antonio da Silveira",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992119171",
+      "nome": "Aline Aparecida da Costa",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992146315",
+      "nome": "Antônio Rodrigues",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992437218",
+      "nome": "Aparecida de Fatima Ferreira",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992651606",
+      "nome": "Alexandre Pescumo Júnior",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992671739",
+      "nome": "Amanda Cristina Pratavieira Camargo",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992807097",
+      "nome": "Andrea Aparecida Albieiro",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16993094653",
+      "nome": "Antonio Carlos de Souza",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16993675592",
+      "nome": "Ana Clara Bardasi Cotillo",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16994543591",
+      "nome": "Alexia Fabrício Martins",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16996010933",
+      "nome": "Antonia Aparecida Carvalho Gonçalves Pastega",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16996380059",
+      "nome": "Airton Rampim Junior",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997323541",
+      "nome": "Antonino Silvino de Souza",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "17996320117",
+      "nome": "Ana Laura Belisário Marcos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "19996629492",
+      "nome": "Aparecido Rodnei Costa",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16991475220",
+      "nome": "ana julia rodrigues santos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16993760850",
+      "nome": "Aparecido Rodrigues De Almeida Junior",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992464140",
+      "nome": "Antônio Laercio Ferraz de Camargo",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997451834",
+      "nome": "Anderson Souza dos Santos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16996030388",
+      "nome": "Alexandra de Fátima Moutinho de Oliveira",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16999713304",
+      "nome": "Andrea Prado Carnizello Souza",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16988244670",
+      "nome": "Adriano Souza",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992025506",
+      "nome": "adriana marchiodi",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16992872178",
+      "nome": "Airton de Ângelo Filho",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997102169",
+      "nome": "Ana Clara de Carvalho",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "11973978873",
+      "nome": "aparecido firmino da silva",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "11997723872",
+      "nome": "Arlete Aparecida Gambine",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "12988177485",
+      "nome": "Adilson Ivan da Costa Junior",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16981416030",
+      "nome": "Alexandra de Fátima Bonini Silva",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16981923330",
+      "nome": "Arlei Olavo Evaristo",
+      "categoria": "sem_historico"
+    },
+    {
+      "numero": "16982229111",
+      "nome": "Ana Luiza Rossette Maschetto",
+      "categoria": "sem_historico"
+    }
+  ],
+  "failed": [],
+  "notRegistered": [
+    {
+      "numero": "11940091659",
+      "nome": "Anderson Frias",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "16981943291",
+      "nome": "Alzira Zeferina Santana",
+      "categoria": "harmonizacao_manutencao"
+    },
+    {
+      "numero": "14997451865",
+      "nome": "Ana Vieira de Faria",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16994357694",
+      "nome": "Arlinda Neres dos Santos",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16997965782",
+      "nome": "Aparecida Ferreira",
+      "categoria": "paciente_antigo"
+    },
+    {
+      "numero": "16996256911",
+      "nome": "Aparecido Cardoso",
+      "categoria": "paciente_antigo"
+    }
+  ]
+}

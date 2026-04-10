@@ -26,12 +26,12 @@ from pathlib import Path
 # ──────────────────────────────────────────────────────────────────────────────
 
 BASE_DIR      = Path(__file__).parent
-SAIDA_DIR     = BASE_DIR / "disparos"
+SAIDA_DIR     = BASE_DIR / "02_disparos"
 
-ARQ_PACIENTES = BASE_DIR / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
-ARQ_CONTACTS  = BASE_DIR / "contacts.csv"
-ARQ_INFO      = BASE_DIR / "informacoescliente.txt"
-ARQ_BLACKLIST = BASE_DIR / "blacklist.txt"  # números que pediram opt-out
+ARQ_PACIENTES = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
+ARQ_CONTACTS  = BASE_DIR / "01_fontes" / "contacts.csv"
+ARQ_INFO      = BASE_DIR / "01_fontes" / "informacoescliente.txt"
+ARQ_BLACKLIST = BASE_DIR / "blacklist.txt"  # números que pediram opt-out (raiz)
 
 INSTAGRAM  = "https://www.instagram.com/dradaianaferrazsc/"
 SITE       = "https://wesleyzilva.github.io/dradaianaferraz_gold/"
