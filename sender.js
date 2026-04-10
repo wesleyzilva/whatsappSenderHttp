@@ -104,8 +104,8 @@ function ensureDir(dir) {
 
 /**
  * Migra chaves legadas no formato  numero_categoria_YYYY-MM-DD
- * para o formato atual              numero_categoria_YYYYMM
- * Garante deduplicação correta entre runs antigas e novas.
+ * para o formato atual              numero_categoria_YYYYMM (passo intermediário)
+ * depois migrado para                 numero_YYYYMM (sem categoria — dedup por número)
  */
 function migrateLegacyLogKeys(log) {
   const LEGACY = /^(.+_[a-z_]+)_(\d{4})-(\d{2})-\d{2}$/;
@@ -124,15 +124,41 @@ function migrateLegacyLogKeys(log) {
   return changed;
 }
 
+/**
+ * Migra chaves no formato numero_categoria_YYYYMM para numero_YYYYMM.
+ * Garantia de não-duplicidade por número de telefone no mês.
+ * Em caso de conflito (mesmo número, categorias diferentes), prioridade: sent > failed > outros.
+ */
+const STATUS_PRIORITY = { sent: 3, failed: 2, skipped_not_registered: 1, blocked_by_whatsapp: 0 };
+function migrateToPhoneOnlyKeys(log) {
+  const OLD_FORMAT = /^(\d+)_[a-z_]+_(\d{6})$/;  // numero_categoria_YYYYMM
+  const merged = {}; // numero_YYYYMM -> melhor entrada
+  const toDelete = [];
+  for (const [key, entry] of Object.entries(log)) {
+    const m = key.match(OLD_FORMAT);
+    if (!m) continue; // já está no novo formato
+    toDelete.push(key);
+    const newKey = `${m[1]}_${m[2]}`;
+    const existing = merged[newKey];
+    const cur  = STATUS_PRIORITY[entry.status]  ?? -1;
+    const prev = existing ? (STATUS_PRIORITY[existing.status] ?? -1) : -2;
+    if (!existing || cur > prev) merged[newKey] = entry;
+  }
+  for (const k of toDelete) delete log[k];
+  Object.assign(log, merged);
+  return toDelete.length > 0;
+}
+
 function readSentLog() {
   ensureDir(LOG_DIR);
   if (!fs.existsSync(SENT_LOG)) return {};
   let log;
   try   { log = JSON.parse(fs.readFileSync(SENT_LOG, 'utf8')); }
   catch { return {}; }
-  // migra chaves legadas e persiste se houve alteração
-  const changed = migrateLegacyLogKeys(log);
-  if (changed) writeSentLog(log);
+  // 1º: migra YYYY-MM-DD → YYYYMM; 2º: migra numero_categoria_YYYYMM → numero_YYYYMM
+  const c1 = migrateLegacyLogKeys(log);
+  const c2 = migrateToPhoneOnlyKeys(log);
+  if (c1 || c2) writeSentLog(log);
   return log;
 }
 
@@ -142,13 +168,12 @@ function writeSentLog(log) {
 }
 
 /**
- * Chave única: numero_categoria_YYYYMM
- * Granularidade mensal → evita reenvio no mesmo mês (ex: campanha dia 08 e dia 10),
- * mas permite nova campanha no mês seguinte.
+ * Chave única: numero_YYYYMM
+ * Um número só recebe mensagem UMA vez por mês, independentemente da categoria.
  */
-function logKey(numero, categoria) {
+function logKey(numero) {
   const ym = new Date().toISOString().slice(0, 7).replace('-', '');
-  return `${String(numero).replace(/\D/g, '')}_${categoria}_${ym}`;
+  return `${String(numero).replace(/\D/g, '')}_${ym}`;
 }
 
 /** Formata número para o padrão WhatsApp (55 + DDD + número + @c.us) */
@@ -429,7 +454,7 @@ async function main() {
   // Se --limit=N for explicitamente informado, usa N como cap do dia (override manual).
   const dailyCap = limitArg ? LIMIT : DAILY_SEND_CAP;
   const remainingToday = Math.max(0, dailyCap - sentToday);
-  const toSend    = records.filter(c => !sentLog[logKey(c.numero, c.categoria)]);
+  const toSend    = records.filter(c => !sentLog[logKey(c.numero)]);
   const skippedAlready = records.length - toSend.length;
   const effectiveLimit = Math.min(LIMIT, remainingToday);
   const limited   = toSend.slice(0, effectiveLimit);
@@ -557,7 +582,7 @@ async function main() {
   for (let i = 0; i < limited.length; i++) {
     const contact = limited[i];
     const phone   = formatPhone(contact.numero);
-    const key     = logKey(contact.numero, contact.categoria);
+    const key     = logKey(contact.numero);
     const prefix  = `[${String(i + 1).padStart(String(limited.length).length, ' ')}/${limited.length}]`;
 
     // Verificar janela de envio (modo humano)
@@ -691,7 +716,7 @@ async function main() {
   // Após o run, verifica quantos contatos do CSV ainda estão pendentes este mês.
   if (results.blocked.length === 0 && !disconnectedByWA) {
     const logAfter      = readSentLog();
-    const stillPending  = records.filter(c => !logAfter[logKey(c.numero, c.categoria)]).length;
+    const stillPending  = records.filter(c => !logAfter[logKey(c.numero)]).length;
     if (stillPending === 0) {
       console.log('═'.repeat(42));
       console.log(green(bold('  🏁 ARQUIVO CONCLUÍDO!')));
