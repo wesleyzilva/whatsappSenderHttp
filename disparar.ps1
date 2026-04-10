@@ -45,6 +45,7 @@ function Show-Menu {
     Write-Host "  [4]  Status do log           (resumo de tudo que ja foi enviado)" -ForegroundColor Yellow
     Write-Host "  [5]  Limpar log completo     (reset de sent_log.json)" -ForegroundColor Red
     Write-Host "  [6]  Limpar run especifico   (remove uma execucao do log)" -ForegroundColor Red
+    Write-Host "  [7]  Regerar mensagens       (roda gerar_disparos.py e gera novo CSV)" -ForegroundColor Magenta
     Write-Host "  [0]  Sair"
     Write-Host ""
 }
@@ -129,6 +130,27 @@ do {
             } else {
                 Write-Host "  RunId invalido." -ForegroundColor Red
             }
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "7" {
+            Write-Host ""
+            Write-Host "  Campanhas disponiveis: A, B, C, ... ou TODAS" -ForegroundColor Cyan
+            $campanha = Read-Host "  Campanha (Enter = A)"
+            if ([string]::IsNullOrWhiteSpace($campanha)) { $campanha = "A" }
+            $debugFlag = Read-Host "  Ativar debug? (s/N)"
+            $debugArg = if ($debugFlag -ieq "s") { "--debug" } else { "" }
+            Write-Host ""
+            Write-Host "  Gerando CSV para campanha '$($campanha.ToUpper())'..." -ForegroundColor Magenta
+            Write-Host ""
+            if ($debugArg) {
+                python gerar_disparos.py "--campanha=$campanha" $debugArg
+            } else {
+                python gerar_disparos.py "--campanha=$campanha"
+            }
+            Write-Host ""
+            Write-Host "  CSV gerado em .\disparos\ — selecione-o nas opcoes de envio." -ForegroundColor Green
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
         }
