@@ -1,16 +1,14 @@
-# ╔══════════════════════════════════════════════════════════════╗
-# ║   WhatsApp Sender — Menu de Controle                        ║
-# ║   Dra. Daiana Ferraz · Responsável: Wesley Silva            ║
-# ╚══════════════════════════════════════════════════════════════╝
+﻿# WhatsApp Sender - Menu de Controle
+# Dra. Daiana Ferraz - Responsavel: Wesley Silva
 
-$Host.UI.RawUI.WindowTitle = "WhatsApp Sender · Dra. Daiana Ferraz"
+$Host.UI.RawUI.WindowTitle = "WhatsApp Sender - Dra. Daiana Ferraz"
 $DIR = $PSScriptRoot
 
-function Write-Banner {
+function Show-Banner {
     Write-Host ""
-    Write-Host "╔══════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-    Write-Host "║   WhatsApp Sender · Dra. Daiana Ferraz                  ║" -ForegroundColor Yellow
-    Write-Host "╚══════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
+    Write-Host "==========================================" -ForegroundColor Yellow
+    Write-Host "  WhatsApp Sender - Dra. Daiana Ferraz   " -ForegroundColor Yellow
+    Write-Host "==========================================" -ForegroundColor Yellow
     Write-Host ""
 }
 
@@ -20,12 +18,12 @@ function Select-CSV {
         Write-Host "  Nenhum CSV encontrado em .\disparos\" -ForegroundColor Red
         return $null
     }
-    Write-Host "  CSVs disponíveis:" -ForegroundColor Cyan
+    Write-Host "  CSVs disponiveis:" -ForegroundColor Cyan
     for ($i = 0; $i -lt $csvFiles.Count; $i++) {
         Write-Host "    [$($i+1)] $($csvFiles[$i].Name)"
     }
     Write-Host ""
-    $choice = Read-Host "  Escolha o número do CSV (Enter = mais recente)"
+    $choice = Read-Host "  Escolha o numero do CSV (Enter = mais recente)"
     if ([string]::IsNullOrWhiteSpace($choice)) {
         return $csvFiles[-1].FullName
     }
@@ -33,12 +31,12 @@ function Select-CSV {
     if ($idx -ge 0 -and $idx -lt $csvFiles.Count) {
         return $csvFiles[$idx].FullName
     }
-    Write-Host "  Opção inválida. Usando o mais recente." -ForegroundColor Yellow
+    Write-Host "  Opcao invalida. Usando o mais recente." -ForegroundColor Yellow
     return $csvFiles[-1].FullName
 }
 
 function Show-Menu {
-    Write-Banner
+    Show-Banner
     Write-Host "  Selecione uma opcao:" -ForegroundColor White
     Write-Host ""
     Write-Host "  [1]  Enviar mensagens        (cadencia humana, janela de horario)" -ForegroundColor Green
@@ -53,7 +51,6 @@ function Show-Menu {
 
 Set-Location $DIR
 
-# Verifica node_modules
 if (-not (Test-Path "$DIR\node_modules")) {
     Write-Host "  Instalando dependencias (npm install)..." -ForegroundColor Yellow
     npm install
@@ -93,11 +90,11 @@ do {
             $csv = Select-CSV
             if ($csv) {
                 $limite = Read-Host "  Quantos envios nesta execucao?"
-                if ($limite -match '^\d+$') {
+                if ($limite -match "^\d+$") {
                     Write-Host ""
                     Write-Host "  Enviando ate $limite mensagens..." -ForegroundColor Green
                     Write-Host ""
-                    node sender.js "$csv" --limit=$limite
+                    node sender.js "$csv" "--limit=$limite"
                 } else {
                     Write-Host "  Numero invalido." -ForegroundColor Red
                 }
@@ -127,7 +124,7 @@ do {
         "6" {
             Write-Host ""
             $runId = Read-Host "  Informe o runId a remover (ex: 2026-04-08T14-30-00)"
-            if (![string]::IsNullOrWhiteSpace($runId)) {
+            if (-not [string]::IsNullOrWhiteSpace($runId)) {
                 node sender.js "--reset-run=$runId"
             } else {
                 Write-Host "  RunId invalido." -ForegroundColor Red
