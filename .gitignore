@@ -1,11 +1,15 @@
 node_modules/
 .wwebjs_auth*/
 .wwebjs_cache/
-log/run_*.json
 __pycache__/
 *.pyc
-log/sent_log.json
 .vscode/
 backup/
 target/
+
+# logs gerados
+03_log/run_*.json
+03_log/sent_log.json
+03_log/*.log
+app.log
 

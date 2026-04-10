@@ -2,12 +2,29 @@ import csv
 import re
 from pathlib import Path
 
-ROOT = Path(r"c:\projetoswesley\draDaianaFerraz_gold\dradaianaferraz_gold")
-FILE1 = ROOT / "googleAds" / "publico" / "contatos_gmail.csv"
-FILE2 = ROOT / "googleAds" / "publico" / "simplesDental_contatos.xlsx - Listagem_pacientes.csv"
-OUT = ROOT / "googleAds" / "publico" / "clientes_google_ads_customer_match.csv"
+BASE_DIR  = Path(__file__).parent.parent  # raiz do projeto
+FILE1     = BASE_DIR / "01_fontes" / "contacts.csv"
+FILE2     = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
+BLACKLIST = BASE_DIR / "blacklist.txt"
+OUT       = BASE_DIR / "04_publico" / "clientes_google_ads_customer_match.csv"
 
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
+
+
+def load_blacklist() -> set:
+    """Carrega números de opt-out do blacklist.txt (sem DDI)."""
+    if not BLACKLIST.exists():
+        return set()
+    nums = set()
+    for line in BLACKLIST.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        d = re.sub(r"\D", "", line)
+        if d.startswith("55") and len(d) > 12:
+            d = d[2:]
+        nums.add(d)
+    return nums
 
 
 def normalize_email(value: str) -> str | None:
@@ -43,6 +60,7 @@ def normalize_phones(raw: str) -> list[str]:
 
 
 def main() -> None:
+    blacklist = load_blacklist()
     records: set[tuple[str, str, str]] = set()
 
     with FILE1.open("r", encoding="utf-8-sig", newline="") as f:
@@ -68,8 +86,13 @@ def main() -> None:
         reader = csv.DictReader(f)
         for row in reader:
             for phone in normalize_phones((row.get("Celular") or "")):
-                records.add(("", phone, "BR"))
+                digits = re.sub(r"\D", "", phone)
+                if digits.startswith("55"):
+                    digits = digits[2:]
+                if digits not in blacklist:
+                    records.add(("", phone, "BR"))
 
+    # Filtra emails cujo telefone correspondente está bloqueado não é possível via email — mantemos todos emails
     sorted_records = sorted(records, key=lambda x: (x[0], x[1]))
 
     with OUT.open("w", encoding="utf-8", newline="") as f:

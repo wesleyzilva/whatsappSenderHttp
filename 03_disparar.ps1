@@ -45,7 +45,8 @@ function Show-Menu {
     Write-Host "  [4]  Status do log           (resumo de tudo que ja foi enviado)" -ForegroundColor Yellow
     Write-Host "  [5]  Limpar log completo     (reset de sent_log.json)" -ForegroundColor Red
     Write-Host "  [6]  Limpar run especifico   (remove uma execucao do log)" -ForegroundColor Red
-    Write-Host "  [7]  Regerar mensagens       (roda gerar_disparos.py e gera novo CSV)" -ForegroundColor Magenta
+    Write-Host "  [7]  Gerar nova lista        (roda 01_gerar_lista.py, gera CSV em 02_disparos)" -ForegroundColor Magenta
+    Write-Host "  [8]  Customer Match          (exporta emails/fones para Google Ads)" -ForegroundColor Magenta
     Write-Host "  [0]  Sair"
     Write-Host ""
 }
