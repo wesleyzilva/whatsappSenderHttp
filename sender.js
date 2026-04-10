@@ -409,7 +409,9 @@ async function main() {
   const sentLog   = readSentLog();
   const today     = new Date().toISOString().slice(0, 10);
   const sentToday = Object.values(sentLog).filter((entry) => entry.status === 'sent' && (entry.sentAt || '').slice(0, 10) === today).length;
-  const remainingToday = Math.max(0, DAILY_SEND_CAP - sentToday);
+  // Se --limit=N for explicitamente informado, usa N como cap do dia (override manual).
+  const dailyCap = limitArg ? LIMIT : DAILY_SEND_CAP;
+  const remainingToday = Math.max(0, dailyCap - sentToday);
   const toSend    = records.filter(c => !sentLog[logKey(c.numero, c.categoria)]);
   const skippedAlready = records.length - toSend.length;
   const effectiveLimit = Math.min(LIMIT, remainingToday);
@@ -418,7 +420,7 @@ async function main() {
   console.log(`📊 ${bold('Fila:')}`);
   console.log(`   ${green('✅')} Já enviados hoje (ignorados):  ${skippedAlready}`);
   console.log(`   ${cyan('📤')} Novos para enviar:             ${toSend.length}`);
-  console.log(`   ${yellow('🛡️')} Limite diário seguro:           ${DAILY_SEND_CAP}`);
+  console.log(`   ${yellow('🛡️')} Limite diário seguro:           ${dailyCap}${limitArg ? ' (override)' : ''}`); 
   console.log(`   ${yellow('📆')} Já enviados hoje:               ${sentToday}`);
   console.log(`   ${yellow('⏳')} Restantes permitidos hoje:      ${remainingToday}`);
   console.log(`   ${yellow('⚠️ ')} Limite aplicado nesta execução: ${effectiveLimit}`);
@@ -434,7 +436,7 @@ async function main() {
 
   if (limited.length === 0) {
     if (remainingToday <= 0) {
-      console.log(yellow(`⚠️  Limite diário de ${DAILY_SEND_CAP} mensagens já foi atingido hoje.`));
+      console.log(yellow(`⚠️  Limite diário de ${dailyCap} mensagens já foi atingido hoje.`));
     } else {
       console.log(green('✅ Nada a enviar — todas as mensagens desta lista já foram processadas hoje.'));
     }
