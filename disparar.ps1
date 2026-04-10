@@ -39,9 +39,9 @@ function Show-Menu {
     Show-Banner
     Write-Host "  Selecione uma opcao:" -ForegroundColor White
     Write-Host ""
-    Write-Host "  [1]  Enviar mensagens        (cadencia humana, janela de horario)" -ForegroundColor Green
+    Write-Host "  [1]  Enviar mensagens        (ate 100/dia, cadencia humana, janela horario)" -ForegroundColor Green
     Write-Host "  [2]  Dry-run (simulacao)     (nao envia, so mostra o que faria)" -ForegroundColor Cyan
-    Write-Host "  [3]  Envio com limite        (define quantos envios nesta execucao)" -ForegroundColor Green
+    Write-Host "  [3]  Envio com limite        (define exatamente quantos nesta execucao)" -ForegroundColor Green
     Write-Host "  [4]  Status do log           (resumo de tudo que ja foi enviado)" -ForegroundColor Yellow
     Write-Host "  [5]  Limpar log completo     (reset de sent_log.json)" -ForegroundColor Red
     Write-Host "  [6]  Limpar run especifico   (remove uma execucao do log)" -ForegroundColor Red

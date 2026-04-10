@@ -6,7 +6,7 @@
  * ╚══════════════════════════════════════════════════════════╝
  *
  * USO:
- *   node sender.js                        → usa a lista padrão e limita a 50 envios/dia (100 no fim de semana)
+ *   node sender.js                        → usa a lista padrão e limita a 100 envios/dia (teto máximo seguro)
  *   node sender.js --dry-run              → simula sem enviar usando a lista padrão
  *   node sender.js <csv>                  → envia usando um CSV específico
  *   node sender.js <csv> --yes            → envia sem confirmação
@@ -31,9 +31,23 @@ const readline = require('readline');
 const DEFAULT_DELAY_MS   = 4000;   // delay base entre envios
 const JITTER_MS          = 3000;   // jitter aleatório (evita padrão de bot)
 const MAX_RETRIES        = 2;      // tentativas por mensagem em caso de erro
-// Limite diário: 100 no fim de semana (sáb/dom), 50 nos dias úteis
-const _dow = new Date().getDay(); // 0=Dom, 6=Sáb
-const DAILY_SEND_CAP = (_dow === 0 || _dow === 6) ? 100 : 50;
+// Limite diário máximo: 100 envios/dia (todos os dias)
+const DAILY_SEND_CAP = 100;
+
+// Padrões de erro que indicam bloqueio/rate-limit do WhatsApp (interrompem o run)
+const BLOCK_PATTERNS = [
+  /rate.overlimit/i,
+  /rate.limit/i,
+  /too many/i,
+  /429/,
+  /forbidden/i,
+  /banned/i,
+  /account.*block/i,
+  /session.*clos/i,
+  /connection.*clos/i,
+  /ETIMEOUT/,
+  /ECONNRESET/,
+];
 
 // ── Cadência humana ──────────────────────────────────────────────────────────
 // Simula tempo de leitura, pensamento e digitação entre cada mensagem.
@@ -332,6 +346,9 @@ async function sendWithRetry(client, phone, message, retries = MAX_RETRIES) {
       await client.sendMessage(phone, message);
       return { ok: true };
     } catch (err) {
+      // Detecta bloqueio/rate-limit do WhatsApp — interrompe o run imediatamente
+      const isBlock = BLOCK_PATTERNS.some(p => p.test(err.message || ''));
+      if (isBlock) return { ok: false, blocked: true, error: err.message };
       if (attempt <= retries) {
         process.stdout.write(yellow(` (retry ${attempt})`) + ' ');
         await sleep(2000 * attempt);
@@ -437,8 +454,15 @@ async function main() {
   if (limited.length === 0) {
     if (remainingToday <= 0) {
       console.log(yellow(`⚠️  Limite diário de ${dailyCap} mensagens já foi atingido hoje.`));
+      console.log(yellow(`   Retome amanhã para continuar — ${toSend.length} contatos ainda pendentes nesta lista.`));
     } else {
-      console.log(green('✅ Nada a enviar — todas as mensagens desta lista já foram processadas hoje.'));
+      // toSend.length === 0: todos os contatos deste CSV já foram processados este mês
+      console.log('═'.repeat(42));
+      console.log(green(bold('  🏁 ARQUIVO CONCLUÍDO!')));
+      console.log('═'.repeat(42));
+      console.log(green(`  Todos os ${records.length} contatos desta lista foram processados este mês.`));
+      console.log(green('  ✅ Seguro iniciar uma nova lista — sem risco de duplicatas.'));
+      console.log(cyan(`  💡 Próximo passo: gere e envie uma nova lista.\n`));
     }
     showStatus();
     return;
@@ -501,7 +525,10 @@ async function main() {
 
   client.on('authenticated',  ()    => console.log(green('✅ WhatsApp autenticado!\n')));
   client.on('auth_failure',   msg   => { console.error(red(`❌ Falha de autenticação: ${msg}`)); process.exit(1); });
-  client.on('disconnected',   reason => console.log(yellow(`⚠️  Desconectado: ${reason}`)));
+  client.on('disconnected',   reason => {
+    console.log(yellow(`⚠️  Desconectado: ${reason}`));
+    disconnectedByWA = true; // pode indicar bloqueio — o loop verifica isso
+  });
 
   await new Promise((resolve, reject) => {
     client.on('ready', resolve);
@@ -511,10 +538,11 @@ async function main() {
 
   // ── 6. Enviar mensagens ──────────────────────────────────────────────────────
   const runId  = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-  const results = { sent: [], failed: [], notRegistered: [] };
+  const results = { sent: [], failed: [], notRegistered: [], blocked: [] };
 
   // Graceful shutdown: destrói o cliente antes de sair por Ctrl+C ou sinal do SO
   let shutdownRequested = false;
+  let disconnectedByWA  = false; // sinalizado quando WA desconecta sozinho (possível bloqueio)
   const gracefulShutdown = async (signal) => {
     if (shutdownRequested) return;
     shutdownRequested = true;
@@ -534,6 +562,13 @@ async function main() {
 
     // Verificar janela de envio (modo humano)
     if (HUMAN_MODE && SEND_WINDOWS.length > 0) await waitForSendWindow();
+
+    // Se o cliente foi desconectado pelo WA, interrompe o run
+    if (disconnectedByWA) {
+      console.log(red('\n🚫 WhatsApp desconectou durante o envio — possível bloqueio de conta.'));
+      console.log(yellow('   Aguarde algumas horas e verifique o celular antes de tentar novamente.'));
+      break;
+    }
 
     process.stdout.write(`${cyan(prefix)} ${contact.nome} (${contact.numero}) … `);
 
@@ -556,7 +591,17 @@ async function main() {
       ? await sendHuman(client, phone, contact.mensagem)
       : await sendWithRetry(client, phone, contact.mensagem);
 
-    if (result.ok) {
+    if (result.blocked) {
+      // WhatsApp bloqueou — registra e encerra o run imediatamente
+      console.log(red(`\n🚫 BLOQUEADO PELO WHATSAPP: ${result.error}`));
+      results.blocked.push({ ...contact, error: result.error });
+      sentLog[key] = { numero: contact.numero, nome: contact.nome, categoria: contact.categoria,
+                       status: 'blocked_by_whatsapp', error: result.error, sentAt: now(), runId };
+      writeSentLog(sentLog);
+      console.log(red('🛑 Envio interrompido — WhatsApp bloqueou a conta.'));
+      console.log(yellow('   Aguarde algumas horas e verifique o celular antes de tentar novamente.'));
+      break;
+    } else if (result.ok) {
       console.log(green('✅ Enviado'));
       results.sent.push(contact);
       sentLog[key] = { numero: contact.numero, nome: contact.nome, categoria: contact.categoria,
@@ -596,10 +641,12 @@ async function main() {
       sent:          results.sent.length,
       failed:        results.failed.length,
       notRegistered: results.notRegistered.length,
+      blockedByWA:   results.blocked.length,
     },
     sent:          results.sent.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
     failed:        results.failed.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria, error: c.error })),
     notRegistered: results.notRegistered.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
+    blocked:       results.blocked.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria, error: c.error })),
   };
   ensureDir(LOG_DIR);
   fs.writeFileSync(reportFile, JSON.stringify(report, null, 2), 'utf8');
@@ -609,13 +656,22 @@ async function main() {
   console.log('\n' + '═'.repeat(42));
   console.log(bold('  RESUMO FINAL'));
   console.log('═'.repeat(42));
-  console.log(`  ${green('✅ Enviados:          ')} ${pad(results.sent.length)}`);
-  console.log(`  ${red('❌ Falhas:            ')} ${pad(results.failed.length)}`);
-  console.log(`  ${yellow('⚠️  Não no WhatsApp:  ')} ${pad(results.notRegistered.length)}`);
+  console.log(`  ${green('✅ Enviados:           ')} ${pad(results.sent.length)}`);
+  console.log(`  ${red('❌ Falhas:             ')} ${pad(results.failed.length)}`);
+  console.log(`  ${yellow('⚠️  Não no WhatsApp:   ')} ${pad(results.notRegistered.length)}`);
+  if (results.blocked.length > 0)
+    console.log(`  ${red('🚫 Bloqueado p/ WA:   ')} ${pad(results.blocked.length)}`);
   console.log('─'.repeat(42));
   console.log(`  📄 Relatório: ${cyan(`log/run_${runId}.json`)}`);
   console.log(`  📋 Log geral: ${cyan('log/sent_log.json')}`);
   console.log('═'.repeat(42) + '\n');
+
+  if (results.blocked.length > 0) {
+    console.log(red(bold('  ⛔ BLOQUEADO PELO WHATSAPP:')));
+    for (const b of results.blocked)
+      console.log(red(`  🚫 ${b.nome} (${b.numero}): ${b.error}`));
+    console.log(yellow('  Aguarde algumas horas antes de retomar os envios.\n'));
+  }
 
   if (results.failed.length > 0) {
     console.log(red(bold('  FALHAS (detalhe):')));
@@ -629,6 +685,27 @@ async function main() {
     for (const n of results.notRegistered)
       console.log(yellow(`  ⚠ ${n.nome} (${n.numero})`));
     console.log('');
+  }
+
+  // ── 9. Status de conclusão do arquivo ────────────────────────────────────────
+  // Após o run, verifica quantos contatos do CSV ainda estão pendentes este mês.
+  if (results.blocked.length === 0 && !disconnectedByWA) {
+    const logAfter      = readSentLog();
+    const stillPending  = records.filter(c => !logAfter[logKey(c.numero, c.categoria)]).length;
+    if (stillPending === 0) {
+      console.log('═'.repeat(42));
+      console.log(green(bold('  🏁 ARQUIVO CONCLUÍDO!')));
+      console.log('═'.repeat(42));
+      console.log(green(`  Todos os ${records.length} contatos desta lista foram processados este mês.`));
+      console.log(green('  ✅ Seguro iniciar uma nova lista — sem risco de duplicatas.'));
+      console.log(cyan(`  💡 Próximo passo: gere e envie uma nova lista.\n`));
+    } else {
+      const sentThisMonth = records.length - stillPending;
+      console.log('─'.repeat(42));
+      console.log(yellow(`  📋 Progresso do arquivo: ${sentThisMonth}/${records.length} processados`));
+      console.log(yellow(`  ⏳ Ainda pendentes nesta lista: ${stillPending} contatos`));
+      console.log(yellow(`  💡 Rode novamente ${stillPending <= DAILY_SEND_CAP ? 'amanhã' : 'nos próximos dias'} para continuar.\n`));
+    }
   }
 
   await client.destroy();
