@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR  = Path(__file__).parent.parent  # raiz do projeto
 FILE1     = BASE_DIR / "01_fontes" / "contacts.csv"
 FILE2     = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
-BLACKLIST = BASE_DIR / "blacklist.txt"
+BLACKLIST = BASE_DIR / "01_fontes" / "blacklist.txt"
 OUT       = BASE_DIR / "04_publico" / "clientes_google_ads_customer_match.csv"
 
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
