@@ -72,7 +72,7 @@ do {
                 Write-Host ""
                 Write-Host "  Iniciando envio: $([System.IO.Path]::GetFileName($csv))" -ForegroundColor Green
                 Write-Host ""
-                node sender.js "$csv"
+                node 02_sender.js "$csv"
             }
         }
 
@@ -83,7 +83,7 @@ do {
                 Write-Host ""
                 Write-Host "  Dry-run: $([System.IO.Path]::GetFileName($csv))" -ForegroundColor Cyan
                 Write-Host ""
-                node sender.js "$csv" --dry-run
+                node 02_sender.js "$csv" --dry-run
             }
         }
 
@@ -96,7 +96,7 @@ do {
                     Write-Host ""
                     Write-Host "  Enviando ate $limite mensagens..." -ForegroundColor Green
                     Write-Host ""
-                    node sender.js "$csv" "--limit=$limite"
+                    node 02_sender.js "$csv" "--limit=$limite"
                 } else {
                     Write-Host "  Numero invalido." -ForegroundColor Red
                 }
@@ -105,7 +105,7 @@ do {
 
         "4" {
             Write-Host ""
-            node sender.js --status
+            node 02_sender.js --status
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
         }
@@ -115,7 +115,7 @@ do {
             Write-Host "  ATENCAO: Isso vai apagar todo o historico de envios." -ForegroundColor Red
             $confirm = Read-Host "  Confirma? (s/N)"
             if ($confirm -ieq "s") {
-                node sender.js --reset
+                node 02_sender.js --reset
             } else {
                 Write-Host "  Cancelado." -ForegroundColor Yellow
             }
@@ -127,7 +127,7 @@ do {
             Write-Host ""
             $runId = Read-Host "  Informe o runId a remover (ex: 2026-04-08T14-30-00)"
             if (-not [string]::IsNullOrWhiteSpace($runId)) {
-                node sender.js "--reset-run=$runId"
+                node 02_sender.js "--reset-run=$runId"
             } else {
                 Write-Host "  RunId invalido." -ForegroundColor Red
             }
@@ -146,12 +146,21 @@ do {
             Write-Host "  Gerando CSV para campanha '$($campanha.ToUpper())'..." -ForegroundColor Magenta
             Write-Host ""
             if ($debugArg) {
-                python gerar_disparos.py "--campanha=$campanha" $debugArg
+                python 01_gerar_lista.py "--campanha=$campanha" $debugArg
             } else {
-                python gerar_disparos.py "--campanha=$campanha"
+                python 01_gerar_lista.py "--campanha=$campanha"
+            }
+            if ($LASTEXITCODE -ne 0) {
+                Write-Host ""
+                Write-Host "  ERRO: Falha ao gerar lista de disparo" -ForegroundColor Red
+                Write-Host "  Verifique se o arquivo 01_gerar_lista.py existe" -ForegroundColor Red
+                Write-Host "  Verifique se o Python esta instalado corretamente" -ForegroundColor Red
+                Write-Host ""
+                Read-Host "  Pressione Enter para voltar"
+                continue
             }
             Write-Host ""
-            Write-Host "  CSV gerado em .\disparos\ — selecione-o nas opcoes de envio." -ForegroundColor Green
+            Write-Host "  CSV gerado em .\02_disparos\ — selecione-o nas opcoes de envio." -ForegroundColor Green
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
         }

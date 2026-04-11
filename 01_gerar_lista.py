@@ -5,11 +5,11 @@ Unifica fontes: Listagem_pacientes CSV + contacts.csv + informacoescliente.txt
 Chave de deduplicação: (fone_normalizado + nome_normalizado) — preserva
   pessoas diferentes que compartilham o mesmo telefone (família, etc.)
 
-Saída: whatsapp/disparos/
+Saída: 02_disparos/
   - lista_disparos_<campanha>_<data>.csv   — todas as colunas + pontuação
   - relatorio_<data>.txt                  — resumo da campanha
 
-Uso: python gerar_disparos.py [--campanha A] [--debug]
+Uso: python 01_gerar_lista.py [--campanha A] [--debug]
 """
 
 import csv
@@ -18,6 +18,7 @@ import os
 import sys
 import argparse
 import unicodedata
+import json
 from datetime import date, datetime
 from pathlib import Path
 
@@ -27,11 +28,13 @@ from pathlib import Path
 
 BASE_DIR      = Path(__file__).parent
 SAIDA_DIR     = BASE_DIR / "02_disparos"
+LOG_DIR       = BASE_DIR / "03_log"
 
 ARQ_PACIENTES = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
 ARQ_CONTACTS  = BASE_DIR / "01_fontes" / "contacts.csv"
 ARQ_INFO      = BASE_DIR / "01_fontes" / "informacoescliente.txt"
 ARQ_BLACKLIST = BASE_DIR / "01_fontes" / "blacklist.txt"  # números que pediram opt-out
+ARQ_SENT_LOG  = LOG_DIR / "sent_log.json"  # registro de envios realizados
 
 INSTAGRAM  = "https://www.instagram.com/dradaianaferrazsc/"
 SITE       = "https://wesleyzilva.github.io/dradaianaferraz_gold/"
@@ -72,6 +75,29 @@ def carregar_blacklist() -> set:
             continue
         numeros.add(limpar_fone(linha))
     return numeros
+
+
+def carregar_sent_log() -> dict:
+    """Carrega o log de envios realizados (sent_log.json).
+    Retorna dict com chaves no formato: {numero}_{categoria}_{anoMes}
+    """
+    if not ARQ_SENT_LOG.exists():
+        return {}
+    try:
+        with open(ARQ_SENT_LOG, encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"[AVISO] Erro ao ler {ARQ_SENT_LOG}: {e}")
+        return {}
+
+
+def ja_enviado_este_mes(fone: str, sent_log: dict) -> bool:
+    """Verifica se já enviamos mensagem para este fone no mês atual.
+    Chave esperada: {numero}_{YYYYMM}
+    """
+    ano_mes_atual = date.today().strftime("%Y%m")
+    chave = f"{limpar_fone(fone)}_{ano_mes_atual}"
+    return chave in sent_log
 
 
 def normalizar(texto: str) -> str:
@@ -709,6 +735,12 @@ def main():
         if bl_rm:
             print(f"   🚫 Opt-outs removidos (blacklist.txt): {bl_rm}")
 
+    # 4c) Carrega log de envios para evitar duplicados
+    print("📋 Validando envios anteriores...")
+    sent_log = carregar_sent_log()
+    if sent_log:
+        print(f"   ✅ Log carregado: {len(sent_log)} envios registrados")
+
     # 5) Filtro de campanha
     lista = list(unificado.values())
     lista_camp = filtrar_campanha(lista, campanha)
@@ -774,6 +806,22 @@ def main():
         print(f"   ⚠️  {dedup_count} número(s) removido(s) por telefone duplicado (mesmo fone, categorias diferentes)")
     linhas = list(seen_fone.values())
     linhas.sort(key=lambda x: x["pontuacao"], reverse=True)
+
+    # 8b) Remove contatos que já receberam mensagem neste mês (validação final)
+    antes_val = len(linhas)
+    linhas_filtradas = []
+    for l in linhas:
+        if ja_enviado_este_mes(l["numero"], sent_log):
+            if args.debug:
+                print(f"   ⏭️  Pulando {l['nome']} ({l['numero']}) - [{l['categoria']}] → já enviado este mês")
+            continue
+        linhas_filtradas.append(l)
+    
+    removidos_enviados = antes_val - len(linhas_filtradas)
+    if removidos_enviados:
+        print(f"   🔒 Contatos já enviados este mês removidos: {removidos_enviados}")
+    
+    linhas = linhas_filtradas
 
     # 9) Salva CSV completo
     SAIDA_DIR.mkdir(parents=True, exist_ok=True)

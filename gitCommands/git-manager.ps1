@@ -1,21 +1,31 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Gerenciador Git interativo para o repositorio dradaianaferraz_gold.
+    Gerenciador Git interativo para o repositorio imprimaMais.
 
 .DESCRIPTION
-    Menu completo:
+    Menu completo organizado por fluxo de trabalho:
+    
+    VERIFICACAO:
       1. Comparar local vs remoto (qual esta mais atualizado)
-      2. Baixar do remoto (pull)
-      3. Subir para o remoto (push)
-      4. Listar branches
-      5. Trocar de branch
+      2. Informacoes completas do repositorio
+      3. Listar branches
+    
+    SINCRONIZACAO:
+      4. Trocar de branch
+      5. Baixar do remoto (pull)
+    
+    ENVIAR ALTERACOES:
       6. Commitar com mensagem aleatoria
-      7. Informacoes do repositorio
+      7. Subir para o remoto (push)
+    
+    PUBLICACAO:
+      8. Deploy para GitHub Pages (build + deploy)
+      
       0. Sair
 
 .USAGE
-    cd C:\repositorio\dradaianaferraz_gold\gitCommands
+    cd C:\repositorio\imprimaMais\gitCommands
     .\git-manager.ps1
 
     Ou informando outro caminho de repositorio:
@@ -402,6 +412,54 @@ function Show-RepoInfo {
 }
 
 # ---------------------------------------------------------------------------
+# OPCAO 8 - Deploy para GitHub Pages
+# ---------------------------------------------------------------------------
+function Invoke-DeployPages {
+    Write-Header 'DEPLOY PARA GITHUB PAGES'
+    
+    $packageFile = Join-Path $RepoPath 'package.json'
+    if (-not (Test-Path $packageFile)) {
+        Write-Err 'package.json nao encontrado. Este nao parece ser um projeto Node.js.'
+        return
+    }
+
+    Write-Info 'Verificando se ha alteracoes nao commitadas...'
+    $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
+    if ($statusLines.Count -gt 0) {
+        Write-Warn 'Ha alteracoes nao commitadas:'
+        $statusLines | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
+        Write-Host ''
+        $resp = Read-Host '  Deseja commitar antes do deploy? (s/N)'
+        if ($resp -match '^[sS]$') {
+            Invoke-RandomCommit
+            Write-Host ''
+        }
+    }
+
+    Write-Info 'Executando build de producao (npm run build)...'
+    Set-Location $RepoPath
+    $buildOut = npm run build 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        Write-Err 'Build falhou:'
+        $buildOut | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+        return
+    }
+    Write-OK 'Build concluido com sucesso.'
+    Write-Host ''
+
+    Write-Info 'Executando deploy para GitHub Pages (npm run deploy)...'
+    $deployOut = npm run deploy 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        Write-OK 'Deploy para GitHub Pages concluido com sucesso!'
+        $deployOut | Select-Object -Last 10 | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
+    }
+    else {
+        Write-Err 'Deploy falhou:'
+        $deployOut | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+    }
+}
+
+# ---------------------------------------------------------------------------
 # Menu principal
 # ---------------------------------------------------------------------------
 function Show-Menu {
@@ -412,11 +470,11 @@ function Show-Menu {
         $syncColor  = 'Green'
     }
     elseif ($info.CommitsAhead -gt 0) {
-        $syncStatus = "[!] Local +$($info.CommitsAhead) a frente -> PUSH recomendado (opcao 3)"
+        $syncStatus = "[!] Local +$($info.CommitsAhead) a frente -> PUSH recomendado (opcao 7)"
         $syncColor  = 'Yellow'
     }
     else {
-        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> PULL recomendado (opcao 2)"
+        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> PULL recomendado (opcao 5)"
         $syncColor  = 'Yellow'
     }
 
@@ -436,13 +494,22 @@ function Show-Menu {
     }
 
     Write-Host ''
+    Write-Host '  === VERIFICACAO ===' -ForegroundColor Yellow
     Write-Host '  [1]  Comparar local vs remoto (qual esta mais atualizado)' -ForegroundColor White
-    Write-Host '  [2]  Baixar do remoto (pull)'                              -ForegroundColor White
-    Write-Host '  [3]  Subir para o remoto (push)'                           -ForegroundColor White
-    Write-Host '  [4]  Listar branches'                                      -ForegroundColor White
-    Write-Host '  [5]  Trocar de branch'                                     -ForegroundColor White
+    Write-Host '  [2]  Informacoes completas do repositorio'                 -ForegroundColor White
+    Write-Host '  [3]  Listar branches'                                      -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === SINCRONIZACAO ===' -ForegroundColor Yellow
+    Write-Host '  [4]  Trocar de branch'                                     -ForegroundColor White
+    Write-Host '  [5]  Baixar do remoto (pull)'                              -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === ENVIAR ALTERACOES ===' -ForegroundColor Yellow
     Write-Host '  [6]  Commitar (mensagem aleatoria)'                        -ForegroundColor White
-    Write-Host '  [7]  Informacoes completas do repositorio'                 -ForegroundColor White
+    Write-Host '  [7]  Subir para o remoto (push)'                           -ForegroundColor White
+    Write-Host ''
+    Write-Host '  === PUBLICACAO ===' -ForegroundColor Green
+    Write-Host '  [8]  Deploy para GitHub Pages (build + deploy)'            -ForegroundColor Green
+    Write-Host ''
     Write-Host '  [0]  Sair'                                                 -ForegroundColor DarkGray
     Write-Host ''
 }
@@ -463,14 +530,15 @@ while ($true) {
 
     switch ($opcao.Trim()) {
         '1' { Show-CompareStatus  }
-        '2' { Invoke-Pull         }
-        '3' { Invoke-Push         }
-        '4' { Show-Branches       }
-        '5' { Switch-Branch       }
+        '2' { Show-RepoInfo       }
+        '3' { Show-Branches       }
+        '4' { Switch-Branch       }
+        '5' { Invoke-Pull         }
         '6' { Invoke-RandomCommit }
-        '7' { Show-RepoInfo       }
+        '7' { Invoke-Push         }
+        '8' { Invoke-DeployPages  }
         '0' { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
-        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 7.' }
+        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 8.' }
     }
 
     Write-Host ''

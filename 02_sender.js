@@ -533,6 +533,17 @@ async function main() {
   if (chromePath) console.log(`🌐 Chrome detectado: ${cyan(chromePath)}\n`);
   else            console.log(yellow('⚠️  Chrome não detectado localmente.\n'));
 
+  const runId  = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  const results = { sent: [], failed: [], notRegistered: [], blocked: [] };
+
+  // Estado da sessão para identificar limite/reauth durante os disparos
+  let shutdownRequested = false;
+  let disconnectedByWA  = false;
+  let readySeen         = false;
+  let currentContact    = null;
+  let reauthInfo        = null;
+  const reauthEvents    = [];
+
   const client = new Client({
     authStrategy: new LocalAuth({ clientId: 'dra-daiana-sender', dataPath: path.join(DIR, '.wwebjs_auth') }),
     puppeteer: {
@@ -543,6 +554,30 @@ async function main() {
   });
 
   client.on('qr', qr => {
+    if (readySeen) {
+      const snapshot = {
+        at: now(),
+        reason: 'qr_requested_again',
+        sent: results.sent.length,
+        failed: results.failed.length,
+        notRegistered: results.notRegistered.length,
+        blockedByWA: results.blocked.length,
+        processed: results.sent.length + results.failed.length + results.notRegistered.length + results.blocked.length,
+        currentContact: currentContact
+          ? { numero: currentContact.numero, nome: currentContact.nome, categoria: currentContact.categoria }
+          : null,
+      };
+      reauthEvents.push(snapshot);
+      if (!reauthInfo) reauthInfo = snapshot;
+      disconnectedByWA = true;
+
+      console.log(red('\n🔐 WhatsApp pediu autenticação novamente durante o envio.'));
+      console.log(yellow(`   Envios concluídos antes do novo QR: ${snapshot.sent}`));
+      console.log(yellow(`   Contatos processados até o evento: ${snapshot.processed}`));
+      if (snapshot.currentContact)
+        console.log(yellow(`   Último contato em andamento: ${snapshot.currentContact.nome} (${snapshot.currentContact.numero})`));
+    }
+
     console.log('📱 Escaneie o QR Code com o WhatsApp do celular:\n');
     qrcode.generate(qr, { small: true });
     console.log(yellow('\n(aguardando autenticação — você tem 60 segundos...)\n'));
@@ -552,22 +587,21 @@ async function main() {
   client.on('auth_failure',   msg   => { console.error(red(`❌ Falha de autenticação: ${msg}`)); process.exit(1); });
   client.on('disconnected',   reason => {
     console.log(yellow(`⚠️  Desconectado: ${reason}`));
-    disconnectedByWA = true; // pode indicar bloqueio — o loop verifica isso
+    disconnectedByWA = true; // pode indicar bloqueio ou perda de sessão — o loop verifica isso
   });
 
   await new Promise((resolve, reject) => {
-    client.on('ready', resolve);
+    client.on('ready', () => {
+      readySeen = true;
+      resolve();
+    });
     client.initialize().catch(reject);
   });
   console.log(green('✅ WhatsApp pronto. Iniciando envios...\n'));
 
   // ── 6. Enviar mensagens ──────────────────────────────────────────────────────
-  const runId  = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-  const results = { sent: [], failed: [], notRegistered: [], blocked: [] };
 
   // Graceful shutdown: destrói o cliente antes de sair por Ctrl+C ou sinal do SO
-  let shutdownRequested = false;
-  let disconnectedByWA  = false; // sinalizado quando WA desconecta sozinho (possível bloqueio)
   const gracefulShutdown = async (signal) => {
     if (shutdownRequested) return;
     shutdownRequested = true;
@@ -584,14 +618,20 @@ async function main() {
     const phone   = formatPhone(contact.numero);
     const key     = logKey(contact.numero);
     const prefix  = `[${String(i + 1).padStart(String(limited.length).length, ' ')}/${limited.length}]`;
+    currentContact = contact;
 
     // Verificar janela de envio (modo humano)
     if (HUMAN_MODE && SEND_WINDOWS.length > 0) await waitForSendWindow();
 
-    // Se o cliente foi desconectado pelo WA, interrompe o run
+    // Se o cliente perdeu a sessão / pediu novo QR, interrompe o run
     if (disconnectedByWA) {
-      console.log(red('\n🚫 WhatsApp desconectou durante o envio — possível bloqueio de conta.'));
-      console.log(yellow('   Aguarde algumas horas e verifique o celular antes de tentar novamente.'));
+      console.log(red('\n🚫 Envio interrompido por perda de sessão/reautenticação do WhatsApp.'));
+      if (reauthInfo) {
+        console.log(yellow(`   Limite suspeito detectado após ${reauthInfo.sent} envios concluídos.`));
+        console.log(yellow(`   Total processado até o evento: ${reauthInfo.processed} contatos.`));
+      } else {
+        console.log(yellow('   Aguarde algumas horas e verifique o celular antes de tentar novamente.'));
+      }
       break;
     }
 
@@ -640,6 +680,7 @@ async function main() {
 
     // Salva o log após cada envio (segurança: evita perda em crash)
     writeSentLog(sentLog);
+    currentContact = null;
 
     // Pausa pós-envio antes do próximo contato
     if (i < limited.length - 1) {
@@ -661,13 +702,19 @@ async function main() {
     csvFile:     path.basename(csvPath),
     executedAt:  now(),
     dryRun:      false,
+    stopReason:  results.blocked.length > 0 ? 'blocked_by_whatsapp' : reauthInfo ? 'reauth_requested' : 'completed',
     summary: {
-      total:         limited.length,
-      sent:          results.sent.length,
-      failed:        results.failed.length,
-      notRegistered: results.notRegistered.length,
-      blockedByWA:   results.blocked.length,
+      total:                 limited.length,
+      sent:                  results.sent.length,
+      failed:                results.failed.length,
+      notRegistered:         results.notRegistered.length,
+      blockedByWA:           results.blocked.length,
+      reauthRequested:       Boolean(reauthInfo),
+      sentBeforeReauth:      reauthInfo ? reauthInfo.sent : null,
+      processedBeforeReauth: reauthInfo ? reauthInfo.processed : null,
     },
+    reauth:        reauthInfo,
+    reauthEvents,
     sent:          results.sent.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
     failed:        results.failed.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria, error: c.error })),
     notRegistered: results.notRegistered.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
@@ -686,6 +733,8 @@ async function main() {
   console.log(`  ${yellow('⚠️  Não no WhatsApp:   ')} ${pad(results.notRegistered.length)}`);
   if (results.blocked.length > 0)
     console.log(`  ${red('🚫 Bloqueado p/ WA:   ')} ${pad(results.blocked.length)}`);
+  if (reauthInfo)
+    console.log(`  ${yellow('🔐 Antes do novo QR:   ')} ${pad(reauthInfo.sent)}`);
   console.log('─'.repeat(42));
   console.log(`  📄 Relatório: ${cyan(`log/run_${runId}.json`)}`);
   console.log(`  📋 Log geral: ${cyan('log/sent_log.json')}`);
@@ -696,6 +745,16 @@ async function main() {
     for (const b of results.blocked)
       console.log(red(`  🚫 ${b.nome} (${b.numero}): ${b.error}`));
     console.log(yellow('  Aguarde algumas horas antes de retomar os envios.\n'));
+  }
+
+  if (reauthInfo) {
+    console.log(yellow(bold('  🔐 REAUTENTICAÇÃO SOLICITADA:')));
+    console.log(yellow(`  Enviados antes do pedido de novo QR: ${reauthInfo.sent}`));
+    console.log(yellow(`  Contatos processados até o evento: ${reauthInfo.processed}`));
+    console.log(yellow(`  Horário do evento: ${reauthInfo.at}`));
+    if (reauthInfo.currentContact)
+      console.log(yellow(`  Último contato em andamento: ${reauthInfo.currentContact.nome} (${reauthInfo.currentContact.numero})`));
+    console.log(yellow('  Isso normalmente indica perda de sessão ou limite percebido pelo WhatsApp.\n'));
   }
 
   if (results.failed.length > 0) {
