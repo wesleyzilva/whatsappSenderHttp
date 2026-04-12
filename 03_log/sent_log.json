@@ -2384,5 +2384,377 @@
     "error": "Cannot read properties of undefined (reading 'getChat')",
     "sentAt": "2026-04-11T16:38:43.298Z",
     "runId": "2026-04-11T14-31-13"
+  },
+  "19997357675_202604": {
+    "numero": "19997357675",
+    "nome": "Antônio Marlene",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:30:30.778Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "19999418319_202604": {
+    "numero": "19999418319",
+    "nome": "Ademir da Silva Junior",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:30:55.313Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69981350200_202604": {
+    "numero": "69981350200",
+    "nome": "André Pozzi Cury Construtor",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:30:55.472Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69981926054_202604": {
+    "numero": "69981926054",
+    "nome": "Alcione Javep",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:30:55.632Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69991525879_202604": {
+    "numero": "69991525879",
+    "nome": "André Eletricista",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:30:55.788Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69991746606_202604": {
+    "numero": "69991746606",
+    "nome": "Aeromodelo Flademir",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:30:55.945Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69992247047_202604": {
+    "numero": "69992247047",
+    "nome": "Antônio Site",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-12T17:31:39.731Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69992667015_202604": {
+    "numero": "69992667015",
+    "nome": "Ana Pereira",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-12T17:32:32.444Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69993167500_202604": {
+    "numero": "69993167500",
+    "nome": "Augusto Outlet",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.101Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69993322428_202604": {
+    "numero": "69993322428",
+    "nome": "Anderson Marcos De Marques",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.262Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69993965302_202604": {
+    "numero": "69993965302",
+    "nome": "Adriana Manoel",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.423Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69994192452_202604": {
+    "numero": "69994192452",
+    "nome": "Arthur Fonseca Lima",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.581Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "69996430329_202604": {
+    "numero": "69996430329",
+    "nome": "Andre Correa",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.740Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "1699606401_202604": {
+    "numero": "1699606401",
+    "nome": "Adão Soares",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:48.897Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16992918677_202604": {
+    "numero": "16992918677",
+    "nome": "Aginaldo Junior",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:49.058Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16997938271_202604": {
+    "numero": "16997938271",
+    "nome": "Agnes Alves Novaes💕",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:49.217Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981798033_202604": {
+    "numero": "16981798033",
+    "nome": "Aldemar Aguiar",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:32:49.373Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "1691647684_202604": {
+    "numero": "1691647684",
+    "nome": "Alice Lima",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-12T17:33:28.964Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "17997123385_202604": {
+    "numero": "17997123385",
+    "nome": "Ana Cláudia Martins Locação",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:34:27.969Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16994531076_202604": {
+    "numero": "16994531076",
+    "nome": "Ana Maria Barros",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:34:49.049Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "01634166444_202604": {
+    "numero": "01634166444",
+    "nome": "Arlinda Neres Dos Santos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:34:49.210Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16997596121_202604": {
+    "numero": "16997596121",
+    "nome": "Armando Mariz",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:35:27.779Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "11980262966_202604": {
+    "numero": "11980262966",
+    "nome": "Aretuza",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:35:44.576Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "11987169732_202604": {
+    "numero": "11987169732",
+    "nome": "Alexandra",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:35:44.782Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "11997357675_202604": {
+    "numero": "11997357675",
+    "nome": "Antonio",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:35:44.987Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16934161504_202604": {
+    "numero": "16934161504",
+    "nome": "Anderson",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:35:45.193Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981001126_202604": {
+    "numero": "16981001126",
+    "nome": "Alexandra",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:36:17.741Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981021968_202604": {
+    "numero": "16981021968",
+    "nome": "Aparecido",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:36:33.256Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981748184_202604": {
+    "numero": "16981748184",
+    "nome": "Alzira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:37:04.049Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981762682_202604": {
+    "numero": "16981762682",
+    "nome": "Andreia",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:37:59.674Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16981944144_202604": {
+    "numero": "16981944144",
+    "nome": "Alexandre",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:38:13.909Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16982464897_202604": {
+    "numero": "16982464897",
+    "nome": "Anderson",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:38:47.313Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16988182290_202604": {
+    "numero": "16988182290",
+    "nome": "Anali",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:39:38.376Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16991565985_202604": {
+    "numero": "16991565985",
+    "nome": "Arthur",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:40:20.764Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16993890896_202604": {
+    "numero": "16993890896",
+    "nome": "Auxiliadora",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:40:32.158Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996013594_202604": {
+    "numero": "16996013594",
+    "nome": "Aline",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:41:05.606Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996037311_202604": {
+    "numero": "16996037311",
+    "nome": "Alexandre",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:41:51.555Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996156294_202604": {
+    "numero": "16996156294",
+    "nome": "Augusto",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:42:04.291Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996170244_202604": {
+    "numero": "16996170244",
+    "nome": "Anderson",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:42:39.759Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996430329_202604": {
+    "numero": "16996430329",
+    "nome": "ANDRÉ",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:43:21.773Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16997023277_202604": {
+    "numero": "16997023277",
+    "nome": "Albeni",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:43:33.722Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16997642784_202604": {
+    "numero": "16997642784",
+    "nome": "Andre",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:44:10.691Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "19982193818_202604": {
+    "numero": "19982193818",
+    "nome": "Allan",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-12T17:44:23.032Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "11953949643_202604": {
+    "numero": "11953949643",
+    "nome": "Abib",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:44:54.131Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "1699713304_202604": {
+    "numero": "1699713304",
+    "nome": "Alexey",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-12T17:45:45.715Z",
+    "runId": "2026-04-12T17-27-20"
+  },
+  "16996029460_202604": {
+    "numero": "16996029460",
+    "nome": "Aline",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-12T17:46:30.762Z",
+    "runId": "2026-04-12T17-27-20"
   }
 }

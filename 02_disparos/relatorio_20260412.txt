@@ -1,0 +1,22 @@
+Relatório de Campanha — Dra. Daiana Ferraz
+==================================================
+Data:           12/04/2026
+Dia:            Domingo
+Campanha:       A
+Total disparos: 46
+
+Distribuição por categoria:
+  aniversario              : 31
+  orcamento_aberto         : 0
+  orcamento_vencido        : 3
+  harmonizacao_manutencao  : 11
+  agenda_ativa             : 200
+  sem_historico            : 188
+  paciente_antigo          : 76
+
+Pontuação — mín:10  máx:11  média:10.5
+
+Fontes:
+  - Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv
+  - contacts.csv
+  - informacoescliente.txt

@@ -48,6 +48,25 @@ Ordem normal de operação:
 7. Conferir o log em `03_log/`.
 8. Se necessário, exportar Customer Match em `04_publico/`.
 
+## Pré-requisitos
+
+Instale antes de usar:
+
+| Ferramenta | Versão mínima | Download |
+|---|---|---|
+| Node.js | 18+ | https://nodejs.org |
+| Python | 3.10+ | https://www.python.org |
+| PowerShell | 5.1+ | já incluso no Windows 10/11 |
+
+Instale as dependências do projeto (só na primeira vez):
+
+```powershell
+cd C:\repositorio\whatsappSenderHttp
+npm install
+```
+
+> O script Python usa apenas bibliotecas padrão — nenhum `pip install` necessário.
+
 ## Como executar
 
 Abra o PowerShell na pasta do projeto:
