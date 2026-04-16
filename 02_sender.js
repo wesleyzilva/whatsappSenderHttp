@@ -13,6 +13,8 @@
  *   node sender.js <csv> --limit=10       → limita a N envios (respeitando o teto dinâmico)
  *   node sender.js <csv> --delay=5000     → delay entre envios em ms (padrão: 4000)
  *   node sender.js --status               → mostra resumo do log
+ *   node sender.js --resumo               → relatório de situação (onde parei)
+ *   node sender.js <csv> --resumo         → situação + progresso do CSV específico
  *   node sender.js --reset                → limpa todo o sent_log.json
  *   node sender.js --reset-run=<runId>    → remove entradas de uma execução
  *   node sender.js --no-human             → desativa cadência humana (delay fixo)
@@ -84,6 +86,7 @@ const csvPath   = csvArg ? path.resolve(DIR, csvArg) : DEFAULT_CSV;
 const DRY_RUN   = args.includes('--dry-run');
 const AUTO_YES  = args.includes('--yes');
 const STATUS    = args.includes('--status');
+const RESUMO    = args.includes('--resumo');
 const RESET     = args.includes('--reset');
 const RESET_RUN = (args.find(a => a.startsWith('--reset-run=')) || '').split('=')[1];
 const limitArg  = args.find(a => a.startsWith('--limit='));
@@ -296,6 +299,84 @@ function showStatus() {
   console.log('');
 }
 
+// ── Comando: --resumo ─────────────────────────────────────────────────────────
+function showResumo(csvPath) {
+  banner('RELATÓRIO DE SITUAÇÃO DA CAMPANHA');
+
+  // ── Últimas execuções ───────────────────────────────────────────────────────
+  const runFiles = fs.existsSync(LOG_DIR)
+    ? fs.readdirSync(LOG_DIR).filter(f => f.startsWith('run_') && f.endsWith('.json')).sort().reverse().slice(0, 5)
+    : [];
+
+  if (runFiles.length === 0) {
+    console.log(yellow('  Nenhuma execução anterior encontrada.\n'));
+  } else {
+    console.log(bold('  Últimas execuções:'));
+    console.log('');
+    for (const f of runFiles) {
+      try {
+        const run = JSON.parse(fs.readFileSync(path.join(LOG_DIR, f), 'utf8'));
+        const flag = run.dryRun ? ` ${cyan('[dry-run]')}` : '';
+        console.log(`  ┌─ ${bold(run.runId)}${flag}`);
+        console.log(`  │  CSV:           ${run.csvFile}`);
+        console.log(`  │  Enviados:      ${green(run.summary.sent)}   Falhas: ${red(run.summary.failed)}   Não-registrados: ${yellow(run.summary.notRegistered)}   Total lote: ${run.summary.total}`);
+        console.log(`  └─ Encerramento: ${run.stopReason}`);
+        console.log('');
+      } catch { /* arquivo corrompido — ignora */ }
+    }
+  }
+
+  // ── Progresso no CSV selecionado ────────────────────────────────────────────
+  if (csvPath) {
+    if (!fs.existsSync(csvPath)) {
+      console.log(red(`  CSV não encontrado: ${csvPath}\n`));
+      return;
+    }
+    console.log(bold(`  Progresso em: ${path.basename(csvPath)}`));
+    console.log('');
+    try {
+      const { records } = loadCSV(csvPath);
+      const sentLog = readSentLog();
+      const pending = records.filter(c => !sentLog[logKey(c.numero)]);
+      const sentCount = records.length - pending.length;
+      const pct = records.length > 0 ? Math.round(sentCount / records.length * 100) : 0;
+      const filled = Math.round(pct / 5);
+      const bar = '█'.repeat(filled) + '░'.repeat(20 - filled);
+
+      console.log(`  Total no CSV:   ${records.length}`);
+      console.log(`  Já enviados:    ${green(sentCount)} (${pct}%)`);
+      console.log(`  Pendentes:      ${yellow(pending.length)}`);
+      console.log(`  Progresso:      [${bar}] ${pct}%`);
+      console.log('');
+
+      if (pending.length === 0) {
+        console.log('  ' + '═'.repeat(44));
+        console.log(green(bold('  ✅ Lista concluída! Seguro iniciar nova campanha.')));
+        console.log('  ' + '═'.repeat(44));
+        console.log('');
+      } else {
+        const today = new Date().toISOString().slice(0, 10);
+        const sentToday = Object.values(sentLog).filter(
+          e => e.status === 'sent' && (e.sentAt || '').slice(0, 10) === today
+        ).length;
+        const remainingToday = Math.max(0, DAILY_SEND_CAP - sentToday);
+        const daysLeft = Math.ceil(pending.length / DAILY_SEND_CAP);
+
+        console.log(bold('  Capacidade de hoje:'));
+        console.log(`  Cap diário:     ${DAILY_SEND_CAP}`);
+        console.log(`  Enviados hoje:  ${sentToday}`);
+        console.log(`  Saldo hoje:     ${green(remainingToday)} mensagem(ns) disponível(is)`);
+        console.log(`  Estimativa:     ~${daysLeft} dia(s) útil(is) para concluir esta lista`);
+        console.log('');
+      }
+    } catch (err) {
+      console.log(red(`  Erro ao ler CSV: ${err.message}\n`));
+    }
+  } else {
+    console.log(yellow('  Dica: selecione um CSV para ver o progresso detalhado da lista.\n'));
+  }
+}
+
 // ── Comando: --reset ──────────────────────────────────────────────────────────
 async function resetLog(runId) {
   if (runId) {
@@ -420,8 +501,9 @@ async function main() {
   banner('WhatsApp Bulk Sender · Dra. Daiana Ferraz');
 
   // Comandos de utilitário (sem envio)
-  if (STATUS) { showStatus(); return; }
-  if (RESET)  { await resetLog(RESET_RUN); return; }
+  if (STATUS)  { showStatus(); return; }
+  if (RESUMO)  { showResumo(csvArg ? csvPath : null); return; }
+  if (RESET)   { await resetLog(RESET_RUN); return; }
 
   if (!csvArg) {
     console.log(cyan(`ℹ️  Usando lista padrão: ${path.relative(DIR, csvPath)}`));

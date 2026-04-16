@@ -657,6 +657,59 @@ def gerar_mensagem(contato: dict) -> str:
     categoria = classificar(contato)
     nome  = contato["nome"]
     sexo  = contato.get("sexo") or inferir_genero(nome)
+
+    # Se o nome não for claro, usar saudação genérica
+
+
+    nome_generico = False
+    nome_norm = normalizar(nome)
+    # Lista de nomes genéricos a evitar
+    NOMES_GENERICOS = {
+        "boto", "paciente", "-", "+", "", "teste", "sem nome", "visitante", "desconhecido", "não informado", "nao informado", "não identificado", "nao identificado", "exemplo", "usuário", "usuario", "cliente", "agenda", "suporte", "grupo", "empresa", "acisc", "imprima mais", "md projetos", "vivian delfino", "contadora", "recepção", "secretaria", "financeiro", "marketing", "loja", "estoque"
+    }
+
+    # Caracteres especiais e emojis comuns
+    CARACTERES_ESPECIAIS = set("!@#$%^&*()_+=[]{}|;:'\",.<>/?`~°ºª•★☆♥️💕🌹😊😄😃😁😆😅😂🤣🥲🥰😍🤩🥳😎😜😋😏😒😔😢😭😡😱😳😬😇😈👻💀👽🤖🎃🦷")
+
+    # Função para detectar se o nome contém números
+    def contem_numero(s):
+        return any(c.isdigit() for c in s)
+
+    # Função para detectar caracteres especiais
+    def contem_caractere_especial(s):
+        return any(c in CARACTERES_ESPECIAIS for c in s)
+
+    # Função para detectar emojis (faixa Unicode)
+    def contem_emoji(s):
+        return any(ord(c) > 10000 for c in s)
+
+    # Função para detectar nomes muito curtos ou só uma letra
+    def nome_muito_curto(s):
+        return len(s) < 3 or (len(s.split()) == 1 and len(s) <= 2)
+
+    # Função para detectar nomes genéricos ou estranhos
+    if (
+        nome_norm.startswith("paciente")
+        or nome_norm in NOMES_GENERICOS
+        or any(g in nome_norm for g in NOMES_GENERICOS)
+        or contem_numero(nome_norm)
+        or contem_caractere_especial(nome)
+        or contem_emoji(nome)
+        or nome_muito_curto(nome_norm)
+    ):
+        nome_generico = True
+
+    # Se nome genérico, usar saudação genérica
+    if nome_generico:
+        saudacao = "Olá! 😊\n\nAqui é a Dra. Daiana, de São Carlos!\n\n"
+        corpo = "Trabalho com harmonização orofacial e odontologia estética. Qualquer dúvida ou quando quiser marcar uma avaliação, pode chamar à vontade! 💛"
+        return (
+            f"{saudacao}"
+            f"{corpo}"
+            f"{COMENTARIO_DIA}"
+            f"{ASSINATURA}"
+        )
+
     if categoria == "aniversario":
         fez, _ = aniversario_proximo(contato.get("data_nasc"))
         return GERADORES[categoria](nome, sexo, fez)
@@ -823,6 +876,18 @@ def main():
     
     linhas = linhas_filtradas
 
+    if not linhas:
+        print(f"\n✅ Nenhum contato novo para a campanha '{campanha}' — todos já receberam mensagem este mês.")
+        # Salva CSV vazio mesmo assim para registro
+        SAIDA_DIR.mkdir(parents=True, exist_ok=True)
+        sufixo = date.today().strftime("%Y%m%d")
+        nome_arq = SAIDA_DIR / f"lista_disparos_{campanha}_{sufixo}.csv"
+        with open(nome_arq, "w", newline="", encoding="utf-8-sig") as f:
+            writer = csv.DictWriter(f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
+            writer.writeheader()
+        print(f"✅ CSV vazio salvo: {nome_arq}")
+        sys.exit(0)
+
     # 9) Salva CSV completo
     SAIDA_DIR.mkdir(parents=True, exist_ok=True)
     sufixo = date.today().strftime("%Y%m%d")
@@ -845,8 +910,11 @@ def main():
         for cat, qtd in stats.items():
             f.write(f"  {cat:25s}: {qtd}\n")
         pts_vals = [l["pontuacao"] for l in linhas]
-        f.write(f"\nPontuação — mín:{min(pts_vals)}  máx:{max(pts_vals)}  "
-                f"média:{sum(pts_vals)/len(pts_vals):.1f}\n")
+        if pts_vals:
+            f.write(f"\nPontuação — mín:{min(pts_vals)}  máx:{max(pts_vals)}  "
+                    f"média:{sum(pts_vals)/len(pts_vals):.1f}\n")
+        else:
+            f.write("\nNenhum contato na lista final.\n")
         f.write(f"\nFontes:\n  - {ARQ_PACIENTES.name}\n"
                 f"  - {ARQ_CONTACTS.name}\n  - {ARQ_INFO.name}\n")
     print(f"✅ Relatório:    {rel_arq}")

@@ -47,6 +47,7 @@ function Show-Menu {
     Write-Host "  [6]  Limpar run especifico   (remove uma execucao do log)" -ForegroundColor Red
     Write-Host "  [7]  Gerar nova lista        (roda 01_gerar_lista.py, gera CSV em 02_disparos)" -ForegroundColor Magenta
     Write-Host "  [8]  Customer Match          (exporta emails/fones para Google Ads)" -ForegroundColor Magenta
+    Write-Host "  [9]  Relatorio de situacao   (onde parei? pendentes, ultimas execucoes)" -ForegroundColor White
     Write-Host "  [0]  Sair"
     Write-Host ""
 }
@@ -161,6 +162,21 @@ do {
             }
             Write-Host ""
             Write-Host "  CSV gerado em .\02_disparos\ — selecione-o nas opcoes de envio." -ForegroundColor Green
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "9" {
+            Write-Host ""
+            $csv = Select-CSV
+            if ($csv) {
+                Write-Host ""
+                Write-Host "  Gerando relatorio para: $([System.IO.Path]::GetFileName($csv))" -ForegroundColor White
+                Write-Host ""
+                node 02_sender.js "$csv" --resumo
+            } else {
+                node 02_sender.js --resumo
+            }
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
         }

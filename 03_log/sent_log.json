@@ -2756,5 +2756,1070 @@
     "status": "sent",
     "sentAt": "2026-04-12T17:46:30.762Z",
     "runId": "2026-04-12T17-27-20"
+  },
+  "12981090327_202604": {
+    "numero": "12981090327",
+    "nome": "Bruno De Oliveira Severino",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:31:24.341Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "12981896368_202604": {
+    "numero": "12981896368",
+    "nome": "BRUNO ZAMBRANO DEGAN",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:32:13.945Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "12991818144_202604": {
+    "numero": "12991818144",
+    "nome": "Bárbara Lúcia e Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:33:02.161Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "14998043543_202604": {
+    "numero": "14998043543",
+    "nome": "Bianca Passarelli Viliassi",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:34:06.211Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981008165_202604": {
+    "numero": "16981008165",
+    "nome": "Beatriz Rodrigues Deniz",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T16:34:18.702Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981157510_202604": {
+    "numero": "16981157510",
+    "nome": "Bruna Juliana Moreira Dias",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:35:02.071Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981222470_202604": {
+    "numero": "16981222470",
+    "nome": "Bruna Delgado Grassano Frediani",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:35:58.164Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16988340013_202604": {
+    "numero": "16988340013",
+    "nome": "Bruna Rego Rangel Cabral",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:36:48.318Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16988416839_202604": {
+    "numero": "16988416839",
+    "nome": "Bruna Stefani Sanches",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:37:34.800Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991065506_202604": {
+    "numero": "16991065506",
+    "nome": "brunca siqueira estevao",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:38:26.255Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991206417_202604": {
+    "numero": "16991206417",
+    "nome": "bruna martini costa",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T16:38:49.872Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991482594_202604": {
+    "numero": "16991482594",
+    "nome": "Bruna roberta dos santos compremarques",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:39:33.203Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991753154_202604": {
+    "numero": "16991753154",
+    "nome": "Benedito Rodrigues",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:40:23.194Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991842669_202604": {
+    "numero": "16991842669",
+    "nome": "Bianca Gabrielli da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:41:04.875Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991919548_202604": {
+    "numero": "16991919548",
+    "nome": "Bruna Meiri Balderramo",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T16:41:26.730Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992204286_202604": {
+    "numero": "16992204286",
+    "nome": "Bianca Menezes De Azevedo",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:42:05.613Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992592073_202604": {
+    "numero": "16992592073",
+    "nome": "Benjamim Purchio Duarte Martins",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:42:52.539Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992757920_202604": {
+    "numero": "16992757920",
+    "nome": "Bruno Vinicius de Moraes",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:43:51.749Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992978576_202604": {
+    "numero": "16992978576",
+    "nome": "Bruna Carolina Cellenza",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:44:46.890Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16993263597_202604": {
+    "numero": "16993263597",
+    "nome": "Bruno Valério Ramos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:45:37.418Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16993276249_202604": {
+    "numero": "16993276249",
+    "nome": "Bruna Fernanda de Mattos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:46:30.210Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16993433249_202604": {
+    "numero": "16993433249",
+    "nome": "Beatriz Magalhães Albano",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T16:46:43.512Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16993507754_202604": {
+    "numero": "16993507754",
+    "nome": "Bianca Rafaela dos Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:47:16.250Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16993956655_202604": {
+    "numero": "16993956655",
+    "nome": "Bruna Nayara de Oliveira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:48:01.508Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16994374045_202604": {
+    "numero": "16994374045",
+    "nome": "Brasileia Penha Barreto",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:49:00.559Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16996000506_202604": {
+    "numero": "16996000506",
+    "nome": "Beatriz Cristina da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:49:42.699Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16996186221_202604": {
+    "numero": "16996186221",
+    "nome": "Bruna Mirele Serafim Dias Costa",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:50:43.242Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16996336624_202604": {
+    "numero": "16996336624",
+    "nome": "Beatriz de Lima Barbosa",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:51:28.422Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16997078654_202604": {
+    "numero": "16997078654",
+    "nome": "Beatriz Rodrigues de lima",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:52:23.756Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16997782723_202604": {
+    "numero": "16997782723",
+    "nome": "Bruno Vinícius Sala",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:53:27.866Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "19984128563_202604": {
+    "numero": "19984128563",
+    "nome": "Betania Maria Souza",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:54:12.524Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "19994979229_202604": {
+    "numero": "19994979229",
+    "nome": "Bianca Brochine",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:55:05.150Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "19996365188_202604": {
+    "numero": "19996365188",
+    "nome": "Barbara Cristina Rodrigues de Almeira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:56:11.857Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "35998354435_202604": {
+    "numero": "35998354435",
+    "nome": "Bruno Leandro Pereira",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-13T16:57:04.908Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "11934543880_202604": {
+    "numero": "11934543880",
+    "nome": "Beatriz cristina do carmo araujo",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:57:57.564Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "11965722848_202604": {
+    "numero": "11965722848",
+    "nome": "Benjamin Carvalhosa de Freitas",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:58:46.272Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "11985428686_202604": {
+    "numero": "11985428686",
+    "nome": "Bruno Tartaro",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T16:59:31.681Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "14991571542_202604": {
+    "numero": "14991571542",
+    "nome": "Bionnovation Biomedical",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:00:26.799Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "14996116066_202604": {
+    "numero": "14996116066",
+    "nome": "Bruna Benevides Souza",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:01:16.561Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16934193500_202604": {
+    "numero": "16934193500",
+    "nome": "Buteco Decoracao",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T17:01:26.193Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16974009308_202604": {
+    "numero": "16974009308",
+    "nome": "Bruno Fernandes",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:02:15.152Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981539959_202604": {
+    "numero": "16981539959",
+    "nome": "Beatriz Isabella Maluf",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:03:09.911Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981544554_202604": {
+    "numero": "16981544554",
+    "nome": "Brenda Souza",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T17:03:33.805Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16981584278_202604": {
+    "numero": "16981584278",
+    "nome": "Bruna Caroliny Avelino",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:04:08.967Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16982624363_202604": {
+    "numero": "16982624363",
+    "nome": "Breytilla Katyeliny Silva Souza",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:05:00.452Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16988682653_202604": {
+    "numero": "16988682653",
+    "nome": "Bruno Gabi",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:06:00.586Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991345440_202604": {
+    "numero": "16991345440",
+    "nome": "Brena Carla Medeiros De Oliveira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:06:43.468Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16991646967_202604": {
+    "numero": "16991646967",
+    "nome": "Bianca Helena",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-13T17:06:57.625Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992236685_202604": {
+    "numero": "16992236685",
+    "nome": "Beatriz Fortuna",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:07:25.396Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992281413_202604": {
+    "numero": "16992281413",
+    "nome": "Bianca Gomes",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-13T17:08:08.907Z",
+    "runId": "2026-04-13T15-46-41"
+  },
+  "16992440687_202604": {
+    "numero": "16992440687",
+    "nome": "Brena Novo",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:37:30.809Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16992585352_202604": {
+    "numero": "16992585352",
+    "nome": "braian arthur gomes da silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:38:27.090Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16992687085_202604": {
+    "numero": "16992687085",
+    "nome": "Bianca Cristina dos Santos medina",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:39:02.199Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16993171630_202604": {
+    "numero": "16993171630",
+    "nome": "Beatriz Laiano",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:39:20.297Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16993377186_202604": {
+    "numero": "16993377186",
+    "nome": "Beatriz Putzel Laino",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:39:20.506Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16993403708_202604": {
+    "numero": "16993403708",
+    "nome": "Brenda Tomas pastoral",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:39:20.709Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16993841385_202604": {
+    "numero": "16993841385",
+    "nome": "Bárbara Camily Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:39:57.322Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16993914864_202604": {
+    "numero": "16993914864",
+    "nome": "Bruno Felipe Narciso Caraviere",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:40:46.218Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16994120344_202604": {
+    "numero": "16994120344",
+    "nome": "Beatris regina de lima",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:41:29.660Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997038270_202604": {
+    "numero": "16997038270",
+    "nome": "Bruno Cesar",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:42:27.786Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997662869_202604": {
+    "numero": "16997662869",
+    "nome": "Bertacini Maquinas",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:43:25.080Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997681724_202604": {
+    "numero": "16997681724",
+    "nome": "Bianca Oliveira - Food",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:44:09.082Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997906268_202604": {
+    "numero": "16997906268",
+    "nome": "Bone Cia",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:45:00.970Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16999641865_202604": {
+    "numero": "16999641865",
+    "nome": "Barbara Renata Prado de Abreu",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:46:00.971Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16999899000_202604": {
+    "numero": "16999899000",
+    "nome": "Beatriz Barboaa",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:46:46.115Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "17997357257_202604": {
+    "numero": "17997357257",
+    "nome": "Bruno Henrique Benichel Alves Barbosa",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:47:23.547Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "19935313303_202604": {
+    "numero": "19935313303",
+    "nome": "Beatriz Carine Barbosa Santos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:47:35.430Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "19985428686_202604": {
+    "numero": "19985428686",
+    "nome": "Bruno Tartaro",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:47:35.641Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "48984738194_202604": {
+    "numero": "48984738194",
+    "nome": "Bruno Agenor Silva",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "No LID for user\nnew Error (<anonymous>:6:31)",
+    "sentAt": "2026-04-15T12:48:13.269Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "69982560019_202604": {
+    "numero": "69982560019",
+    "nome": "Brahma Express Carlos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:48:34.574Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "69982672121_202604": {
+    "numero": "69982672121",
+    "nome": "Bispo Pipa",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:48:34.775Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "69988125598_202604": {
+    "numero": "69988125598",
+    "nome": "Brinquedos Gugu",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:48:34.980Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "99994979229_202604": {
+    "numero": "99994979229",
+    "nome": "Bianca Brochine/ Bruna",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-04-15T12:48:35.188Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997766761_202604": {
+    "numero": "16997766761",
+    "nome": "Boto 1",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:49:05.618Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997591918_202604": {
+    "numero": "16997591918",
+    "nome": "Boto 11",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:49:51.295Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997012578_202604": {
+    "numero": "16997012578",
+    "nome": "Boto 18",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:50:43.820Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16996440540_202604": {
+    "numero": "16996440540",
+    "nome": "Boto 19",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:51:29.070Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997855706_202604": {
+    "numero": "16997855706",
+    "nome": "Boto 2",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:52:30.359Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16996358533_202604": {
+    "numero": "16996358533",
+    "nome": "Boto 20",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:53:29.975Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997018024_202604": {
+    "numero": "16997018024",
+    "nome": "Boto 21",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:54:07.381Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997015558_202604": {
+    "numero": "16997015558",
+    "nome": "Boto 22",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:55:02.544Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997095558_202604": {
+    "numero": "16997095558",
+    "nome": "Boto 23",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:55:49.594Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997113594_202604": {
+    "numero": "16997113594",
+    "nome": "Boto 24",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:56:31.033Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997129189_202604": {
+    "numero": "16997129189",
+    "nome": "Boto 26",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:57:14.405Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997176080_202604": {
+    "numero": "16997176080",
+    "nome": "Boto 28",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:57:56.903Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997873020_202604": {
+    "numero": "16997873020",
+    "nome": "Boto 3",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:58:59.237Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997181010_202604": {
+    "numero": "16997181010",
+    "nome": "Boto 30",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T12:59:45.811Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16996218516_202604": {
+    "numero": "16996218516",
+    "nome": "Boto 30",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:00:41.192Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16996318554_202604": {
+    "numero": "16996318554",
+    "nome": "Boto 31",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:01:31.149Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997203231_202604": {
+    "numero": "16997203231",
+    "nome": "Boto 31maiana Almeida",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:02:21.467Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997229802_202604": {
+    "numero": "16997229802",
+    "nome": "Boto 32",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:03:11.518Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16996364353_202604": {
+    "numero": "16996364353",
+    "nome": "Boto 34",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:03:59.527Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997238832_202604": {
+    "numero": "16997238832",
+    "nome": "Boto 34",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:04:56.164Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997299597_202604": {
+    "numero": "16997299597",
+    "nome": "Boto 35",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:05:50.372Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997281901_202604": {
+    "numero": "16997281901",
+    "nome": "Boto 35",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:06:38.512Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997302251_202604": {
+    "numero": "16997302251",
+    "nome": "Boto 36",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:07:32.872Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997314060_202604": {
+    "numero": "16997314060",
+    "nome": "Boto 37",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:08:20.463Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997345526_202604": {
+    "numero": "16997345526",
+    "nome": "Boto 38",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:09:13.845Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997386558_202604": {
+    "numero": "16997386558",
+    "nome": "Boto 39",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:10:02.321Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997910641_202604": {
+    "numero": "16997910641",
+    "nome": "Boto 4",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T13:10:55.042Z",
+    "runId": "2026-04-15T12-36-34"
+  },
+  "16997685638_202604": {
+    "numero": "16997685638",
+    "nome": "Boto 41",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:31:38.438Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997698259_202604": {
+    "numero": "16997698259",
+    "nome": "Boto 43",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:32:27.885Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997709725_202604": {
+    "numero": "16997709725",
+    "nome": "Boto 44",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:33:20.406Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997758483_202604": {
+    "numero": "16997758483",
+    "nome": "Boto 45",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:34:11.227Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997766593_202604": {
+    "numero": "16997766593",
+    "nome": "Boto 46",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:35:06.089Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993760517_202604": {
+    "numero": "16993760517",
+    "nome": "Boto 47",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:35:53.189Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993874162_202604": {
+    "numero": "16993874162",
+    "nome": "Boto 48",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:36:56.559Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993888439_202604": {
+    "numero": "16993888439",
+    "nome": "Boto 48",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:38:00.222Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993994903_202604": {
+    "numero": "16993994903",
+    "nome": "Boto 49",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:38:52.366Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997929011_202604": {
+    "numero": "16997929011",
+    "nome": "Boto 5",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:39:41.786Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16994120515_202604": {
+    "numero": "16994120515",
+    "nome": "Boto 50",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:40:38.367Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16994214178_202604": {
+    "numero": "16994214178",
+    "nome": "Boto 50",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:41:38.887Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16994429689_202604": {
+    "numero": "16994429689",
+    "nome": "Boto 51",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:42:28.574Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16996011104_202604": {
+    "numero": "16996011104",
+    "nome": "Boto 52",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:43:10.355Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16994449191_202604": {
+    "numero": "16994449191",
+    "nome": "Boto 52",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:44:15.283Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993145254_202604": {
+    "numero": "16993145254",
+    "nome": "Boto 54",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:45:07.884Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993224633_202604": {
+    "numero": "16993224633",
+    "nome": "Boto 55",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:45:56.857Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993252189_202604": {
+    "numero": "16993252189",
+    "nome": "Boto 55",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:46:47.167Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993290828_202604": {
+    "numero": "16993290828",
+    "nome": "Boto 56",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:47:51.441Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993394681_202604": {
+    "numero": "16993394681",
+    "nome": "Boto 57",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:48:54.842Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993449685_202604": {
+    "numero": "16993449685",
+    "nome": "Boto 58",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:49:48.110Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993482541_202604": {
+    "numero": "16993482541",
+    "nome": "Boto 58",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:50:35.467Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16993576565_202604": {
+    "numero": "16993576565",
+    "nome": "Boto 59",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:51:26.118Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997966896_202604": {
+    "numero": "16997966896",
+    "nome": "Boto 6",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:52:10.047Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16997950303_202604": {
+    "numero": "16997950303",
+    "nome": "Boto 6",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-04-15T16:53:01.438Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992739523_202604": {
+    "numero": "16992739523",
+    "nome": "Boto 60",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T17:09:10.185Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992946706_202604": {
+    "numero": "16992946706",
+    "nome": "Boto 61",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T17:25:02.385Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992897944_202604": {
+    "numero": "16992897944",
+    "nome": "Boto 61",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T17:41:04.254Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992791562_202604": {
+    "numero": "16992791562",
+    "nome": "Boto 61",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T17:57:14.540Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992976300_202604": {
+    "numero": "16992976300",
+    "nome": "Boto 63",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T18:13:09.425Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992383974_202604": {
+    "numero": "16992383974",
+    "nome": "Boto 64",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T18:29:01.538Z",
+    "runId": "2026-04-15T15-23-46"
+  },
+  "16992405634_202604": {
+    "numero": "16992405634",
+    "nome": "Boto 65",
+    "categoria": "sem_historico",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-04-15T18:45:02.831Z",
+    "runId": "2026-04-15T15-23-46"
   }
 }
