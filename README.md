@@ -1,8 +1,131 @@
-# WhatsApp Sender — Dra. Daiana Ferraz
+<h1 align="center">WhatsApp Sender — Dra. Daiana Ferraz</h1>
 
-Ferramenta operacional de WhatsApp para reativação de pacientes da clínica da Dra. Daiana Ferraz e geração de públicos para Google Ads.
+<p align="center">
+  <em>Operational patient reactivation tool integrating WhatsApp outreach with Google Ads Customer Match</em>
+</p>
 
-**Desenvolvimento:** Wesley Silva
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PowerShell-5.1+-5391FE?style=for-the-badge&logo=powershell&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google%20Ads-Customer%20Match-4285F4?style=for-the-badge&logo=googleads&logoColor=white"/>
+</p>
+
+---
+
+## The Problem It Solves
+
+Clinics accumulate a large patient base but have no systematic way to re-engage patients who have not returned in months. Manual outreach is time-consuming, inconsistent, and frequently reaches the same patient multiple times — causing noise and opt-outs.
+
+This tool automates patient reactivation with deduplication by month, opt-out (blacklist) enforcement, daily send limits, and automatic Customer Match export to Google Ads — transforming an idle contact list into an active revenue channel.
+
+---
+
+## How It Connects to the Landing Page
+
+```
+Google Ads
+    └─► Landing page (dradaianaferraz_gold)
+             └─► new patient clicks WhatsApp
+                      └─► conversion recorded in Google Ads
+
+WhatsappSenderHttp (this repository)
+    └─► reactivates existing patient base via WhatsApp
+    └─► exports Customer Match to Google Ads
+             └─► Google Ads re-targets the clinic's own patient base
+```
+
+- This project works the **existing** patient base.
+- The landing page captures **new** contacts.
+- Customer Match connects both streams inside Google Ads.
+
+---
+
+## Operational Rules
+
+| Rule | Value |
+|------|-------|
+| Maximum sends per day | 100 messages per account |
+| Operating hours | Monday–Saturday, 08:00–20:00 |
+| Deduplication window | Per phone number + calendar month |
+| Opt-out enforcement | Blacklist file checked before every send |
+
+---
+
+## Operational Flow
+
+```
+1. Update source files in 01_fontes/
+2. Verify blacklist is current
+3. Generate dispatch list with 01_gerar_lista.py
+4. Validate CSV in 02_disparos/
+5. Run dry-run before live send
+6. Execute send via 03_disparar.ps1
+7. Review execution log in 03_log/
+8. Export Customer Match to 04_publico/ if needed
+```
+
+---
+
+## Menu Options
+
+| Option | Action |
+|--------|--------|
+| `[1]` | Send messages |
+| `[2]` | Dry-run (simulate without sending) |
+| `[3]` | Send with manual limit |
+| `[4]` | View log status |
+| `[5]` | Clear full history |
+| `[6]` | Clear a specific execution |
+| `[7]` | Generate new dispatch list |
+| `[8]` | Export Customer Match |
+
+---
+
+## Prerequisites & Setup
+
+```powershell
+# Install Node.js 18+ and Python 3.10+ before proceeding
+# Python script uses only standard library — no pip install required
+
+cd C:\repositorio\whatsappSenderHttp
+npm install
+```
+
+## Running
+
+```powershell
+cd C:\repositorio\whatsappSenderHttp
+.\03_disparar.ps1
+```
+
+---
+
+## Project Structure
+
+```
+01_fontes/              source contact files
+01_fontes/blacklist.txt central opt-out list
+02_disparos/            generated dispatch lists
+03_log/                 execution history and logs
+04_publico/             Google Ads Customer Match exports
+```
+
+---
+
+## Tech Stack
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white)
+
+---
+
+## Author
+
+**Wesley Gomes da Silva** · IT Manager · Agile Coach · Full-Stack Developer
+
+[GitHub](https://github.com/wesleyzilva) · [LinkedIn](https://www.linkedin.com/in/wesleyzilva/) · [Portfolio](https://wesleyzilva.github.io/portfolioNearshoreWesIA/#hero)
 
 ## Finalidade deste projeto
 
