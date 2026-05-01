@@ -418,6 +418,42 @@ function Invoke-Push {
     }
 }
 
+function Invoke-SyncPush {
+    Write-Header 'SINCRONIZAR (pull --rebase + push)'
+    $info = Get-RepoInfo
+
+    Write-Info 'Baixando alteracoes do remoto com rebase...'
+    $pullOut = git pull --rebase origin $info.Branch 2>&1
+    $pullOut | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
+    if ($LASTEXITCODE -ne 0) {
+        Write-Err 'Pull/rebase falhou. Resolva os conflitos e tente novamente.'
+        return
+    }
+    Write-OK 'Rebase concluido.'
+    Write-Host ''
+
+    $infoAfter = Get-RepoInfo
+    if ($infoAfter.CommitsAhead -eq 0) {
+        Write-OK 'Nenhum commit local para enviar apos o rebase.'
+        return
+    }
+
+    Write-Info "$($infoAfter.CommitsAhead) commit(s) serao enviados para origin/$($infoAfter.Branch)."
+    $resp = Read-Host '  Confirmar push? (s/N)'
+    if ($resp -notmatch '^[sS]$') { Write-Host '  Cancelado.'; return }
+
+    Write-Info "Executando: git push origin $($infoAfter.Branch)"
+    $out = git push origin $infoAfter.Branch 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        Write-OK 'Push concluido com sucesso.'
+        $out | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
+    }
+    else {
+        Write-Err 'Push falhou:'
+        $out | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+    }
+}
+
 # ---------------------------------------------------------------------------
 # OPCAO 4 - Listar branches
 # ---------------------------------------------------------------------------
@@ -609,8 +645,10 @@ function Show-RepoInfo {
 
 # ---------------------------------------------------------------------------
 # OPCAO 8 - Deploy para GitHub Pages
+# OPCAO 11 - Force Redeploy (republica sem checagens)
 # ---------------------------------------------------------------------------
 function Invoke-DeployPages {
+    param([switch]$Force)
     Write-Header 'DEPLOY PARA GITHUB PAGES'
 
     $packageFile = Join-Path $RepoPath 'package.json'
@@ -619,35 +657,67 @@ function Invoke-DeployPages {
         return
     }
 
-    # Escolher modalidade de deploy
-    Write-Host '  Modalidade de deploy:' -ForegroundColor White
-    Write-Host '    A) Rapido — GitHub Pages (sem dominio proprio)   [padrao]' -ForegroundColor Green
-    Write-Host '    B) Com dominio proprio (CNAME configurado)' -ForegroundColor Yellow
-    Write-Host ''
-    $deployMode = Read-Host '  Escolha (Enter = A)'
-    $deployMode = $deployMode.Trim().ToUpper()
-    if ($deployMode -eq '' -or $deployMode -eq 'A') {
-        $deployScript = 'deploy:pages'
-        Write-Info 'Modalidade: GitHub Pages (base-href /dradaianaferraz_gold/)'
-    } elseif ($deployMode -eq 'B') {
-        $deployScript = 'deploy:domain'
-        Write-Info 'Modalidade: Dominio proprio (base-href /)'
-    } else {
-        Write-Err 'Opcao invalida. Cancelado.'
+    # Descobrir scripts de deploy disponiveis no package.json
+    $pkgJson    = Get-Content $packageFile -Raw | ConvertFrom-Json
+    $allScripts = $pkgJson.scripts.PSObject.Properties.Name
+
+    $deployOptions = [System.Collections.Generic.List[PSCustomObject]]::new()
+    if ($allScripts -contains 'deploy:pages') {
+        $deployOptions.Add([PSCustomObject]@{ Label = 'GitHub Pages (sem dominio proprio)'; Script = 'deploy:pages'; Color = 'Green' })
+    }
+    if ($allScripts -contains 'deploy:domain') {
+        $deployOptions.Add([PSCustomObject]@{ Label = 'Dominio proprio (CNAME configurado)'; Script = 'deploy:domain'; Color = 'Yellow' })
+    }
+    # fallback: qualquer script que comece com 'deploy' e nao seja alias dos dois acima
+    foreach ($s in ($allScripts | Where-Object { $_ -like 'deploy*' -and $_ -notin @('deploy:pages','deploy:domain') })) {
+        $deployOptions.Add([PSCustomObject]@{ Label = $s; Script = $s; Color = 'Cyan' })
+    }
+
+    if ($deployOptions.Count -eq 0) {
+        Write-Err 'Nenhum script de deploy encontrado no package.json.'
         return
+    }
+
+    $deployScript = $null
+    if ($deployOptions.Count -eq 1) {
+        $deployScript = $deployOptions[0].Script
+        Write-Info "Usando: $deployScript"
+    } else {
+        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        Write-Host '  Modalidade de deploy:' -ForegroundColor White
+        for ($i = 0; $i -lt $deployOptions.Count; $i++) {
+            $opt = $deployOptions[$i]
+            $letter = $letters[$i]
+            $default = if ($i -eq 0) { '   [padrao]' } else { '' }
+            Write-Host "    $letter) $($opt.Label)$default" -ForegroundColor $opt.Color
+        }
+        Write-Host ''
+        $deployMode = (Read-Host '  Escolha (Enter = A)').Trim().ToUpper()
+        if ($deployMode -eq '') { $deployMode = 'A' }
+        $idx = $letters.IndexOf($deployMode[0])
+        if ($idx -lt 0 -or $idx -ge $deployOptions.Count) {
+            Write-Err 'Opcao invalida. Cancelado.'
+            return
+        }
+        $deployScript = $deployOptions[$idx].Script
+        Write-Info "Modalidade: $($deployOptions[$idx].Label)"
     }
     Write-Host ''
 
-    Write-Info 'Verificando se ha alteracoes nao commitadas...'
-    $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
-    if ($statusLines.Count -gt 0) {
-        Write-Warn 'Ha alteracoes nao commitadas:'
-        $statusLines | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
-        Write-Host ''
-        $resp = Read-Host '  Deseja commitar antes do deploy? (s/N)'
-        if ($resp -match '^[sS]$') {
-            Invoke-RandomCommit
+    if ($Force) {
+        Write-Warn 'Modo FORCE: ignorando checagem de arquivos nao commitados.'
+    } else {
+        Write-Info 'Verificando se ha alteracoes nao commitadas...'
+        $statusLines = @(git status --porcelain 2>&1 | Where-Object { $_ -ne '' })
+        if ($statusLines.Count -gt 0) {
+            Write-Warn 'Ha alteracoes nao commitadas:'
+            $statusLines | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
             Write-Host ''
+            $resp = Read-Host '  Deseja commitar antes do deploy? (s/N)'
+            if ($resp -match '^[sS]$') {
+                Invoke-RandomCommit
+                Write-Host ''
+            }
         }
     }
 
@@ -723,7 +793,7 @@ function Show-Menu {
         $syncColor  = 'Yellow'
     }
     else {
-        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> PULL recomendado (opcao 5)"
+        $syncStatus = "[!] Remoto +$($info.CommitsBehind) a frente -> use opcao 5 (pull) ou 8 (sync)"
         $syncColor  = 'Yellow'
     }
 
@@ -743,27 +813,29 @@ function Show-Menu {
     }
 
     Write-Host ''
-    Write-Host '  === VERIFICACAO ===' -ForegroundColor Yellow
-    Write-Host '  [1]  Comparar local vs remoto (qual esta mais atualizado)' -ForegroundColor White
-    Write-Host '  [2]  Informacoes completas do repositorio'                 -ForegroundColor White
-    Write-Host '  [3]  Listar branches'                                      -ForegroundColor White
+    Write-Host '  === VERIFICACAO ==='                                           -ForegroundColor Cyan
+    Write-Host '  [1]  Comparar local vs remoto (qual esta mais atualizado)'   -ForegroundColor Cyan
+    Write-Host '  [2]  Informacoes completas do repositorio'                   -ForegroundColor Cyan
+    Write-Host '  [3]  Listar branches'                                        -ForegroundColor Cyan
     Write-Host ''
-    Write-Host '  === SINCRONIZACAO ===' -ForegroundColor Yellow
-    Write-Host '  [4]  Trocar de branch'                                     -ForegroundColor White
-    Write-Host '  [5]  Baixar do remoto (pull)'                              -ForegroundColor White
+    Write-Host '  === SINCRONIZACAO ==='                                        -ForegroundColor Blue
+    Write-Host '  [4]  Trocar de branch'                                       -ForegroundColor White
+    Write-Host '  [5]  Baixar do remoto (pull)'                                -ForegroundColor White
     Write-Host ''
-    Write-Host '  === ENVIAR ALTERACOES ===' -ForegroundColor Yellow
-    Write-Host '  [6]  Commitar (mensagem aleatoria)'                        -ForegroundColor White
-    Write-Host '  [7]  Subir para o remoto (push)'                           -ForegroundColor White
+    Write-Host '  === ENVIAR ALTERACOES ==='                                    -ForegroundColor Yellow
+    Write-Host '  [6]  Commitar (mensagem aleatoria)'                          -ForegroundColor Yellow
+    Write-Host '  [7]  Subir para o remoto (push)'                             -ForegroundColor Green
+    Write-Host '  [8]  Sincronizar (pull --rebase + push)'                     -ForegroundColor Yellow
     Write-Host ''
-    Write-Host '  === PUBLICACAO ===' -ForegroundColor Green
-    Write-Host '  [8]  Deploy para GitHub Pages (build + deploy)'            -ForegroundColor Green
+    Write-Host '  === PUBLICACAO ==='                                           -ForegroundColor Magenta
+    Write-Host '  [9]  Deploy para GitHub Pages (build + deploy)'              -ForegroundColor Green
+    Write-Host '  [10] Force Redeploy (republica sem perguntas)'               -ForegroundColor Magenta
     Write-Host ''
-    Write-Host '  === WORKSPACE ===' -ForegroundColor Cyan
-    Write-Host '  [9]  Baixar repositorio e adicionar ao workspace'          -ForegroundColor White
-    Write-Host '  [10] Remover repositorio do workspace'                     -ForegroundColor White
+    Write-Host '  === WORKSPACE ==='                                            -ForegroundColor DarkCyan
+    Write-Host '  [11] Baixar repositorio e adicionar ao workspace'            -ForegroundColor White
+    Write-Host '  [12] Remover repositorio do workspace'                       -ForegroundColor White
     Write-Host ''
-    Write-Host '  [0]  Sair'                                                 -ForegroundColor DarkGray
+    Write-Host '  [0]  Sair'                                                   -ForegroundColor DarkGray
     Write-Host ''
 }
 
@@ -782,18 +854,20 @@ while ($true) {
     Write-Host ''
 
     switch ($opcao.Trim()) {
-        '1' { Show-CompareStatus  }
-        '2' { Show-RepoInfo       }
-        '3' { Show-Branches       }
-        '4' { Switch-Branch       }
-        '5' { Invoke-Pull         }
-        '6' { Invoke-RandomCommit }
-        '7' { Invoke-Push         }
-        '8' { Invoke-DeployPages  }
-        '9' { Invoke-CloneAndAddToWorkspace }
-        '10' { Invoke-RemoveFromWorkspace   }
-        '0' { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
-        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 10.' }
+        '1'  { Show-CompareStatus              }
+        '2'  { Show-RepoInfo                   }
+        '3'  { Show-Branches                   }
+        '4'  { Switch-Branch                   }
+        '5'  { Invoke-Pull                     }
+        '6'  { Invoke-RandomCommit             }
+        '7'  { Invoke-Push                     }
+        '8'  { Invoke-SyncPush                 }
+        '9'  { Invoke-DeployPages              }
+        '10' { Invoke-DeployPages -Force       }
+        '11' { Invoke-CloneAndAddToWorkspace   }
+        '12' { Invoke-RemoveFromWorkspace      }
+        '0'  { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
+        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 12.' }
     }
 
     Write-Host ''
