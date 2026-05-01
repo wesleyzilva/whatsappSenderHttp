@@ -1,3 +1,4 @@
+
 import csv
 import re
 from pathlib import Path
@@ -6,10 +7,12 @@ BASE_DIR  = Path(__file__).parent.parent  # raiz do projeto
 FILE1     = BASE_DIR / "01_fontes" / "contacts.csv"
 FILE2     = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
 BLACKLIST = BASE_DIR / "01_fontes" / "blacklist.txt"
-OUT       = BASE_DIR / "04_publico" / "clientes_google_ads_customer_match.csv"
+
+OUT_MAIN      = BASE_DIR / "04_publico" / "clientes_google_ads_customer_match.csv"  # DDD 16
+OUT_FORA      = BASE_DIR / "04_publico" / "clientesDeFora.csv"                      # Outros DDDs
+OUT_PROBLEMA  = BASE_DIR / "04_publico" / "clientes_problema.csv"                   # Problemas
 
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
-
 
 def load_blacklist() -> set:
     """Carrega números de opt-out do blacklist.txt (sem DDI)."""
@@ -17,52 +20,31 @@ def load_blacklist() -> set:
         return set()
     nums = set()
     for line in BLACKLIST.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        d = re.sub(r"\D", "", line)
-        if d.startswith("55") and len(d) > 12:
-            d = d[2:]
-        nums.add(d)
+        digits = re.sub(r"\D", "", line)
+        if digits:
+            nums.add(digits)
     return nums
 
+def normalize_email(email: str) -> str:
+    email = email.strip().lower()
+    if EMAIL_RE.match(email):
+        return email
+    return ""
 
-def normalize_email(value: str) -> str | None:
-    if not value:
-        return None
-    email = value.strip().lower()
-    return email if EMAIL_RE.match(email) else None
+def normalize_phones(phones: str) -> list[str]:
+    # Aceita múltiplos separados por / ou ;
+    result = []
+    for part in re.split(r"[;/]", phones):
+        digits = re.sub(r"\D", "", part)
+        if 10 <= len(digits) <= 13:
+            result.append(digits)
+    return result
 
-
-def normalize_phones(raw: str) -> list[str]:
-    if not raw:
-        return []
-
-    parts = re.split(r":::|;|\||\n", raw)
-    phones: list[str] = []
-
-    for part in parts:
-        digits = re.sub(r"\D", "", part or "")
-        if not digits:
-            continue
-
-        digits = digits.lstrip("0")
-
-        if len(digits) in (10, 11):
-            digits = f"55{digits}"
-        elif len(digits) > 11 and not digits.startswith("55"):
-            continue
-
-        if digits.startswith("55") and len(digits) in (12, 13):
-            phones.append(f"+{digits}")
-
-    return phones
-
-
-def main() -> None:
+def main():
     blacklist = load_blacklist()
     records: set[tuple[str, str, str]] = set()
 
+    # Coleta todos os registros
     with FILE1.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -92,22 +74,56 @@ def main() -> None:
                 if digits not in blacklist:
                     records.add(("", phone, "BR"))
 
-    # Filtra emails cujo telefone correspondente está bloqueado não é possível via email — mantemos todos emails
-    sorted_records = sorted(records, key=lambda x: (x[0], x[1]))
+    # Separação das listas
+    lista_ddd16 = []
+    lista_fora = []
+    lista_problema = []
 
-    with OUT.open("w", encoding="utf-8", newline="") as f:
+    for email, phone, country in sorted(records, key=lambda x: (x[0], x[1])):
+        # Se for email, não separar por DDD
+        if email:
+            lista_ddd16.append((email, "", country))
+            continue
+
+        if not phone:
+            lista_problema.append((email, phone, country))
+            continue
+
+        # Extrai DDD
+        digits = re.sub(r"\D", "", phone)
+        if digits.startswith("55") and len(digits) >= 13:
+            ddd = digits[2:4]
+        elif len(digits) >= 11:
+            ddd = digits[:2]
+        else:
+            ddd = ""
+
+        if ddd == "16":
+            lista_ddd16.append((email, phone, country))
+        elif ddd:
+            lista_fora.append((email, phone, country))
+        else:
+            lista_problema.append((email, phone, country))
+
+    # Salva arquivos
+    with OUT_MAIN.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Email", "Phone", "Country"])
-        writer.writerows(sorted_records)
+        writer.writerows(lista_ddd16)
 
-    total_emails = sum(1 for r in sorted_records if r[0])
-    total_phones = sum(1 for r in sorted_records if r[1])
+    with OUT_FORA.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Email", "Phone", "Country"])
+        writer.writerows(lista_fora)
 
-    print(f"Arquivo gerado: {OUT}")
-    print(f"Registros únicos: {len(sorted_records)}")
-    print(f"- Emails: {total_emails}")
-    print(f"- Telefones: {total_phones}")
+    with OUT_PROBLEMA.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Email", "Phone", "Country"])
+        writer.writerows(lista_problema)
 
+    print(f"Arquivo DDD 16: {OUT_MAIN} ({len(lista_ddd16)} registros)")
+    print(f"Arquivo clientesDeFora: {OUT_FORA} ({len(lista_fora)} registros)")
+    print(f"Arquivo problema: {OUT_PROBLEMA} ({len(lista_problema)} registros)")
 
 if __name__ == "__main__":
     main()
