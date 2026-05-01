@@ -1,6 +1,123 @@
 <h1 align="center">WhatsApp Sender — Dra. Daiana Ferraz</h1>
 
 <p align="center">
+  <em>Automated patient reactivation engine with deduplication, opt-out enforcement, and Google Ads Customer Match integration</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PowerShell-5.1+-5391FE?style=for-the-badge&logo=powershell&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google%20Ads-Customer%20Match-4285F4?style=for-the-badge&logo=googleads&logoColor=white"/>
+</p>
+
+---
+
+> Automated patient reactivation engine combining WhatsApp outreach with Google Ads Customer Match. Enforces monthly per-patient deduplication, opt-out compliance, and daily send limits — converting a dormant contact database into a continuously attributed, measurable revenue stream with full closed-loop campaign integration.
+
+---
+
+## The Problem
+
+Clinics accumulate large patient bases but have no systematic way to re-engage patients who have not returned in months. Manual outreach is inconsistent, frequently reaches the same patient multiple times, and generates zero data for attribution. The result: opt-outs increase, revenue from the existing base stagnates, and the acquisition cost of new patients rises with no counterbalance.
+
+---
+
+## The Solution
+
+A three-stage automation pipeline — list generation, controlled dispatch, and Customer Match export — that converts a static patient CSV into a measurable re-engagement channel. Every message is deduplicated by phone + calendar month, checked against a blacklist, and capped at 100 sends per day to protect account health.
+
+---
+
+## Methodology
+
+```
+01_fontes/ (source data)
+    ├─ contacts.csv          ← patient base
+    ├─ blacklist.txt         ← opt-outs (never contacted)
+    └─ informacoescliente.txt ← clinic config and message template
+
+Stage 1 — Generate list (01_gerar_lista.py)
+    └─► Deduplicate by phone + current month
+    └─► Enforce blacklist
+    └─► Output: 02_disparos/lista_disparos_A_YYYYMMDD.csv
+
+Stage 2 — Dispatch (02_sender.js via 03_disparar.ps1)
+    └─► Read run_*.json config (which CSV, which account, limits)
+    └─► Send messages respecting daily cap (100/account)
+    └─► Log results to 03_log/
+    └─► Progress bar + real-time status in terminal
+
+Stage 3 — Customer Match export
+    └─► Export contacted phones as hashed SHA-256 list
+    └─► Upload to Google Ads → re-target existing patient base
+```
+
+**Operational rules:**
+
+| Rule | Value |
+|------|-------|
+| Max sends per day | 100 per account |
+| Operating hours | Mon–Sat, 08:00–20:00 |
+| Deduplication window | Phone + calendar month |
+| Opt-out enforcement | Blacklist checked before every send |
+
+---
+
+## Results
+
+- Dormant patient base converted into an active, attributed re-engagement channel
+- Opt-out rate controlled through monthly deduplication and blacklist enforcement
+- Customer Match closes the loop: reactivated patients re-enter Google Ads as a targetable audience on the landing page campaign
+
+**How it connects to the landing page:**
+
+| Stream | Tool | Google Ads |
+|--------|------|-----------|
+| New patients | `dradaianaferraz_gold` landing page | Conversion tracking (acquisition) |
+| Existing patients | `whatsappSenderHttp` (this repo) | Customer Match (retention + re-targeting) |
+
+---
+
+## Tradeoffs
+
+| Decision | Chosen | Alternative | Rationale |
+|----------|--------|-------------|----------|
+| Dispatch method | Web automation | Official WhatsApp Business API | The official API requires WABA approval and per-message fees; web automation has zero marginal cost but requires an active WhatsApp session on a dedicated device |
+| Storage | Flat files (CSV/JSON) | Relational database | A database adds infrastructure and operational overhead; flat files are portable, version-controlled, and sufficient for a single-operator workflow with auditable dispatch logs |
+| Processing model | Batch (daily cap) | Real-time / event-driven | Real-time dispatch risks triggering WhatsApp rate-limiting and account suspension; a 100/day hard cap protects the account while maintaining a consistent re-engagement cadence |
+| Deduplication window | Phone + calendar month | Permanent opt-out only | Monthly deduplication re-enables contact after a natural break, balancing re-engagement frequency with opt-out risk better than a permanent block |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Dispatch engine | Node.js 18+ |
+| List generation | Python 3.10+ |
+| Orchestration | PowerShell 5.1 |
+| Ads integration | Google Ads Customer Match (SHA-256 hashed) |
+| Storage | CSV / JSON (flat-file, no database required) |
+
+---
+
+## Getting Started
+
+```bash
+npm install          # install Node.js dependencies
+```
+
+**Run full pipeline:**
+```powershell
+.\03_disparar.ps1    # interactive menu: generate list → dispatch → export
+```
+
+**Manual stages:**
+```bash
+python 01_gerar_lista.py      # generate deduplicated dispatch list
+node 02_sender.js             # start dispatcher (reads run_*.json config)
+```
   <em>Operational patient reactivation tool integrating WhatsApp outreach with Google Ads Customer Match</em>
 </p>
 
