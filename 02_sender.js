@@ -9,7 +9,8 @@
  *   node sender.js                        → usa a lista padrão e limita a 100 envios/dia (teto máximo seguro)
  *   node sender.js --dry-run              → simula sem enviar usando a lista padrão
  *   node sender.js <csv>                  → envia usando um CSV específico
- *   node sender.js <csv> --yes            → envia sem confirmação
+ *   node sender.js <csv> --ddd=16            → envia apenas contatos com DDD 16
+ *   node sender.js <csv> --ddd=16 --dry-run   → simula só DDD 16
  *   node sender.js <csv> --limit=10       → limita a N envios (respeitando o teto dinâmico)
  *   node sender.js <csv> --delay=5000     → delay entre envios em ms (padrão: 4000)
  *   node sender.js --status               → mostra resumo do log
@@ -89,8 +90,11 @@ const STATUS    = args.includes('--status');
 const RESUMO    = args.includes('--resumo');
 const RESET     = args.includes('--reset');
 const RESET_RUN = (args.find(a => a.startsWith('--reset-run=')) || '').split('=')[1];
+const EXPORT_BLACKLIST = args.includes('--export-blacklist');
 const limitArg  = args.find(a => a.startsWith('--limit='));
 const delayArg  = args.find(a => a.startsWith('--delay='));
+const dddArg    = args.find(a => a.startsWith('--ddd='));
+const DDD_FILTER = dddArg ? dddArg.split('=')[1].trim() : null;
 const parsedLimit = limitArg ? parseInt(limitArg.split('=')[1], 10) : DAILY_SEND_CAP;
 const LIMIT      = Number.isFinite(parsedLimit) && parsedLimit > 0 ? parsedLimit : DAILY_SEND_CAP;
 const DELAY_MS   = delayArg ? parseInt(delayArg.split('=')[1], 10) : DEFAULT_DELAY_MS;
@@ -264,38 +268,106 @@ function loadCSV(filePath) {
 }
 
 // ── Comando: --status ─────────────────────────────────────────────────────────
+function pct(n, total) {
+  if (!total) return '  0%';
+  const p = Math.round(n / total * 100);
+  return `${p.toString().padStart(3)}%`;
+}
+function bar(n, total, width = 20) {
+  const filled = total ? Math.round(n / total * width) : 0;
+  return '█'.repeat(filled) + '░'.repeat(width - filled);
+}
+
 function showStatus() {
   banner('STATUS DO LOG DE ENVIOS');
-  const log   = readSentLog();
+  const log     = readSentLog();
   const entries = Object.values(log);
   if (entries.length === 0) {
     console.log(yellow('  Nenhum envio registrado ainda.\n'));
     return;
   }
 
+  const total    = entries.length;
   const byCat    = {};
   const byStatus = {};
   const byDate   = {};
+  const byRun    = {};
+
   for (const e of entries) {
     byCat[e.categoria]    = (byCat[e.categoria]    || 0) + 1;
     byStatus[e.status]    = (byStatus[e.status]    || 0) + 1;
-    const day = (e.sentAt || '').slice(0, 10);
+    const day  = (e.sentAt || '').slice(0, 10);
     byDate[day]           = (byDate[day]            || 0) + 1;
+    const rid  = e.runId  || 'desconhecido';
+    if (!byRun[rid]) byRun[rid] = { sent: 0, failed: 0, skipped: 0, total: 0, date: day };
+    byRun[rid].total++;
+    if (e.status === 'sent')                    byRun[rid].sent++;
+    else if (e.status === 'failed')             byRun[rid].failed++;
+    else                                        byRun[rid].skipped++;
   }
 
-  console.log(bold('  Total de registros:'), entries.length);
+  const sent    = byStatus['sent']                    || 0;
+  const failed  = byStatus['failed']                  || 0;
+  const skipped = byStatus['skipped_not_registered']  || 0;
+
+  // ── Resumo geral ────────────────────────────────────────────────────────────
+  console.log(bold('  Total de registros:'), total);
   console.log('');
+
+  const barSent = bar(sent, total);
+  console.log(bold('  Progresso geral:'));
+  console.log(`  [${green(barSent)}] ${pct(sent, total)} enviados com sucesso`);
+  console.log(`  Enviados   : ${green(sent.toString().padStart(4))}  ${pct(sent, total)}`);
+  console.log(`  Nao-reg.   : ${yellow(skipped.toString().padStart(4))}  ${pct(skipped, total)}`);
+  console.log(`  Falhas     : ${red(failed.toString().padStart(4))}  ${pct(failed, total)}`);
+  console.log('');
+
+  // ── Por status ──────────────────────────────────────────────────────────────
   console.log(bold('  Por status:'));
-  for (const [s, n] of Object.entries(byStatus))
-    console.log(`    ${s === 'sent' ? green('✅') : s === 'failed' ? red('❌') : yellow('⚠️ ')} ${s}: ${n}`);
+  for (const [s, n] of Object.entries(byStatus)) {
+    const icon = s === 'sent' ? green('✅') : s === 'failed' ? red('❌') : yellow('⚠️ ');
+    console.log(`    ${icon} ${s}: ${n}  (${pct(n, total)})`);
+  }
   console.log('');
+
+  // ── Por categoria ───────────────────────────────────────────────────────────
   console.log(bold('  Por categoria:'));
-  for (const [c, n] of Object.entries(byCat))
-    console.log(`    ${cyan(c)}: ${n}`);
+  for (const [c, n] of Object.entries(byCat).sort((a, b) => b[1] - a[1]))
+    console.log(`    ${cyan(c.padEnd(30))}: ${n.toString().padStart(4)}  (${pct(n, total)})`);
   console.log('');
+
+  // ── Por data ─────────────────────────────────────────────────────────────────
   console.log(bold('  Por data:'));
-  for (const [d, n] of Object.entries(byDate).sort())
-    console.log(`    ${d}: ${n}`);
+  const dateEntries = Object.entries(byDate).sort();
+  let cumulative = 0;
+  for (const [d, n] of dateEntries) {
+    cumulative += n;
+    const cPct = pct(cumulative, total);
+    console.log(`    ${d}: ${n.toString().padStart(4)}  (${pct(n, total)} no dia)  acumulado: ${cumulative}/${total}  ${cPct}`);
+  }
+  console.log('');
+
+  // ── Mapa runId → csvFile a partir dos arquivos run_*.json ────────────────────
+  const runCsvMap = {};
+  if (fs.existsSync(LOG_DIR)) {
+    for (const f of fs.readdirSync(LOG_DIR).filter(f => f.startsWith('run_') && f.endsWith('.json'))) {
+      try {
+        const r = JSON.parse(fs.readFileSync(path.join(LOG_DIR, f), 'utf8'));
+        if (r.runId && r.csvFile) runCsvMap[r.runId] = path.basename(r.csvFile);
+      } catch { /* ignora corrompidos */ }
+    }
+  }
+
+  // ── Por lote (runId) — adicionados / removidos ───────────────────────────────
+  console.log(bold('  Por lote de envio (adicionados por execucao):'));
+  const runEntries = Object.entries(byRun).sort((a, b) => a[0].localeCompare(b[0]));
+  let runCum = 0;
+  for (const [rid, r] of runEntries) {
+    runCum += r.total;
+    const csvLabel = runCsvMap[rid] ? cyan(runCsvMap[rid]) : yellow('(CSV desconhecido)');
+    console.log(`    ${bold(rid.slice(0, 19))}  ${csvLabel}`);
+    console.log(`      +${r.total.toString().padStart(3)} adicionados  ✅ ${r.sent}  ⚠️  ${r.skipped}  ❌ ${r.failed}  |  acumulado: ${runCum}/${total}  (${pct(runCum, total)})`);
+  }
   console.log('');
 }
 
@@ -496,14 +568,95 @@ async function sendHuman(client, phone, message) {
   return sendWithRetry(client, phone, message);
 }
 
+// ── Comando: --export-blacklist ───────────────────────────────────────────────
+// Lê o sent_log e adiciona à blacklist.txt os números com status
+// "skipped_not_registered" (sem WhatsApp) que ainda não estão na blacklist.
+// Esses números nunca terão WhatsApp — sem sentido retentar em futuras campanhas.
+function exportToBlacklist() {
+  banner('EXPORTAR SEM-WHATSAPP → BLACKLIST');
+
+  const BLACKLIST_PATH = path.join(DIR, '01_fontes', 'blacklist.txt');
+  const log     = readSentLog();
+  const entries = Object.values(log);
+
+  // Números que nunca terão WhatsApp
+  const semWpp = [...new Set(
+    entries
+      .filter(e => e.status === 'skipped_not_registered')
+      .map(e => String(e.numero || '').replace(/\D/g, ''))
+      .filter(n => n.length >= 10)
+  )];
+
+  // Números com falha (temporária ou permanente) — mostrar mas não auto-blacklist
+  const falhas = [...new Set(
+    entries
+      .filter(e => e.status === 'failed')
+      .map(e => String(e.numero || '').replace(/\D/g, ''))
+      .filter(n => n.length >= 10)
+  )];
+
+  console.log(`  Total no log:              ${entries.length}`);
+  console.log(`  Sem WhatsApp (skipped):    ${yellow(semWpp.length.toString())}`);
+  console.log(`  Com falha (failed):        ${red(falhas.length.toString())}  ${falhas.length > 0 ? '← não exportados (erros podem ser temporários)' : ''}`);
+  console.log('');
+
+  if (semWpp.length === 0) {
+    console.log(green('  Nenhum número novo para adicionar à blacklist.\n'));
+    return;
+  }
+
+  // Lê blacklist atual
+  let currentContent = '';
+  const existingNums = new Set();
+  if (fs.existsSync(BLACKLIST_PATH)) {
+    currentContent = fs.readFileSync(BLACKLIST_PATH, 'utf8');
+    for (const line of currentContent.split('\n')) {
+      const t = line.trim();
+      if (t && !t.startsWith('#')) existingNums.add(t.replace(/\D/g, ''));
+    }
+  }
+
+  const novos = semWpp.filter(n => !existingNums.has(n));
+
+  if (novos.length === 0) {
+    console.log(green('  Todos os números sem WhatsApp já estão na blacklist.\n'));
+    return;
+  }
+
+  const dataHoje = new Date().toISOString().slice(0, 10);
+  const bloco    = `\n# --- Exportado automaticamente em ${dataHoje} (sem WhatsApp) ---\n` +
+                   novos.join('\n') + '\n';
+
+  // Garante que o arquivo existe
+  if (!fs.existsSync(BLACKLIST_PATH)) {
+    fs.writeFileSync(BLACKLIST_PATH,
+      '# Blacklist de opt-out — números que pediram para não receber mensagens\n' +
+      '# Formato: um número por linha (com ou sem DDI/DDD, o sistema normaliza)\n' +
+      '# Linhas começando com # são ignoradas\n', 'utf8');
+  }
+
+  fs.appendFileSync(BLACKLIST_PATH, bloco, 'utf8');
+
+  console.log(green(`  ✅ ${novos.length} número(s) adicionado(s) à blacklist:`));
+  for (const n of novos) console.log(`     ${n}`);
+  console.log('');
+  console.log(`  Arquivo: ${cyan(BLACKLIST_PATH)}`);
+  if (existingNums.size > 0) {
+    console.log(`  Já existiam na blacklist: ${existingNums.size} (ignorados)`);
+  }
+  console.log('');
+  console.log(yellow('  ⚡ Próxima vez que gerar lista (opção [3]), esses números serão excluídos automaticamente.\n'));
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
   banner('WhatsApp Bulk Sender · Dra. Daiana Ferraz');
 
   // Comandos de utilitário (sem envio)
-  if (STATUS)  { showStatus(); return; }
-  if (RESUMO)  { showResumo(csvArg ? csvPath : null); return; }
-  if (RESET)   { await resetLog(RESET_RUN); return; }
+  if (STATUS)           { showStatus(); return; }
+  if (RESUMO)           { showResumo(csvArg ? csvPath : null); return; }
+  if (RESET)            { await resetLog(RESET_RUN); return; }
+  if (EXPORT_BLACKLIST) { exportToBlacklist(); return; }
 
   if (!csvArg) {
     console.log(cyan(`ℹ️  Usando lista padrão: ${path.relative(DIR, csvPath)}`));
@@ -536,13 +689,32 @@ async function main() {
   // Se --limit=N for explicitamente informado, usa N como cap do dia (override manual).
   const dailyCap = limitArg ? LIMIT : DAILY_SEND_CAP;
   const remainingToday = Math.max(0, dailyCap - sentToday);
-  const toSend    = records.filter(c => !sentLog[logKey(c.numero)]);
-  const skippedAlready = records.length - toSend.length;
+
+  // Filtro por DDD (se informado via --ddd=XX)
+  function getDDD(numero) {
+    const d = String(numero).replace(/\D/g, '');
+    return d.length >= 10 ? d.slice(0, 2) : '';
+  }
+  const toSend = records.filter(c => {
+    if (sentLog[logKey(c.numero)]) return false;
+    if (DDD_FILTER) {
+      const ddd = (c.ddd || getDDD(c.numero));
+      if (ddd !== DDD_FILTER) return false;
+    }
+    return true;
+  });
+  if (DDD_FILTER) {
+    console.log(cyan(`🏙️  Filtro DDD ativo: apenas contatos com DDD ${DDD_FILTER}\n`));
+  }
   const effectiveLimit = Math.min(LIMIT, remainingToday);
   const limited   = toSend.slice(0, effectiveLimit);
 
   console.log(`📊 ${bold('Fila:')}`);
-  console.log(`   ${green('✅')} Já enviados hoje (ignorados):  ${skippedAlready}`);
+  console.log(`   ${green('✅')} Já enviados (ignorados):        ${records.length - toSend.length - (DDD_FILTER ? records.filter(c => !sentLog[logKey(c.numero)] && (c.ddd || getDDD(c.numero)) !== DDD_FILTER).length : 0)}`)
+  if (DDD_FILTER) {
+    const outOfDDD = records.filter(c => !sentLog[logKey(c.numero)] && (c.ddd || getDDD(c.numero)) !== DDD_FILTER).length;
+    console.log(`   ${yellow('🏙️')} Outros DDDs (aguardando):     ${outOfDDD}`);
+  }
   console.log(`   ${cyan('📤')} Novos para enviar:             ${toSend.length}`);
   console.log(`   ${yellow('🛡️')} Limite diário seguro:           ${dailyCap}${limitArg ? ' (override)' : ''}`); 
   console.log(`   ${yellow('📆')} Já enviados hoje:               ${sentToday}`);

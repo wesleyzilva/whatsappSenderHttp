@@ -9,7 +9,7 @@ Saída: 02_disparos/
   - lista_disparos_<campanha>_<data>.csv   — todas as colunas + pontuação
   - relatorio_<data>.txt                  — resumo da campanha
 
-Uso: python 01_gerar_lista.py [--campanha A] [--debug]
+Uso: python 01_gerar_lista.py [--id-campanha 2026_campanha_aquecimento_whatsapp] [--campanha A] [--debug]
 """
 
 import csv
@@ -725,6 +725,7 @@ def gerar_mensagem(contato: dict) -> str:
 COLUNAS_SAIDA = [
     "pontuacao",
     "categoria",
+    "ddd",
     "numero",
     "nome",
     "genero_inferido",
@@ -746,16 +747,24 @@ def main():
     parser = argparse.ArgumentParser(
         description="Motor de disparos WhatsApp — Dra. Daiana Ferraz"
     )
+    parser.add_argument("--id-campanha", default="",
+                        help="ID da campanha (ex: 2026_campanha_aquecimento_whatsapp)")
     parser.add_argument("--campanha", default="A",
                         help="Letra inicial da campanha ou 'TODAS' (padrão: A)")
     parser.add_argument("--debug", action="store_true",
                         help="Exibe detalhes no console")
     args = parser.parse_args()
 
-    campanha = args.campanha.upper()
+    campanha    = args.campanha.upper()
+    id_campanha = (args.id_campanha or "").strip().replace(" ", "_")
+    if not id_campanha:
+        id_campanha = f"{date.today().year}_campanha"
+
     print(f"\n{'='*60}")
-    print(f"  Motor de Mensagens WhatsApp — Campanha: {campanha}")
-    print(f"  Data: {DATA_HOJE}  |  {DIA_SEMANA.capitalize()}")
+    print(f"  Motor de Mensagens WhatsApp")
+    print(f"  ID Campanha : {id_campanha}")
+    print(f"  Segmento    : {campanha}")
+    print(f"  Data        : {DATA_HOJE}  |  {DIA_SEMANA.capitalize()}")
     print(f"{'='*60}\n")
 
     # 1) Carrega fontes
@@ -817,6 +826,7 @@ def main():
         pts   = calcular_pontuacao(c)
         sexo  = c.get("sexo") or inferir_genero(c["nome"])
         msg   = gerar_mensagem(c)
+        ddd   = c["fone"][:2] if len(c["fone"]) >= 10 else ""
         stats[cat] += 1
         c["categoria"]       = cat
         c["pontuacao"]       = pts
@@ -825,6 +835,7 @@ def main():
         linhas.append({
             "pontuacao":              pts,
             "categoria":              cat,
+            "ddd":                    ddd,
             "numero":                 c["fone"],
             "nome":                   c["nome"],
             "genero_inferido":        sexo,
@@ -885,26 +896,27 @@ def main():
         with open(nome_arq, "w", newline="", encoding="utf-8-sig") as f:
             writer = csv.DictWriter(f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
             writer.writeheader()
-        print(f"✅ CSV vazio salvo: {nome_arq}")
+        print(f"✅ CSV vazio salvo: {nome_arq}  [campanha={id_campanha}  segmento={campanha}]")
         sys.exit(0)
 
     # 9) Salva CSV completo
     SAIDA_DIR.mkdir(parents=True, exist_ok=True)
     sufixo = date.today().strftime("%Y%m%d")
-    nome_arq = SAIDA_DIR / f"lista_disparos_{campanha}_{sufixo}.csv"
+    nome_arq = SAIDA_DIR / f"lista_{id_campanha}_{campanha}_{sufixo}.csv"
     with open(nome_arq, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(linhas)
-    print(f"\n✅ CSV completo: {nome_arq}  ({len(linhas)} linhas)")
+    print(f"\n✅ CSV completo: {nome_arq}  ({len(linhas)} linhas)  [campanha={id_campanha}  segmento={campanha}]")
 
     # 10) Relatório
-    rel_arq = SAIDA_DIR / f"relatorio_{sufixo}.txt"
+    rel_arq = SAIDA_DIR / f"relatorio_{id_campanha}_{campanha}_{sufixo}.txt"
     with open(rel_arq, "w", encoding="utf-8") as f:
         f.write(f"Relatório de Campanha — Dra. Daiana Ferraz\n{'='*50}\n")
         f.write(f"Data:           {DATA_HOJE}\n")
         f.write(f"Dia:            {DIA_SEMANA.capitalize()}\n")
-        f.write(f"Campanha:       {campanha}\n")
+        f.write(f"ID Campanha:    {id_campanha}\n")
+        f.write(f"Segmento:       {campanha}\n")
         f.write(f"Total disparos: {len(linhas)}\n\n")
         f.write("Distribuição por categoria:\n")
         for cat, qtd in stats.items():
@@ -933,8 +945,18 @@ def main():
         print("─" * 40)
         print(linha["mensagem"][:300] + "…")
 
-    print(f"\n🏁 Campanha '{campanha}' — {len(linhas)} disparos prontos, "
-          f"ordenados por prioridade!\n")
+    # 12) Resumo de DDDs
+    ddds = {}
+    for l in linhas:
+        ddds[l["ddd"]] = ddds.get(l["ddd"], 0) + 1
+    print(f"\n{'─'*60}")
+    print("DISTRIBUIÇÃO POR DDD:")
+    for ddd_val, qtd in sorted(ddds.items()):
+        marca = " ← hoje" if ddd_val == "16" else ""
+        print(f"  DDD {ddd_val}: {qtd} contatos{marca}")
+
+    print(f"\n🏁 Campanha '{id_campanha}' | Segmento '{campanha}' — {len(linhas)} disparos prontos."
+          f"\n   Para enviar só DDD 16: node 02_sender.js <csv> --ddd=16\n")
 
 
 if __name__ == "__main__":
