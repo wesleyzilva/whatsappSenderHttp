@@ -779,6 +779,159 @@ function Invoke-DeployPages {
 }
 
 # ---------------------------------------------------------------------------
+# OPCAO 13 - Force push para main (sobrescreve main com branch atual)
+# ---------------------------------------------------------------------------
+function Invoke-ForcePushToMain {
+    Write-Header 'FORCE PUSH PARA MAIN'
+
+    $info = Get-RepoInfo
+
+    Write-Host '  ATENCAO: Esta operacao vai sobrescrever a branch main com a branch atual.' -ForegroundColor Red
+    Write-Host "  Branch atual : $($info.Branch)" -ForegroundColor Cyan
+    Write-Host '  Destino      : main (--force)' -ForegroundColor Yellow
+    Write-Host ''
+
+    if ($info.HasUncommitted) {
+        Write-Warn "$($info.Uncommitted.Count) arquivo(s) com alteracoes nao commitadas."
+        $resp = Read-Host '  Deseja commitar antes do force push? (s/N)'
+        if ($resp -match '^[sS]$') {
+            Invoke-RandomCommit
+            Write-Host ''
+        }
+    }
+
+    $resp = Read-Host "  Confirmar: git push --force origin $($info.Branch):main ? (s/N)"
+    if ($resp -notmatch '^[sS]$') { Write-Host '  Cancelado.'; return }
+
+    Write-Info "Executando: git push --force origin $($info.Branch):main"
+    $out = git push --force origin "$($info.Branch):main" 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        Write-OK "Force push para main concluido. Main agora espelha '$($info.Branch)'."
+        $out | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
+    }
+    else {
+        Write-Err 'Force push falhou:'
+        $out | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+    }
+}
+
+# ---------------------------------------------------------------------------
+# OPCAO 14 - Renomear branch atual e/ou pasta local
+# ---------------------------------------------------------------------------
+function Invoke-Rename {
+    Write-Header 'RENOMEAR BRANCH / PASTA LOCAL'
+
+    $info = Get-RepoInfo
+
+    Write-Host '  O que deseja renomear?' -ForegroundColor White
+    Write-Host '  [A] Branch atual (local + remoto)'  -ForegroundColor Cyan
+    Write-Host '  [B] Pasta local do repositorio'     -ForegroundColor Yellow
+    Write-Host '  [C] Ambos (branch + pasta)'         -ForegroundColor Green
+    Write-Host ''
+
+    $choice = (Read-Host '  Escolha (Enter = cancelar)').Trim().ToUpper()
+    if ($choice -eq '') { Write-Host '  Cancelado.'; return }
+    if ($choice -notin @('A', 'B', 'C')) { Write-Err 'Opcao invalida.'; return }
+
+    # ── Renomear branch ──────────────────────────────────────────────────────
+    if ($choice -in @('A', 'C')) {
+        $currentBranch = $info.Branch
+        Write-Host ''
+        Write-Host "  Branch atual: $currentBranch" -ForegroundColor Cyan
+        $newBranch = (Read-Host '  Novo nome da branch (Enter = cancelar)').Trim()
+        if ([string]::IsNullOrWhiteSpace($newBranch)) { Write-Host '  Cancelado.'; return }
+
+        $outRename = git branch -m $currentBranch $newBranch 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            Write-Err 'Falha ao renomear branch localmente:'
+            $outRename | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+            return
+        }
+        Write-OK "Branch renomeada localmente: $currentBranch -> $newBranch"
+
+        # Remove branch antiga do remoto (ignora erro se nao existir)
+        git push origin ":$currentBranch" 2>&1 | Out-Null
+        if ($LASTEXITCODE -eq 0) {
+            Write-OK "Branch remota '$currentBranch' removida."
+        } else {
+            Write-Warn "Branch remota '$currentBranch' nao encontrada (ignorado)."
+        }
+
+        $outPush = git push --set-upstream origin $newBranch 2>&1
+        if ($LASTEXITCODE -eq 0) {
+            Write-OK "Branch '$newBranch' publicada no remoto com tracking configurado."
+        } else {
+            Write-Err 'Falha ao publicar nova branch no remoto:'
+            $outPush | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+        }
+    }
+
+    # ── Renomear pasta local ─────────────────────────────────────────────────
+    if ($choice -in @('B', 'C')) {
+        $currentFolder = Split-Path $RepoPath -Leaf
+        $parentFolder  = Split-Path $RepoPath -Parent
+        Write-Host ''
+        Write-Host "  Pasta atual: $RepoPath" -ForegroundColor Cyan
+        $newFolder = (Read-Host '  Novo nome da pasta (Enter = cancelar)').Trim()
+        if ([string]::IsNullOrWhiteSpace($newFolder)) { Write-Host '  Cancelado.'; return }
+
+        $newPath = Join-Path $parentFolder $newFolder
+        if (Test-Path $newPath) {
+            Write-Err "Ja existe uma pasta com o nome '$newFolder'."
+            return
+        }
+
+        try {
+            Rename-Item -Path $RepoPath -NewName $newFolder -ErrorAction Stop
+            Write-OK "Pasta renomeada: $currentFolder -> $newFolder"
+
+            # Atualiza workspace .code-workspace se existir
+            $workspaceData = Get-WorkspaceData
+            $folders = [System.Collections.Generic.List[object]]::new()
+            $updated = $false
+            foreach ($f in $workspaceData.folders) {
+                if ($f.path -match [regex]::Escape($currentFolder)) {
+                    $f.path = $f.path -replace [regex]::Escape($currentFolder), $newFolder
+                    $updated = $true
+                }
+                if ($f.name -eq $currentFolder) {
+                    $f.name = $newFolder
+                    $updated = $true
+                }
+                $folders.Add($f)
+            }
+            if ($updated) {
+                $workspaceData.folders = $folders
+                Save-WorkspaceData -WorkspaceData $workspaceData
+                Write-OK 'Workspace atualizado com o novo nome da pasta.'
+            }
+
+            Write-Host ''
+            Write-Warn 'O script sera encerrado pois o caminho mudou.'
+            Write-Info "Reabra o terminal em: $newPath\gitCommands"
+        } catch {
+            Write-Err "Falha ao renomear pasta: $_"
+            return
+        }
+    }
+
+    # ── Dica: renomear repo remoto ────────────────────────────────────────────
+    Write-Host ''
+    Write-Info 'Para renomear o REPOSITORIO no GitHub acesse:'
+    $repoUrl = $info.Remote -replace '\.git$', ''
+    Write-Host "      $repoUrl/settings" -ForegroundColor Gray
+    Write-Host '  Settings > General > Repository name' -ForegroundColor Gray
+    Write-Host '  Depois atualize o remote local com:' -ForegroundColor DarkGray
+    Write-Host '      git remote set-url origin <nova-url>' -ForegroundColor DarkGray
+
+    if ($choice -in @('B', 'C')) {
+        Write-Host ''
+        Read-Host '  Pressione Enter para encerrar'
+        exit 0
+    }
+}
+
+# ---------------------------------------------------------------------------
 # Menu principal
 # ---------------------------------------------------------------------------
 function Show-Menu {
@@ -835,6 +988,10 @@ function Show-Menu {
     Write-Host '  [11] Baixar repositorio e adicionar ao workspace'            -ForegroundColor White
     Write-Host '  [12] Remover repositorio do workspace'                       -ForegroundColor White
     Write-Host ''
+    Write-Host '  === AVANCADO ==='                                            -ForegroundColor Red
+    Write-Host '  [13] Force push para main (sobrescreve main)'               -ForegroundColor Red
+    Write-Host '  [14] Renomear branch / pasta local / repo remoto'           -ForegroundColor White
+    Write-Host ''
     Write-Host '  [0]  Sair'                                                   -ForegroundColor DarkGray
     Write-Host ''
 }
@@ -866,8 +1023,10 @@ while ($true) {
         '10' { Invoke-DeployPages -Force       }
         '11' { Invoke-CloneAndAddToWorkspace   }
         '12' { Invoke-RemoveFromWorkspace      }
+        '13' { Invoke-ForcePushToMain          }
+        '14' { Invoke-Rename                   }
         '0'  { Write-Host "`n  Ate logo!`n" -ForegroundColor Cyan; exit 0 }
-        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 12.' }
+        default { Write-Warn 'Opcao invalida. Digite um numero entre 0 e 14.' }
     }
 
     Write-Host ''
