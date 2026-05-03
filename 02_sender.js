@@ -803,7 +803,16 @@ async function main() {
     puppeteer: {
       headless: true,
       executablePath: chromePath || undefined,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--no-first-run',
+        '--no-zygote',
+        '--disable-extensions',
+        '--disable-background-networking',
+      ],
     },
   });
 
@@ -838,6 +847,10 @@ async function main() {
   });
 
   client.on('authenticated',  ()    => console.log(green('✅ WhatsApp autenticado!\n')));
+  client.on('loading_screen', (percent, message) => {
+    process.stdout.write(`\r   ⏳ Carregando WhatsApp Web… ${String(percent).padStart(3)}%  ${message || ''}              `);
+    if (percent >= 100) process.stdout.write('\n');
+  });
   client.on('auth_failure',   msg   => { console.error(red(`❌ Falha de autenticação: ${msg}`)); process.exit(1); });
   client.on('disconnected',   reason => {
     console.log(yellow(`⚠️  Desconectado: ${reason}`));
@@ -845,11 +858,23 @@ async function main() {
   });
 
   await new Promise((resolve, reject) => {
+    const READY_TIMEOUT_MS = 120_000; // 2 min — se o WhatsApp Web não carregar, aborta limpo
+    const timeout = setTimeout(() => {
+      reject(new Error(
+        'Timeout: WhatsApp Web não ficou pronto em 120s.\n' +
+        '  Possíveis causas:\n' +
+        '  1. Sessão expirada — apague .wwebjs_auth e escaneie o QR novamente\n' +
+        '  2. WhatsApp Web em manutenção — tente em alguns minutos\n' +
+        '  3. Chrome sem memória — feche outros programas e tente novamente\n' +
+        '  Comando para limpar sessão: Remove-Item -Recurse .wwebjs_auth'
+      ));
+    }, READY_TIMEOUT_MS);
     client.on('ready', () => {
       readySeen = true;
+      clearTimeout(timeout);
       resolve();
     });
-    client.initialize().catch(reject);
+    client.initialize().catch(err => { clearTimeout(timeout); reject(err); });
   });
   console.log(green('✅ WhatsApp pronto. Iniciando envios...\n'));
 

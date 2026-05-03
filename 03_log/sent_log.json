@@ -5480,5 +5480,829 @@
     "status": "skipped_not_registered",
     "sentAt": "2026-04-22T11:37:24.957Z",
     "runId": "2026-04-22T10-20-28"
+  },
+  "16994411551_202605": {
+    "numero": "16994411551",
+    "nome": "Davi Batista de Souza",
+    "categoria": "agenda_ativa",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:26:08.928Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996326293_202605": {
+    "numero": "16996326293",
+    "nome": "Donato",
+    "categoria": "agenda_ativa",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:26:48.258Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11940091659_202605": {
+    "numero": "11940091659",
+    "nome": "Davi cupertino frias",
+    "categoria": "harmonizacao_manutencao",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:27:01.347Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16999999999_202605": {
+    "numero": "16999999999",
+    "nome": "DAIANA TESTE",
+    "categoria": "agenda_ativa",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:27:41.118Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996030388_202605": {
+    "numero": "16996030388",
+    "nome": "Daniel Moutinho",
+    "categoria": "harmonizacao_manutencao",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:28:48.721Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11958071914_202605": {
+    "numero": "11958071914",
+    "nome": "Douglas Fernandes de Souza",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:28:58.665Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11972190188_202605": {
+    "numero": "11972190188",
+    "nome": "Davi Sátiro Gomes da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:29:33.974Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11975233176_202605": {
+    "numero": "11975233176",
+    "nome": "Debora Caruso Baes",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:30:20.527Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "13996402089_202605": {
+    "numero": "13996402089",
+    "nome": "Daniel Rezende",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:31:10.310Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "14997086187_202605": {
+    "numero": "14997086187",
+    "nome": "Denise Helena De Campos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:32:01.374Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "15996294761_202605": {
+    "numero": "15996294761",
+    "nome": "David Rafael Ferreira Filho",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:33:04.372Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16918655316_202605": {
+    "numero": "16918655316",
+    "nome": "djair alves dos santos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:33:20.133Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16981109052_202605": {
+    "numero": "16981109052",
+    "nome": "Daniel Gustavo San martin Santibanz - Atualizar cadastro",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:33:20.342Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16981147844_202605": {
+    "numero": "16981147844",
+    "nome": "Devanildo Araujo da Silva Lima",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:34:02.830Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16981178093_202605": {
+    "numero": "16981178093",
+    "nome": "Danielle Martins Canavez Lamin",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:34:56.744Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982175891_202605": {
+    "numero": "16982175891",
+    "nome": "Daniel Montenegro Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:35:51.980Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982250531_202605": {
+    "numero": "16982250531",
+    "nome": "Denise Novo",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:36:03.720Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982638426_202605": {
+    "numero": "16982638426",
+    "nome": "Davi Lopes de Paiva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:36:45.216Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16983383497_202605": {
+    "numero": "16983383497",
+    "nome": "Debora Cristiane da Silva Brito",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:36:53.911Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16988200853_202605": {
+    "numero": "16988200853",
+    "nome": "Daiane Cristina Duarte",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:37:33.458Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16988259911_202605": {
+    "numero": "16988259911",
+    "nome": "Daniele Pereira de Andrade Silvestre",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:38:36.429Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16988340013_202605": {
+    "numero": "16988340013",
+    "nome": "Dinamérico Augusto Rego Rangel",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:39:23.460Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991019929_202605": {
+    "numero": "16991019929",
+    "nome": "Darlene Botaro",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:40:27.068Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991356723_202605": {
+    "numero": "16991356723",
+    "nome": "Deividi Donizeti Vanceto",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:41:21.224Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991367484_202605": {
+    "numero": "16991367484",
+    "nome": "Denis Pereira de Lima",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:42:15.571Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991404066_202605": {
+    "numero": "16991404066",
+    "nome": "Derik Zeferino Souza",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:43:11.328Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991517288_202605": {
+    "numero": "16991517288",
+    "nome": "Daniele Caroline Caldeira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:44:07.323Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991773422_202605": {
+    "numero": "16991773422",
+    "nome": "Diego Ramos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:44:52.381Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991849978_202605": {
+    "numero": "16991849978",
+    "nome": "Denise Occhiena",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:45:59.111Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991875436_202605": {
+    "numero": "16991875436",
+    "nome": "Denise Carolina da Silva Pereira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:46:52.497Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992018862_202605": {
+    "numero": "16992018862",
+    "nome": "Daniela Silva",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:47:10.756Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992021004_202605": {
+    "numero": "16992021004",
+    "nome": "Danielle Aparecida Cestaro",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:47:44.243Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992034539_202605": {
+    "numero": "16992034539",
+    "nome": "Deise Martins",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:48:32.800Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992536426_202605": {
+    "numero": "16992536426",
+    "nome": "Davi bento dos santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:49:33.964Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992690970_202605": {
+    "numero": "16992690970",
+    "nome": "DANDARA CRISTINA BALDOINO",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:50:26.360Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992717387_202605": {
+    "numero": "16992717387",
+    "nome": "Derik Matheus Pastro",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:51:14.890Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992771640_202605": {
+    "numero": "16992771640",
+    "nome": "DANILO SIGOLI",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:52:23.610Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992813639_202605": {
+    "numero": "16992813639",
+    "nome": "Dhiogo José Corrêa de Sá",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:53:24.849Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992964946_202605": {
+    "numero": "16992964946",
+    "nome": "Daniel Ferreira",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:53:34.376Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993071401_202605": {
+    "numero": "16993071401",
+    "nome": "Daniel Ferraz de Camargo",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:54:11.128Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993245684_202605": {
+    "numero": "16993245684",
+    "nome": "Douglas Pinheiro",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:55:13.613Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993352325_202605": {
+    "numero": "16993352325",
+    "nome": "Dariane da Silva Catoia",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:56:05.196Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993356837_202605": {
+    "numero": "16993356837",
+    "nome": "Danielle Silva Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:57:03.069Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993447522_202605": {
+    "numero": "16993447522",
+    "nome": "Daiana cristina de lima",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:57:56.069Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993675965_202605": {
+    "numero": "16993675965",
+    "nome": "Diomedes Miranda dos Santos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T18:58:19.910Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16993848249_202605": {
+    "numero": "16993848249",
+    "nome": "Debora Cristina Beletato da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:58:57.424Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16994029286_202605": {
+    "numero": "16994029286",
+    "nome": "DAIANE RICIOLI",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T18:59:54.868Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16994084658_202605": {
+    "numero": "16994084658",
+    "nome": "Denise Lopes dos Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:00:59.904Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16994140037_202605": {
+    "numero": "16994140037",
+    "nome": "Djone Antonio Adão Topp",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:01:21.266Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16994171157_202605": {
+    "numero": "16994171157",
+    "nome": "Daniele Cristiane Kreutli |",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:02:07.397Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16994667948_202605": {
+    "numero": "16994667948",
+    "nome": "Douglas Silva do Nascimento",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:03:09.342Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996000506_202605": {
+    "numero": "16996000506",
+    "nome": "Daiany Aparecida da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:03:55.585Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996203236_202605": {
+    "numero": "16996203236",
+    "nome": "Daniela Malavazi dos Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:05:04.607Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996261712_202605": {
+    "numero": "16996261712",
+    "nome": "Dalton Assumpção Leite",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:05:55.902Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16996369543_202605": {
+    "numero": "16996369543",
+    "nome": "Diego Tambelli Rodrigues",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:06:53.630Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997006934_202605": {
+    "numero": "16997006934",
+    "nome": "Daiane Pinho Mamedes",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:07:13.449Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997060698_202605": {
+    "numero": "16997060698",
+    "nome": "Daniela de Souza Coleta",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:07:13.660Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997138438_202605": {
+    "numero": "16997138438",
+    "nome": "Denise Pereira Duarte",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:07:46.095Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997144891_202605": {
+    "numero": "16997144891",
+    "nome": "Débora Maria Fogar Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:08:41.791Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997282631_202605": {
+    "numero": "16997282631",
+    "nome": "Daniel Tomaz",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:09:41.700Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997497235_202605": {
+    "numero": "16997497235",
+    "nome": "Daisy Jesus Machado",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:10:37.940Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997559206_202605": {
+    "numero": "16997559206",
+    "nome": "Diego Silva Almeida Bastos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:10:47.414Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997574357_202605": {
+    "numero": "16997574357",
+    "nome": "Diogo Lima de Oliveira",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:10:47.625Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997690465_202605": {
+    "numero": "16997690465",
+    "nome": "Debora Beatriz Cardoso Vicente *Atualizar celular",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:10:47.832Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997796571_202605": {
+    "numero": "16997796571",
+    "nome": "Daniele de Oliveira Almeida",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:11:23.363Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997813205_202605": {
+    "numero": "16997813205",
+    "nome": "Daniela Nogueira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:12:31.877Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997814142_202605": {
+    "numero": "16997814142",
+    "nome": "Denis José Pinto Caldeira",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:13:30.285Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997919097_202605": {
+    "numero": "16997919097",
+    "nome": "Dilson Coleta",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:14:32.332Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16999644891_202605": {
+    "numero": "16999644891",
+    "nome": "Daiane Esperança da Cunha Lacerda",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:15:30.860Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "18997616905_202605": {
+    "numero": "18997616905",
+    "nome": "Débora Ananias Guimarães",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:16:20.840Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "19971111284_202605": {
+    "numero": "19971111284",
+    "nome": "Daiane Cristina Silva Bandeira",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:16:31.095Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "19982453193_202605": {
+    "numero": "19982453193",
+    "nome": "Diego Candido da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:17:04.381Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "19988754579_202605": {
+    "numero": "19988754579",
+    "nome": "Douglas delescoste gregorio",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:17:53.627Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "19997883440_202605": {
+    "numero": "19997883440",
+    "nome": "Denise Helena Kronka Alba",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:18:39.900Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "21996437908_202605": {
+    "numero": "21996437908",
+    "nome": "Daniel Almeida Burgos",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:19:03.134Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "24999717527_202605": {
+    "numero": "24999717527",
+    "nome": "Daniel Colomer Pont",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:19:44.787Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16997828835_202605": {
+    "numero": "16997828835",
+    "nome": "Daiana Ferraz",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:20:46.680Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11982861077_202605": {
+    "numero": "11982861077",
+    "nome": "Douglas neves da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:21:44.922Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "11986354134_202605": {
+    "numero": "11986354134",
+    "nome": "Daiane Rocha",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:22:08.912Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16934168893_202605": {
+    "numero": "16934168893",
+    "nome": "Daiana Casa",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:22:09.124Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16981010153_202605": {
+    "numero": "16981010153",
+    "nome": "Dra Aline",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:22:51.472Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16981023212_202605": {
+    "numero": "16981023212",
+    "nome": "Dani Ufscar",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:23:03.143Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982040043_202605": {
+    "numero": "16982040043",
+    "nome": "Dvi Juliana",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:23:42.289Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982562246_202605": {
+    "numero": "16982562246",
+    "nome": "Daniela Bellardo Fernandes da Silva",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:23:54.284Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982621168_202605": {
+    "numero": "16982621168",
+    "nome": "Décio Alves",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:23:54.537Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982621186_202605": {
+    "numero": "16982621186",
+    "nome": "Decio Alves Ribeito",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:24:43.471Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16982687666_202605": {
+    "numero": "16982687666",
+    "nome": "Daniel José Domingos Coleta",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:25:04.998Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16988298711_202605": {
+    "numero": "16988298711",
+    "nome": "Danubia dos santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:25:36.914Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16989815613_202605": {
+    "numero": "16989815613",
+    "nome": "Diego Martins",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:25:57.350Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991120186_202605": {
+    "numero": "16991120186",
+    "nome": "Danielli Tonani",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:26:41.754Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991129585_202605": {
+    "numero": "16991129585",
+    "nome": "Dr Pierri",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:27:37.279Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991243794_202605": {
+    "numero": "16991243794",
+    "nome": "davi henrique fernandes",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:28:32.132Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991362079_202605": {
+    "numero": "16991362079",
+    "nome": "Daniele Santos Menegheli",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:29:22.968Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991548186_202605": {
+    "numero": "16991548186",
+    "nome": "Daia Mãe Do Maycon da Silva júnior",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:30:24.529Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16991947424_202605": {
+    "numero": "16991947424",
+    "nome": "Diego Rodrigues da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:31:14.441Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992034549_202605": {
+    "numero": "16992034549",
+    "nome": "Denise Martins",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:31:38.295Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992308765_202605": {
+    "numero": "16992308765",
+    "nome": "Diana Briano Silva Santana",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:32:23.411Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992359968_202605": {
+    "numero": "16992359968",
+    "nome": "Denise Oliveira Gavessa",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:33:30.155Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992502590_202605": {
+    "numero": "16992502590",
+    "nome": "David Ribeiro da Silva",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-01T19:34:36.101Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992591641_202605": {
+    "numero": "16992591641",
+    "nome": "Daniela Esposa Clayton",
+    "categoria": "sem_historico",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-05-01T19:34:59.637Z",
+    "runId": "2026-05-01T18-26-04"
+  },
+  "16992888561_202605": {
+    "numero": "16992888561",
+    "nome": "Daiani Santos Mãe Luana Da Santos",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-02T17:50:43.468Z",
+    "runId": "2026-05-02T17-49-52"
+  },
+  "16993088123_202605": {
+    "numero": "16993088123",
+    "nome": "Denise Wesley",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-02T17:51:36.104Z",
+    "runId": "2026-05-02T17-49-52"
+  },
+  "16993133214_202605": {
+    "numero": "16993133214",
+    "nome": "Daiane Solange de Farias",
+    "categoria": "sem_historico",
+    "status": "sent",
+    "sentAt": "2026-05-02T17:52:34.830Z",
+    "runId": "2026-05-02T17-49-52"
   }
 }

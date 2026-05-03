@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
     Gerenciador Git interativo para o repositorio imprimaMais.
@@ -751,6 +751,13 @@ function Invoke-DeployPages {
         Write-Host '  ============================================' -ForegroundColor Cyan
         Write-Host '  VALIDACOES POS-DEPLOY' -ForegroundColor Cyan
         Write-Host '  ============================================' -ForegroundColor Cyan
+        # Coleta dados do commit e repo remoto para exibir nas validacoes
+        $lastCommit  = (git log --oneline -1 2>&1) | Select-Object -First 1
+        $remote      = (git remote get-url origin 2>&1) | Select-Object -First 1
+        $repoSlug    = if ($remote -match 'github\.com[:/](.+?)(?:\.git)?$') { $Matches[1] } else { $null }
+        $actionsUrl  = if ($repoSlug) { "https://github.com/$repoSlug/actions" } else { $null }
+        $commitUrl   = if ($repoSlug -and $lastCommit -match '^([0-9a-f]+)') { "https://github.com/$repoSlug/commit/$($Matches[1])" } else { $null }
+
         if ($siteUrl) {
             Write-Host "  Site publicado em: $siteUrl" -ForegroundColor White
             Write-Host ''
@@ -766,8 +773,19 @@ function Invoke-DeployPages {
             Write-Host '  [4] LinkedIn Post Inspector (preview OG)' -ForegroundColor Yellow
             Write-Host "      https://www.linkedin.com/post-inspector/inspect/$([Uri]::EscapeDataString($siteUrl))" -ForegroundColor Gray
             Write-Host ''
-            Write-Host '  [5] Google Search Console — Inspecionar URL' -ForegroundColor Yellow
+            Write-Host '  [5] Google Search Console â€” Inspecionar URL' -ForegroundColor Yellow
             Write-Host '      https://search.google.com/search-console' -ForegroundColor Gray
+        }
+        if ($actionsUrl) {
+            Write-Host ''
+            Write-Host '  [6] GitHub Actions â€” status do workflow de deploy' -ForegroundColor Yellow
+            Write-Host "      $actionsUrl" -ForegroundColor Gray
+        }
+        if ($commitUrl) {
+            Write-Host ''
+            Write-Host '  [7] Ultimo commit no remoto' -ForegroundColor Yellow
+            Write-Host "      $lastCommit" -ForegroundColor DarkGray
+            Write-Host "      $commitUrl" -ForegroundColor Gray
         }
         Write-Host '  ============================================' -ForegroundColor Cyan
         Write-Host ''
@@ -833,7 +851,7 @@ function Invoke-Rename {
     if ($choice -eq '') { Write-Host '  Cancelado.'; return }
     if ($choice -notin @('A', 'B', 'C')) { Write-Err 'Opcao invalida.'; return }
 
-    # ── Renomear branch ──────────────────────────────────────────────────────
+    # â”€â”€ Renomear branch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if ($choice -in @('A', 'C')) {
         $currentBranch = $info.Branch
         Write-Host ''
@@ -866,7 +884,7 @@ function Invoke-Rename {
         }
     }
 
-    # ── Renomear pasta local ─────────────────────────────────────────────────
+    # â”€â”€ Renomear pasta local â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if ($choice -in @('B', 'C')) {
         $currentFolder = Split-Path $RepoPath -Leaf
         $parentFolder  = Split-Path $RepoPath -Parent
@@ -915,7 +933,7 @@ function Invoke-Rename {
         }
     }
 
-    # ── Dica: renomear repo remoto ────────────────────────────────────────────
+    # â”€â”€ Dica: renomear repo remoto â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     Write-Host ''
     Write-Info 'Para renomear o REPOSITORIO no GitHub acesse:'
     $repoUrl = $info.Remote -replace '\.git$', ''

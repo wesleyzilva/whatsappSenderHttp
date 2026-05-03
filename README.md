@@ -395,3 +395,18 @@ Se um número não deveria receber novamente:
 ## Stack
 
 Node.js · Python 3 · PowerShell 5 · WhatsApp Web (sem API oficial)
+
+---
+
+## Big Picture
+
+This tool closes the **last mile of a B2C reactivation funnel**. Acquisition campaigns (paid ads, landing pages) target cold leads at high cost; reactivation targets an existing patient base at **zero acquisition cost** — the highest-ROI segment in any service business. The closed loop with Google Ads Customer Match converts each outreach event into an attribution signal, feeding the paid campaign algorithm with first-party data that reduces CPA over time. The deduplication and blacklist enforcement are not just compliance features — they are the mechanism that keeps the channel healthy and permission-based.
+
+## Executive Tradeoffs
+
+| Dimension | Decision | Alternative Rejected | Rationale |
+|-----------|----------|---------------------|-----------|
+| API layer | Unofficial WA Web automation | Meta Business API (official) | Official API requires business verification (weeks), a dedicated number, and per-conversation cost; this tool operates at personal/clinic scale under personal account limits |
+| Architecture | Node.js (sender) + Python (data) | Python-only | The WhatsApp Web automation library ecosystem (Baileys) lives in Node.js; Python excels at data processing; polyglot pipeline plays to each runtime's strength |
+| Daily cap | 100 sends/day hard limit | Unlimited / maximum throughput | Mirrors human messaging behaviour; prevents spam classification by WhatsApp's rate detection; protects the account that is the clinic's primary contact channel |
+| Attribution | Google Ads Customer Match export | No attribution | Converts outreach into a paid campaign signal; the reactivation list becomes a lookalike audience source, lowering new patient CPA over successive campaigns |
