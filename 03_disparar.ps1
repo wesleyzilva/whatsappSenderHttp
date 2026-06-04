@@ -98,7 +98,8 @@ do {
                     Write-Host "  Enviando ate $limite mensagens..." -ForegroundColor Green
                     Write-Host ""
                     node 02_sender.js "$csv" "--limit=$limite"
-                } else {
+                }
+                else {
                     Write-Host "  Numero invalido." -ForegroundColor Red
                 }
             }
@@ -117,7 +118,8 @@ do {
             $confirm = Read-Host "  Confirma? (s/N)"
             if ($confirm -ieq "s") {
                 node 02_sender.js --reset
-            } else {
+            }
+            else {
                 Write-Host "  Cancelado." -ForegroundColor Yellow
             }
             Write-Host ""
@@ -129,8 +131,25 @@ do {
             $runId = Read-Host "  Informe o runId a remover (ex: 2026-04-08T14-30-00)"
             if (-not [string]::IsNullOrWhiteSpace($runId)) {
                 node 02_sender.js "--reset-run=$runId"
-            } else {
+            }
+            else {
                 Write-Host "  RunId invalido." -ForegroundColor Red
+            }
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "8" {
+            Write-Host ""
+            Write-Host "  Gerando export Customer Match (Google Ads)..." -ForegroundColor Magenta
+            Write-Host ""
+            python 04_publico\04_gerar_customer_match.py
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host ""
+                Write-Host "  Arquivo gerado em .\04_publico\clientes_google_ads_customer_match.csv" -ForegroundColor Green
+            }
+            else {
+                Write-Host "  ERRO ao gerar Customer Match" -ForegroundColor Red
             }
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
@@ -148,7 +167,8 @@ do {
             Write-Host ""
             if ($debugArg) {
                 python 01_gerar_lista.py "--campanha=$campanha" $debugArg
-            } else {
+            }
+            else {
                 python 01_gerar_lista.py "--campanha=$campanha"
             }
             if ($LASTEXITCODE -ne 0) {
@@ -174,7 +194,8 @@ do {
                 Write-Host "  Gerando relatorio para: $([System.IO.Path]::GetFileName($csv))" -ForegroundColor White
                 Write-Host ""
                 node 02_sender.js "$csv" --resumo
-            } else {
+            }
+            else {
                 node 02_sender.js --resumo
             }
             Write-Host ""

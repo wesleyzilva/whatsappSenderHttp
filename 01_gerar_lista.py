@@ -26,21 +26,35 @@ from pathlib import Path
 # CONFIGURAÇÕES
 # ──────────────────────────────────────────────────────────────────────────────
 
-BASE_DIR      = Path(__file__).parent
-SAIDA_DIR     = BASE_DIR / "02_disparos"
-LOG_DIR       = BASE_DIR / "03_log"
+BASE_DIR = Path(__file__).parent
+SAIDA_DIR = BASE_DIR / "02_disparos"
+LOG_DIR = BASE_DIR / "03_log"
 
-ARQ_PACIENTES = BASE_DIR / "01_fontes" / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
-ARQ_CONTACTS  = BASE_DIR / "01_fontes" / "contacts.csv"
-ARQ_INFO      = BASE_DIR / "01_fontes" / "informacoescliente.txt"
-ARQ_BLACKLIST = BASE_DIR / "01_fontes" / "blacklist.txt"  # números que pediram opt-out
-ARQ_SENT_LOG  = LOG_DIR / "sent_log.json"  # registro de envios realizados
+# Pega o CSV de pacientes mais recente em 01_fontes/ (resiliente à troca mensal de arquivo)
 
-INSTAGRAM  = "https://www.instagram.com/dradaianaferrazsc/"
-SITE       = "https://wesleyzilva.github.io/dradaianaferraz_gold/"
-GMAPS      = "https://maps.app.goo.gl/SaoCarlosSC"   # ajuste o link real se quiser
-LINKEDIN   = "https://www.linkedin.com/in/daiana-ferraz-87b678a8/"
-LATTES     = "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4736476U8"
+
+def _resolver_arq_pacientes() -> Path:
+    fontes = BASE_DIR / "01_fontes"
+    candidatos = sorted(fontes.glob("Listagem_pacientes*.csv"),
+                        key=lambda p: p.stat().st_mtime, reverse=True)
+    if candidatos:
+        return candidatos[0]
+    # fallback para o nome legado
+    return fontes / "Listagem_pacientes-odontologia_estetica_e_facial_-2026-04-08 (3).csv"
+
+
+ARQ_PACIENTES = _resolver_arq_pacientes()
+ARQ_CONTACTS = BASE_DIR / "01_fontes" / "contacts.csv"
+ARQ_INFO = BASE_DIR / "01_fontes" / "informacoescliente.txt"
+ARQ_BLACKLIST = BASE_DIR / "01_fontes" / \
+    "blacklist.txt"  # números que pediram opt-out
+ARQ_SENT_LOG = LOG_DIR / "sent_log.json"  # registro de envios realizados
+
+INSTAGRAM = "https://www.instagram.com/dradaianaferrazsc/"
+SITE = "https://wesleyzilva.github.io/dradaianaferraz_gold/"
+GMAPS = "https://maps.app.goo.gl/SaoCarlosSC"   # ajuste o link real se quiser
+LINKEDIN = "https://www.linkedin.com/in/daiana-ferraz-87b678a8/"
+LATTES = "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4736476U8"
 
 ASSINATURA = (
     "\n\n"
@@ -63,6 +77,7 @@ BLACKLIST_TERMOS = [
 # ──────────────────────────────────────────────────────────────────────────────
 # UTILITÁRIOS
 # ──────────────────────────────────────────────────────────────────────────────
+
 
 def carregar_blacklist() -> set:
     """Carrega números de opt-out do blacklist.txt (um por linha, # = comentário)."""
@@ -107,12 +122,14 @@ def normalizar(texto: str) -> str:
     nfkd = unicodedata.normalize("NFKD", texto)
     return "".join(c for c in nfkd if not unicodedata.combining(c)).lower().strip()
 
+
 def limpar_fone(fone: str) -> str:
     """Mantém apenas dígitos; remove leading 55 quando > 12 dígitos."""
     digitos = re.sub(r"\D", "", fone or "")
     if digitos.startswith("55") and len(digitos) > 12:
         digitos = digitos[2:]
     return digitos
+
 
 def fone_valido(fone: str) -> bool:
     """Aceita celulares BR: 11 dígitos (DDD+9+XXXXXXXX) ou 10 dígitos legados
@@ -124,6 +141,7 @@ def fone_valido(fone: str) -> bool:
         return True  # celular formato legado sem o 9 prefixado
     return False
 
+
 def chave_contato(fone: str, nome: str) -> str:
     """
     Chave composta fone+nome normalizado.
@@ -131,9 +149,11 @@ def chave_contato(fone: str, nome: str) -> str:
     """
     return f"{limpar_fone(fone)}|{normalizar(nome)[:30]}"
 
+
 def primeiro_nome(nome_completo: str) -> str:
     partes = (nome_completo or "").strip().split()
     return partes[0].capitalize() if partes else "você"
+
 
 def nome_exibicao(nome_bruto: str, fone: str, seq: int = 0) -> str:
     """
@@ -148,6 +168,7 @@ def nome_exibicao(nome_bruto: str, fone: str, seq: int = 0) -> str:
         ultimos = fone[-4:] if len(fone) >= 4 else fone
         return f"Paciente {ultimos}" + (f"-{seq}" if seq else "")
     return nome
+
 
 def inferir_genero(nome: str) -> str:
     """Heurística por terminação do primeiro nome."""
@@ -169,13 +190,16 @@ def inferir_genero(nome: str) -> str:
             return "M"
     return "N"
 
+
 def dia_semana_pt() -> str:
     dias = ["segunda-feira", "terça-feira", "quarta-feira",
             "quinta-feira", "sexta-feira", "sábado", "domingo"]
     return dias[date.today().weekday()]
 
+
 def data_hoje_br() -> str:
     return date.today().strftime("%d/%m/%Y")
+
 
 def parse_data_br(texto: str):
     """Tenta parsear datas em vários formatos; retorna date ou None."""
@@ -197,6 +221,7 @@ def parse_data_br(texto: str):
             pass
     return None
 
+
 def aniversario_proximo(data_nasc):
     """Retorna (fez_recente, faz_este_mes).
     fez_recente : aniversário ocorreu neste mês corrente, antes de hoje.
@@ -211,9 +236,10 @@ def aniversario_proximo(data_nasc):
     except ValueError:
         aniv = data_nasc.replace(year=hoje.year, day=28)
     diff = (aniv - hoje).days
-    fez_recente  = (aniv.month == hoje.month and diff < 0)
+    fez_recente = (aniv.month == hoje.month and diff < 0)
     faz_este_mes = (aniv.month == hoje.month and diff >= 0)
     return fez_recente, faz_este_mes
+
 
 def calcular_pontuacao(contato: dict) -> int:
     """
@@ -259,6 +285,7 @@ def calcular_pontuacao(contato: dict) -> int:
 # PARSERS DE FONTE
 # ──────────────────────────────────────────────────────────────────────────────
 
+
 def registro_vazio(nome: str, fone: str, fonte: str, notas: str = "") -> dict:
     return {
         "nome":                   nome,
@@ -298,9 +325,9 @@ def ler_pacientes_csv() -> dict:
         reader = csv.DictReader(f, delimiter=";")
         for row in reader:
             nome_bruto = (row.get("Paciente") or "").strip()
-            idade      = (row.get("Idade") or "").strip()
-            doc        = re.sub(r"\D", "", row.get("Documento") or "")
-            celular    = (row.get("Celular") or "").strip()
+            idade = (row.get("Idade") or "").strip()
+            doc = re.sub(r"\D", "", row.get("Documento") or "")
+            celular = (row.get("Celular") or "").strip()
 
             fone = limpar_fone(celular)
             if not fone_valido(fone):
@@ -316,7 +343,7 @@ def ler_pacientes_csv() -> dict:
 
             # prefere o registro com mais campos preenchidos
             escore_novo = bool(idade) * 2 + bool(doc) * 3 + bool(nome_bruto)
-            escore_ant  = (
+            escore_ant = (
                 bool(existente.get("idade")) * 2 +
                 bool(existente.get("doc")) * 3 +
                 (len(existente.get("nome", "").split()) > 1)
@@ -325,7 +352,7 @@ def ler_pacientes_csv() -> dict:
             if escore_novo >= escore_ant:
                 reg = registro_vazio(nome, fone, "pacientes_csv")
                 reg["idade"] = idade
-                reg["doc"]   = doc
+                reg["doc"] = doc
                 pacientes[chave] = reg
 
     return pacientes
@@ -371,7 +398,7 @@ def ler_contacts_csv() -> dict:
                     reg = registro_vazio(nome, fone, "contacts_csv", notas)
                     # tenta extrair idade/doc das notas
                     m_idade = re.search(r"Idade:\s*(\d+)", notas)
-                    m_doc   = re.search(r"Documento:\s*(\d+)", notas)
+                    m_doc = re.search(r"Documento:\s*(\d+)", notas)
                     if m_idade:
                         reg["idade"] = m_idade.group(1) + " anos"
                     if m_doc:
@@ -440,7 +467,8 @@ def enriquecer_com_info_txt(registros: dict) -> None:
 
         orcamento_aberto = bool(re.search(r"Em aberto", bloco, re.IGNORECASE))
         m_valor = re.search(r"R\$\s*([\d\.,]+)", bloco)
-        orcamento_valor = m_valor.group(1) if (orcamento_aberto and m_valor) else ""
+        orcamento_valor = m_valor.group(1) if (
+            orcamento_aberto and m_valor) else ""
         orcamento_data_str = ""
         if orcamento_aberto:
             m_orc_dt = re.search(
@@ -482,6 +510,7 @@ def eh_profissional(contato: dict) -> bool:
             return True
     return False
 
+
 def filtrar_campanha(contatos: list, campanha: str) -> list:
     """Filtra por letra inicial; 'TODAS' retorna tudo."""
     if campanha == "TODAS":
@@ -492,6 +521,7 @@ def filtrar_campanha(contatos: list, campanha: str) -> list:
 # ──────────────────────────────────────────────────────────────────────────────
 # CLASSIFICAÇÃO / PRIORIDADE
 # ──────────────────────────────────────────────────────────────────────────────
+
 
 def eh_harmonizacao(contato: dict) -> bool:
     """Detecta pacientes de harmonização facial por palavras-chave na evolução/notas."""
@@ -528,8 +558,9 @@ def classificar(contato: dict) -> str:
 # GERAÇÃO DE MENSAGENS
 # ──────────────────────────────────────────────────────────────────────────────
 
+
 DIA_SEMANA = dia_semana_pt()
-DATA_HOJE  = data_hoje_br()
+DATA_HOJE = data_hoje_br()
 
 # Comentário do dia da semana — aparece ao final de cada mensagem
 _COMENTARIOS_DIA = {
@@ -555,93 +586,109 @@ DICAS_ANA_PEGOVA = [
 ]
 _dica_idx = 0
 
+
 def proxima_dica() -> str:
     global _dica_idx
     dica = DICAS_ANA_PEGOVA[_dica_idx % len(DICAS_ANA_PEGOVA)]
     _dica_idx += 1
     return dica
 
-def msg_aniversario(nome: str, genero: str, fez: bool) -> str:
+# Seleção determinística de variante por número de telefone
+# (mesma pessoa sempre recebe a mesma variante por categoria; evita padrão único = spam)
+
+
+def _variante(fone: str, categoria: str, n_variantes: int) -> int:
+    import hashlib
+    h = hashlib.md5(
+        f"{limpar_fone(fone)}|{categoria}".encode("utf-8")).hexdigest()
+    return int(h[:8], 16) % n_variantes
+
+
+# 3 variantes por categoria — reduzem o "padrão de bot" detectado pelo WhatsApp
+_TPL_ANIVERSARIO = [
+    "Oi, {pn}! 🎉\n\nAniversário {periodo} — que data especial!\n\nA Dra. Daiana e a equipe mandam um abraço enorme e desejam um ano cheio de saúde, leveza e momentos incríveis pra você! 💛\n\nQuando quiser comemorar se cuidando, é só chamar — adoraríamos te receber!",
+    "{pn}, parabéns! 🎂\n\nSoubemos que seu aniversário foi {periodo} e queremos te desejar muita saúde, alegria e tudo de melhor!\n\nA Dra. Daiana e toda a equipe estão torcendo por você. Se quiser comemorar com aquele cuidado especial, é só dar um oi por aqui. 💛",
+    "Olá, {pn}! ✨\n\nMais um ano de vida {periodo} — que possa vir cheio de coisas boas!\n\nA Dra. Daiana e a equipe mandam um carinho enorme. Quando quiser presentear você mesmo(a) com um momento de autocuidado, a porta está aberta. 🎉",
+]
+_TPL_ORC_ABERTO = [
+    "Oi, {pn}! Tudo bem? 😊\n\nLembrei de você hoje — ainda tenho aquele orçamento aqui e fico feliz em retomá-lo quando quiser!\n\nNão precisa de nada formal, só manda um oi que a gente marca um horário tranquilo pra conversar. 💛",
+    "{pn}, oi! 😊\n\nDando um alô pra avisar que seu orçamento continua disponível por aqui. Sem pressa nenhuma — quando você quiser retomar, é só me chamar.\n\nQualquer dúvida sobre valores ou condições, posso te explicar com calma. 💛",
+    "Oi, {pn}! Como você está? ✨\n\nPassando pra avisar que ainda tenho seu orçamento separado aqui. Se quiser dar continuidade ou ajustar algum detalhe, podemos conversar quando for melhor pra você.\n\nFico no aguardo! 💛",
+]
+_TPL_AGENDA_ATIVA = [
+    "Oi, {pn}! 😊\n\nQue ótimo te ter por aqui! Fico feliz que você esteja acompanhando o tratamento.\n\n{dica}\n\nQualquer dúvida ou novidade, é só chamar — estamos sempre por aqui! 💛",
+    "{pn}, oi! ✨\n\nObrigada por confiar no nosso trabalho — é um prazer te acompanhar!\n\n{dica}\n\nQualquer coisa antes da próxima consulta, é só me chamar. 💛",
+    "Olá, {pn}! 😊\n\nQue alegria ter você no nosso consultório! Estamos aqui pra te apoiar em cada etapa.\n\n{dica}\n\nSe precisar remarcar ou tiver qualquer pergunta, manda mensagem à vontade. 💛",
+]
+_TPL_PACIENTE_ANTIGO = [
+    "Oi, {pn}! 😊\n\nJá faz um tempinho que não te vejo, e lembrei de você hoje!\n\nEspero que esteja tudo bem. Quando quiser voltar pra uma consulta ou só tirar uma dúvida, pode chamar — a porta está sempre aberta pra você! 💛",
+    "{pn}, oi! ✨\n\nSenti sua falta por aqui! Como você está?\n\nSe quiser agendar uma avaliação rápida pra ver como está sua saúde bucal/estética, basta me chamar — sem compromisso nenhum. 💛",
+    "Oi, {pn}! 😊\n\nPassando pra dar um oi — faz tempo que não nos falamos!\n\nQualquer dúvida, retorno ou só pra colocar a conversa em dia sobre seus cuidados, é só responder por aqui. Estou à disposição. 💛",
+]
+_TPL_ORC_VENCIDO = [
+    "Oi, {pn}! Tudo bem? 😊\n\nPassando pra dar um oi e lembrar que aquele orçamento ainda está aqui, guardado pra você!\n\nA vida fica corrida mesmo — sem pressão nenhuma. Quando sentir que é a hora, é só me chamar que a gente retoma tranquilo! 💛",
+    "{pn}, oi! ✨\n\nFazendo aquele follow-up carinhoso: seu orçamento continua na pasta, esperando o melhor momento pra você.\n\nSe os valores ou condições mudaram desde então, posso revisar tudo. É só me dar um toque. 💛",
+    "Olá, {pn}! 😊\n\nSó passando rápido por aqui — caso queira retomar aquele orçamento, posso atualizar os valores e remarcar com você.\n\nNão tem prazo, não tem cobrança: é quando fizer sentido pra você. 💛",
+]
+_TPL_HARMONIZACAO = [
+    "Oi, {pn}! 😊\n\nEstava pensando em você hoje!\n\nOs procedimentos de harmonização têm resultados muito melhores quando a manutenção é feita em dia — e pode estar chegando o momento ideal para o seu retorno.\n\n*Que tal agendar uma avaliação rápida para conferir como está ficando?* 💛\n\nÉ só chamar aqui — encontramos o melhor horário para você!",
+    "{pn}, oi! ✨\n\nLembrando que o resultado da harmonização depende muito da regularidade — e já faz um tempinho desde sua última sessão.\n\nPosso agendar uma avaliação pra vermos se é hora de fazer uma manutenção? Sem compromisso. 💛",
+    "Olá, {pn}! 😊\n\nUma mensagem rápida sobre seus resultados de harmonização: a manutenção periódica é o que mantém aquele efeito natural e duradouro.\n\nQuer marcar uma avaliação? Encontramos um horário que caiba na sua rotina. 💛",
+]
+_TPL_SEM_HIST = [
+    "Oi, {pn}! 😊\n\nAqui é a Daiana, de São Carlos!\n\nTrabalho com harmonização orofacial e odontologia estética, e queria me apresentar. Qualquer dúvida, curiosidade ou quando quiser marcar uma avaliação — pode chamar à vontade, sem compromisso! 💛",
+    "Olá, {pn}! ✨\n\nMe chamo Daiana e atendo em São Carlos com odontologia estética e harmonização facial.\n\nSe um dia tiver interesse em conhecer o trabalho ou tirar dúvidas, fico à disposição por aqui. 💛",
+    "Oi, {pn}! 😊\n\nSou a Dra. Daiana, de São Carlos — trabalho com estética facial e odontologia.\n\nFica o convite: qualquer dúvida ou quando quiser uma avaliação tranquila, é só chamar. Sem compromisso nenhum. 💛",
+]
+
+
+def _render(template: str, **kwargs) -> str:
+    return template.format(**kwargs) + COMENTARIO_DIA + ASSINATURA
+
+
+def msg_aniversario(nome: str, genero: str, fez: bool, fone: str = "") -> str:
     pn = primeiro_nome(nome)
     periodo = "recentemente" if fez else "este mês"
-    return (
-        f"Oi, {pn}! 🎉\n\n"
-        f"Aniversário {periodo} — que data especial!\n\n"
-        "A Dra. Daiana e a equipe mandam um abraço enorme e desejam um ano cheio de saúde, "
-        "leveza e momentos incríveis pra você! 💛\n\n"
-        "Quando quiser comemorar se cuidando, é só chamar — adoraríamos te receber!"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
+    idx = _variante(fone, "aniversario", len(_TPL_ANIVERSARIO))
+    return _render(_TPL_ANIVERSARIO[idx], pn=pn, periodo=periodo)
 
-def msg_orcamento_aberto(nome: str, genero: str, valor: str = "") -> str:
+
+def msg_orcamento_aberto(nome: str, genero: str, valor: str = "", fone: str = "") -> str:
     pn = primeiro_nome(nome)
-    return (
-        f"Oi, {pn}! Tudo bem? 😊\n\n"
-        "Lembrei de você hoje — ainda tenho aquele orçamento aqui e fico feliz em retomá-lo quando quiser!\n\n"
-        "Não precisa de nada formal, só manda um oi que a gente marca um horário tranquilo pra conversar. 💛"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
+    idx = _variante(fone, "orcamento_aberto", len(_TPL_ORC_ABERTO))
+    return _render(_TPL_ORC_ABERTO[idx], pn=pn)
 
-def msg_agenda_ativa(nome: str, genero: str) -> str:
+
+def msg_agenda_ativa(nome: str, genero: str, fone: str = "") -> str:
     pn = primeiro_nome(nome)
     dica = proxima_dica()
-    return (
-        f"Oi, {pn}! 😊\n\n"
-        "Que ótimo te ter por aqui! Fico feliz que você esteja acompanhando o tratamento.\n\n"
-        f"{dica}\n\n"
-        "Qualquer dúvida ou novidade, é só chamar — estamos sempre por aqui! 💛"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
+    idx = _variante(fone, "agenda_ativa", len(_TPL_AGENDA_ATIVA))
+    return _render(_TPL_AGENDA_ATIVA[idx], pn=pn, dica=dica)
 
-def msg_paciente_antigo(nome: str, genero: str) -> str:
-    pn = primeiro_nome(nome)
-    return (
-        f"Oi, {pn}! 😊\n\n"
-        "Já faz um tempinho que não te vejo, e lembrei de você hoje!\n\n"
-        "Espero que esteja tudo bem. Quando quiser voltar pra uma consulta ou só tirar uma dúvida, "
-        "pode chamar — a porta está sempre aberta pra você! 💛"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
 
-def msg_orcamento_vencido(nome: str, genero: str, valor: str = "") -> str:
+def msg_paciente_antigo(nome: str, genero: str, fone: str = "") -> str:
     pn = primeiro_nome(nome)
-    return (
-        f"Oi, {pn}! Tudo bem? 😊\n\n"
-        "Passando pra dar um oi e lembrar que aquele orçamento ainda está aqui, guardado pra você!\n\n"
-        "A vida fica corrida mesmo — sem pressão nenhuma. "
-        "Quando sentir que é a hora, é só me chamar que a gente retoma tranquilo! 💛"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
+    idx = _variante(fone, "paciente_antigo", len(_TPL_PACIENTE_ANTIGO))
+    return _render(_TPL_PACIENTE_ANTIGO[idx], pn=pn)
 
-def msg_harmonizacao_manutencao(nome: str, genero: str) -> str:
-    pn = primeiro_nome(nome)
-    return (
-        f"Oi, {pn}! 😊\n\n"
-        "Estava pensando em você hoje!\n\n"
-        "Os procedimentos de harmonização têm resultados muito melhores quando a manutenção "
-        "é feita em dia — e pode estar chegando o momento ideal para o seu retorno.\n\n"
-        "*Que tal agendar uma avaliação rápida para conferir como está ficando?* 💛\n\n"
-        "É só chamar aqui — encontramos o melhor horário para você!"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
 
-def msg_sem_historico(nome: str, genero: str) -> str:
+def msg_orcamento_vencido(nome: str, genero: str, valor: str = "", fone: str = "") -> str:
     pn = primeiro_nome(nome)
-    return (
-        f"Oi, {pn}! 😊\n\n"
-        "Aqui é a Daiana, de São Carlos!\n\n"
-        "Trabalho com harmonização orofacial e odontologia estética, e queria me apresentar. "
-        "Qualquer dúvida, curiosidade ou quando quiser marcar uma avaliação — "
-        "pode chamar à vontade, sem compromisso! 💛"
-        f"{COMENTARIO_DIA}"
-        f"{ASSINATURA}"
-    )
+    idx = _variante(fone, "orcamento_vencido", len(_TPL_ORC_VENCIDO))
+    return _render(_TPL_ORC_VENCIDO[idx], pn=pn)
+
+
+def msg_harmonizacao_manutencao(nome: str, genero: str, fone: str = "") -> str:
+    pn = primeiro_nome(nome)
+    idx = _variante(fone, "harmonizacao", len(_TPL_HARMONIZACAO))
+    return _render(_TPL_HARMONIZACAO[idx], pn=pn)
+
+
+def msg_sem_historico(nome: str, genero: str, fone: str = "") -> str:
+    pn = primeiro_nome(nome)
+    idx = _variante(fone, "sem_historico", len(_TPL_SEM_HIST))
+    return _render(_TPL_SEM_HIST[idx], pn=pn)
+
 
 GERADORES = {
     "aniversario":             msg_aniversario,
@@ -653,13 +700,13 @@ GERADORES = {
     "paciente_antigo":         msg_paciente_antigo,
 }
 
+
 def gerar_mensagem(contato: dict) -> str:
     categoria = classificar(contato)
-    nome  = contato["nome"]
-    sexo  = contato.get("sexo") or inferir_genero(nome)
+    nome = contato["nome"]
+    sexo = contato.get("sexo") or inferir_genero(nome)
 
     # Se o nome não for claro, usar saudação genérica
-
 
     nome_generico = False
     nome_norm = normalizar(nome)
@@ -669,7 +716,8 @@ def gerar_mensagem(contato: dict) -> str:
     }
 
     # Caracteres especiais e emojis comuns
-    CARACTERES_ESPECIAIS = set("!@#$%^&*()_+=[]{}|;:'\",.<>/?`~°ºª•★☆♥️💕🌹😊😄😃😁😆😅😂🤣🥲🥰😍🤩🥳😎😜😋😏😒😔😢😭😡😱😳😬😇😈👻💀👽🤖🎃🦷")
+    CARACTERES_ESPECIAIS = set(
+        "!@#$%^&*()_+=[]{}|;:'\",.<>/?`~°ºª•★☆♥️💕🌹😊😄😃😁😆😅😂🤣🥲🥰😍🤩🥳😎😜😋😏😒😔😢😭😡😱😳😬😇😈👻💀👽🤖🎃🦷")
 
     # Função para detectar se o nome contém números
     def contem_numero(s):
@@ -712,14 +760,15 @@ def gerar_mensagem(contato: dict) -> str:
 
     if categoria == "aniversario":
         fez, _ = aniversario_proximo(contato.get("data_nasc"))
-        return GERADORES[categoria](nome, sexo, fez)
+        return GERADORES[categoria](nome, sexo, fez, fone=contato.get("fone", ""))
     if categoria in ("orcamento_aberto", "orcamento_vencido"):
-        return GERADORES[categoria](nome, sexo, contato.get("orcamento_valor", ""))
-    return GERADORES[categoria](nome, sexo)
+        return GERADORES[categoria](nome, sexo, contato.get("orcamento_valor", ""), fone=contato.get("fone", ""))
+    return GERADORES[categoria](nome, sexo, fone=contato.get("fone", ""))
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PIPELINE PRINCIPAL
 # ──────────────────────────────────────────────────────────────────────────────
+
 
 # Colunas do CSV de saída — completas para montar a matriz de prioridade
 COLUNAS_SAIDA = [
@@ -742,6 +791,7 @@ COLUNAS_SAIDA = [
     "mensagem",
 ]
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="Motor de disparos WhatsApp — Dra. Daiana Ferraz"
@@ -761,8 +811,9 @@ def main():
     # 1) Carrega fontes
     print("📂 Carregando fontes de dados...")
     pacientes = ler_pacientes_csv()
-    contatos  = ler_contacts_csv()
-    print(f"   ✅ Pacientes CSV:  {len(pacientes)} registros (chave composta fone+nome)")
+    contatos = ler_contacts_csv()
+    print(
+        f"   ✅ Pacientes CSV:  {len(pacientes)} registros (chave composta fone+nome)")
     print(f"   ✅ Contacts CSV:   {len(contatos)} registros")
 
     # 2) Unifica — pacientes têm prioridade por chave
@@ -797,7 +848,8 @@ def main():
     # 5) Filtro de campanha
     lista = list(unificado.values())
     lista_camp = filtrar_campanha(lista, campanha)
-    print(f"   🔤 Campanha '{campanha}': {len(lista_camp)} contatos antes de gerar msgs")
+    print(
+        f"   🔤 Campanha '{campanha}': {len(lista_camp)} contatos antes de gerar msgs")
 
     if not lista_camp:
         print("\n⚠️  Nenhum contato encontrado. Encerrando.")
@@ -813,13 +865,13 @@ def main():
     linhas = []
 
     for c in lista_camp:
-        cat   = classificar(c)
-        pts   = calcular_pontuacao(c)
-        sexo  = c.get("sexo") or inferir_genero(c["nome"])
-        msg   = gerar_mensagem(c)
+        cat = classificar(c)
+        pts = calcular_pontuacao(c)
+        sexo = c.get("sexo") or inferir_genero(c["nome"])
+        msg = gerar_mensagem(c)
         stats[cat] += 1
-        c["categoria"]       = cat
-        c["pontuacao"]       = pts
+        c["categoria"] = cat
+        c["pontuacao"] = pts
         c["genero_inferido"] = sexo
 
         linhas.append({
@@ -856,7 +908,8 @@ def main():
             seen_fone[f] = l
     dedup_count = len(linhas) - len(seen_fone)
     if dedup_count:
-        print(f"   ⚠️  {dedup_count} número(s) removido(s) por telefone duplicado (mesmo fone, categorias diferentes)")
+        print(
+            f"   ⚠️  {dedup_count} número(s) removido(s) por telefone duplicado (mesmo fone, categorias diferentes)")
     linhas = list(seen_fone.values())
     linhas.sort(key=lambda x: x["pontuacao"], reverse=True)
 
@@ -866,24 +919,28 @@ def main():
     for l in linhas:
         if ja_enviado_este_mes(l["numero"], sent_log):
             if args.debug:
-                print(f"   ⏭️  Pulando {l['nome']} ({l['numero']}) - [{l['categoria']}] → já enviado este mês")
+                print(
+                    f"   ⏭️  Pulando {l['nome']} ({l['numero']}) - [{l['categoria']}] → já enviado este mês")
             continue
         linhas_filtradas.append(l)
-    
+
     removidos_enviados = antes_val - len(linhas_filtradas)
     if removidos_enviados:
-        print(f"   🔒 Contatos já enviados este mês removidos: {removidos_enviados}")
-    
+        print(
+            f"   🔒 Contatos já enviados este mês removidos: {removidos_enviados}")
+
     linhas = linhas_filtradas
 
     if not linhas:
-        print(f"\n✅ Nenhum contato novo para a campanha '{campanha}' — todos já receberam mensagem este mês.")
+        print(
+            f"\n✅ Nenhum contato novo para a campanha '{campanha}' — todos já receberam mensagem este mês.")
         # Salva CSV vazio mesmo assim para registro
         SAIDA_DIR.mkdir(parents=True, exist_ok=True)
         sufixo = date.today().strftime("%Y%m%d")
         nome_arq = SAIDA_DIR / f"lista_disparos_{campanha}_{sufixo}.csv"
         with open(nome_arq, "w", newline="", encoding="utf-8-sig") as f:
-            writer = csv.DictWriter(f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
+            writer = csv.DictWriter(
+                f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
             writer.writeheader()
         print(f"✅ CSV vazio salvo: {nome_arq}")
         sys.exit(0)
@@ -893,7 +950,8 @@ def main():
     sufixo = date.today().strftime("%Y%m%d")
     nome_arq = SAIDA_DIR / f"lista_disparos_{campanha}_{sufixo}.csv"
     with open(nome_arq, "w", newline="", encoding="utf-8-sig") as f:
-        writer = csv.DictWriter(f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
+        writer = csv.DictWriter(
+            f, fieldnames=COLUNAS_SAIDA, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(linhas)
     print(f"\n✅ CSV completo: {nome_arq}  ({len(linhas)} linhas)")

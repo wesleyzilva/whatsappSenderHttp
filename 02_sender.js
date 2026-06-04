@@ -167,7 +167,10 @@ function readSentLog() {
 
 function writeSentLog(log) {
   ensureDir(LOG_DIR);
-  fs.writeFileSync(SENT_LOG, JSON.stringify(log, null, 2), 'utf8');
+  // Atomic write: grava em arquivo temp e renomeia, evitando corrupção em caso de crash
+  const tmp = SENT_LOG + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(log, null, 2), 'utf8');
+  fs.renameSync(tmp, SENT_LOG);
 }
 
 /**
@@ -689,6 +692,38 @@ async function main() {
     shutdownRequested = true;
     console.log(yellow(`\n⚠️  ${signal} recebido — encerrando com segurança…`));
     writeSentLog(sentLog);
+    // Salva relatório parcial da execução interrompida
+    try {
+      const partialReport = {
+        runId,
+        csvFile:    path.basename(csvPath),
+        executedAt: now(),
+        dryRun:     false,
+        stopReason: `interrupted_${signal.toLowerCase()}`,
+        summary: {
+          total:         limited.length,
+          sent:          results.sent.length,
+          failed:        results.failed.length,
+          notRegistered: results.notRegistered.length,
+          blockedByWA:   results.blocked.length,
+          interrupted:   true,
+        },
+        reauth:        reauthInfo,
+        reauthEvents,
+        sent:          results.sent.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
+        failed:        results.failed.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria, error: c.error })),
+        notRegistered: results.notRegistered.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria })),
+        blocked:       results.blocked.map(c => ({ numero: c.numero, nome: c.nome, categoria: c.categoria, error: c.error })),
+      };
+      ensureDir(LOG_DIR);
+      const tmpReport = path.join(LOG_DIR, `run_${runId}.json.tmp`);
+      const finalReport = path.join(LOG_DIR, `run_${runId}.json`);
+      fs.writeFileSync(tmpReport, JSON.stringify(partialReport, null, 2), 'utf8');
+      fs.renameSync(tmpReport, finalReport);
+      console.log(cyan(`   📄 Relatório parcial salvo: log/run_${runId}.json`));
+    } catch (e) {
+      console.error(red(`   Não foi possível salvar o relatório: ${e.message}`));
+    }
     try { await client.destroy(); } catch { /* ignorar */ }
     process.exit(0);
   };
