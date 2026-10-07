@@ -212,6 +212,14 @@ function Read-DDD {
     return $resp.Trim()
 }
 
+function Get-DefaultDdd {
+    param([string]$CsvPath)
+    if ([System.IO.Path]::GetFileName($CsvPath) -match '^lista_patoBranco_PB_\d{8}\.csv$') {
+        return "46"
+    }
+    return "16"
+}
+
 # ---------------------------------------------------------------------------
 # Menu principal
 # ---------------------------------------------------------------------------
@@ -346,7 +354,7 @@ while ($true) {
             $csv = Select-CSV
             if ($csv) {
                 Write-Host ""
-                $ddd    = Read-DDD
+                $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
                 $label  = if ($ddd) { "DDD $ddd" } else { "todos os DDDs" }
                 Write-Host ""
@@ -366,7 +374,7 @@ while ($true) {
             $csv = Select-CSV
             if ($csv) {
                 Write-Host ""
-                $ddd    = Read-DDD
+                $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
                 $label  = if ($ddd) { "DDD $ddd" } else { "todos os DDDs" }
                 Write-Host ""
@@ -386,7 +394,7 @@ while ($true) {
             $csv = Select-CSV
             if ($csv) {
                 Write-Host ""
-                $ddd    = Read-DDD
+                $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
                 $limite = Read-Host "  Quantos envios nesta execucao?"
                 if ($limite -match "^\d+$") {

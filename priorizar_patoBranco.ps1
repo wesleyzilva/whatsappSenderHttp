@@ -1,0 +1,119 @@
+# Divide a lista deduplicada de Pato Branco em 3 lotes por proximidade geogr?fica
+# e remove os n?meros j? enviados.
+#
+# Lotes (02_disparos/):
+#   patoBranco_PB_<data>.txt       ? DDD 46 + 85550-xxxx (Pato Branco Sul/Vitorino)
+#   patoBranco_regiao_<data>.txt   ? sudoeste PR / SC / FRB (42,41,45,43,49,47,48,44)
+#   patoBranco_distantes_<data>.txt? demais DDDs
+#
+# Uso: powershell -File priorizar_patoBranco.ps1
+
+$BASE_DIR  = $PSScriptRoot
+$LISTA     = Join-Path $BASE_DIR "02_disparos\patoBranco_dedup_20261004.txt"
+$SAIDA_DIR = Join-Path $BASE_DIR "02_disparos"
+
+# N?meros j? enviados (formato original +55 XX XXXXX-XXXX, um por linha)
+$ENVIADOS_BRUTO = @'
++55 48 9840-5110
++55 46 9111-9494
++55 46 9127-2666
++55 46 9102-4177
++55 46 9123-6441
++55 46 9983-0839
++55 46 9972-0574
++55 49 9947-8235
++55 46 9122-0403
++55 46 9933-6730
++55 46 9912-0042
++55 46 9115-2809
++55 46 9914-9508
++55 46 9927-0404
++55 46 9972-3821
++55 41 9991-9986
++55 46 9976-6406
++55 46 9914-2790
++55 46 9924-2230
++55 46 9117-9161
++55 46 9130-2580
++55 46 9930-4440
++55 46 9102-5595
++55 46 8811-1601
++55 46 9936-5164
++55 46 9923-2645
++55 46 9908-9838
++55 46 9138-1512
++55 46 9122-2620
++55 46 9122-5014
++55 69 9375-5863
++55 46 9101-6623
++55 46 9901-6314
++55 46 9102-6968
++55 46 9923-6982
++55 46 9112-4330
++55 46 9141-8679
++55 46 8810-4026
++55 46 9107-9343
++55 46 9911-5669
++55 45 9904-4551
++55 46 9101-3036
++55 46 9980-6811
++55 46 9922-4040
++55 46 9909-1733
++55 46 8825-9414
++55 46 9122-2752
++55 46 9137-1012
++55 46 9973-5908
++55 46 8822-9741
++55 46 9117-1484
++55 46 9118-0467
++55 46 9115-0819
+'@
+
+$enviados = @{}
+foreach ($linha in ($ENVIADOS_BRUTO -split "`r?`n")) {
+    if (-not $linha.Trim()) { continue }
+    $d = $linha -replace '\D', ''
+    if ($d.StartsWith('55')) { $d = $d.Substring(2) }
+    $enviados[$d] = $true
+}
+
+$REGIAO = ',42,41,45,43,49,47,48,44,'  # string de DDDs da regi?o (evita parsing de array)
+
+$pb        = New-Object System.Collections.Generic.List[string]
+$regiao    = New-Object System.Collections.Generic.List[string]
+$distantes = New-Object System.Collections.Generic.List[string]
+$jaRemovidos = 0
+
+$linhas = [System.IO.File]::ReadAllLines($LISTA)
+Write-Output "DEBUG: linhas=$($linhas.Count)  REGIAO=[$REGIAO]  enviados=$($enviados.Count)"
+foreach ($fone in $linhas) {
+    $f = ($fone -replace '\D', '')
+    if (-not $f) { continue }
+    if ($enviados.ContainsKey($f)) { $jaRemovidos++; continue }
+
+    $ddd = $f.Substring(0, 2)
+    if (($ddd -eq '46') -or ($f.StartsWith('85550'))) {
+        $pb.Add($f)
+    } elseif ($REGIAO.Contains(",$ddd,")) {
+        $regiao.Add($f)
+    } else {
+        $distantes.Add($f)
+    }
+}
+
+$hoje = Get-Date -Format 'yyyyMMdd'
+$arqPB        = Join-Path $SAIDA_DIR "patoBranco_PB_${hoje}.txt"
+$arqRegiao    = Join-Path $SAIDA_DIR "patoBranco_regiao_${hoje}.txt"
+$arqDistantes = Join-Path $SAIDA_DIR "patoBranco_distantes_${hoje}.txt"
+
+[System.IO.File]::WriteAllLines($arqPB,        [string[]]$pb)
+[System.IO.File]::WriteAllLines($arqRegiao,    [string[]]$regiao)
+[System.IO.File]::WriteAllLines($arqDistantes, [string[]]$distantes)
+
+Write-Output "J? enviados removidos: $jaRemovidos"
+Write-Output ""
+Write-Output "1) Pato Branco (DDD 46 + PB Sul): $($pb.Count)  -> $arqPB"
+Write-Output "2) Regi?o sudoeste PR/SC/FRB:     $($regiao.Count)  -> $arqRegiao"
+Write-Output "3) Distantes (demais DDDs):       $($distantes.Count)  -> $arqDistantes"
+Write-Output ""
+Write-Output "Total restante: $($pb.Count + $regiao.Count + $distantes.Count)"

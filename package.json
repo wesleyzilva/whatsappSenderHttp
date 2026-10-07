@@ -4,14 +4,14 @@
   "description": "Disparador de mensagens WhatsApp — Dra. Daiana Ferraz",
   "main": "sender.js",
   "scripts": {
-    "send":    "node sender.js",
+    "send": "node sender.js",
     "dry-run": "node sender.js disparos/lista_disparos_A_20260408.csv --dry-run",
-    "status":  "node sender.js --status",
-    "reset":   "node sender.js --reset"
+    "status": "node sender.js --status",
+    "reset": "node sender.js --reset"
   },
   "dependencies": {
-    "csv-parse":       "^5.5.5",
+    "csv-parse": "^5.5.5",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.23.0"
+    "whatsapp-web.js": "^1.34.6"
   }
 }
