@@ -1,0 +1,57 @@
+🌐 Chrome detectado: C:\Program Files\Google\Chrome\Application\chrome.exe
+
+⚠️  Desconectado: LOGOUT
+⚠️  Desconectado: LOGOUT
+E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65
+                    throw new Error(e);
+                          ^
+
+Error: Error: EBUSY: resource busy or locked, unlink 'E:\wesleyzilva\repo\whatsappSenderHttp\.wwebjs_auth\session-dra-daiana-sender\lockfile'
+    at E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65:27
+    at async LocalAuth.logout (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:58:13)
+    at async E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:498:17
+
+Node.js v24.18.0
+
+  Pressione Enter para voltar: 
+=======================
+outro Error
+ProtocolError: Protocol error (Runtime.callFunctionOn): Execution context was destroyed.
+    at <instance_members_initializer> (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:103:14)
+    at new Callback (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:107:16)
+    at CallbackRegistry.create (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:25:26)
+    at Connection._rawSend (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Connection.js:108:26)
+    at CdpCDPSession.send (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\CdpSession.js:74:33)
+    at #evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:363:50)
+    at ExecutionContext.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:36)
+    at IsolatedWorld.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:30)
+    at CdpFrame.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:43)
+    at CdpFrame.<anonymous> (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\util\decorators.js:109:27)
+    at CdpPage.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:43)
+    at Client.inject (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:146:55)
+    at async Client.initialize (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:493:9)
+
+  Pressione Enter para voltar: 
+  =========================================
+  Mudar para outro zap 
+⚠️  Desconectado: LOGOUT
+E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65
+                    throw new Error(e);
+                          ^
+
+Error: Error: EBUSY: resource busy or locked, unlink 'E:\wesleyzilva\repo\whatsappSenderHttp\.wwebjs_auth\session-dra-daiana-sender\lockfile'
+    at E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65:27
+    at async LocalAuth.logout (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:58:13)
+    at async E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:498:17
+
+Node.js v24.18.0
+
+  Pressione Enter para voltar: 
+  =========================================================
+
+Quero saber qual numero estou usando para enviar a mensagem.
+Quero tb no meu opção de testar conexão com zap desconectar do zap ou conectar outro numero com o zap.
+Quero limitar para 50 disparos por dia por zap e posso usar mais de um zap em paralelo ou usar sequencial. Posso usar até 5 zaps.
+
+============================================================
+  https://github.com/wesleyzilva/N8N_dentist_whatsapp
