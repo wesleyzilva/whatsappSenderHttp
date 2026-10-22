@@ -20,6 +20,8 @@ function Show-CSVAlert {
     $csvFiles = Get-ChildItem -Path "$DIR\02_disparos" -Filter "*.csv" -ErrorAction SilentlyContinue |
                 Sort-Object LastWriteTime -Descending
     Write-Host "  Data atual : $(Get-Date -Format 'dd/MM/yyyy  HH:mm')" -ForegroundColor Gray
+    $zapsLinha = & node "$DIR\02_sender.js" --zaps-resumo 2>$null
+    if ($zapsLinha) { Write-Host "  $zapsLinha" -ForegroundColor Gray }
     if ($csvFiles.Count -eq 0) {
         Write-Host "  Lista CSV  : [!!] Nenhum CSV encontrado — use opcao [3] para gerar" -ForegroundColor Red
     } else {
@@ -221,6 +223,20 @@ function Get-DefaultDdd {
 }
 
 # ---------------------------------------------------------------------------
+# Pergunta modo (sequencial/paralelo) e quais zaps usar no envio
+# ---------------------------------------------------------------------------
+function Read-EnvioArgs {
+    Write-Host ""
+    $modo  = Read-Host "  Modo: [S]equencial (um zap por vez) ou [P]aralelo (todos juntos)? (Enter = padrao)"
+    $chips = Read-Host "  Quais zaps usar? ex: 1,3  (Enter = todos os ativos)"
+    $out = @()
+    if ($modo -imatch '^p')     { $out += "--modo=paralelo" }
+    elseif ($modo -imatch '^s') { $out += "--modo=sequencial" }
+    if (-not [string]::IsNullOrWhiteSpace($chips)) { $out += "--chips=$($chips -replace '\s','')" }
+    return $out
+}
+
+# ---------------------------------------------------------------------------
 # Menu principal
 # ---------------------------------------------------------------------------
 function Show-Menu {
@@ -239,6 +255,16 @@ function Show-Menu {
     Write-Host "  [5] Enviar mensagens (disparo completo)"         -ForegroundColor Green
     Write-Host "  [6] Dry-run (simular sem enviar)"                -ForegroundColor Green
     Write-Host "  [7] Enviar com limite (parcial)"                 -ForegroundColor Green
+    Write-Host ""
+    Write-Host "  === ZAPS (NUMEROS) - teto 48 envios por zap a cada 24h (limite 50 - margem 2) ===" -ForegroundColor Magenta
+    Write-Host "  [11] Ver numeros e saldo do dia"                 -ForegroundColor Magenta
+    Write-Host "  [12] Testar conexao com o zap"                   -ForegroundColor Magenta
+    Write-Host "  [13] Conectar numero / adicionar zap (QR Code)"  -ForegroundColor Magenta
+    Write-Host "  [14] Desconectar numero"                         -ForegroundColor Magenta
+    Write-Host "  [15] Ver log de erros"                           -ForegroundColor Magenta
+    Write-Host "  [16] Atualizar biblioteca do WhatsApp (corrige autentica e nao conecta)" -ForegroundColor Magenta
+    Write-Host "  [17] MODO CONTINUO - roda direto (troca de zap sozinho, espera as 24h)" -ForegroundColor Green
+    Write-Host "  [18] PAINEL no navegador (operar por botoes)" -ForegroundColor Green
     Write-Host ""
     Write-Host "  === MANUTENCAO ===" -ForegroundColor Red
     Write-Host "  [8]  Resetar historico de envios"                -ForegroundColor DarkRed
@@ -356,15 +382,13 @@ while ($true) {
                 Write-Host ""
                 $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
+                $extra  = @(Read-EnvioArgs)
                 $label  = if ($ddd) { "DDD $ddd" } else { "todos os DDDs" }
                 Write-Host ""
                 Write-Host "  Iniciando envio: $([System.IO.Path]::GetFileName($csv))  [$label]" -ForegroundColor Green
                 Write-Host ""
-                if ($dddArg.Count -gt 0) {
-                    node "$DIR\02_sender.js" "$csv" $dddArg[0]
-                } else {
-                    node "$DIR\02_sender.js" "$csv"
-                }
+                $nodeArgs = @("$csv") + @($dddArg) + $extra
+                node "$DIR\02_sender.js" @nodeArgs
             }
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
@@ -376,15 +400,13 @@ while ($true) {
                 Write-Host ""
                 $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
+                $extra  = @(Read-EnvioArgs)
                 $label  = if ($ddd) { "DDD $ddd" } else { "todos os DDDs" }
                 Write-Host ""
                 Write-Host "  Dry-run: $([System.IO.Path]::GetFileName($csv))  [$label]" -ForegroundColor Cyan
                 Write-Host ""
-                if ($dddArg.Count -gt 0) {
-                    node "$DIR\02_sender.js" "$csv" --dry-run $dddArg[0]
-                } else {
-                    node "$DIR\02_sender.js" "$csv" --dry-run
-                }
+                $nodeArgs = @("$csv", "--dry-run") + @($dddArg) + $extra
+                node "$DIR\02_sender.js" @nodeArgs
             }
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
@@ -396,17 +418,15 @@ while ($true) {
                 Write-Host ""
                 $ddd    = Read-DDD -Default (Get-DefaultDdd $csv)
                 $dddArg = Get-DddArg $ddd
+                $extra  = @(Read-EnvioArgs)
                 $limite = Read-Host "  Quantos envios nesta execucao?"
                 if ($limite -match "^\d+$") {
                     $label = if ($ddd) { "DDD $ddd" } else { "todos os DDDs" }
                     Write-Host ""
                     Write-Host "  Enviando ate $limite mensagens  [$label]..." -ForegroundColor Green
                     Write-Host ""
-                    if ($dddArg.Count -gt 0) {
-                        node "$DIR\02_sender.js" "$csv" "--limit=$limite" $dddArg[0]
-                    } else {
-                        node "$DIR\02_sender.js" "$csv" "--limit=$limite"
-                    }
+                    $nodeArgs = @("$csv", "--limit=$limite") + @($dddArg) + $extra
+                    node "$DIR\02_sender.js" @nodeArgs
                 } else {
                     Write-Host "  Numero invalido." -ForegroundColor Red
                 }
@@ -454,6 +474,88 @@ while ($true) {
             Write-Host "  Exportando numeros sem WhatsApp para blacklist..." -ForegroundColor Magenta
             Write-Host ""
             node "$DIR\02_sender.js" --export-blacklist
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        # ---- ZAPS (NUMEROS) ----
+
+        "11" {
+            node "$DIR\02_sender.js" --zaps
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "12" {
+            $sel = Read-Host "  Zap para testar (numero, ex: 1; Enter = todos)"
+            if ([string]::IsNullOrWhiteSpace($sel)) {
+                node "$DIR\02_sender.js" --testar
+            } else {
+                node "$DIR\02_sender.js" "--testar=$($sel.Trim())"
+            }
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "13" {
+            node "$DIR\02_sender.js" --conectar
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "14" {
+            node "$DIR\02_sender.js" --desconectar
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "15" {
+            node "$DIR\02_sender.js" --erros
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "16" {
+            Write-Host ""
+            Write-Host "  Versao instalada da biblioteca:" -ForegroundColor Cyan
+            Push-Location $DIR
+            npm ls whatsapp-web.js --depth=0
+            Write-Host ""
+            Write-Host "  (Feche todas as outras janelas do disparador antes de atualizar.)" -ForegroundColor Yellow
+            $r = Read-Host "  Atualizar para a ultima versao agora? (s/N)"
+            if ($r -imatch '^s') {
+                npm install whatsapp-web.js@latest
+                Write-Host ""
+                Write-Host "  Versao instalada agora:" -ForegroundColor Cyan
+                npm ls whatsapp-web.js --depth=0
+            }
+            Pop-Location
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "17" {
+            Write-Host "  MODO CONTINUO: o programa fica rodando, envia ate o teto de cada zap," -ForegroundColor Green
+            Write-Host "  passa para o proximo zap e, se nenhum estiver livre, ESPERA (nao executa) ate a vaga abrir." -ForegroundColor Green
+            Write-Host "  Para parar com seguranca: digite P e Enter na janela do envio." -ForegroundColor DarkGray
+            Write-Host ""
+            $csvC = $null
+            $usaMaisRecente = Read-Host "  Usar sempre o CSV mais recente da pasta 02_disparos? (S/n)"
+            if ($usaMaisRecente -imatch '^n') { $csvC = Select-CSV; if (-not $csvC) { Read-Host "  Pressione Enter para voltar"; continue } }
+            $ddd    = Read-DDD -Default "16"
+            $extraC = @(Read-EnvioArgs)
+            $argsC  = @()
+            if ($csvC) { $argsC += "$csvC" }
+            $argsC += @(Get-DddArg $ddd)
+            $argsC += $extraC
+            & "$DIR\03a_continuo.ps1" @argsC
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "18" {
+            Write-Host "  Painel em http://localhost:3737  (Ctrl+C para fechar)" -ForegroundColor Green
+            node "$DIR\04_painel.js"
             Write-Host ""
             Read-Host "  Pressione Enter para voltar"
         }

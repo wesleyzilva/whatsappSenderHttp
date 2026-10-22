@@ -1,0 +1,36 @@
+{
+  "chip2": {
+    "precisaQR": false,
+    "numero": "5516997214286",
+    "ultimaConexao": "2026-10-20T12:51:06.962Z",
+    "ultimoErro": null,
+    "ultimoEnvio": "2026-10-20T12:55:41.462Z"
+  },
+  "chip4": {
+    "precisaQR": false,
+    "numero": "5516997212966",
+    "ultimaConexao": "2026-10-17T14:38:05.626Z"
+  },
+  "wesley-trabalho": {
+    "numero": "5516991400423",
+    "precisaQR": false,
+    "bloqueadoAte": null,
+    "desconectadoEm": "2026-10-17T22:13:18.874Z",
+    "ultimaConexao": "2026-10-21T16:54:42.935Z",
+    "ultimoErro": null,
+    "ultimoEnvio": "2026-10-21T16:59:45.316Z"
+  },
+  "wesley-particular": {
+    "numero": "5516997212966",
+    "precisaQR": false,
+    "bloqueadoAte": null,
+    "desconectadoEm": "2026-10-17T22:16:08.914Z",
+    "ultimaConexao": "2026-10-21T17:00:47.348Z",
+    "ultimoErro": null,
+    "ultimoEnvio": "2026-10-21T17:02:07.767Z"
+  },
+  "dra-daiana-sender": {
+    "precisaQR": true,
+    "ultimoErro": "Cannot read properties of null (reading 'Socket')"
+  }
+}

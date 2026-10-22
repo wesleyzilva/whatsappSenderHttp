@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WhatsApp Sender · Painel</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--tx:#1b1f24;--mut:#6b7280;--bd:#e2e5ea;--ok:#15803d;--warn:#b45309;--err:#b91c1c;--pri:#0f766e;--prit:#fff;--bar:#e5e7eb}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317;--card:#171c22;--tx:#e8eaed;--mut:#9aa3ad;--bd:#262d36;--ok:#4ade80;--warn:#fbbf24;--err:#f87171;--pri:#2dd4bf;--prit:#06201d;--bar:#2a323c}}
+:root{color-scheme:light dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0}h2{font-size:14px;margin:0 0 10px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{padding:3px 10px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid var(--bd)}
+.on{color:var(--ok)}.off{color:var(--mut)}.w{color:var(--warn)}.e{color:var(--err)}
+button,select,input{font:inherit;color:inherit}
+button{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;cursor:pointer}
+button.p{background:var(--pri);color:var(--prit);border-color:var(--pri);font-weight:600}
+button.d{border-color:var(--err);color:var(--err)}
+button:disabled{opacity:.5;cursor:not-allowed}
+select,input[type=text],input[type=number]{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.zap{border:1px solid var(--bd);border-radius:10px;padding:12px}
+.zap b{font-size:16px}.num{color:var(--mut);font-size:13px}
+.bar{height:8px;border-radius:99px;background:var(--bar);margin:8px 0 4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pri)}
+.sm{font-size:13px;color:var(--mut)}
+.kpi{display:flex;gap:22px;flex-wrap:wrap}.kpi div b{display:block;font-size:22px}
+pre{margin:0;white-space:pre-wrap;word-break:break-word}
+#log{background:#0b0f13;color:#d1d5db;border-radius:8px;padding:10px;height:260px;overflow:auto;font:12px/1.4 ui-monospace,Consolas,monospace}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;max-width:94vw}
+#qr{background:#000;color:#fff;padding:10px;font:9px/9px ui-monospace,Consolas,monospace;white-space:pre;overflow:auto;max-height:70vh}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <h1>WhatsApp Sender · Painel</h1>
+    <span id="st" class="badge off">carregando…</span>
+  </div>
+
+  <div class="card">
+    <h2>Operação</h2>
+    <div class="row">
+      <button class="p" id="ini">▶ Iniciar modo contínuo</button>
+      <button class="d" id="par">■ Parar com segurança</button>
+      <label class="sm">Modo <select id="modo"><option value="">padrão</option><option value="sequencial">sequencial</option><option value="paralelo">paralelo</option></select></label>
+      <label class="sm">DDD <input id="ddd" type="text" size="3" maxlength="2" placeholder="todos"></label>
+      <label class="sm"><input id="ign" type="checkbox"> enviar a qualquer horário (agora)</label>
+    </div>
+    <p class="sm" id="hor" style="margin:10px 0 0"></p>
+  </div>
+
+  <div class="card">
+    <h2>Resumo geral</h2>
+    <div class="kpi"><div><b id="k1">–</b><span class="sm">enviados</span></div><div><b id="k2">–</b><span class="sm">não têm WhatsApp</span></div><div><b id="k3">–</b><span class="sm">falhas</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Zaps (números)</h2><button id="add">+ Adicionar zap</button></div>
+    <div class="grid" id="zaps"></div>
+  </div>
+
+  <div class="card">
+    <h2>Configuração</h2>
+    <div class="row">
+      <label class="sm">Margem de segurança <input id="mar" type="number" min="0" max="20" style="width:64px"></label>
+      <button id="smar">Salvar margem</button>
+      <span class="sm" id="lim"></span>
+    </div>
+    <div class="row" style="margin-top:10px"><label class="sm"><input id="hat" type="checkbox"> respeitar janelas de horário (editar as janelas: 05_config/chips.json)</label></div>
+  </div>
+
+  <div class="card"><h2>Log</h2><div id="log"></div></div>
+</main>
+
+<dialog id="dlg">
+  <h2 id="dt">Conectar número</h2>
+  <p class="sm">No celular: WhatsApp › Aparelhos conectados › Conectar aparelho, e aponte para o código.</p>
+  <pre id="qr"></pre>
+  <div class="row" style="margin-top:10px;justify-content:flex-end"><button id="dc" class="d">Cancelar conexão</button><button id="dx">Fechar</button></div>
+</dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const post = (u, b) => fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Painel': '1' }, body: JSON.stringify(b || {}) }).then(r => r.json());
+const dh = ms => new Date(ms).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+const txt = (el, t) => { if (el.textContent !== t) el.textContent = t; };
+let S = null, editando = false;
+
+async function atualizar() {
+  try { S = await (await fetch('/api/estado', { cache: 'no-store' })).json(); } catch { txt($('#st'), 'painel offline'); return; }
+  const st = $('#st');
+  st.className = 'badge ' + (S.rodando ? 'on' : 'off');
+  txt(st, S.rodando ? '● modo contínuo rodando' : '○ parado');
+  $('#ini').disabled = S.rodando; $('#par').disabled = !S.rodando;
+  const c = S.cfg;
+  txt($('#hor'), `Teto: ${c.ef} envios por zap a cada ${c.janelaHoras}h (limite ${c.limite} − margem ${c.margem}). Horário de envio: ${c.horarioAtivo ? c.horario : 'a qualquer hora'}. ` +
+    (c.horarioAtivo ? (c.dentro ? 'Agora está DENTRO do horário.' : `Agora está fora do horário — próxima abertura ${dh(c.proxima)}.`) : ''));
+  txt($('#k1'), S.tot.sent); txt($('#k2'), S.tot.skipped_not_registered); txt($('#k3'), S.tot.failed);
+  txt($('#lim'), `Uso real: ${c.ef} por zap.`);
+  if (!editando) { $('#mar').value = c.margem; $('#hat').checked = c.horarioAtivo; }
+  $('#add').disabled = !c.podeAdicionar;
+  const box = $('#zaps'); box.textContent = '';
+  for (const z of S.zaps) {
+    const d = document.createElement('div'); d.className = 'zap';
+    let situ = ['conectado', 'on'];
+    if (!z.ativo) situ = ['inativo', 'off'];
+    else if (z.bloqueadoAte) situ = ['pausado até ' + dh(Date.parse(z.bloqueadoAte)), 'e'];
+    else if (!z.sessao) situ = ['não conectado', 'w'];
+    else if (z.precisaQR) situ = ['precisa ler o QR de novo', 'e'];
+    const pct = Math.min(100, Math.round(z.enviados / z.cap * 100));
+    d.innerHTML = '<b></b> <span class="num"></span><div class="sm"></div><div class="bar"><i></i></div><div class="sm"></div>';
+    d.querySelector('b').textContent = z.apelido;
+    d.querySelector('.num').textContent = z.numero ? '+' + z.numero : '(número ainda não identificado)';
+    const s1 = d.querySelectorAll('.sm')[0]; s1.textContent = situ[0]; s1.className = 'sm ' + situ[1];
+    d.querySelector('i').style.width = pct + '%';
+    d.querySelectorAll('.sm')[1].textContent = `${z.enviados}/${z.cap} nas últimas ${c.janelaHoras}h` + (z.liberaEm ? ` · próxima vaga ${dh(z.liberaEm)}` : '');
+    const r = document.createElement('div'); r.className = 'row'; r.style.marginTop = '8px';
+    const b1 = document.createElement('button'); b1.textContent = 'Conectar (QR)'; b1.onclick = () => conectar(z);
+    const b2 = document.createElement('button'); b2.textContent = z.ativo ? 'Desativar' : 'Ativar';
+    b2.onclick = async () => { await post('/api/config', { zapId: z.id, zapAtivo: !z.ativo }); atualizar(); };
+    r.append(b1, b2); d.append(r); box.append(d);
+  }
+  const lg = $('#log'), fim = lg.scrollTop + lg.clientHeight >= lg.scrollHeight - 30;
+  lg.textContent = S.log.join('\n'); if (fim) lg.scrollTop = lg.scrollHeight;
+}
+
+$('#ini').onclick = async () => {
+  const r = await post('/api/iniciar', { modo: $('#modo').value, ddd: $('#ddd').value.trim(), ignorarHorario: $('#ign').checked });
+  if (r.erro) alert(r.erro); atualizar();
+};
+$('#par').onclick = async () => { if (confirm('Parar o modo contínuo? Ele fecha os navegadores com segurança (pode levar alguns segundos).')) { await post('/api/parar'); atualizar(); } };
+$('#smar').onclick = async () => { const r = await post('/api/config', { margem: $('#mar').value }); if (r.erro) alert(r.erro); editando = false; atualizar(); };
+$('#hat').onchange = async () => { await post('/api/config', { horarioAtivo: $('#hat').checked }); editando = false; atualizar(); };
+$('#mar').oninput = () => { editando = true; };
+$('#add').onclick = async () => { const n = prompt('Apelido do novo zap (opcional):', ''); if (n === null) return; const r = await post('/api/adicionar', { apelido: n }); if (r.erro) alert(r.erro); atualizar(); };
+
+let pollQR = null;
+async function conectar(z) {
+  if (S.rodando && !confirm('O modo contínuo está rodando. Conectar OUTRO zap é seguro, mas não conecte o mesmo zap que está enviando. Continuar?')) return;
+  const r = await post('/api/conectar', { id: z.id });
+  if (r.erro) { alert(r.erro); return; }
+  $('#dt').textContent = 'Conectar ' + z.apelido; $('#qr').textContent = 'Abrindo o WhatsApp Web… aguarde o código aparecer.';
+  $('#dlg').showModal();
+  clearInterval(pollQR);
+  pollQR = setInterval(async () => {
+    const c = await (await fetch('/api/conexao', { cache: 'no-store' })).json();
+    $('#qr').textContent = c.txt || '…';
+    if (!c.rodando) { clearInterval(pollQR); atualizar(); }
+  }, 1500);
+}
+$('#dc').onclick = () => post('/api/cancelar-conexao');
+$('#dx').onclick = () => { clearInterval(pollQR); $('#dlg').close(); atualizar(); };
+
+atualizar(); setInterval(atualizar, 3000);
+</script>
+</body>
+</html>

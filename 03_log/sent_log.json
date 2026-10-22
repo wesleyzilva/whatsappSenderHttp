@@ -9654,5 +9654,6147 @@
     "status": "sent",
     "sentAt": "2026-10-12T18:02:21.327Z",
     "runId": "2026-10-12T17-18-36"
+  },
+  "4691273841_202610": {
+    "numero": "4691273841",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:52:58.128Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691274393_202610": {
+    "numero": "4691274393",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:53:52.389Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691274956_202610": {
+    "numero": "4691274956",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:54:54.075Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691277557_202610": {
+    "numero": "4691277557",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:56:06.356Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691277630_202610": {
+    "numero": "4691277630",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:57:14.980Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691278374_202610": {
+    "numero": "4691278374",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:58:20.483Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691279868_202610": {
+    "numero": "4691279868",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T19:59:15.811Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691281466_202610": {
+    "numero": "4691281466",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:00:14.393Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691285967_202610": {
+    "numero": "4691285967",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:01:26.297Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691286028_202610": {
+    "numero": "4691286028",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:02:30.344Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691286819_202610": {
+    "numero": "4691286819",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:03:36.260Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691288357_202610": {
+    "numero": "4691288357",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:04:32.050Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691288877_202610": {
+    "numero": "4691288877",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:05:21.148Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691289431_202610": {
+    "numero": "4691289431",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:06:17.064Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691289472_202610": {
+    "numero": "4691289472",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:07:11.495Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691291448_202610": {
+    "numero": "4691291448",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:08:10.951Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691294101_202610": {
+    "numero": "4691294101",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:09:09.546Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691295935_202610": {
+    "numero": "4691295935",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:10:05.174Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691297501_202610": {
+    "numero": "4691297501",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:11:03.561Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691298308_202610": {
+    "numero": "4691298308",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:12:01.102Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691298959_202610": {
+    "numero": "4691298959",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:13:00.822Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691299486_202610": {
+    "numero": "4691299486",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:13:57.474Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691300342_202610": {
+    "numero": "4691300342",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:14:46.909Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691300703_202610": {
+    "numero": "4691300703",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:15:40.258Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691301986_202610": {
+    "numero": "4691301986",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:16:38.336Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691303862_202610": {
+    "numero": "4691303862",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:17:45.811Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691305162_202610": {
+    "numero": "4691305162",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:18:41.352Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691305900_202610": {
+    "numero": "4691305900",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:19:35.856Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691306762_202610": {
+    "numero": "4691306762",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:20:38.970Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691307154_202610": {
+    "numero": "4691307154",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:21:31.466Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691309848_202610": {
+    "numero": "4691309848",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:22:25.006Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691309959_202610": {
+    "numero": "4691309959",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:23:23.251Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691311339_202610": {
+    "numero": "4691311339",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:24:21.716Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691313334_202610": {
+    "numero": "4691313334",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:25:27.520Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691316387_202610": {
+    "numero": "4691316387",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:26:40.155Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691317701_202610": {
+    "numero": "4691317701",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:27:46.077Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691317704_202610": {
+    "numero": "4691317704",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:28:47.182Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691319918_202610": {
+    "numero": "4691319918",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:29:42.569Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691319922_202610": {
+    "numero": "4691319922",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:30:38.662Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691322234_202610": {
+    "numero": "4691322234",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:31:31.604Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691325472_202610": {
+    "numero": "4691325472",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:32:33.134Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691325659_202610": {
+    "numero": "4691325659",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:33:34.400Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691327699_202610": {
+    "numero": "4691327699",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:34:32.645Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691327785_202610": {
+    "numero": "4691327785",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:35:31.053Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691330087_202610": {
+    "numero": "4691330087",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:36:22.833Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691330106_202610": {
+    "numero": "4691330106",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:37:17.435Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691331030_202610": {
+    "numero": "4691331030",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:38:08.601Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691331523_202610": {
+    "numero": "4691331523",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:39:14.341Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691331675_202610": {
+    "numero": "4691331675",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:40:26.531Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691332001_202610": {
+    "numero": "4691332001",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:41:16.372Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691332506_202610": {
+    "numero": "4691332506",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-13T20:42:24.455Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691332663_202610": {
+    "numero": "4691332663",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-10-13T20:58:21.585Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691333651_202610": {
+    "numero": "4691333651",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-10-13T21:14:25.119Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691335539_202610": {
+    "numero": "4691335539",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-10-13T21:30:23.477Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691336773_202610": {
+    "numero": "4691336773",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '383CFFA3F0FCFAA2A0D035EFA1B9B1C2'.",
+    "sentAt": "2026-10-14T11:50:56.063Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691336959_202610": {
+    "numero": "4691336959",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '383CFFA3F0FCFAA2A0D035EFA1B9B1C2'.",
+    "sentAt": "2026-10-14T11:51:57.179Z",
+    "runId": "2026-10-13T19-51-50"
+  },
+  "4691338452_202610": {
+    "numero": "4691338452",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:54:05.098Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691339359_202610": {
+    "numero": "4691339359",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:55:06.058Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691341545_202610": {
+    "numero": "4691341545",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:55:53.755Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691342990_202610": {
+    "numero": "4691342990",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:56:36.791Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691343358_202610": {
+    "numero": "4691343358",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:57:21.193Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691343590_202610": {
+    "numero": "4691343590",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:58:23.654Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691344431_202610": {
+    "numero": "4691344431",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T11:59:17.154Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691346138_202610": {
+    "numero": "4691346138",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:00:15.539Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691346767_202610": {
+    "numero": "4691346767",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:01:04.032Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691347086_202610": {
+    "numero": "4691347086",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:01:52.523Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691347222_202610": {
+    "numero": "4691347222",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:02:46.195Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691347591_202610": {
+    "numero": "4691347591",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:03:39.660Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691350361_202610": {
+    "numero": "4691350361",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-10-14T12:04:00.896Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691351001_202610": {
+    "numero": "4691351001",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:04:39.165Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691351215_202610": {
+    "numero": "4691351215",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:05:39.141Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691351320_202610": {
+    "numero": "4691351320",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:06:41.593Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691353352_202610": {
+    "numero": "4691353352",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:07:42.761Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691355305_202610": {
+    "numero": "4691355305",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:08:39.888Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691357919_202610": {
+    "numero": "4691357919",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:09:30.609Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691358868_202610": {
+    "numero": "4691358868",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:10:26.801Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691362081_202610": {
+    "numero": "4691362081",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:11:23.165Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691362580_202610": {
+    "numero": "4691362580",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:12:27.548Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691363144_202610": {
+    "numero": "4691363144",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:13:24.734Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691363900_202610": {
+    "numero": "4691363900",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:14:15.275Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691364050_202610": {
+    "numero": "4691364050",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:14:58.988Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691365356_202610": {
+    "numero": "4691365356",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:15:45.999Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691365412_202610": {
+    "numero": "4691365412",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:16:43.045Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691366139_202610": {
+    "numero": "4691366139",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:17:41.037Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691367575_202610": {
+    "numero": "4691367575",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:18:32.660Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691369746_202610": {
+    "numero": "4691369746",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:19:30.042Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691371800_202610": {
+    "numero": "4691371800",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:20:21.390Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691372147_202610": {
+    "numero": "4691372147",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:21:17.446Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691372217_202610": {
+    "numero": "4691372217",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:22:11.812Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691376216_202610": {
+    "numero": "4691376216",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:23:16.999Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691376442_202610": {
+    "numero": "4691376442",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:24:12.635Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691376858_202610": {
+    "numero": "4691376858",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:25:06.121Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691378057_202610": {
+    "numero": "4691378057",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:26:01.365Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691378568_202610": {
+    "numero": "4691378568",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:26:54.448Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691380619_202610": {
+    "numero": "4691380619",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:27:55.654Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691380950_202610": {
+    "numero": "4691380950",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:28:47.309Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691382983_202610": {
+    "numero": "4691382983",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:29:44.384Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691385235_202610": {
+    "numero": "4691385235",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:30:29.796Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691385999_202610": {
+    "numero": "4691385999",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:31:28.379Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691386242_202610": {
+    "numero": "4691386242",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:32:23.396Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691386279_202610": {
+    "numero": "4691386279",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:33:17.017Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691389085_202610": {
+    "numero": "4691389085",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:34:07.365Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691390944_202610": {
+    "numero": "4691390944",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:35:08.880Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691393338_202610": {
+    "numero": "4691393338",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:35:55.562Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691395115_202610": {
+    "numero": "4691395115",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:36:49.948Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691395357_202610": {
+    "numero": "4691395357",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:37:39.759Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691395704_202610": {
+    "numero": "4691395704",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:38:30.599Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691400811_202610": {
+    "numero": "4691400811",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:39:28.984Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691401608_202610": {
+    "numero": "4691401608",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-14T12:40:21.501Z",
+    "runId": "2026-10-14T11-52-30"
+  },
+  "4691402030_202610": {
+    "numero": "4691402030",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:31:39.814Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691402909_202610": {
+    "numero": "4691402909",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:32:43.943Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691403072_202610": {
+    "numero": "4691403072",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:33:43.983Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691406191_202610": {
+    "numero": "4691406191",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:34:42.631Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691407155_202610": {
+    "numero": "4691407155",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:35:49.209Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691407249_202610": {
+    "numero": "4691407249",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:36:35.333Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691414440_202610": {
+    "numero": "4691414440",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:37:25.918Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691414475_202610": {
+    "numero": "4691414475",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:38:21.764Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691415084_202610": {
+    "numero": "4691415084",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:39:17.101Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691415945_202610": {
+    "numero": "4691415945",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:39:59.669Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691416819_202610": {
+    "numero": "4691416819",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:41:02.172Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691419104_202610": {
+    "numero": "4691419104",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:41:58.020Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4691419296_202610": {
+    "numero": "4691419296",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:42:56.147Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920002792_202610": {
+    "numero": "46920002792",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:43:39.827Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920003852_202610": {
+    "numero": "46920003852",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:44:37.028Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920003858_202610": {
+    "numero": "46920003858",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:45:40.101Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920005262_202610": {
+    "numero": "46920005262",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:46:40.514Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920007153_202610": {
+    "numero": "46920007153",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:47:46.719Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920010184_202610": {
+    "numero": "46920010184",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:48:45.291Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920011392_202610": {
+    "numero": "46920011392",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:49:38.770Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920011931_202610": {
+    "numero": "46920011931",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:50:29.375Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920012453_202610": {
+    "numero": "46920012453",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:51:31.529Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920012990_202610": {
+    "numero": "46920012990",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:52:35.965Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920017193_202610": {
+    "numero": "46920017193",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:53:42.422Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920017275_202610": {
+    "numero": "46920017275",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:54:33.987Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46920017375_202610": {
+    "numero": "46920017375",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:55:27.770Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46933001463_202610": {
+    "numero": "46933001463",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:56:22.437Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46933004505_202610": {
+    "numero": "46933004505",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:57:18.710Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46933004764_202610": {
+    "numero": "46933004764",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:58:04.226Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46933008530_202610": {
+    "numero": "46933008530",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:58:55.245Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46933008943_202610": {
+    "numero": "46933008943",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T16:59:53.680Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46935051053_202610": {
+    "numero": "46935051053",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:00:40.030Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46935051200_202610": {
+    "numero": "46935051200",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:01:39.420Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "46935051856_202610": {
+    "numero": "46935051856",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:02:39.713Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699000550_202610": {
+    "numero": "4699000550",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:03:30.874Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699000668_202610": {
+    "numero": "4699000668",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:04:10.027Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699000858_202610": {
+    "numero": "4699000858",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:05:10.943Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699001472_202610": {
+    "numero": "4699001472",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:05:56.770Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699001532_202610": {
+    "numero": "4699001532",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:06:45.266Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699001584_202610": {
+    "numero": "4699001584",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:07:34.547Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699004213_202610": {
+    "numero": "4699004213",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:08:16.004Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699007067_202610": {
+    "numero": "4699007067",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:09:15.846Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699009162_202610": {
+    "numero": "4699009162",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:10:06.948Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699010062_202610": {
+    "numero": "4699010062",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:10:57.674Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699011696_202610": {
+    "numero": "4699011696",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:11:55.948Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699011818_202610": {
+    "numero": "4699011818",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:12:50.366Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699011944_202610": {
+    "numero": "4699011944",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:13:40.403Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699012169_202610": {
+    "numero": "4699012169",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:14:35.233Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699013535_202610": {
+    "numero": "4699013535",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:15:27.329Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699014754_202610": {
+    "numero": "4699014754",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:16:22.354Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699014900_202610": {
+    "numero": "4699014900",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T17:17:23.387Z",
+    "runId": "2026-10-15T16-29-18"
+  },
+  "4699017654_202610": {
+    "numero": "4699017654",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:30:26.527Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699019282_202610": {
+    "numero": "4699019282",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:31:48.016Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699019457_202610": {
+    "numero": "4699019457",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:32:42.683Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699019841_202610": {
+    "numero": "4699019841",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:33:34.282Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699020666_202610": {
+    "numero": "4699020666",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:35:02.599Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699021202_202610": {
+    "numero": "4699021202",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:36:02.027Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699022263_202610": {
+    "numero": "4699022263",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:36:58.548Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699024064_202610": {
+    "numero": "4699024064",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:37:55.848Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699024893_202610": {
+    "numero": "4699024893",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:38:47.553Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699027036_202610": {
+    "numero": "4699027036",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:39:49.089Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699027860_202610": {
+    "numero": "4699027860",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T19:40:53.743Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699028921_202610": {
+    "numero": "4699028921",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:00:19.323Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699031433_202610": {
+    "numero": "4699031433",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:01:15.758Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699032204_202610": {
+    "numero": "4699032204",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:02:10.148Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699032968_202610": {
+    "numero": "4699032968",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:03:13.109Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699033462_202610": {
+    "numero": "4699033462",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:04:14.733Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699035479_202610": {
+    "numero": "4699035479",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Attempted to use detached Frame '04D88DA659CE89F7306F3B7AE36BAD12'.",
+    "sentAt": "2026-10-15T20:05:08.253Z",
+    "runId": "2026-10-15T19-28-06"
+  },
+  "4699037962_202610": {
+    "numero": "4699037962",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:11:44.598Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699039412_202610": {
+    "numero": "4699039412",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:12:58.288Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699039874_202610": {
+    "numero": "4699039874",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:13:45.889Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699040032_202610": {
+    "numero": "4699040032",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:14:32.169Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699040800_202610": {
+    "numero": "4699040800",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:15:35.747Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699041791_202610": {
+    "numero": "4699041791",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:16:16.916Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699041966_202610": {
+    "numero": "4699041966",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:17:14.080Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699042017_202610": {
+    "numero": "4699042017",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:17:56.306Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699042442_202610": {
+    "numero": "4699042442",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:18:48.465Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699042717_202610": {
+    "numero": "4699042717",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:19:51.801Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699043460_202610": {
+    "numero": "4699043460",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:20:47.240Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699044014_202610": {
+    "numero": "4699044014",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:21:42.102Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699044488_202610": {
+    "numero": "4699044488",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:22:46.427Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699044730_202610": {
+    "numero": "4699044730",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:23:28.968Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699045274_202610": {
+    "numero": "4699045274",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:24:27.434Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699046484_202610": {
+    "numero": "4699046484",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:25:13.370Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699047239_202610": {
+    "numero": "4699047239",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:25:55.164Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699048213_202610": {
+    "numero": "4699048213",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:26:41.702Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699049168_202610": {
+    "numero": "4699049168",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:27:23.990Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699050092_202610": {
+    "numero": "4699050092",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:28:18.259Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699051526_202610": {
+    "numero": "4699051526",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:29:14.601Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699052100_202610": {
+    "numero": "4699052100",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:30:05.940Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699054338_202610": {
+    "numero": "4699054338",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:30:54.416Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699055254_202610": {
+    "numero": "4699055254",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:31:42.412Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699056088_202610": {
+    "numero": "4699056088",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:32:32.072Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699056789_202610": {
+    "numero": "4699056789",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:33:21.428Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699058489_202610": {
+    "numero": "4699058489",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:34:09.401Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699063050_202610": {
+    "numero": "4699063050",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:35:06.742Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699064210_202610": {
+    "numero": "4699064210",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:35:58.302Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699065462_202610": {
+    "numero": "4699065462",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:36:57.360Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699066215_202610": {
+    "numero": "4699066215",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:37:55.831Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699067470_202610": {
+    "numero": "4699067470",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:38:51.220Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699067543_202610": {
+    "numero": "4699067543",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:39:50.933Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699069054_202610": {
+    "numero": "4699069054",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:40:43.855Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699073595_202610": {
+    "numero": "4699073595",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:41:34.871Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699074809_202610": {
+    "numero": "4699074809",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:42:19.403Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699075568_202610": {
+    "numero": "4699075568",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:43:11.448Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699075668_202610": {
+    "numero": "4699075668",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-15T20:44:12.930Z",
+    "runId": "2026-10-15T20-10-54"
+  },
+  "4699077923_202610": {
+    "numero": "4699077923",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T11:00:43.956Z",
+    "runId": "2026-10-16T10-38-35"
+  },
+  "4699078874_202610": {
+    "numero": "4699078874",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T11:01:35.242Z",
+    "runId": "2026-10-16T10-38-35"
+  },
+  "4699079388_202610": {
+    "numero": "4699079388",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T11:02:43.010Z",
+    "runId": "2026-10-16T10-38-35"
+  },
+  "4699079717_202610": {
+    "numero": "4699079717",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-10-16T11:18:33.000Z",
+    "runId": "2026-10-16T10-38-35"
+  },
+  "4699082305_202610": {
+    "numero": "4699082305",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "failed",
+    "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "sentAt": "2026-10-16T11:34:29.736Z",
+    "runId": "2026-10-16T10-38-35"
+  },
+  "4699082804_202610": {
+    "numero": "4699082804",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:21:09.378Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699082918_202610": {
+    "numero": "4699082918",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:21:59.170Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699083035_202610": {
+    "numero": "4699083035",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:22:45.324Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699086920_202610": {
+    "numero": "4699086920",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:23:33.800Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699087047_202610": {
+    "numero": "4699087047",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:24:20.351Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699088966_202610": {
+    "numero": "4699088966",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:25:09.402Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699092129_202610": {
+    "numero": "4699092129",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:26:03.511Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699094938_202610": {
+    "numero": "4699094938",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:26:51.357Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699095959_202610": {
+    "numero": "4699095959",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:27:45.951Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699096776_202610": {
+    "numero": "4699096776",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:28:35.397Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699098530_202610": {
+    "numero": "4699098530",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:29:26.376Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699102279_202610": {
+    "numero": "4699102279",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:30:09.833Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699106762_202610": {
+    "numero": "4699106762",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:30:57.074Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699108225_202610": {
+    "numero": "4699108225",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:31:53.420Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699110163_202610": {
+    "numero": "4699110163",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:32:49.799Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699110650_202610": {
+    "numero": "4699110650",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:33:39.661Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699110658_202610": {
+    "numero": "4699110658",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:34:39.653Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699110717_202610": {
+    "numero": "4699110717",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:35:24.039Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699110937_202610": {
+    "numero": "4699110937",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:36:20.396Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699111072_202610": {
+    "numero": "4699111072",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:36:57.202Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699111482_202610": {
+    "numero": "4699111482",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:37:54.930Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699111601_202610": {
+    "numero": "4699111601",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:38:42.416Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699111626_202610": {
+    "numero": "4699111626",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:39:45.440Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699111824_202610": {
+    "numero": "4699111824",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:40:32.252Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699112292_202610": {
+    "numero": "4699112292",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:41:19.722Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699112417_202610": {
+    "numero": "4699112417",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:42:06.665Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699112492_202610": {
+    "numero": "4699112492",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:43:01.574Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699115016_202610": {
+    "numero": "4699115016",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:43:49.719Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699115879_202610": {
+    "numero": "4699115879",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:44:50.025Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699117457_202610": {
+    "numero": "4699117457",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:45:48.760Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699117966_202610": {
+    "numero": "4699117966",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:46:32.435Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699120304_202610": {
+    "numero": "4699120304",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:47:24.998Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699120604_202610": {
+    "numero": "4699120604",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:48:08.837Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699121550_202610": {
+    "numero": "4699121550",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:49:06.756Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699122843_202610": {
+    "numero": "4699122843",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:50:02.270Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699124591_202610": {
+    "numero": "4699124591",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:50:52.832Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699124761_202610": {
+    "numero": "4699124761",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:51:54.279Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699126090_202610": {
+    "numero": "4699126090",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:52:52.222Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699126371_202610": {
+    "numero": "4699126371",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:53:42.308Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699127004_202610": {
+    "numero": "4699127004",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:54:31.132Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699127507_202610": {
+    "numero": "4699127507",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:55:29.270Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699128309_202610": {
+    "numero": "4699128309",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:56:38.414Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699128504_202610": {
+    "numero": "4699128504",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:57:30.510Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699128774_202610": {
+    "numero": "4699128774",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:58:36.424Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699128842_202610": {
+    "numero": "4699128842",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T17:59:31.086Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699130762_202610": {
+    "numero": "4699130762",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:00:28.229Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699131280_202610": {
+    "numero": "4699131280",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:01:25.402Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699131432_202610": {
+    "numero": "4699131432",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:02:15.927Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699131505_202610": {
+    "numero": "4699131505",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:03:20.297Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699136613_202610": {
+    "numero": "4699136613",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:04:16.727Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699136911_202610": {
+    "numero": "4699136911",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "status": "sent",
+    "sentAt": "2026-10-16T18:05:18.502Z",
+    "runId": "2026-10-16T17-19-57"
+  },
+  "4699143514_202610": {
+    "numero": "4699143514",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:36:26.132Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699143781_202610": {
+    "numero": "4699143781",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:37:10.286Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699145824_202610": {
+    "numero": "4699145824",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:38:02.013Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699147116_202610": {
+    "numero": "4699147116",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:39:09.223Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699147367_202610": {
+    "numero": "4699147367",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:39:52.253Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699147573_202610": {
+    "numero": "4699147573",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:40:43.670Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699147882_202610": {
+    "numero": "4699147882",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:41:37.989Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699148150_202610": {
+    "numero": "4699148150",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:42:36.244Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699148881_202610": {
+    "numero": "4699148881",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:43:24.947Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699150081_202610": {
+    "numero": "4699150081",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:44:20.697Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699150158_202610": {
+    "numero": "4699150158",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:45:24.205Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699151254_202610": {
+    "numero": "4699151254",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:46:08.489Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699151448_202610": {
+    "numero": "4699151448",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:47:03.570Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699152788_202610": {
+    "numero": "4699152788",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:48:02.643Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699153402_202610": {
+    "numero": "4699153402",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:49:00.278Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699154344_202610": {
+    "numero": "4699154344",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:49:54.257Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699155499_202610": {
+    "numero": "4699155499",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:50:46.978Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699156361_202610": {
+    "numero": "4699156361",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:51:43.330Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699156568_202610": {
+    "numero": "4699156568",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:52:41.444Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699158318_202610": {
+    "numero": "4699158318",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:53:30.921Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699160149_202610": {
+    "numero": "4699160149",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:54:21.501Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699160679_202610": {
+    "numero": "4699160679",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:55:15.323Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699161122_202610": {
+    "numero": "4699161122",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:56:03.175Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699161576_202610": {
+    "numero": "4699161576",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:56:58.317Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699162332_202610": {
+    "numero": "4699162332",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:57:57.343Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699162589_202610": {
+    "numero": "4699162589",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:58:39.443Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699162816_202610": {
+    "numero": "4699162816",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T20:59:30.781Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699163554_202610": {
+    "numero": "4699163554",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:00:21.319Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699164330_202610": {
+    "numero": "4699164330",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:01:23.385Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699164455_202610": {
+    "numero": "4699164455",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:02:20.563Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699166954_202610": {
+    "numero": "4699166954",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:03:27.218Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699168115_202610": {
+    "numero": "4699168115",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:04:22.843Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699168548_202610": {
+    "numero": "4699168548",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:05:28.311Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699169035_202610": {
+    "numero": "4699169035",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:06:25.408Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699169493_202610": {
+    "numero": "4699169493",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:07:24.090Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699170143_202610": {
+    "numero": "4699170143",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:08:15.297Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699170851_202610": {
+    "numero": "4699170851",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:09:06.474Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699173863_202610": {
+    "numero": "4699173863",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:09:54.149Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699175130_202610": {
+    "numero": "4699175130",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:10:44.566Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699176185_202610": {
+    "numero": "4699176185",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:11:42.427Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699176458_202610": {
+    "numero": "4699176458",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:12:22.939Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699177002_202610": {
+    "numero": "4699177002",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:13:19.388Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699177028_202610": {
+    "numero": "4699177028",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:14:12.989Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699177397_202610": {
+    "numero": "4699177397",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:15:06.707Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699177887_202610": {
+    "numero": "4699177887",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:16:04.033Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699178083_202610": {
+    "numero": "4699178083",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:16:49.486Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699178340_202610": {
+    "numero": "4699178340",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:17:48.794Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699178923_202610": {
+    "numero": "4699178923",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:18:47.214Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699179981_202610": {
+    "numero": "4699179981",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-16T21:19:28.964Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699180682_202610": {
+    "numero": "4699180682",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "failed",
+    "error": "Cannot read properties of undefined (reading 'getChat')",
+    "sentAt": "2026-10-16T21:20:44.450Z",
+    "runId": "2026-10-16T20-35-32"
+  },
+  "4699182449_202610": {
+    "numero": "4699182449",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:14:55.250Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699182293_202610": {
+    "numero": "4699182293",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:02.423Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699182504_202610": {
+    "numero": "4699182504",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:04.485Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699183787_202610": {
+    "numero": "4699183787",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:07.090Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699184113_202610": {
+    "numero": "4699184113",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:11.190Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699186247_202610": {
+    "numero": "4699186247",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:11.920Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699189944_202610": {
+    "numero": "4699189944",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:15.551Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699190191_202610": {
+    "numero": "4699190191",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:17.922Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699190708_202610": {
+    "numero": "4699190708",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:20.878Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699191029_202610": {
+    "numero": "4699191029",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:23.689Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699191233_202610": {
+    "numero": "4699191233",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:26.351Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699191432_202610": {
+    "numero": "4699191432",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:29.349Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699191854_202610": {
+    "numero": "4699191854",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:31.037Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699193959_202610": {
+    "numero": "4699193959",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:35.503Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699195545_202610": {
+    "numero": "4699195545",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:37.223Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699195609_202610": {
+    "numero": "4699195609",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:39.849Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699196099_202610": {
+    "numero": "4699196099",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:43.434Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699197413_202610": {
+    "numero": "4699197413",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:46.771Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699198103_202610": {
+    "numero": "4699198103",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:15:49.482Z",
+    "runId": "2026-10-17T22-14-30"
+  },
+  "4699199114_202610": {
+    "numero": "4699199114",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:05.643Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699199137_202610": {
+    "numero": "4699199137",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:06.169Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699200935_202610": {
+    "numero": "4699200935",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:06.308Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699202720_202610": {
+    "numero": "4699202720",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:11.966Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699203508_202610": {
+    "numero": "4699203508",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:12.030Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699204214_202610": {
+    "numero": "4699204214",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:13.117Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699206315_202610": {
+    "numero": "4699206315",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:16.360Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699207207_202610": {
+    "numero": "4699207207",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:18.869Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699207551_202610": {
+    "numero": "4699207551",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:19.972Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699209240_202610": {
+    "numero": "4699209240",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:21.718Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699209369_202610": {
+    "numero": "4699209369",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:24.362Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699210730_202610": {
+    "numero": "4699210730",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:25.951Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699211594_202610": {
+    "numero": "4699211594",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:28.591Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699211597_202610": {
+    "numero": "4699211597",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:29.665Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699211997_202610": {
+    "numero": "4699211997",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:32.504Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699214260_202610": {
+    "numero": "4699214260",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:34.784Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699212201_202610": {
+    "numero": "4699212201",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:36.310Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699215187_202610": {
+    "numero": "4699215187",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:38.011Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699215987_202610": {
+    "numero": "4699215987",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:41.151Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699219134_202610": {
+    "numero": "4699219134",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:43.627Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699216465_202610": {
+    "numero": "4699216465",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:44.328Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699219593_202610": {
+    "numero": "4699219593",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:46.534Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699220248_202610": {
+    "numero": "4699220248",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:49.582Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699220828_202610": {
+    "numero": "4699220828",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:50.316Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699221011_202610": {
+    "numero": "4699221011",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:51.804Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699222136_202610": {
+    "numero": "4699222136",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:57.349Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699223101_202610": {
+    "numero": "4699223101",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:57.701Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699222031_202610": {
+    "numero": "4699222031",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:18:58.068Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226020_202610": {
+    "numero": "4699226020",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:03.855Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699225086_202610": {
+    "numero": "4699225086",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:04.383Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226040_202610": {
+    "numero": "4699226040",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:04.574Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226232_202610": {
+    "numero": "4699226232",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:10.225Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226267_202610": {
+    "numero": "4699226267",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:11.143Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226517_202610": {
+    "numero": "4699226517",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:11.221Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699226831_202610": {
+    "numero": "4699226831",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:17.051Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699229894_202610": {
+    "numero": "4699229894",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:17.556Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699230364_202610": {
+    "numero": "4699230364",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:18.003Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699230787_202610": {
+    "numero": "4699230787",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:23.422Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699231338_202610": {
+    "numero": "4699231338",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:23.456Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699233129_202610": {
+    "numero": "4699233129",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:23.633Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699234355_202610": {
+    "numero": "4699234355",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:28.090Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699236058_202610": {
+    "numero": "4699236058",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:28.411Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699236940_202610": {
+    "numero": "4699236940",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:30.207Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699239853_202610": {
+    "numero": "4699239853",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:34.743Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699239856_202610": {
+    "numero": "4699239856",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:34.996Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699238802_202610": {
+    "numero": "4699238802",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:36.071Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699241829_202610": {
+    "numero": "4699241829",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:39.245Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699242090_202610": {
+    "numero": "4699242090",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:40.416Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699242732_202610": {
+    "numero": "4699242732",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:42.930Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699245177_202610": {
+    "numero": "4699245177",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:45.530Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699244884_202610": {
+    "numero": "4699244884",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:45.598Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699245207_202610": {
+    "numero": "4699245207",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:49.249Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699247450_202610": {
+    "numero": "4699247450",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:52.188Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699247944_202610": {
+    "numero": "4699247944",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:52.774Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699249662_202610": {
+    "numero": "4699249662",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:54.521Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699249778_202610": {
+    "numero": "4699249778",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:57.024Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699250355_202610": {
+    "numero": "4699250355",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:19:57.407Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699250635_202610": {
+    "numero": "4699250635",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:01.971Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699251031_202610": {
+    "numero": "4699251031",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:02.078Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699251073_202610": {
+    "numero": "4699251073",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:03.994Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699252696_202610": {
+    "numero": "4699252696",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:07.355Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699253426_202610": {
+    "numero": "4699253426",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:09.148Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699253815_202610": {
+    "numero": "4699253815",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:10.409Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699254078_202610": {
+    "numero": "4699254078",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:14.632Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699255807_202610": {
+    "numero": "4699255807",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:15.318Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699256635_202610": {
+    "numero": "4699256635",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:16.836Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699258528_202610": {
+    "numero": "4699258528",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:20.641Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699259973_202610": {
+    "numero": "4699259973",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:20.663Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699261475_202610": {
+    "numero": "4699261475",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:23.103Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699263607_202610": {
+    "numero": "4699263607",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:25.755Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699263987_202610": {
+    "numero": "4699263987",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:27.203Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699266861_202610": {
+    "numero": "4699266861",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:27.953Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699267000_202610": {
+    "numero": "4699267000",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:31.581Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699267383_202610": {
+    "numero": "4699267383",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:32.670Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699269602_202610": {
+    "numero": "4699269602",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:34.860Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699271634_202610": {
+    "numero": "4699271634",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:37.927Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699271485_202610": {
+    "numero": "4699271485",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:39.060Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699271825_202610": {
+    "numero": "4699271825",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:40.983Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699272562_202610": {
+    "numero": "4699272562",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:44.609Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699272236_202610": {
+    "numero": "4699272236",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:44.658Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699272914_202610": {
+    "numero": "4699272914",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:46.210Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699273494_202610": {
+    "numero": "4699273494",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:49.834Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699277831_202610": {
+    "numero": "4699277831",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:50.335Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699278593_202610": {
+    "numero": "4699278593",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:52.864Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699279847_202610": {
+    "numero": "4699279847",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:56.151Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699281509_202610": {
+    "numero": "4699281509",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:59.391Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699280509_202610": {
+    "numero": "4699280509",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:20:59.717Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699281951_202610": {
+    "numero": "4699281951",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:02.533Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699283498_202610": {
+    "numero": "4699283498",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:04.389Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699284938_202610": {
+    "numero": "4699284938",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:04.480Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699288393_202610": {
+    "numero": "4699288393",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:08.279Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699291378_202610": {
+    "numero": "4699291378",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:09.927Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699296357_202610": {
+    "numero": "4699296357",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:09.951Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699296937_202610": {
+    "numero": "4699296937",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:14.964Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699298398_202610": {
+    "numero": "4699298398",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:15.154Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699302335_202610": {
+    "numero": "4699302335",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:17.121Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699305525_202610": {
+    "numero": "4699305525",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:21.289Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699303168_202610": {
+    "numero": "4699303168",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:22.229Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699308698_202610": {
+    "numero": "4699308698",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:23.399Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699308952_202610": {
+    "numero": "4699308952",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:26.773Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699310777_202610": {
+    "numero": "4699310777",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:28.391Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699310982_202610": {
+    "numero": "4699310982",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:28.925Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699312919_202610": {
+    "numero": "4699312919",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:33.334Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699313168_202610": {
+    "numero": "4699313168",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:34.846Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699311943_202610": {
+    "numero": "4699311943",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:37.898Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699317894_202610": {
+    "numero": "4699317894",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:39.949Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699318277_202610": {
+    "numero": "4699318277",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:40.141Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699318879_202610": {
+    "numero": "4699318879",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:43.939Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699319978_202610": {
+    "numero": "4699319978",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:44.557Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699321297_202610": {
+    "numero": "4699321297",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:45.884Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699323787_202610": {
+    "numero": "4699323787",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:49.299Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699325218_202610": {
+    "numero": "4699325218",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:51.146Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699325580_202610": {
+    "numero": "4699325580",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:51.342Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699325719_202610": {
+    "numero": "4699325719",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:21:54.465Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699329999_202610": {
+    "numero": "4699329999",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:12.562Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699330771_202610": {
+    "numero": "4699330771",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:17.141Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699330929_202610": {
+    "numero": "4699330929",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:22.476Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699333475_202610": {
+    "numero": "4699333475",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:28.219Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699334010_202610": {
+    "numero": "4699334010",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:32.768Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699335007_202610": {
+    "numero": "4699335007",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:38.316Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699335836_202610": {
+    "numero": "4699335836",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:44.385Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699340380_202610": {
+    "numero": "4699340380",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:50.839Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699340742_202610": {
+    "numero": "4699340742",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:22:56.662Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699342328_202610": {
+    "numero": "4699342328",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:23:04.262Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699345172_202610": {
+    "numero": "4699345172",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-17T22:23:10.418Z",
+    "runId": "2026-10-17T22-17-28"
+  },
+  "4699347819_202610": {
+    "numero": "4699347819",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:05.866Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699348694_202610": {
+    "numero": "4699348694",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:12.529Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699349519_202610": {
+    "numero": "4699349519",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:18.719Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699349622_202610": {
+    "numero": "4699349622",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:25.158Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699350217_202610": {
+    "numero": "4699350217",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:37.690Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699351857_202610": {
+    "numero": "4699351857",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:44.465Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699352251_202610": {
+    "numero": "4699352251",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:52.690Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699353498_202610": {
+    "numero": "4699353498",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:31:58.615Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699356055_202610": {
+    "numero": "4699356055",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:32:08.618Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699357190_202610": {
+    "numero": "4699357190",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:32:14.336Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699358774_202610": {
+    "numero": "4699358774",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:32:29.171Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699359664_202610": {
+    "numero": "4699359664",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:32:43.554Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699361680_202610": {
+    "numero": "4699361680",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:32:51.607Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699362033_202610": {
+    "numero": "4699362033",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:03.629Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699362553_202610": {
+    "numero": "4699362553",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:09.554Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699365570_202610": {
+    "numero": "4699365570",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:16.054Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699367929_202610": {
+    "numero": "4699367929",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:21.914Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699369153_202610": {
+    "numero": "4699369153",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:28.207Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699369871_202610": {
+    "numero": "4699369871",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:33.890Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699370542_202610": {
+    "numero": "4699370542",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:39.444Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699371264_202610": {
+    "numero": "4699371264",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:44.796Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699371902_202610": {
+    "numero": "4699371902",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:51.586Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699374433_202610": {
+    "numero": "4699374433",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:33:59.144Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699374710_202610": {
+    "numero": "4699374710",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:05.409Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699380542_202610": {
+    "numero": "4699380542",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:12.599Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699384149_202610": {
+    "numero": "4699384149",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:19.158Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699385285_202610": {
+    "numero": "4699385285",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:25.511Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699388076_202610": {
+    "numero": "4699388076",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:30.866Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699388838_202610": {
+    "numero": "4699388838",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:35.556Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699389709_202610": {
+    "numero": "4699389709",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:42.991Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699401480_202610": {
+    "numero": "4699401480",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:49.886Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699404477_202610": {
+    "numero": "4699404477",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:34:55.193Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699404648_202610": {
+    "numero": "4699404648",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:01.572Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699407820_202610": {
+    "numero": "4699407820",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:07.168Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699408250_202610": {
+    "numero": "4699408250",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:12.906Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699410036_202610": {
+    "numero": "4699410036",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:18.385Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699411491_202610": {
+    "numero": "4699411491",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:23.992Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699412346_202610": {
+    "numero": "4699412346",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:31.738Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699413190_202610": {
+    "numero": "4699413190",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:37.970Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699413260_202610": {
+    "numero": "4699413260",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:42.739Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699414248_202610": {
+    "numero": "4699414248",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:48.055Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699416334_202610": {
+    "numero": "4699416334",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:35:55.667Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699418344_202610": {
+    "numero": "4699418344",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:02.863Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699421606_202610": {
+    "numero": "4699421606",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:07.325Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699421717_202610": {
+    "numero": "4699421717",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:14.313Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699421938_202610": {
+    "numero": "4699421938",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:21.025Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699424122_202610": {
+    "numero": "4699424122",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:27.987Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699427250_202610": {
+    "numero": "4699427250",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:36:33.922Z",
+    "runId": "2026-10-20T12-29-33"
+  },
+  "4699428879_202610": {
+    "numero": "4699428879",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:11.950Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699429981_202610": {
+    "numero": "4699429981",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:18.786Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699701532_202610": {
+    "numero": "4699701532",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:24.133Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699705972_202610": {
+    "numero": "4699705972",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:29.464Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699706062_202610": {
+    "numero": "4699706062",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:34.667Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699707221_202610": {
+    "numero": "4699707221",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:39.612Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699708437_202610": {
+    "numero": "4699708437",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:44.152Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699708804_202610": {
+    "numero": "4699708804",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:53.503Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699708975_202610": {
+    "numero": "4699708975",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:51:58.960Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699709044_202610": {
+    "numero": "4699709044",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:05.528Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699711582_202610": {
+    "numero": "4699711582",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:12.184Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699711851_202610": {
+    "numero": "4699711851",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:18.535Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699713039_202610": {
+    "numero": "4699713039",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:24.028Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699713397_202610": {
+    "numero": "4699713397",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:29.687Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699713665_202610": {
+    "numero": "4699713665",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:34.350Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699713730_202610": {
+    "numero": "4699713730",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:40.748Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699713788_202610": {
+    "numero": "4699713788",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:46.413Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699715429_202610": {
+    "numero": "4699715429",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:51.573Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699716055_202610": {
+    "numero": "4699716055",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:52:56.375Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699716372_202610": {
+    "numero": "4699716372",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:02.967Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699717943_202610": {
+    "numero": "4699717943",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:08.172Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719008_202610": {
+    "numero": "4699719008",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:14.102Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719046_202610": {
+    "numero": "4699719046",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:19.472Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719172_202610": {
+    "numero": "4699719172",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:26.594Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719740_202610": {
+    "numero": "4699719740",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:33.149Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719747_202610": {
+    "numero": "4699719747",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:38.890Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699719919_202610": {
+    "numero": "4699719919",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:43.353Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699720059_202610": {
+    "numero": "4699720059",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:50.661Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699720099_202610": {
+    "numero": "4699720099",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:53:55.618Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699720641_202610": {
+    "numero": "4699720641",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:02.069Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699722022_202610": {
+    "numero": "4699722022",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:07.745Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699722081_202610": {
+    "numero": "4699722081",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:13.816Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699722652_202610": {
+    "numero": "4699722652",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:19.265Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699722697_202610": {
+    "numero": "4699722697",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:24.369Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699723721_202610": {
+    "numero": "4699723721",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:30.124Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699723723_202610": {
+    "numero": "4699723723",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:35.332Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699723998_202610": {
+    "numero": "4699723998",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:41.296Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699724225_202610": {
+    "numero": "4699724225",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:48.575Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699724908_202610": {
+    "numero": "4699724908",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:55.372Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699726267_202610": {
+    "numero": "4699726267",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:54:59.891Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699727148_202610": {
+    "numero": "4699727148",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:05.352Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699727363_202610": {
+    "numero": "4699727363",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:12.499Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699728596_202610": {
+    "numero": "4699728596",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:17.092Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699728787_202610": {
+    "numero": "4699728787",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:22.819Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699729112_202610": {
+    "numero": "4699729112",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:27.576Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699729879_202610": {
+    "numero": "4699729879",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:32.063Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699730107_202610": {
+    "numero": "4699730107",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:36.662Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699731956_202610": {
+    "numero": "4699731956",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "chip2",
+    "de": "5516997214286",
+    "status": "sent",
+    "sentAt": "2026-10-20T12:55:41.457Z",
+    "runId": "2026-10-20T12-51-02"
+  },
+  "4699732697_202610": {
+    "numero": "4699732697",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:01:36.428Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699735197_202610": {
+    "numero": "4699735197",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:01:44.314Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699736809_202610": {
+    "numero": "4699736809",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:01:51.911Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699738233_202610": {
+    "numero": "4699738233",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:02.698Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699738714_202610": {
+    "numero": "4699738714",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:08.322Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699738783_202610": {
+    "numero": "4699738783",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:13.529Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699739050_202610": {
+    "numero": "4699739050",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:23.530Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699739415_202610": {
+    "numero": "4699739415",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:30.678Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699739900_202610": {
+    "numero": "4699739900",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:37.828Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699746188_202610": {
+    "numero": "4699746188",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:42.645Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699748077_202610": {
+    "numero": "4699748077",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:49.015Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699748280_202610": {
+    "numero": "4699748280",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:02:54.347Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699749907_202610": {
+    "numero": "4699749907",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:01.265Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699750554_202610": {
+    "numero": "4699750554",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:06.737Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699750774_202610": {
+    "numero": "4699750774",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:13.495Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699751272_202610": {
+    "numero": "4699751272",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:20.691Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699751916_202610": {
+    "numero": "4699751916",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:27.445Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699753319_202610": {
+    "numero": "4699753319",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:32.165Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699754358_202610": {
+    "numero": "4699754358",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:38.522Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699756028_202610": {
+    "numero": "4699756028",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:44.290Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699756130_202610": {
+    "numero": "4699756130",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:50.732Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699758190_202610": {
+    "numero": "4699758190",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:03:57.004Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699759213_202610": {
+    "numero": "4699759213",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:03.540Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699759704_202610": {
+    "numero": "4699759704",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:08.542Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699760662_202610": {
+    "numero": "4699760662",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:13.880Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699761951_202610": {
+    "numero": "4699761951",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:19.455Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699763412_202610": {
+    "numero": "4699763412",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:24.975Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699763916_202610": {
+    "numero": "4699763916",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:32.055Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699764833_202610": {
+    "numero": "4699764833",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:37.928Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699765359_202610": {
+    "numero": "4699765359",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:42.736Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699767086_202610": {
+    "numero": "4699767086",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:50.813Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699769090_202610": {
+    "numero": "4699769090",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:04:57.657Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699770046_202610": {
+    "numero": "4699770046",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:02.477Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699770684_202610": {
+    "numero": "4699770684",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:07.937Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699771021_202610": {
+    "numero": "4699771021",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:15.692Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699773978_202610": {
+    "numero": "4699773978",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:22.205Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699774533_202610": {
+    "numero": "4699774533",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:27.229Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699775145_202610": {
+    "numero": "4699775145",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:32.646Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699776277_202610": {
+    "numero": "4699776277",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:39.123Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699779681_202610": {
+    "numero": "4699779681",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:45.302Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699781244_202610": {
+    "numero": "4699781244",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:51.072Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699781848_202610": {
+    "numero": "4699781848",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:05:55.447Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699787309_202610": {
+    "numero": "4699787309",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:00.540Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699787901_202610": {
+    "numero": "4699787901",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:05.978Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699789931_202610": {
+    "numero": "4699789931",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:11.620Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699790177_202610": {
+    "numero": "4699790177",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:15.950Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699790186_202610": {
+    "numero": "4699790186",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:21.524Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699790232_202610": {
+    "numero": "4699790232",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-20T15:06:26.611Z",
+    "runId": "2026-10-20T15-01-27"
+  },
+  "4699790948_202610": {
+    "numero": "4699790948",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:54:59.085Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699791676_202610": {
+    "numero": "4699791676",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:05.753Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699794590_202610": {
+    "numero": "4699794590",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:12.232Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699794970_202610": {
+    "numero": "4699794970",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:17.208Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699795267_202610": {
+    "numero": "4699795267",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:23.957Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699799858_202610": {
+    "numero": "4699799858",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:29.683Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699800788_202610": {
+    "numero": "4699800788",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:34.658Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699802057_202610": {
+    "numero": "4699802057",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:41.674Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699805381_202610": {
+    "numero": "4699805381",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:46.444Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699809116_202610": {
+    "numero": "4699809116",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:53.428Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699809927_202610": {
+    "numero": "4699809927",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:55:58.538Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699810906_202610": {
+    "numero": "4699810906",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:04.355Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699811921_202610": {
+    "numero": "4699811921",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:09.356Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699816513_202610": {
+    "numero": "4699816513",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:14.602Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699816779_202610": {
+    "numero": "4699816779",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:21.006Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699817411_202610": {
+    "numero": "4699817411",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:28.158Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699817806_202610": {
+    "numero": "4699817806",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:33.994Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699818715_202610": {
+    "numero": "4699818715",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:40.444Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699820676_202610": {
+    "numero": "4699820676",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:47.806Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699821047_202610": {
+    "numero": "4699821047",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:52.832Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699823482_202610": {
+    "numero": "4699823482",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:56:58.134Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699824810_202610": {
+    "numero": "4699824810",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:03.381Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699825044_202610": {
+    "numero": "4699825044",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:10.022Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699826655_202610": {
+    "numero": "4699826655",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:14.559Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699827479_202610": {
+    "numero": "4699827479",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "skipped_not_registered",
+    "sentAt": "2026-10-21T16:57:21.052Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699840087_202610": {
+    "numero": "4699840087",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:21.424Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699840455_202610": {
+    "numero": "4699840455",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:27.387Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699841482_202610": {
+    "numero": "4699841482",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:33.328Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699841493_202610": {
+    "numero": "4699841493",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:40.078Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699841718_202610": {
+    "numero": "4699841718",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:46.479Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699844876_202610": {
+    "numero": "4699844876",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:57:53.714Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699845302_202610": {
+    "numero": "4699845302",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:01.043Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699848219_202610": {
+    "numero": "4699848219",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:06.432Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699849465_202610": {
+    "numero": "4699849465",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:12.960Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699850242_202610": {
+    "numero": "4699850242",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:19.351Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699851590_202610": {
+    "numero": "4699851590",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:26.269Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699852900_202610": {
+    "numero": "4699852900",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:33.034Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699853188_202610": {
+    "numero": "4699853188",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:42.237Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699853636_202610": {
+    "numero": "4699853636",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:48.760Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699857150_202610": {
+    "numero": "4699857150",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:58:55.166Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699857642_202610": {
+    "numero": "4699857642",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:00.908Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699857950_202610": {
+    "numero": "4699857950",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:05.305Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699858454_202610": {
+    "numero": "4699858454",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:11.021Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699860130_202610": {
+    "numero": "4699860130",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:17.002Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699861020_202610": {
+    "numero": "4699861020",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:22.917Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699868783_202610": {
+    "numero": "4699868783",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:29.050Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699870341_202610": {
+    "numero": "4699870341",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:33.707Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699871716_202610": {
+    "numero": "4699871716",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:39.240Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699872910_202610": {
+    "numero": "4699872910",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-trabalho",
+    "de": "5516991400423",
+    "status": "sent",
+    "sentAt": "2026-10-21T16:59:45.306Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699873469_202610": {
+    "numero": "4699873469",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:07.770Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699873709_202610": {
+    "numero": "4699873709",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:15.487Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699874883_202610": {
+    "numero": "4699874883",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:32.024Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699875948_202610": {
+    "numero": "4699875948",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:37.906Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699888395_202610": {
+    "numero": "4699888395",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:42.307Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699888819_202610": {
+    "numero": "4699888819",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:49.432Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699890432_202610": {
+    "numero": "4699890432",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:01:55.872Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699896118_202610": {
+    "numero": "4699896118",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:02:02.757Z",
+    "runId": "2026-10-21T16-54-11"
+  },
+  "4699899793_202610": {
+    "numero": "4699899793",
+    "nome": "Contato",
+    "categoria": "patoBranco_PB",
+    "chip": "wesley-particular",
+    "de": "5516997212966",
+    "status": "sent",
+    "sentAt": "2026-10-21T17:02:07.762Z",
+    "runId": "2026-10-21T16-54-11"
   }
 }

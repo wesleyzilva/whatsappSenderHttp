@@ -1,57 +1,436 @@
-🌐 Chrome detectado: C:\Program Files\Google\Chrome\Application\chrome.exe
+Confirma o envio de 96 mensagens agora? (s/N) s
 
-⚠️  Desconectado: LOGOUT
-⚠️  Desconectado: LOGOUT
-E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65
-                    throw new Error(e);
-                          ^
+ℹ️  Para parar com segurança a qualquer momento: digite P e pressione Enter.
 
-Error: Error: EBUSY: resource busy or locked, unlink 'E:\wesleyzilva\repo\whatsappSenderHttp\.wwebjs_auth\session-dra-daiana-sender\lockfile'
-    at E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65:27
-    at async LocalAuth.logout (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:58:13)
-    at async E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:498:17
+[20/10/2026 09:29:33] 🔌 Conectando Chip 1 (sem nº identificado)…
+[20/10/2026 09:29:47] ❌ Chip 1 (sem nº identificado) NÃO CONECTOU: Cannot read properties of null (reading 'Socket')
+[20/10/2026 09:29:47]    ↳ Sessão expirada/corrompida em Chip 1 (sem nº identificado) — marcado para ler QR Code novamente (opção 13).
+[20/10/2026 09:29:47] 🔌 Conectando +55 16 99721-2966…
 
-Node.js v24.18.0
+
+
+
+
+
+
+ se nao esta conectado nem perder tempo tentando enviar por ele . em   Opcao: 5
+
+  Arquivos disponiveis (mais recentes primeiro):
+  [1] lista_patoBranco_PB_20261005.csv
+      campanha: patoBranco  |  segmento: PB  |  gerado: 05/10/2026  (211h atras)  |  6504 registros  |  572 KB  [882/6504 - 14%] ✅853 ⚠️1 ❌28
+  [2] lista_disparos_E_20260503.csv
+      campanha: disparos  |  segmento: E  |  gerado: 03/05/2026  (304h atras)  |  1020 registros  |  76 KB  [nenhum enviado]
+  [3] lista_disparos_D_20260502.csv
+      campanha: disparos  |  segmento: D  |  gerado: 02/05/2026  (304h atras)  |  354 registros  |  27 KB  [3/354 - 1%] ✅3 ⚠️0 ❌0
+  [4] lista_disparos_D_20260503.csv
+      campanha: disparos  |  segmento: D  |  gerado: 03/05/2026  (304h atras)  |  280 registros  |  20 KB  [nenhum enviado]
+  [5] lista_disparos_D_20260501.csv
+      campanha: disparos  |  segmento: D  |  gerado: 01/05/2026  (304h atras)  |  954 registros  |  74 KB  [103/954 - 11%] ✅76 ⚠️27 ❌0
+  [6] lista_disparos_D_20260422.csv
+      campanha: disparos  |  segmento: D  |  gerado: 22/04/2026  (304h atras)  |  882 registros  |  70 KB  [nenhum enviado]
+  [7] lista_disparos_C_20260501.csv
+      campanha: disparos  |  segmento: C  |  gerado: 01/05/2026  (304h atras)  |  1080 registros  |  83 KB  [3/1080 - 0%] ✅3 ⚠️0 ❌0
+  [8] lista_disparos_C_20260418.csv
+      campanha: disparos  |  segmento: C  |  gerado: 18/04/2026  (304h atras)  |  1001 registros  |  79 KB  [167/1001 - 17%] ✅115 ⚠️44 ❌8
+  [9] lista_disparos_C_20260422.csv
+      campanha: disparos  |  segmento: C  |  gerado: 22/04/2026  (304h atras)  |  0 registros  |  202 B  [vazio]
+  [10] lista_disparos_B_20260418.csv
+      campanha: disparos  |  segmento: B  |  gerado: 18/04/2026  (304h atras)  |  0 registros  |  202 B  [vazio]
+  [11] lista_disparos_A_20260501.csv
+      campanha: disparos  |  segmento: A  |  gerado: 01/05/2026  (304h atras)  |  2034 registros  |  165 KB  [5/2034 - 0%] ✅3 ⚠️2 ❌0
+  [12] lista_disparos_A_20260413.csv
+      campanha: disparos  |  segmento: A  |  gerado: 13/04/2026  (304h atras)  |  0 registros  |  202 B  [vazio]
+  [13] lista_disparos_A_20260412.csv
+      campanha: disparos  |  segmento: A  |  gerado: 12/04/2026  (304h atras)  |  230 registros  |  19 KB  [46/230 - 20%] ✅16 ⚠️26 ❌4
+  [14] lista_disparos_B_20260417.csv
+      campanha: disparos  |  segmento: B  |  gerado: 17/04/2026  (304h atras)  |  216 registros  |  16 KB  [36/216 - 17%] ✅33 ⚠️0 ❌3
+  [15] lista_disparos_B_20260416.csv
+      campanha: disparos  |  segmento: B  |  gerado: 16/04/2026  (304h atras)  |  216 registros  |  16 KB  [36/216 - 17%] ✅33 ⚠️0 ❌3
+  [16] lista_disparos_B_20260413.csv
+      campanha: disparos  |  segmento: B  |  gerado: 13/04/2026  (304h atras)  |  1008 registros  |  82 KB  [168/1008 - 17%] ✅140 ⚠️16 ❌12
+  [17] lista_disparos_A_20260411.csv
+      campanha: disparos  |  segmento: A  |  gerado: 11/04/2026  (304h atras)  |  600 registros  |  52 KB  [100/600 - 17%] ✅56 ⚠️38 ❌6
+  [18] lista_disparos_A_20260410.csv
+      campanha: disparos  |  segmento: A  |  gerado: 10/04/2026  (304h atras)  |  2432 registros  |  205 KB  [339/2432 - 14%] ✅226 ⚠️67 ❌46
+  [19] lista_disparos_A_20260408.csv
+      campanha: disparos  |  segmento: A  |  gerado: 08/04/2026  (304h atras)  |  5620 registros  |  449 KB  [nenhum enviado]
+
+  Selecione o numero do arquivo: 1 listar os 3 mais recentes os demais pode deixar no log.  este painel WhatsApp Sender · Painel
+● modo contínuo rodando
+Operação
+▶ Iniciar modo contínuo
+■ Parar com segurança
+Modo padrão
+sequencial
+paralelo
+DDD 
+ enviar a qualquer horário (agora)
+Teto: 48 envios por zap a cada 24h (limite 50 − margem 2). Horário de envio: a qualquer hora.
+Resumo geral
+1470
+enviados
+156
+não têm WhatsApp
+94
+falhas
+Zaps (números)
++ Adicionar zap
+Chip 1 (número ainda não identificado)
+precisa ler o QR de novo
+
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Chip 2 +5516991400423
+precisa ler o QR de novo
+
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Chip 3 (número ainda não identificado)
+não conectado
+
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+16997212966 +5516997212966
+conectado
+
+48/48 nas últimas 24h · próxima vaga 21/10, 09:31
+Conectar (QR)
+Desativar
+wes trabalho +5516997214286
+conectado
+
+10/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Configuração
+Margem de segurança 
+Salvar margem
+Uso real: 48 por zap.
+ respeitar janelas de horário (editar as janelas: 05_config/chips.json)
+Log
+09:51:01 ╔═════════════════════════════════════════════╗ 09:51:01 ║ WhatsApp Bulk Sender · Dra. Daiana Ferraz ║ 09:51:01 ╚═════════════════════════════════════════════╝ 09:51:01 ╔═════════════════════════════════════════════════════════════════╗ 09:51:01 ║ MODO CONTÍNUO · ENVIO A QUALQUER HORA (JANELA 24H POR NÚMERO) ║ 09:51:01 ╚═════════════════════════════════════════════════════════════════╝ 09:51:01 [20/10/2026 09:51:01] Modo contínuo iniciado · Teto: 48 envios por número a cada 24h · Horário: LIVRE (24/7) 09:51:01 • Log com horário salvo continuamente em: 03_log/continuo.log 09:51:01 • Para parar com segurança: digite P e Enter 09:51:01 ℹ️ Para parar com segurança a qualquer momento: digite P e pressione Enter. 09:51:02 [20/10/2026 09:51:02] 🚀 INICIANDO LOTE · CSV: lista_patoBranco_PB_20261005.csv · Modo: sequencial 09:51:02 Total únicos: 1084 | Já processados: 930 | Pendentes: 154 | Envios neste lote: 48 09:51:02 📱 Situação dos números (janela de 24h): 09:51:02 • +55 16 99721-4286 (wes trabalho) → 24h: 0/48 (pode enviar até 48 agora) | último envio: 17/10/2026 19:21:51 (há 62h29min) 09:51:02 ⚠️ +55 16 99721-2966: em janela de 24h (48/48) · último envio: 20/10/2026 09:36:33 (há 14min) → libera em 21/10/2026 09:31:35 09:51:02 ⚠️ Chip 1 (sem nº identificado): precisa ler QR de novo (Cannot read properties of null (reading 'Socket')) — ignorado (use "Conectar número") 09:51:02 ⚠️ +55 16 99140-0423 (Chip 2): precisa ler QR de novo — ignorado (use "Conectar número") 09:51:02 ⚠️ Chip 3 (sem nº identificado): não conectado — ignorado (use "Conectar número") 09:51:02 [20/10/2026 09:51:02] 🔌 Conectando +55 16 99721-4286 (wes trabalho)… 09:51:06 ⏳ [20/10/2026 09:51:06] [+55 16 99721-4286 (wes trabalho)] Carregando WhatsApp Web… 95% WhatsApp 09:51:06 [20/10/2026 09:51:06] ✅ [+55 16 99721-4286 (wes trabalho)] autenticado — carregando… 09:51:06 [20/10/2026 09:51:06] ✅ +55 16 99721-4286 (wes trabalho) conectado e pronto para enviar (quota: 48 envios) 09:51:12 [20/10/2026 09:51:12] [+55 16 99721-4286 (wes trabalho) · 1/48] Contato (4699428879) → ✅ ENVIADO 09:51:18 [20/10/2026 09:51:18] [+55 16 99721-4286 (wes trabalho) · 2/48] Contato (4699429981) → ✅ ENVIADO 09:51:24 [20/10/2026 09:51:24] [+55 16 99721-4286 (wes trabalho) · 3/48] Contato (4699701532) → ✅ ENVIADO 09:51:29 [20/10/2026 09:51:29] [+55 16 99721-4286 (wes trabalho) · 4/48] Contato (4699705972) → ✅ ENVIADO 09:51:34 [20/10/2026 09:51:34] [+55 16 99721-4286 (wes trabalho) · 5/48] Contato (4699706062) → ✅ ENVIADO 09:51:39 [20/10/2026 09:51:39] [+55 16 99721-4286 (wes trabalho) · 6/48] Contato (4699707221) → ✅ ENVIADO 09:51:44 [20/10/2026 09:51:44] [+55 16 99721-4286 (wes trabalho) · 7/48] Contato (4699708437) → ✅ ENVIADO 09:51:53 [20/10/2026 09:51:53] [+55 16 99721-4286 (wes trabalho) · 8/48] Contato (4699708804) → ✅ ENVIADO 09:51:58 [20/10/2026 09:51:58] [+55 16 99721-4286 (wes trabalho) · 9/48] Contato (4699708975) → ✅ ENVIADO 09:52:05 [20/10/2026 09:52:05] [+55 16 99721-4286 (wes trabalho) · 10/48] Contato (4699709044) → ✅ ENVIADO quero que eu possa ver as funcionalidades do menu principal em 03 disparo e dentro dele as abas com o que posso verificar 
+
+em WhatsApp Sender · Painel
+● modo contínuo rodando
+Operação
+▶ Iniciar modo contínuo
+■ Parar com segurança
+Modo 
+padrão
+DDD 
+todos
+ enviar a qualquer horário (agora)
+Teto: 48 envios por zap a cada 24h (limite 50 − margem 2). Horário de envio: a qualquer hora.
+
+Resumo geral
+1530
+enviados
+156
+não têm WhatsApp
+94
+falhas
+Zaps (números)
++ Adicionar zap
+Chip 1 (número ainda não identificado)
+precisa ler o QR de novo
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Chip 2 +5516991400423
+conectado
+22/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Chip 3 (número ainda não identificado)
+não conectado
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+16997212966 +5516997212966
+conectado
+48/48 nas últimas 24h · próxima vaga 21/10, 09:31
+Conectar (QR)
+Desativar
+wes trabalho +5516997214286
+conectado
+48/48 nas últimas 24h · próxima vaga 21/10, 09:51
+Conectar (QR)
+Desativar
+Configuração
+Margem de segurança 
+2
+Salvar margem
+Uso real: 48 por zap.
+ respeitar janelas de horário (editar as janelas: 05_config/chips.json)
+Log
+12:01:27 ╔═════════════════════════════════════════════╗ 12:01:27 ║ WhatsApp Bulk Sender · Dra. Daiana Ferraz ║ 12:01:27 ╚═════════════════════════════════════════════╝ 12:01:27 ╔═════════════════════════════════════════════════════════════════╗ 12:01:27 ║ MODO CONTÍNUO · ENVIO A QUALQUER HORA (JANELA 24H POR NÚMERO) ║ 12:01:27 ╚═════════════════════════════════════════════════════════════════╝ 12:01:27 [20/10/2026 12:01:27] Modo contínuo iniciado · Teto: 48 envios por número a cada 24h · Horário: LIVRE (24/7) 12:01:27 • Log com horário salvo continuamente em: 03_log/continuo.log 12:01:27 • Para parar com segurança: digite P e Enter 12:01:27 ℹ️ Para parar com segurança a qualquer momento: digite P e pressione Enter. 12:01:27 [20/10/2026 12:01:27] 🚀 INICIANDO LOTE · CSV: lista_patoBranco_PB_20261005.csv · Modo: sequencial 12:01:27 Total únicos: 1084 | Já processados: 978 | Pendentes: 106 | Envios neste lote: 48 12:01:27 📱 Situação dos números (janela de 24h): 12:01:27 • +55 16 99140-0423 (Chip 2) → 24h: 0/48 (pode enviar até 48 agora) | último envio: 17/10/2026 19:21:51 (há 64h40min) 12:01:27 ⚠️ +55 16 99721-2966: em janela de 24h (48/48) · último envio: 20/10/2026 09:36:33 (há 2h25min) → libera em 21/10/2026 09:31:35 12:01:27 ⚠️ +55 16 99721-4286 (wes trabalho): em janela de 24h (48/48) · último envio: 20/10/2026 09:55:41 (há 2h06min) → libera em 21/10/2026 09:51:41 12:01:27 ⚠️ Chip 1 (sem nº identificado): precisa ler QR de novo (Cannot read properties of null (reading 'Socket')) — ignorado (use "Conectar número") 12:01:27 ⚠️ Chip 3 (sem nº identificado): não conectado — ignorado (use "Conectar número") 12:01:27 [20/10/2026 12:01:27] 🔌 Conectando +55 16 99140-0423 (Chip 2)… 12:01:32 ⏳ [20/10/2026 12:01:32] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 0% WhatsApp 12:01:32 [20/10/2026 12:01:32] ✅ [+55 16 99140-0423 (Chip 2)] autenticado — carregando… 12:01:33 [20/10/2026 12:01:33] ✅ +55 16 99140-0423 (Chip 2) conectado e pronto para enviar (quota: 48 envios) 12:01:36 [20/10/2026 12:01:36] [+55 16 99140-0423 (Chip 2) · 1/48] Contato (4699732697) → ✅ ENVIADO 12:01:44 [20/10/2026 12:01:44] [+55 16 99140-0423 (Chip 2) · 2/48] Contato (4699735197) → ✅ ENVIADO 12:01:51 [20/10/2026 12:01:51] [+55 16 99140-0423 (Chip 2) · 3/48] Contato (4699736809) → ✅ ENVIADO 12:02:02 [20/10/2026 12:02:02] [+55 16 99140-0423 (Chip 2) · 4/48] Contato (4699738233) → ✅ ENVIADO 12:02:08 [20/10/2026 12:02:08] [+55 16 99140-0423 (Chip 2) · 5/48] Contato (4699738714) → ✅ ENVIADO 12:02:13 [20/10/2026 12:02:13] [+55 16 99140-0423 (Chip 2) · 6/48] Contato (4699738783) → ✅ ENVIADO 12:02:23 [20/10/2026 12:02:23] [+55 16 99140-0423 (Chip 2) · 7/48] Contato (4699739050) → ✅ ENVIADO 12:02:30 [20/10/2026 12:02:30] [+55 16 99140-0423 (Chip 2) · 8/48] Contato (4699739415) → ✅ ENVIADO 12:02:37 [20/10/2026 12:02:37] [+55 16 99140-0423 (Chip 2) · 9/48] Contato (4699739900) → ✅ ENVIADO 12:02:42 [20/10/2026 12:02:42] [+55 16 99140-0423 (Chip 2) · 10/48] Contato (4699746188) → ✅ ENVIADO 12:02:49 [20/10/2026 12:02:49] [+55 16 99140-0423 (Chip 2) · 11/48] Contato (4699748077) → ✅ ENVIADO 12:02:54 [20/10/2026 12:02:54] [+55 16 99140-0423 (Chip 2) · 12/48] Contato (4699748280) → ✅ ENVIADO 12:03:01 [20/10/2026 12:03:01] [+55 16 99140-0423 (Chip 2) · 13/48] Contato (4699749907) → ✅ ENVIADO 12:03:06 [20/10/2026 12:03:06] [+55 16 99140-0423 (Chip 2) · 14/48] Contato (4699750554) → ✅ ENVIADO 12:03:13 [20/10/2026 12:03:13] [+55 16 99140-0423 (Chip 2) · 15/48] Contato (4699750774) → ✅ ENVIADO 12:03:20 [20/10/2026 12:03:20] [+55 16 99140-0423 (Chip 2) · 16/48] Contato (4699751272) → ✅ ENVIADO 12:03:27 [20/10/2026 12:03:27] [+55 16 99140-0423 (Chip 2) · 17/48] Contato (4699751916) → ✅ ENVIADO 12:03:32 [20/10/2026 12:03:32] [+55 16 99140-0423 (Chip 2) · 18/48] Contato (4699753319) → ✅ ENVIADO 12:03:38 [20/10/2026 12:03:38] [+55 16 99140-0423 (Chip 2) · 19/48] Contato (4699754358) → ✅ ENVIADO 12:03:44 [20/10/2026 12:03:44] [+55 16 99140-0423 (Chip 2) · 20/48] Contato (4699756028) → ✅ ENVIADO 12:03:50 [20/10/2026 12:03:50] [+55 16 99140-0423 (Chip 2) · 21/48] Contato (4699756130) → ✅ ENVIADO 12:03:57 [20/10/2026 12:03:57] [+55 16 99140-0423 (Chip 2) · 22/48] Contato (4699758190) → ✅ ENVIADO ]
+ao inves de usar chip 1, 2, 3 usar o numero se ele ja estiver configurado senão tiver deixar chip vazio.
+
+---------------
+mellhorar 
+  ==========================================
+    WhatsApp Sender - Dra. Daiana Ferraz   
+  ==========================================
+
+  Data atual : 21/10/2026  13:52
+  Zaps       : 1) Chip 1 (sem n┬║ identificado) [precisa QR]   2) +55 16 99140-0423 (Chip 2) [0/48 em 24h]   3) Chip 3 (sem n┬║ identificado) [nao conectado]   4) +55 16 99721-2966 [0/48 em 24h]   5) +55 16 99721-4286 (wes trabalho) [0/48 em 24h]
+  Lista CSV  : [!!] lista_patoBranco_PB_20261005.csv  (239h atras) — CSV antigo, gere nova lista (opcao 3)
+
+  === VERIFICACAO ===
+  [1] Ver status de envios (onde parou)
+  [2] Gerar relatorio de disparo
+
+  === PREPARACAO ===
+  [3] Gerar lista de disparo (campanha + letra)
+  [4] Gerar listas Customer Match (Google Ads)
+
+  === ENVIO ===
+  [5] Enviar mensagens (disparo completo)
+  [6] Dry-run (simular sem enviar)
+  [7] Enviar com limite (parcial)
+
+  === ZAPS (NUMEROS) - teto 48 envios por zap a cada 24h (limite 50 - margem 2) ===
+  [11] Ver numeros e saldo do dia
+  [12] Testar conexao com o zap
+  [13] Conectar numero / adicionar zap (QR Code)
+  [14] Desconectar numero
+  [15] Ver log de erros
+  [16] Atualizar biblioteca do WhatsApp (corrige autentica e nao conecta)
+  [17] MODO CONTINUO - roda direto (troca de zap sozinho, espera as 24h)
+  [18] PAINEL no navegador (operar por botoes)
+
+  === MANUTENCAO ===
+  [8]  Resetar historico de envios
+  [9]  Remover runId especifico
+  [10] Exportar sem-WhatsApp para blacklist
+
+  [0] Sair
+
+  Opcao: 11
+
+
+╔═════════════════════════════════════════════╗
+║  WhatsApp Bulk Sender · Dra. Daiana Ferraz  ║
+╚═════════════════════════════════════════════╝
+
+
+╔═════════════════════════════════════════════════╗
+║  ZAPS / NÚMEROS DE ENVIO (JANELA MÓVEL DE 24H)  ║
+╚═════════════════════════════════════════════════╝
+
+  [1] Chip 1 (sem nº identificado)  ·  precisa ler o QR de novo (Cannot read properties of null (reading 'Socket'))
+      • Últimas 24h : 0/48 enviados  (disponível agora: 48)
+      • Último envio: 16/10/2026 15:05:18 (há 118h48min)
+      • Status 24h  : LIBERADO para enviar a qualquer hora
+  [2] +55 16 99140-0423 (Chip 2)  ·  conectado e pronto
+      • Últimas 24h : 0/48 enviados  (disponível agora: 48)
+      • Último envio: 20/10/2026 12:06:26 (há 25h47min)
+      • Status 24h  : LIBERADO para enviar a qualquer hora
+  [3] Chip 3 (sem nº identificado)  ·  não conectado (use "Conectar número")
+      • Últimas 24h : 0/48 enviados  (disponível agora: 48)
+      • Último envio: nenhum envio registrado
+      • Status 24h  : LIBERADO para enviar a qualquer hora
+  [4] +55 16 99721-2966  ·  conectado e pronto
+      • Últimas 24h : 0/48 enviados  (disponível agora: 48)
+      • Último envio: 20/10/2026 09:36:33 (há 28h17min)
+      • Status 24h  : LIBERADO para enviar a qualquer hora
+  [5] +55 16 99721-4286 (wes trabalho)  ·  conectado e pronto
+      • Últimas 24h : 0/48 enviados  (disponível agora: 48)
+      • Último envio: 20/10/2026 09:55:41 (há 27h57min)
+      • Status 24h  : LIBERADO para enviar a qualquer hora
+
+  Regra ativa: 48 envios por número a cada 24h · Horário: LIVRE (qualquer hora após as 24h)
+  Capacidade imediata (números conectados e livres): 144 mensagens
+
+
+  Pressione Enter para voltar:
+  ==================
+  WhatsApp Sender · Painel
+● modo contínuo rodando
+Operação
+▶ Iniciar modo contínuo
+■ Parar com segurança
+Modo 
+padrão
+DDD 
+todos
+ enviar a qualquer horário (agora)
+Teto: 48 envios por zap a cada 24h (limite 50 − margem 2). Horário de envio: a qualquer hora.
+
+Resumo geral
+1613
+enviados
+157
+não têm WhatsApp
+94
+falhas
+Zaps (números)
++ Adicionar zap
+Chip 1 (número ainda não identificado)
+precisa ler o QR de novo
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Chip 2 +5516991400423
+conectado
+48/48 nas últimas 24h · próxima vaga 22/10, 13:55
+Conectar (QR)
+Desativar
+Chip 3 (número ainda não identificado)
+não conectado
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+16997212966 +5516997212966
+conectado
+9/48 nas últimas 24h
+Conectar (QR)
+Desativar
+wes trabalho +5516997214286
+conectado
+0/48 nas últimas 24h
+Conectar (QR)
+Desativar
+Configuração
+Margem de segurança 
+2
+Salvar margem
+Uso real: 48 por zap.
+ respeitar janelas de horário (editar as janelas: 05_config/chips.json)
+Log
+13:54:11 ╔═════════════════════════════════════════════╗ 13:54:11 ║ WhatsApp Bulk Sender · Dra. Daiana Ferraz ║ 13:54:11 ╚═════════════════════════════════════════════╝ 13:54:11 ╔═════════════════════════════════════════════════════════════════╗ 13:54:11 ║ MODO CONTÍNUO · ENVIO A QUALQUER HORA (JANELA 24H POR NÚMERO) ║ 13:54:11 ╚═════════════════════════════════════════════════════════════════╝ 13:54:11 [21/10/2026 13:54:11] Modo contínuo iniciado · Teto: 48 envios por número a cada 24h · Horário: LIVRE (24/7) 13:54:11 • Log com horário salvo continuamente em: 03_log/continuo.log 13:54:11 • Para parar com segurança: digite P e Enter 13:54:11 ℹ️ Para parar com segurança a qualquer momento: digite P e pressione Enter. 13:54:11 [21/10/2026 13:54:11] 🚀 INICIANDO LOTE · CSV: lista_patoBranco_PB_20261005.csv · Modo: sequencial 13:54:11 Total únicos: 1084 | Já processados: 1026 | Pendentes: 58 | Envios neste lote: 58 13:54:11 📱 Situação dos números (janela de 24h): 13:54:11 • +55 16 99140-0423 (Chip 2) → 24h: 0/48 (pode enviar até 48 agora) | último envio: 20/10/2026 12:06:26 (há 25h48min) 13:54:11 • +55 16 99721-2966 → 24h: 0/48 (pode enviar até 48 agora) | último envio: 20/10/2026 09:36:33 (há 28h18min) 13:54:11 • +55 16 99721-4286 (wes trabalho) → 24h: 0/48 (pode enviar até 48 agora) | último envio: 20/10/2026 09:55:41 (há 27h59min) 13:54:11 ⚠️ Chip 1 (sem nº identificado): precisa ler QR de novo (Cannot read properties of null (reading 'Socket')) — ignorado (use "Conectar número") 13:54:11 ⚠️ Chip 3 (sem nº identificado): não conectado — ignorado (use "Conectar número") 13:54:11 [21/10/2026 13:54:11] 🔌 Conectando +55 16 99140-0423 (Chip 2)… 13:54:29 ⏳ [21/10/2026 13:54:29] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 0% WhatsApp 13:54:30 ⏳ [21/10/2026 13:54:30] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 5% WhatsApp 13:54:31 ⏳ [21/10/2026 13:54:31] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 10% WhatsApp 13:54:32 ⏳ [21/10/2026 13:54:32] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 27% WhatsApp 13:54:33 ⏳ [21/10/2026 13:54:33] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 42% WhatsApp 13:54:33 ⏳ [21/10/2026 13:54:33] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 45% WhatsApp 13:54:34 ⏳ [21/10/2026 13:54:34] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 58% WhatsApp 13:54:35 ⏳ [21/10/2026 13:54:35] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 77% WhatsApp 13:54:36 ⏳ [21/10/2026 13:54:36] [+55 16 99140-0423 (Chip 2)] Carregando WhatsApp Web… 100% WhatsApp 13:54:41 [21/10/2026 13:54:41] ✅ [+55 16 99140-0423 (Chip 2)] autenticado — carregando… 13:54:42 [21/10/2026 13:54:42] ✅ +55 16 99140-0423 (Chip 2) conectado e pronto para enviar (quota: 48 envios) 13:54:59 [21/10/2026 13:54:59] [+55 16 99140-0423 (Chip 2) · 1/48] Contato (4699790948) → ✅ ENVIADO 13:55:05 [21/10/2026 13:55:05] [+55 16 99140-0423 (Chip 2) · 2/48] Contato (4699791676) → ✅ ENVIADO 13:55:12 [21/10/2026 13:55:12] [+55 16 99140-0423 (Chip 2) · 3/48] Contato (4699794590) → ✅ ENVIADO 13:55:17 [21/10/2026 13:55:17] [+55 16 99140-0423 (Chip 2) · 4/48] Contato (4699794970) → ✅ ENVIADO 13:55:23 [21/10/2026 13:55:23] [+55 16 99140-0423 (Chip 2) · 5/48] Contato (4699795267) → ✅ ENVIADO 13:55:29 [21/10/2026 13:55:29] [+55 16 99140-0423 (Chip 2) · 6/48] Contato (4699799858) → ✅ ENVIADO 13:55:34 [21/10/2026 13:55:34] [+55 16 99140-0423 (Chip 2) · 7/48] Contato (4699800788) → ✅ ENVIADO 13:55:41 [21/10/2026 13:55:41] [+55 16 99140-0423 (Chip 2) · 8/48] Contato (4699802057) → ✅ ENVIADO 13:55:46 [21/10/2026 13:55:46] [+55 16 99140-0423 (Chip 2) · 9/48] Contato (4699805381) → ✅ ENVIADO 13:55:53 [21/10/2026 13:55:53] [+55 16 99140-0423 (Chip 2) · 10/48] Contato (4699809116) → ✅ ENVIADO 13:55:58 [21/10/2026 13:55:58] [+55 16 99140-0423 (Chip 2) · 11/48] Contato (4699809927) → ✅ ENVIADO 13:56:04 [21/10/2026 13:56:04] [+55 16 99140-0423 (Chip 2) · 12/48] Contato (4699810906) → ✅ ENVIADO 13:56:09 [21/10/2026 13:56:09] [+55 16 99140-0423 (Chip 2) · 13/48] Contato (4699811921) → ✅ ENVIADO 13:56:14 [21/10/2026 13:56:14] [+55 16 99140-0423 (Chip 2) · 14/48] Contato (4699816513) → ✅ ENVIADO 13:56:21 [21/10/2026 13:56:21] [+55 16 99140-0423 (Chip 2) · 15/48] Contato (4699816779) → ✅ ENVIADO 13:56:28 [21/10/2026 13:56:28] [+55 16 99140-0423 (Chip 2) · 16/48] Contato (4699817411) → ✅ ENVIADO 13:56:34 [21/10/2026 13:56:34] [+55 16 99140-0423 (Chip 2) · 17/48] Contato (4699817806) → ✅ ENVIADO 13:56:40 [21/10/2026 13:56:40] [+55 16 99140-0423 (Chip 2) · 18/48] Contato (4699818715) → ✅ ENVIADO 13:56:47 [21/10/2026 13:56:47] [+55 16 99140-0423 (Chip 2) · 19/48] Contato (4699820676) → ✅ ENVIADO 13:56:52 [21/10/2026 13:56:52] [+55 16 99140-0423 (Chip 2) · 20/48] Contato (4699821047) → ✅ ENVIADO 13:56:58 [21/10/2026 13:56:58] [+55 16 99140-0423 (Chip 2) · 21/48] Contato (4699823482) → ✅ ENVIADO 13:57:03 [21/10/2026 13:57:03] [+55 16 99140-0423 (Chip 2) · 22/48] Contato (4699824810) → ✅ ENVIADO 13:57:10 [21/10/2026 13:57:10] [+55 16 99140-0423 (Chip 2) · 23/48] Contato (4699825044) → ✅ ENVIADO 13:57:14 [21/10/2026 13:57:14] [+55 16 99140-0423 (Chip 2) · 24/48] Contato (4699826655) → ✅ ENVIADO 13:57:21 [21/10/2026 13:57:21] [+55 16 99140-0423 (Chip 2) · 25/48] Contato (4699827479) → ⚠️ Não tem WhatsApp (pulando) 13:57:21 [21/10/2026 13:57:21] [+55 16 99140-0423 (Chip 2) · 25/48] Contato (4699840087) → ✅ ENVIADO 13:57:27 [21/10/2026 13:57:27] [+55 16 99140-0423 (Chip 2) · 26/48] Contato (4699840455) → ✅ ENVIADO 13:57:33 [21/10/2026 13:57:33] [+55 16 99140-0423 (Chip 2) · 27/48] Contato (4699841482) → ✅ ENVIADO 13:57:40 [21/10/2026 13:57:40] [+55 16 99140-0423 (Chip 2) · 28/48] Contato (4699841493) → ✅ ENVIADO 13:57:46 [21/10/2026 13:57:46] [+55 16 99140-0423 (Chip 2) · 29/48] Contato (4699841718) → ✅ ENVIADO 13:57:53 [21/10/2026 13:57:53] [+55 16 99140-0423 (Chip 2) · 30/48] Contato (4699844876) → ✅ ENVIADO 13:58:01 [21/10/2026 13:58:01] [+55 16 99140-0423 (Chip 2) · 31/48] Contato (4699845302) → ✅ ENVIADO 13:58:06 [21/10/2026 13:58:06] [+55 16 99140-0423 (Chip 2) · 32/48] Contato (4699848219) → ✅ ENVIADO 13:58:12 [21/10/2026 13:58:12] [+55 16 99140-0423 (Chip 2) · 33/48] Contato (4699849465) → ✅ ENVIADO 13:58:19 [21/10/2026 13:58:19] [+55 16 99140-0423 (Chip 2) · 34/48] Contato (4699850242) → ✅ ENVIADO 13:58:26 [21/10/2026 13:58:26] [+55 16 99140-0423 (Chip 2) · 35/48] Contato (4699851590) → ✅ ENVIADO 13:58:33 [21/10/2026 13:58:33] [+55 16 99140-0423 (Chip 2) · 36/48] Contato (4699852900) → ✅ ENVIADO 13:58:42 [21/10/2026 13:58:42] [+55 16 99140-0423 (Chip 2) · 37/48] Contato (4699853188) → ✅ ENVIADO 13:58:48 [21/10/2026 13:58:48] [+55 16 99140-0423 (Chip 2) · 38/48] Contato (4699853636) → ✅ ENVIADO 13:58:55 [21/10/2026 13:58:55] [+55 16 99140-0423 (Chip 2) · 39/48] Contato (4699857150) → ✅ ENVIADO 13:59:00 [21/10/2026 13:59:00] [+55 16 99140-0423 (Chip 2) · 40/48] Contato (4699857642) → ✅ ENVIADO 13:59:05 [21/10/2026 13:59:05] [+55 16 99140-0423 (Chip 2) · 41/48] Contato (4699857950) → ✅ ENVIADO 13:59:11 [21/10/2026 13:59:11] [+55 16 99140-0423 (Chip 2) · 42/48] Contato (4699858454) → ✅ ENVIADO 13:59:17 [21/10/2026 13:59:17] [+55 16 99140-0423 (Chip 2) · 43/48] Contato (4699860130) → ✅ ENVIADO 13:59:22 [21/10/2026 13:59:22] [+55 16 99140-0423 (Chip 2) · 44/48] Contato (4699861020) → ✅ ENVIADO 13:59:29 [21/10/2026 13:59:29] [+55 16 99140-0423 (Chip 2) · 45/48] Contato (4699868783) → ✅ ENVIADO 13:59:33 [21/10/2026 13:59:33] [+55 16 99140-0423 (Chip 2) · 46/48] Contato (4699870341) → ✅ ENVIADO 13:59:39 [21/10/2026 13:59:39] [+55 16 99140-0423 (Chip 2) · 47/48] Contato (4699871716) → ✅ ENVIADO 13:59:45 [21/10/2026 13:59:45] [+55 16 99140-0423 (Chip 2) · 48/48] Contato (4699872910) → ✅ ENVIADO 13:59:45 [21/10/2026 13:59:45] 🏁 +55 16 99140-0423 (Chip 2) finalizou participação no lote: 48 enviado(s) · motivo: teto_48_envios_concluido 13:59:47 [21/10/2026 13:59:47] ↪️ +55 16 99140-0423 (Chip 2) atingiu o teto de 48 envios nas 24h — passando para o próximo número. 13:59:47 [21/10/2026 13:59:47] 🔌 Conectando +55 16 99721-2966… 13:59:58 ⏳ [21/10/2026 13:59:58] [+55 16 99721-2966] Carregando WhatsApp Web… 0% WhatsApp 13:59:59 ⏳ [21/10/2026 13:59:59] [+55 16 99721-2966] Carregando WhatsApp Web… 1% WhatsApp 14:00:11 ⏳ [21/10/2026 14:00:11] [+55 16 99721-2966] Carregando WhatsApp Web… 2% WhatsApp 14:00:12 ⏳ [21/10/2026 14:00:12] [+55 16 99721-2966] Carregando WhatsApp Web… 4% WhatsApp 14:00:13 ⏳ [21/10/2026 14:00:13] [+55 16 99721-2966] Carregando WhatsApp Web… 9% WhatsApp 14:00:14 ⏳ [21/10/2026 14:00:14] [+55 16 99721-2966] Carregando WhatsApp Web… 12% WhatsApp 14:00:15 ⏳ [21/10/2026 14:00:15] [+55 16 99721-2966] Carregando WhatsApp Web… 14% WhatsApp 14:00:18 ⏳ [21/10/2026 14:00:18] [+55 16 99721-2966] Carregando WhatsApp Web… 18% WhatsApp 14:00:19 ⏳ [21/10/2026 14:00:19] [+55 16 99721-2966] Carregando WhatsApp Web… 26% WhatsApp 14:00:20 ⏳ [21/10/2026 14:00:20] [+55 16 99721-2966] Carregando WhatsApp Web… 31% WhatsApp 14:00:21 ⏳ [21/10/2026 14:00:21] [+55 16 99721-2966] Carregando WhatsApp Web… 37% WhatsApp 14:00:22 ⏳ [21/10/2026 14:00:22] [+55 16 99721-2966] Carregando WhatsApp Web… 40% WhatsApp 14:00:24 ⏳ [21/10/2026 14:00:24] [+55 16 99721-2966] Carregando WhatsApp Web… 43% WhatsApp 14:00:25 ⏳ [21/10/2026 14:00:25] [+55 16 99721-2966] Carregando WhatsApp Web… 48% WhatsApp 14:00:26 ⏳ [21/10/2026 14:00:26] [+55 16 99721-2966] Carregando WhatsApp Web… 53% WhatsApp 14:00:27 ⏳ [21/10/2026 14:00:27] [+55 16 99721-2966] Carregando WhatsApp Web… 60% WhatsApp 14:00:28 ⏳ [21/10/2026 14:00:28] [+55 16 99721-2966] Carregando WhatsApp Web… 69% WhatsApp 14:00:29 ⏳ [21/10/2026 14:00:29] [+55 16 99721-2966] Carregando WhatsApp Web… 74% WhatsApp 14:00:30 ⏳ [21/10/2026 14:00:30] [+55 16 99721-2966] Carregando WhatsApp Web… 85% WhatsApp 14:00:33 ⏳ [21/10/2026 14:00:33] [+55 16 99721-2966] Carregando WhatsApp Web… 89% WhatsApp 14:00:34 ⏳ [21/10/2026 14:00:34] [+55 16 99721-2966] Carregando WhatsApp Web… 95% WhatsApp 14:00:35 ⏳ [21/10/2026 14:00:35] [+55 16 99721-2966] Carregando WhatsApp Web… 99% WhatsApp 14:00:36 ⏳ [21/10/2026 14:00:36] [+55 16 99721-2966] Carregando WhatsApp Web… 100% WhatsApp 14:00:42 [21/10/2026 14:00:42] ✅ [+55 16 99721-2966] autenticado — carregando… 14:00:47 [21/10/2026 14:00:47] ✅ +55 16 99721-2966 conectado e pronto para enviar (quota: 48 envios) 14:01:07 [21/10/2026 14:01:07] [+55 16 99721-2966 · 1/48] Contato (4699873469) → ✅ ENVIADO 14:01:15 [21/10/2026 14:01:15] [+55 16 99721-2966 · 2/48] Contato (4699873709) → ✅ ENVIADO 14:01:32 [21/10/2026 14:01:32] [+55 16 99721-2966 · 3/48] Contato (4699874883) → ✅ ENVIADO 14:01:37 [21/10/2026 14:01:37] [+55 16 99721-2966 · 4/48] Contato (4699875948) → ✅ ENVIADO 14:01:42 [21/10/2026 14:01:42] [+55 16 99721-2966 · 5/48] Contato (4699888395) → ✅ ENVIADO 14:01:49 [21/10/2026 14:01:49] [+55 16 99721-2966 · 6/48] Contato (4699888819) → ✅ ENVIADO 14:01:55 [21/10/2026 14:01:55] [+55 16 99721-2966 · 7/48] Contato (4699890432) → ✅ ENVIADO 14:02:02 [21/10/2026 14:02:02] [+55 16 99721-2966 · 8/48] Contato (4699896118) → ✅ ENVIADO 14:02:07 [21/10/2026 14:02:07] [+55 16 99721-2966 · 9/48] Contato (4699899793) → ✅ ENVIADO 14:02:07 [21/10/2026 14:02:07] 🏁 +55 16 99721-2966 finalizou participação no lote: 9 enviado(s) · motivo: fila_concluida 14:02:09 ════════════════════════════════════════════════════════════════ 14:02:09 [21/10/2026 14:02:09] RESUMO DO LOTE 14:02:09 ════════════════════════════════════════════════════════════════ 14:02:09 ✅ Enviados neste lote: 57 14:02:09 ❌ Falhas: 0 14:02:09 ⚠️ Não no WhatsApp: 1 14:02:09 ──────────────────────────────────────────────────────────────── 14:02:09 Resultado por Número de Telefone: 14:02:09 • +55 16 99140-0423 (Chip 2) | lote: 48 | 24h: 48/48 | últ. envio: 21/10/2026 13:59:45 · libera 24h em 22/10/2026 13:55:29 | status: teto_48_envios_concluido 14:02:09 • +55 16 99721-2966 | lote: 9 | 24h: 9/48 | últ. envio: 21/10/2026 14:02:07 | status: fila_concluida 14:02:09 • +55 16 99721-4286 (wes trabalho) | lote: 0 | 24h: 0/48 | últ. envio: 20/10/2026 09:55:41 | status: nao_iniciou 14:02:09 ──────────────────────────────────────────────────────────────── 14:02:09 📄 Relatório do lote : 03_log/run_2026-10-21T16-54-11.json 14:02:09 🕒 Log contínuo : 03_log/continuo.log 14:02:09 📋 Log geral : 03_log/sent_log.json 14:02:09 ════════════════════════════════════════════════════════════════ 14:02:09 [21/10/2026 14:02:09] ✅ Lote enviou 57 mensagem(ns).Restam 0 pendentes. Próxima verificação em 30s. 14:02:40 [21/10/2026 14:02:40] 🏁 Lista lista_patoBranco_PB_20261005.csv 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min). 14:12:40 [21/10/2026 14:12:40] 🏁 Lista lista_patoBranco_PB_20261005.csv 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min). 14:22:40 [21/10/2026 14:22:40] 🏁 Lista lista_patoBranco_PB_20261005.csv 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min). 14:24:27 [21/10/2026 14:24:27] ⚠️ Pedido do usuário (P + Enter) recebido — encerrando com segurança…
+
+
+
+╔═════════════════════════════════════╗
+║  RELATÓRIO DE SITUAÇÃO DA CAMPANHA  ║
+╚═════════════════════════════════════╝
+
+  Últimas execuções:
+
+  ┌─ 2026-10-21T16-54-11  (21/10/2026 14:02:09)
+  │  CSV:           lista_patoBranco_PB_20261005.csv
+  │  Enviados:      57   Falhas: 0   Não-registrados: 1   Total lote: 58
+  │    • +55 16 99140-0423 (Chip 2): enviados=48 (teto_48_envios_concluido)
+  │    • +55 16 99721-2966: enviados=9 (fila_concluida)
+  │    • +55 16 99721-4286 (wes trabalho): enviados=0 (nao_iniciou)
+  └─ Encerramento: completed
+
+  ┌─ 2026-10-20T15-01-27  (20/10/2026 12:06:28)
+  │  CSV:           lista_patoBranco_PB_20261005.csv
+  │  Enviados:      48   Falhas: 0   Não-registrados: 0   Total lote: 48
+  │    • +55 16 99140-0423 (Chip 2): enviados=48 (teto_48_envios_concluido)
+  └─ Encerramento: completed
+
+  ┌─ 2026-10-20T12-51-02  (20/10/2026 09:55:43)
+  │  CSV:           lista_patoBranco_PB_20261005.csv
+  │  Enviados:      48   Falhas: 0   Não-registrados: 0   Total lote: 48
+  │    • +55 16 99721-4286 (wes trabalho): enviados=48 (teto_48_envios_concluido)
+  └─ Encerramento: completed
+
+  ┌─ 2026-10-20T12-29-33  (20/10/2026 09:36:36)
+  │  CSV:           lista_patoBranco_PB_20261005.csv
+  │  Enviados:      48   Falhas: 0   Não-registrados: 0   Total lote: 96
+  │    • Chip 1 (sem nº identificado): enviados=0 (nao_conectou (Cannot read properties of null (reading 'Socket')))
+  │    • +55 16 99721-2966: enviados=48 (teto_48_envios_concluido)
+  └─ Encerramento: incomplete
+
+  ┌─ 2026-10-18T22-48-28  (18/10/2026 22:40:50)
+  │  CSV:           lista_patoBranco_PB_20261005.csv
+  │  Enviados:      0   Falhas: 0   Não-registrados: 0   Total lote: 192
+  │    • Chip 1 (sem nº identificado): enviados=0 (nao_conectou)
+  │    • +55 16 99140-0423 (Chip 2): enviados=0 (nao_conectou)
+  │    • +55 16 99721-2966: enviados=0 (fora_do_horario)
+  │    • +55 16 99721-4286 (wes trabalho): enviados=0 (nao_conectou)
+  └─ Encerramento: incomplete
+
 
   Pressione Enter para voltar: 
-=======================
-outro Error
-ProtocolError: Protocol error (Runtime.callFunctionOn): Execution context was destroyed.
-    at <instance_members_initializer> (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:103:14)
-    at new Callback (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:107:16)
-    at CallbackRegistry.create (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:25:26)
-    at Connection._rawSend (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Connection.js:108:26)
-    at CdpCDPSession.send (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\CdpSession.js:74:33)
-    at #evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:363:50)
-    at ExecutionContext.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:36)
-    at IsolatedWorld.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:30)
-    at CdpFrame.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:43)
-    at CdpFrame.<anonymous> (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\util\decorators.js:109:27)
-    at CdpPage.evaluate (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:43)
-    at Client.inject (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:146:55)
-    at async Client.initialize (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:493:9)
+Foi concuido 100% do arquivo csv? por isso parou? preciso saber disso pq a ideia e que se foi concluido entao vamos para uma proxima campanha.
+
+preciso entender se foi 100% do arquivo csv
+
+
+╔═════════════════════════════════════════════╗
+║  WhatsApp Bulk Sender · Dra. Daiana Ferraz  ║
+╚═════════════════════════════════════════════╝
+
+
+╔═══════════════════════════╗
+║  STATUS DO LOG DE ENVIOS  ║
+╚═══════════════════════════╝
+
+  Total de registros: 1864
+
+  Progresso geral:
+  [█████████████████░░░]  87% enviados com sucesso
+  Enviados   : 1613   87%
+  Nao-reg.   :  157    8%
+  Falhas     :   94    5%
+
+  Por telefone de disparo (zap):
+    Chip 1 (sem nº identificado)       24h:  0/48   último envio: 16/10/2026 15:05:18 (há 120h18min)
+    +55 16 99140-0423 (Chip 2)         24h: 48/48   último envio: 21/10/2026 13:59:45 (há 1h24min)
+    Chip 3 (sem nº identificado)       24h:  0/48   último envio: nunca enviou
+    +55 16 99721-2966                  24h:  9/48   último envio: 21/10/2026 14:02:07 (há 1h22min)
+    +55 16 99721-4286 (wes trabalho)   24h:  0/48   último envio: 20/10/2026 09:55:41 (há 29h28min)
+
+  Por categoria:
+    patoBranco_PB                 : 1084  ( 58%)
+    sem_historico                 :  577  ( 31%)
+    agenda_ativa                  :  127  (  7%)
+    paciente_antigo               :   52  (  3%)
+    aniversario                   :   19  (  1%)
+    harmonizacao_manutencao       :    4  (  0%)
+    orcamento_aberto              :    1  (  0%)
+
+  Por data:
+    2026-04-09:  140  (  8% no dia)  acumulado: 140/1864    8%
+    2026-04-10:   99  (  5% no dia)  acumulado: 239/1864   13%
+    2026-04-11:   54  (  3% no dia)  acumulado: 293/1864   16%
+    2026-04-12:   46  (  2% no dia)  acumulado: 339/1864   18%
+    2026-04-13:   50  (  3% no dia)  acumulado: 389/1864   21%
+    2026-04-15:   82  (  4% no dia)  acumulado: 471/1864   25%
+    2026-04-17:   36  (  2% no dia)  acumulado: 507/1864   27%
+    2026-04-18:  100  (  5% no dia)  acumulado: 607/1864   33%
+    2026-04-22:   70  (  4% no dia)  acumulado: 677/1864   36%
+    2026-05-01:  100  (  5% no dia)  acumulado: 777/1864   42%
+    2026-05-02:    3  (  0% no dia)  acumulado: 780/1864   42%
+    2026-10-08:   51  (  3% no dia)  acumulado: 831/1864   45%
+    2026-10-09:  114  (  6% no dia)  acumulado: 945/1864   51%
+    2026-10-10:   95  (  5% no dia)  acumulado: 1040/1864   56%
+    2026-10-11:   57  (  3% no dia)  acumulado: 1097/1864   59%
+    2026-10-12:  100  (  5% no dia)  acumulado: 1197/1864   64%
+    2026-10-13:   54  (  3% no dia)  acumulado: 1251/1864   67%
+    2026-10-14:   55  (  3% no dia)  acumulado: 1306/1864   70%
+    2026-10-15:  106  (  6% no dia)  acumulado: 1412/1864   76%
+    2026-10-16:  106  (  6% no dia)  acumulado: 1518/1864   81%
+    2026-10-17:  144  (  8% no dia)  acumulado: 1662/1864   89%
+    2026-10-20:  144  (  8% no dia)  acumulado: 1806/1864   97%
+    2026-10-21:   58  (  3% no dia)  acumulado: 1864/1864  100%
+
 
   Pressione Enter para voltar: 
-  =========================================
-  Mudar para outro zap 
-⚠️  Desconectado: LOGOUT
-E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65
-                    throw new Error(e);
-                          ^
 
-Error: Error: EBUSY: resource busy or locked, unlink 'E:\wesleyzilva\repo\whatsappSenderHttp\.wwebjs_auth\session-dra-daiana-sender\lockfile'
-    at E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:65:27
-    at async LocalAuth.logout (E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\authStrategies\LocalAuth.js:58:13)
-    at async E:\wesleyzilva\repo\whatsappSenderHttp\node_modules\whatsapp-web.js\src\Client.js:498:17
+  
 
-Node.js v24.18.0
+╔═════════════════════════════════════════════════════════════════╗
+║  MODO CONTÍNUO · ENVIO A QUALQUER HORA (JANELA 24H POR NÚMERO)  ║
+╚═════════════════════════════════════════════════════════════════╝
 
-  Pressione Enter para voltar: 
-  =========================================================
+[21/10/2026 15:25:56] Modo contínuo iniciado · Teto: 48 envios por número a cada 24h · Horário: LIVRE (24/7)
+  • Log com horário salvo continuamente em: 03_log/continuo.log
+  • Para parar com segurança: digite P e Enter
 
-Quero saber qual numero estou usando para enviar a mensagem.
-Quero tb no meu opção de testar conexão com zap desconectar do zap ou conectar outro numero com o zap.
-Quero limitar para 50 disparos por dia por zap e posso usar mais de um zap em paralelo ou usar sequencial. Posso usar até 5 zaps.
+ℹ️  Para parar com segurança a qualquer momento: digite P e pressione Enter.
 
-============================================================
-  https://github.com/wesleyzilva/N8N_dentist_whatsapp
+[21/10/2026 15:25:56] 🏁 Lista lista_patoBranco_PB_20261005.csv 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min).
+se tiver terminado fechar o modo continuo 
+(24/7) 11:46:30 • Log com horário salvo continuamente em: 03_log/continuo.log 11:46:30 • Para parar com segurança: digite P e Enter 11:46:30 ℹ️ Para parar com segurança a qualquer momento: digite P e pressione Enter. 11:46:31 [22/10/2026 11:46:31] 🏁 Lista lista_patoBranco_PB_20261005.csv 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min). 11:46:39 [22/10/2026 11:46:39] ⚠️ Pedido do usuário (P + Enter) recebido — encerrando com segurança… 11:46:39 — modo contínuo encerrado (código 0) —
+
+==========================
+Quero criar uma mensagem convidando para entrar no grupo para receber promoções para Harmonização Oro Facial em Pato Branco.
+Tem que ter o link do grupo como invite.

@@ -1,0 +1,60 @@
+{
+  "limiteDiario": 50,
+  "modoPadrao": "sequencial",
+  "chips": [
+    {
+      "id": "dra-daiana-sender",
+      "apelido": "Chip 1",
+      "ativo": true
+    },
+    {
+      "id": "wesley-trabalho",
+      "apelido": "Chip 2",
+      "ativo": true
+    },
+    {
+      "id": "chip3",
+      "apelido": "Chip 3",
+      "ativo": true
+    },
+    {
+      "id": "wesley-particular",
+      "apelido": "16997212966",
+      "ativo": true
+    },
+    {
+      "id": "chip2",
+      "apelido": "wes trabalho",
+      "ativo": true
+    }
+  ],
+  "margemSeguranca": 2,
+  "janelaHoras": 24,
+  "loteMinimo": 1,
+  "pausaBloqueioHoras": 24,
+  "horario": {
+    "ativo": false,
+    "livre24h": true,
+    "janelas": [
+      {
+        "dias": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "inicio": "18:30",
+        "fim": "21:30"
+      },
+      {
+        "dias": [
+          0,
+          6
+        ],
+        "inicio": "09:00",
+        "fim": "20:00"
+      }
+    ]
+  }
+}

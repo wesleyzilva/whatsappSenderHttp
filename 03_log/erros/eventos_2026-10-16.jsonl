@@ -1,0 +1,5 @@
+{"ts":"2026-10-16T20:34:57.518Z","evento":"conectado","runId":null,"chip":"chip2","numero":"5516997214286"}
+{"ts":"2026-10-16T20:35:32.669Z","evento":"run_inicio","runId":"2026-10-16T20-35-32","csv":"lista_patoBranco_PB_20261005.csv","modo":"sequencial","zaps":["chip2"],"contatos":50}
+{"ts":"2026-10-16T20:35:37.941Z","evento":"conectado","runId":"2026-10-16T20-35-32","chip":"chip2","numero":"5516997214286"}
+{"ts":"2026-10-16T21:20:37.518Z","evento":"conectado","runId":"2026-10-16T20-35-32","chip":"chip2","numero":"5516997214286"}
+{"ts":"2026-10-16T21:20:37.521Z","evento":"conectado","runId":"2026-10-16T20-35-32","chip":"chip2","numero":"5516997214286"}

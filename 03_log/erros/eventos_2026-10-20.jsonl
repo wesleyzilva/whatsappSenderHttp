@@ -1,0 +1,23 @@
+{"ts":"2026-10-20T12:29:33.928Z","evento":"run_inicio","runId":"2026-10-20T12-29-33","csv":"lista_patoBranco_PB_20261005.csv","modo":"sequencial","continuo":false,"zaps":[{"id":"dra-daiana-sender","numero":null},{"id":"wesley-particular","numero":"5516997212966"}],"contatos":96}
+{"ts":"2026-10-20T12:29:39.663Z","evento":"conectando","runId":"2026-10-20T12-29-33","chip":"dra-daiana-sender","numero":null,"wwebjs":"1.34.7"}
+{"ts":"2026-10-20T12:29:47.666Z","evento":"conectando","runId":"2026-10-20T12-29-33","chip":"wesley-particular","numero":"5516997212966","wwebjs":"1.34.7"}
+{"ts":"2026-10-20T12:30:36.248Z","evento":"conectado","runId":"2026-10-20T12-29-33","chip":"wesley-particular","numero":"5516997212966","origem":"evento_ready"}
+{"ts":"2026-10-20T12:36:36.049Z","evento":"run_fim","runId":"2026-10-20T12-29-33","stopReason":"incomplete","total":96,"sent":48,"failed":0,"notRegistered":0,"blockedByWA":0,"pendentes":48,"reauthRequested":false,"duracaoSeg":422}
+{"ts":"2026-10-20T12:47:46.956Z","evento":"conectando","runId":null,"chip":"chip2","numero":"5516997214286","wwebjs":"1.34.7"}
+{"ts":"2026-10-20T12:47:46.972Z","evento":"internet_caiu","runId":null}
+{"ts":"2026-10-20T12:47:56.886Z","evento":"internet_voltou","runId":null,"offline_s":10}
+{"ts":"2026-10-20T12:50:08.096Z","evento":"conectado","runId":null,"chip":"chip2","numero":"5516997214286","origem":"evento_ready"}
+{"ts":"2026-10-20T12:51:01.808Z","evento":"continuo_inicio","runId":null,"csv":"mais_recente"}
+{"ts":"2026-10-20T12:51:02.003Z","evento":"run_inicio","runId":"2026-10-20T12-51-02","csv":"lista_patoBranco_PB_20261005.csv","modo":"sequencial","continuo":true,"zaps":[{"id":"chip2","numero":"5516997214286"}],"contatos":48}
+{"ts":"2026-10-20T12:51:03.128Z","evento":"conectando","runId":"2026-10-20T12-51-02","chip":"chip2","numero":"5516997214286","wwebjs":"1.34.7"}
+{"ts":"2026-10-20T12:51:06.963Z","evento":"conectado","runId":"2026-10-20T12-51-02","chip":"chip2","numero":"5516997214286","origem":"evento_ready"}
+{"ts":"2026-10-20T12:55:43.797Z","evento":"run_fim","runId":"2026-10-20T12-51-02","stopReason":"completed","total":48,"sent":48,"failed":0,"notRegistered":0,"blockedByWA":0,"pendentes":0,"reauthRequested":false,"duracaoSeg":282}
+{"ts":"2026-10-20T12:56:52.081Z","evento":"run_interrompido","runId":"2026-10-20T12-51-02","signal":"Pedido do usuário (P + Enter)"}
+{"ts":"2026-10-20T14:59:05.401Z","evento":"conectando","runId":null,"chip":"wesley-trabalho","numero":"5516991400423","wwebjs":"1.34.7"}
+{"ts":"2026-10-20T15:01:16.252Z","evento":"conectado","runId":null,"chip":"wesley-trabalho","numero":"5516991400423","origem":"evento_ready"}
+{"ts":"2026-10-20T15:01:27.520Z","evento":"continuo_inicio","runId":null,"csv":"mais_recente"}
+{"ts":"2026-10-20T15:01:27.615Z","evento":"run_inicio","runId":"2026-10-20T15-01-27","csv":"lista_patoBranco_PB_20261005.csv","modo":"sequencial","continuo":true,"zaps":[{"id":"wesley-trabalho","numero":"5516991400423"}],"contatos":48}
+{"ts":"2026-10-20T15:01:28.795Z","evento":"conectando","runId":"2026-10-20T15-01-27","chip":"wesley-trabalho","numero":"5516991400423","wwebjs":"1.34.7"}
+{"ts":"2026-10-20T15:01:33.098Z","evento":"conectado","runId":"2026-10-20T15-01-27","chip":"wesley-trabalho","numero":"5516991400423","origem":"evento_ready"}
+{"ts":"2026-10-20T15:06:28.821Z","evento":"run_fim","runId":"2026-10-20T15-01-27","stopReason":"completed","total":48,"sent":48,"failed":0,"notRegistered":0,"blockedByWA":0,"pendentes":0,"reauthRequested":false,"duracaoSeg":301}
+{"ts":"2026-10-20T17:31:18.630Z","evento":"run_interrompido","runId":"2026-10-20T15-01-27","signal":"Pedido do usuário (P + Enter)"}
