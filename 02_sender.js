@@ -569,7 +569,7 @@ function aoApertarEnter(cb) {
 
 function dicaAtualizarLib(msg) {
   if (!/autenticou mas|"ready" não chegou/i.test(String(msg))) return;
-  console.log(yellow('     Solução: menu [16] "Atualizar biblioteca" (ou: npm install whatsapp-web.js@latest).'));
+  console.log(yellow('     Solução: menu [Z4] "Atualizar biblioteca" (ou: npm install whatsapp-web.js@latest).'));
 }
 
 // ── Comando: --testar ─────────────────────────────────────────────────────────
@@ -833,7 +833,7 @@ function montarPlano(csvFile, cfg, continuo) {
     elegiveis = conectados;
   } else if (elegiveis.length > 0 && continuo) {
     for (const c of elegiveis) {
-      avisos.push(`${c.rotulo}: ${c.sessao ? `precisa ler QR de novo${c.ultimoErro ? ` (${c.ultimoErro})` : ''}` : 'não conectado'} — use a opção [13] "Conectar número"`);
+      avisos.push(`${c.rotulo}: ${c.sessao ? `precisa ler QR de novo${c.ultimoErro ? ` (${c.ultimoErro})` : ''}` : 'não conectado'} — use a opção [Z1] "Conectar número"`);
     }
     elegiveis = [];
   } else if (elegiveis.length > 0) {
@@ -864,7 +864,7 @@ function montarPlano(csvFile, cfg, continuo) {
     }
     if (t === null) {
       t = agora + 15 * 60_000;
-      motivoEspera = 'nenhum número conectado com sessão válida (escaneie o QR Code na opção 13)';
+      motivoEspera = 'nenhum número conectado com sessão válida (escaneie o QR Code na opção [Z1])';
     } else {
       motivoEspera = 'aguardando completar as 24h do último envio';
     }
@@ -1003,7 +1003,7 @@ async function rodarLote({ csvPath: csvFile, cfg, continuo = false, confirmar = 
     };
     reauthEvents.push(snap);
     patchEstado(zap.id, { precisaQR: true, ultimoErro: snap.reason });
-    logHora(red(`🔐 ${zap.rotulo}: sessão encerrada (${snap.reason}). Envios feitos antes da queda: ${snap.sent}. Refaça o QR na opção [13].`));
+    logHora(red(`🔐 ${zap.rotulo}: sessão encerrada (${snap.reason}). Envios feitos antes da queda: ${snap.sent}. Refaça o QR na opção [Z1].`));
   }
 
   async function conectarChip(zap) {
@@ -1020,13 +1020,13 @@ async function rodarLote({ csvPath: csvFile, cfg, continuo = false, confirmar = 
       const tipoConexao = classificar(msg);
       if (tipoConexao === 'logout') {
         patchEstado(zap.id, { precisaQR: true, ultimoErro: msg });
-        logHora(yellow(`   ↳ Sessão expirada/corrompida em ${zap.rotulo} — marcado para ler QR Code novamente (opção 13).`));
+        logHora(yellow(`   ↳ Sessão expirada/corrompida em ${zap.rotulo} — marcado para ler QR Code novamente (opção [Z1]).`));
       } else if (tipoConexao !== 'rede' && !zap.cancelado) {
         // Disjuntor: não insistir num zap que falha seguidamente (cada tentativa custa ~15-90 s e, no modo contínuo, se repetia sem fim).
         const n = ((lerEstado()[zap.id] || {}).falhasConexao || 0) + 1;
         if (n >= FALHAS_CONEXAO_MAX) {
           patchEstado(zap.id, { falhasConexao: 0, ultimoErro: msg, bloqueioMotivo: 'quarentena_conexao', bloqueadoAte: new Date(Date.now() + PAUSA_SUSPEITA_H * 3_600_000).toISOString() });
-          logHora(red(`🚫 ${zap.rotulo}: ${n} falhas seguidas de conexão — em quarentena por ${PAUSA_SUSPEITA_H}h. Releia o QR (opção 13) para liberar antes.`));
+          logHora(red(`🚫 ${zap.rotulo}: ${n} falhas seguidas de conexão — em quarentena por ${PAUSA_SUSPEITA_H}h. Releia o QR (opção [Z1]) para liberar antes.`));
           logEvento('zap_quarentena', { chip: zap.id, numero: zap.numero, motivo: msg, horas: PAUSA_SUSPEITA_H });
         } else {
           patchEstado(zap.id, { falhasConexao: n, ultimoErro: msg });
@@ -1319,7 +1319,7 @@ async function modoContinuo() {
       logHora(yellow('Nenhum CSV em 02_disparos — aguardando nova lista...'));
     } else if (!csvArg && !PERMITIR_LISTA_ANTIGA && mesCsv && mesCsv < mesLocal()) {
       logHora(red(`🛑 A lista mais recente (${path.basename(csv)}) é de um mês anterior. Para não reenviar automaticamente para quem já recebeu, o modo contínuo não vai usá-la.`));
-      logHora(yellow('   → Gere uma lista nova (menu [3]) ou, se for proposital, rode com --permitir-lista-antiga.'));
+      logHora(yellow('   → Gere uma lista nova (menu [C1]) ou, se for proposital, rode com --permitir-lista-antiga.'));
       logEvento('continuo_lista_antiga_recusada', { csv: path.basename(csv) });
       break;
     } else {
@@ -1349,7 +1349,7 @@ async function modoContinuo() {
         }
         logHora(cyan(`   → Próxima liberação prevista: ${bold(fmtDataHora(ate))} (${r.motivo || 'aguardando 24h'}) · rechecagem em ${Math.round(espera / 60_000)} min.`));
         if (/nenhum número conectado/i.test(r.motivo || '')) {
-          logHora(red('🔴 AÇÃO NECESSÁRIA: nenhum zap está conectado. Conecte um zap (menu [13] ou botão "Conectar (QR)" no painel); o modo contínuo não consegue enviar sozinho.'));
+          logHora(red('🔴 AÇÃO NECESSÁRIA: nenhum zap está conectado. Conecte um zap (menu [Z1] ou botão "Conectar (QR)" no painel); o modo contínuo não consegue enviar sozinho.'));
           logEvento('acao_necessaria', { motivo: 'nenhum_zap_conectado', pendentes: r.pendentes });
         }
       } else if (r.tipo === 'concluido') {
@@ -1358,7 +1358,7 @@ async function modoContinuo() {
         logHora(green(`🏁 Lista ${path.basename(csv)} totalmente processada.`));
         imprimirFechamento(fech, { compacto: true });
         if (!AGUARDAR_NOVO_CSV) {
-          logHora(green('Modo contínuo encerrado: a campanha terminou. Gere a próxima lista (menu [3]) e inicie de novo quando quiser.'));
+          logHora(green('Modo contínuo encerrado: a campanha terminou. Gere a próxima lista (menu [C1]) e inicie de novo quando quiser.'));
           logEvento('continuo_fim', { motivo: 'campanha_concluida', csv: path.basename(csv) });
           break;
         }
