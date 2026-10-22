@@ -13,6 +13,10 @@
 
 ---
 
+> **Operação e gestão** — `docs/OPERACAO_SECRETARIA.md` (rotina diária, passo a passo e o que fazer quando algo dá errado) · `docs/GESTAO_TPM.md` (diagnóstico dos logs, KPIs, riscos e backlog). No menu: `[A]` o que fazer agora, `[H]` guia, `[19]` fechamento da campanha, `[21]` relatório de gestão. Painel: `node 04_painel.js` (abas Operação, Campanhas, Gestão e Guia).
+
+---
+
 > Automated patient reactivation engine combining WhatsApp outreach with Google Ads Customer Match. Enforces monthly per-patient deduplication, opt-out compliance, and daily send limits — converting a dormant contact database into a continuously attributed, measurable revenue stream with full closed-loop campaign integration.
 
 ---
@@ -25,7 +29,7 @@ Clinics accumulate large patient bases but have no systematic way to re-engage p
 
 ## The Solution
 
-A three-stage automation pipeline — list generation, controlled dispatch, and Customer Match export — that converts a static patient CSV into a measurable re-engagement channel. Every message is deduplicated by phone + calendar month, checked against a blacklist, and capped at 100 sends per day to protect account health.
+A three-stage automation pipeline — list generation, controlled dispatch, and Customer Match export — that converts a static patient CSV into a measurable re-engagement channel. Every message is deduplicated by phone + calendar month, checked against a blacklist, and capped at 48 sends per number per rolling 24h (limit 50 minus a safety margin of 2) to protect account health.
 
 ---
 
@@ -44,7 +48,7 @@ Stage 1 — Generate list (01_gerar_lista.py)
 
 Stage 2 — Dispatch (02_sender.js via 03_disparar.ps1)
     └─► Read run_*.json config (which CSV, which account, limits)
-    └─► Send messages respecting daily cap (100/account)
+    └─► Send messages respecting the rolling 24h cap (48/number)
     └─► Log results to 03_log/
     └─► Progress bar + real-time status in terminal
 
@@ -57,8 +61,8 @@ Stage 3 — Customer Match export
 
 | Rule | Value |
 |------|-------|
-| Max sends per day | 100 per account |
-| Operating hours | Mon–Sat, 08:00–20:00 |
+| Max sends | 48 per number per rolling 24h (configurable in `05_config/chips.json`) |
+| Operating hours | Any time (window rule is per number); optional schedule in `chips.json` |
 | Deduplication window | Phone + calendar month |
 | Opt-out enforcement | Blacklist checked before every send |
 
@@ -85,7 +89,7 @@ Stage 3 — Customer Match export
 |----------|--------|-------------|----------|
 | Dispatch method | Web automation | Official WhatsApp Business API | The official API requires WABA approval and per-message fees; web automation has zero marginal cost but requires an active WhatsApp session on a dedicated device |
 | Storage | Flat files (CSV/JSON) | Relational database | A database adds infrastructure and operational overhead; flat files are portable, version-controlled, and sufficient for a single-operator workflow with auditable dispatch logs |
-| Processing model | Batch (daily cap) | Real-time / event-driven | Real-time dispatch risks triggering WhatsApp rate-limiting and account suspension; a 100/day hard cap protects the account while maintaining a consistent re-engagement cadence |
+| Processing model | Batch (daily cap) | Real-time / event-driven | Real-time dispatch risks triggering WhatsApp rate-limiting and account suspension; a per-number rolling 24h cap protects the account while maintaining a consistent re-engagement cadence |
 | Deduplication window | Phone + calendar month | Permanent opt-out only | Monthly deduplication re-enables contact after a natural break, balancing re-engagement frequency with opt-out risk better than a permanent block |
 
 ---
@@ -162,8 +166,8 @@ WhatsappSenderHttp (this repository)
 
 | Rule | Value |
 |------|-------|
-| Maximum sends per day | 100 messages per account |
-| Operating hours | Monday–Saturday, 08:00–20:00 |
+| Maximum sends | 48 messages per number per rolling 24h |
+| Operating hours | Any time (optional schedule in `05_config/chips.json`) |
 | Deduplication window | Per phone number + calendar month |
 | Opt-out enforcement | Blacklist file checked before every send |
 
@@ -186,8 +190,18 @@ WhatsappSenderHttp (this repository)
 
 ## Menu Options
 
-| Option | Action |
-|--------|--------|
+Run `.\03_disparar.ps1`. Press `[H]` in the menu for a guide to every option, or `[A]` for today's checklist.
+
+| Group | Options |
+|-------|---------|
+| Daily routine | `[A]` what to do now · `[18]` browser panel · `[17]` continuous mode (ends when the campaign finishes) · `[1]` status · `[11]` zap balances · `[13]` connect a number (QR) |
+| Campaign | `[3]` generate list · `[19]` campaign closing report · `[20]` retry failures · `[22]` group invite list · `[2]` run report · `[4]` Customer Match |
+| Manual send | `[5]` send · `[6]` dry-run · `[7]` send with limit |
+| Zaps | `[12]` test connection · `[14]` disconnect · `[16]` update WhatsApp library |
+| Management (TPM) | `[21]` management report · `[15]` error log |
+| Maintenance | `[8]` reset history · `[9]` remove a run · `[10]` export no-WhatsApp numbers to blacklist |
+
+--------|--------|
 | `[1]` | Send messages |
 | `[2]` | Dry-run (simulate without sending) |
 | `[3]` | Send with manual limit |
@@ -316,23 +330,24 @@ cd C:\repositorio\whatsappSenderHttp
 .\03_disparar.ps1
 ```
 
-O menu principal oferece:
+O menu principal é dividido em grupos. `[H]` explica cada opção e `[A]` mostra o que fazer agora.
 
-| Opção | Uso |
+| Grupo | Opções |
 |---|---|
-| `[1]` | enviar mensagens |
-| `[2]` | simular envio sem enviar |
-| `[3]` | enviar com limite manual |
-| `[4]` | ver status do log |
-| `[5]` | limpar histórico completo |
-| `[6]` | limpar uma execução específica |
-| `[7]` | gerar nova lista de disparo |
-| `[8]` | exportar Customer Match |
+| Rotina diária | `[A]` o que fazer agora · `[18]` painel no navegador · `[17]` modo contínuo (encerra sozinho ao concluir) · `[1]` status · `[11]` saldo dos zaps · `[13]` conectar número (QR) |
+| Campanha | `[3]` gerar lista · `[19]` fechamento da campanha · `[20]` retentar falhas · `[22]` convite para o grupo · `[2]` relatório de disparo · `[4]` Customer Match |
+| Envio manual | `[5]` enviar · `[6]` dry-run · `[7]` enviar com limite |
+| Zaps | `[12]` testar conexão · `[14]` desconectar · `[16]` atualizar biblioteca |
+| Gestão (TPM) | `[21]` relatório de gestão · `[15]` log de erros |
+| Manutenção | `[8]` resetar histórico · `[9]` remover execução · `[10]` exportar sem-WhatsApp para blacklist |
 
 ## Regras operacionais
 
-- Máximo de **100 mensagens por dia** por conta.
-- Envio apenas entre **08h e 20h**, de segunda a sábado.
+- Máximo de **48 mensagens por número a cada 24h** (limite 50 − margem 2; ajustável no painel).
+- Envio a **qualquer hora**; o controle é a janela móvel de 24h de cada número (horário opcional em `05_config/chips.json`).
+- O **modo contínuo encerra sozinho** quando a campanha termina e não reutiliza listas de meses anteriores.
+- Números fora do ar ou com 2 falhas seguidas de conexão ficam em quarentena de 6h (não são tentados).
+- A blacklist é aplicada **no momento do envio**, mesmo em listas montadas fora do `01_gerar_lista.py`.
 - Deduplicação por **telefone + mês**.
 - Quem já recebeu no mês atual não entra de novo na lista.
 - Quem está em `01_fontes/blacklist.txt` não recebe mensagem e não entra no Customer Match.
@@ -408,5 +423,5 @@ This tool closes the **last mile of a B2C reactivation funnel**. Acquisition cam
 |-----------|----------|---------------------|-----------|
 | API layer | Unofficial WA Web automation | Meta Business API (official) | Official API requires business verification (weeks), a dedicated number, and per-conversation cost; this tool operates at personal/clinic scale under personal account limits |
 | Architecture | Node.js (sender) + Python (data) | Python-only | The WhatsApp Web automation library ecosystem (Baileys) lives in Node.js; Python excels at data processing; polyglot pipeline plays to each runtime's strength |
-| Daily cap | 100 sends/day hard limit | Unlimited / maximum throughput | Mirrors human messaging behaviour; prevents spam classification by WhatsApp's rate detection; protects the account that is the clinic's primary contact channel |
+| Rolling cap | 48 sends per number per 24h | Unlimited / maximum throughput | Mirrors human messaging behaviour; prevents spam classification by WhatsApp's rate detection; protects the account that is the clinic's primary contact channel |
 | Attribution | Google Ads Customer Match export | No attribution | Converts outreach into a paid campaign signal; the reactivation list becomes a lookalike audience source, lowering new patient CPA over successive campaigns |
