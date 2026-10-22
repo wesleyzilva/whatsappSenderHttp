@@ -13,3 +13,5 @@ target/
 03_log/*.log
 app.log
 
+03_log/relatorio_gestao_*.md
+03_log/backup/

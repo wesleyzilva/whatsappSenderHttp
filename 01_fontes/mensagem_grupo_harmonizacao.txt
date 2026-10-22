@@ -1,0 +1,12 @@
+# Modelo da mensagem de convite para o grupo de promoções de Harmonização Orofacial (Pato Branco).
+# Linhas iniciadas por # são ignoradas. {LINK_GRUPO} é substituído pelo link de convite do grupo.
+# Gerar a lista:  node 06_gestao.js --convite-grupo --link=https://chat.whatsapp.com/XXXXXXXXXXXX
+# (ou menu [22] do 03_disparar.ps1)
+Olá! Aqui é da equipe da Dra. Daiana Ferraz, especialista em Harmonização Orofacial em Pato Branco - PR.
+
+Criamos um grupo no WhatsApp para avisar, em primeira mão, as promoções e condições especiais de Harmonização Orofacial em Pato Branco. Só enviamos avisos importantes, sem conversa paralela.
+
+Quer receber? Entre pelo link:
+{LINK_GRUPO}
+
+Se preferir não receber mais mensagens nossas, responda SAIR.
