@@ -13,7 +13,7 @@
 
 ---
 
-> **Operação e gestão** — `docs/OPERACAO_SECRETARIA.md` (rotina diária, passo a passo e o que fazer quando algo dá errado) · `docs/GESTAO_TPM.md` (diagnóstico dos logs, KPIs, riscos e backlog). No menu: `[A]` o que fazer agora, `[H]` guia, `[19]` fechamento da campanha, `[21]` relatório de gestão. Painel: `node 04_painel.js` (abas Operação, Campanhas, Gestão e Guia).
+> **Operação e gestão** — `docs/OPERACAO_SECRETARIA.md` (rotina diária, passo a passo e o que fazer quando algo dá errado) · `docs/GESTAO_TPM.md` (diagnóstico dos logs, KPIs, riscos e backlog). No menu: `[A]` o que fazer agora, `[H]` guia, `[C2]` fechamento da campanha, `[G1]` relatório de gestão. Painel: `node 04_painel.js` (visões separadas: Operacional e TPM).
 
 ---
 
@@ -190,26 +190,24 @@ WhatsappSenderHttp (this repository)
 
 ## Menu Options
 
-Run `.\03_disparar.ps1`. Press `[H]` in the menu for a guide to every option, or `[A]` for today's checklist.
+Run `.\03_disparar.ps1`. The main menu is split into **areas**; type the area letter to open it, then the option number. Typing the full key (e.g. `C2`) at the main menu jumps straight to an option. Press `[H]` for a guide to every option, or `[A]` for today's checklist. The old numeric shortcuts (`19`, `21`...) still work and show their new key.
 
-| Group | Options |
-|-------|---------|
-| Daily routine | `[A]` what to do now · `[18]` browser panel · `[17]` continuous mode (ends when the campaign finishes) · `[1]` status · `[11]` zap balances · `[13]` connect a number (QR) |
-| Campaign | `[3]` generate list · `[19]` campaign closing report · `[20]` retry failures · `[22]` group invite list · `[2]` run report · `[4]` Customer Match |
-| Manual send | `[5]` send · `[6]` dry-run · `[7]` send with limit |
-| Zaps | `[12]` test connection · `[14]` disconnect · `[16]` update WhatsApp library |
-| Management (TPM) | `[21]` management report · `[15]` error log |
-| Maintenance | `[8]` reset history · `[9]` remove a run · `[10]` export no-WhatsApp numbers to blacklist |
+| Area | Keys |
+|------|------|
+| Daily routine (main screen) | `[A]` what to do now · `[O1]` continuous mode (ends when the campaign finishes) · `[Z1]` connect a number (QR) · `[P]` browser panel (operational view) |
+| `[O]` Daily operation | `O1` continuous mode · `O2` status · `O3` zap balances |
+| `[C]` Campaigns | `C1` generate list · `C2` campaign closing report · `C3` retry failures · `C4` group invite list · `C5` run report · `C6` Customer Match |
+| `[E]` Manual send | `E1` send · `E2` dry-run · `E3` send with limit |
+| `[Z]` Zaps | `Z1` connect (QR) · `Z2` test connection · `Z3` disconnect · `Z4` update WhatsApp library |
+| `[G]` Management (TPM) | `G1` management report · `G2` error log · `G3` browser panel (TPM view) |
+| `[M]` Maintenance | `M1` reset history · `M2` remove a run · `M3` export no-WhatsApp numbers to blacklist |
 
---------|--------|
-| `[1]` | Send messages |
-| `[2]` | Dry-run (simulate without sending) |
-| `[3]` | Send with manual limit |
-| `[4]` | View log status |
-| `[5]` | Clear full history |
-| `[6]` | Clear a specific execution |
-| `[7]` | Generate new dispatch list |
-| `[8]` | Export Customer Match |
+### Browser panel: two views
+
+`node 04_painel.js` (or `[P]` / `[G3]`) opens `http://localhost:3737` with two separate views, so project management is never mixed with operation:
+
+- **Operational** (`#op`): Today (tasks, start/stop, zaps, live log), Campaigns (progress, return failures to the queue, group invite) and the secretary's guide.
+- **TPM · Project management** (`#tpm`): Overview (KPIs, funnel, daily throughput), Campaign closing table, Risks and errors, Zap health, Policy and limits (safety margin, schedule) and Report and documents.
 
 ---
 
@@ -330,16 +328,24 @@ cd C:\repositorio\whatsappSenderHttp
 .\03_disparar.ps1
 ```
 
-O menu principal é dividido em grupos. `[H]` explica cada opção e `[A]` mostra o que fazer agora.
+O menu principal é dividido em **áreas**. Digite a letra da área para abrir e depois o número da opção; no menu principal, digitar a chave completa (ex.: `C2`) vai direto à opção. `[H]` explica cada opção e `[A]` mostra o que fazer agora. Os atalhos numéricos antigos (`19`, `21`...) continuam funcionando e mostram a chave nova.
 
-| Grupo | Opções |
+| Área | Chaves |
 |---|---|
-| Rotina diária | `[A]` o que fazer agora · `[18]` painel no navegador · `[17]` modo contínuo (encerra sozinho ao concluir) · `[1]` status · `[11]` saldo dos zaps · `[13]` conectar número (QR) |
-| Campanha | `[3]` gerar lista · `[19]` fechamento da campanha · `[20]` retentar falhas · `[22]` convite para o grupo · `[2]` relatório de disparo · `[4]` Customer Match |
-| Envio manual | `[5]` enviar · `[6]` dry-run · `[7]` enviar com limite |
-| Zaps | `[12]` testar conexão · `[14]` desconectar · `[16]` atualizar biblioteca |
-| Gestão (TPM) | `[21]` relatório de gestão · `[15]` log de erros |
-| Manutenção | `[8]` resetar histórico · `[9]` remover execução · `[10]` exportar sem-WhatsApp para blacklist |
+| Rotina do dia (tela principal) | `[A]` o que fazer agora · `[O1]` envio contínuo (encerra sozinho ao concluir) · `[Z1]` conectar número (QR) · `[P]` painel no navegador (visão operacional) |
+| `[O]` Operação diária | `O1` envio contínuo · `O2` status · `O3` saldo dos zaps |
+| `[C]` Campanhas | `C1` gerar lista · `C2` fechamento da campanha · `C3` retentar falhas · `C4` convite para o grupo · `C5` relatório de disparo · `C6` Customer Match |
+| `[E]` Envio manual | `E1` enviar · `E2` dry-run · `E3` enviar com limite |
+| `[Z]` Zaps | `Z1` conectar (QR) · `Z2` testar conexão · `Z3` desconectar · `Z4` atualizar biblioteca |
+| `[G]` Gestão (TPM) | `G1` relatório de gestão · `G2` log de erros · `G3` painel de gestão no navegador |
+| `[M]` Manutenção | `M1` resetar histórico · `M2` remover execução · `M3` exportar sem-WhatsApp para blacklist |
+
+### Painel no navegador: duas visões
+
+`node 04_painel.js` (ou `[P]` / `[G3]`) abre `http://localhost:3737` com duas visões separadas, para não misturar operação com gestão do projeto:
+
+- **Operacional** (`#op`): Hoje (tarefas, iniciar/parar, zaps, log ao vivo), Campanhas (progresso, devolver falhas à fila, convite do grupo) e Guia da secretária.
+- **TPM · Gestão do projeto** (`#tpm`): Visão geral (indicadores, funil, vazão por dia), Campanhas (tabela de fechamento), Riscos e erros, Saúde dos zaps, Política e limites (margem de segurança, horário) e Relatório e documentos.
 
 ## Regras operacionais
 
@@ -370,7 +376,7 @@ O menu principal é dividido em grupos. `[H]` explica cada opção e `[A]` mostr
 ## O que validar depois do envio
 
 - O log em `03_log/` registrou a execução.
-- O status (`[4]`) mostra os números enviados.
+- O status (`[O2]`) mostra os números enviados.
 - Um novo processamento no mesmo mês não reintroduz quem já recebeu.
 - O limite diário e a janela de horário foram respeitados.
 

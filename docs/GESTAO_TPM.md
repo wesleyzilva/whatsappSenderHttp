@@ -1,6 +1,6 @@
 # Gestão do projeto (visão TPM)
 
-Documento de acompanhamento baseado nos logs (`03_log/erros/*.jsonl`) e no backlog do usuário (`03_log/errosAmelhorar.txt`). Os números abaixo vêm da análise feita nesta entrega; para valores atualizados rode `node 06_gestao.js --gestao` (menu `[21]`).
+Documento de acompanhamento baseado nos logs (`03_log/erros/*.jsonl`) e no backlog do usuário (`03_log/errosAmelhorar.txt`). Os números abaixo vêm da análise feita nesta entrega; para valores atualizados use a visão **TPM** do painel (`G3` no menu ou `node 04_painel.js --visao=tpm`) ou rode `node 06_gestao.js --gestao` (menu `G1`).
 
 ## 1. Diagnóstico dos logs
 
@@ -9,9 +9,9 @@ Documento de acompanhamento baseado nos logs (`03_log/erros/*.jsonl`) e no backl
 | Erro "Socket" do Chip 1 repetia a cada hora (classificado errado até 20/10) | Tempo perdido tentando número desconectado | Circuito de proteção: 2 falhas seguidas de conexão = quarentena de 6h; mensagens de erro traduzidas (`traduzirMensagem`) |
 | 13 execuções vazias (cerca de 174 min) | Rodadas sem envio | Contínuo termina ao concluir; alerta "ação necessária" |
 | Queda de internet de cerca de 2,8h | Atraso | Retomada automática; relatório destaca |
-| 0 envios em 18 e 19/10 | Cadência perdida | Painel e `[A]` avisam o motivo |
+| 0 envios em 18 e 19/10 | Cadência perdida | Painel (Operacional › Hoje) e `[A]` avisam o motivo |
 | Erros minificados ("r") | Diagnóstico difícil | Tradução e classificação no log |
-| Falhas nunca são retentadas (28 na lista Pato Branco) | Perda silenciosa de 2,6% | Menu `[20]` / `--retentar-falhas` |
+| Falhas nunca são retentadas (28 na lista Pato Branco) | Perda silenciosa de 2,6% | Menu `C3` / `--retentar-falhas` |
 | Blacklist não era aplicada no envio | Risco de reclamação / LGPD | Aplicada em `montarPlano` |
 | Chave de mês em UTC vs. local | Dedup inconsistente na virada do mês | Chave em mês local |
 | Reenvio de lista antiga na virada do mês | Mensagem duplicada | Contínuo recusa lista antiga (`PERMITIR_LISTA_ANTIGA` para forçar) |
@@ -28,11 +28,11 @@ Documento de acompanhamento baseado nos logs (`03_log/erros/*.jsonl`) e no backl
 |---|---|
 | Não perder tempo com números desconectados | Feito (circuito + quarentena) |
 | Listar só os 3 CSVs mais recentes | Feito (`--csvs=3`, seletor do menu) |
-| Menu e abas mostrando o que pode ser verificado | Feito (menu agrupado, `[A]`, `[H]`; painel com 4 abas) |
+| Menu e abas mostrando o que pode ser verificado | Feito (menu por áreas O/C/E/Z/G/M com atalhos, `[A]`, `[H]`; painel com duas visões separadas: Operacional e TPM) |
 | Telefone no lugar de "Chip 1/2/3"; vazio se não houver número | Feito (`identificadorZap`) |
-| Responder se a campanha foi 100% | Feito (`[19]`, aba Campanhas) |
+| Responder se a campanha foi 100% | Feito (`C2`, painel: Operacional › Campanhas e TPM › Campanhas) |
 | Encerrar o modo contínuo ao terminar | Feito (sai com código 0; supervisor para) |
-| Convite ao grupo de Harmonização Orofacial (Pato Branco) | Pronto, **falta o link do grupo** (`[22]`; modelo em `01_fontes/mensagem_grupo_harmonizacao.txt`). Só sai a partir do próximo mês pela regra 1 msg/telefone/mês |
+| Convite ao grupo de Harmonização Orofacial (Pato Branco) | Pronto, **falta o link do grupo** (`C4`; modelo em `01_fontes/mensagem_grupo_harmonizacao.txt`). Só sai a partir do próximo mês pela regra 1 msg/telefone/mês |
 
 ## 3. KPIs e cadência
 
@@ -40,7 +40,7 @@ Documento de acompanhamento baseado nos logs (`03_log/erros/*.jsonl`) e no backl
 - **Taxa de falha**: falhas / tentativas (alvo < 3%).
 - **Utilização da capacidade**: envios 24h / (números ativos x 48).
 - **Dias sem envio** e **horas de quarentena** por número.
-- Cadência sugerida: diária (secretária, `[A]`, 5 min); semanal (TPM, `[21]` com `--dias=7`); mensal (fechamento, `[19]`, decisão da próxima campanha).
+- Cadência sugerida: diária (secretária, `[A]`, 5 min); semanal (TPM, painel TPM com período de 7 dias ou `G1`); mensal (fechamento, `C2`, decisão da próxima campanha).
 
 ## 4. Registro de riscos
 
@@ -73,7 +73,7 @@ O repositório rastreia arquivos com telefones e nomes: `01_fontes/contacts.csv`
 ## 7. Decisões necessárias
 
 - Link do grupo de Harmonização Orofacial (Pato Branco).
-- Retentar as 28 falhas agora (`[20]`) ou aceitar a perda.
+- Retentar as 28 falhas agora (`C3`) ou aceitar a perda.
 - Tornar o repositório privado e limpar o histórico.
 - Incluir linha de opt-out no texto.
 - Reler os QRs dos números em quarentena/desconectados.

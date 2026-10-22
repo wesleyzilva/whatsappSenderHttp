@@ -2,7 +2,8 @@
 'use strict';
 /**
  * 04_painel.js — painel de operação no navegador (só neste computador: 127.0.0.1)
- *   node 04_painel.js          → abre http://localhost:3737
+ *   node 04_painel.js              → abre http://localhost:3737 (visão operacional)
+ *   node 04_painel.js --visao=tpm  → abre direto na visão de gestão (TPM)
  * Liga o 04_painel.html ao 02_sender.js: iniciar/parar o modo contínuo, ver zaps e saldo,
  * conectar número (QR), ativar/desativar zap, ajustar margem e horário, ver o log.
  */
@@ -15,6 +16,8 @@ const gestao = require('./06_gestao');
 
 const DIR  = __dirname;
 const PORT = Number(process.env.PORTA) || 3737;
+const VISAO = ((process.argv.find(a => a.startsWith('--visao=')) || '').split('=')[1] || 'op') === 'tpm' ? 'tpm' : 'op';
+const DOCS = { gestao: 'docs/GESTAO_TPM.md', secretaria: 'docs/OPERACAO_SECRETARIA.md' };
 const SENT = path.join(DIR, '03_log', 'sent_log.json');
 const CHIPS = path.join(DIR, '05_config', 'chips.json');
 const strip = s => s.replace(/\x1b\[[0-9;?]*[A-Za-z]/g, '');
@@ -144,6 +147,7 @@ function salvarCfg(b) {
 }
 
 // ── HTTP ─────────────────────────────────────────────────────────────────────
+const diasParam = u => { const n = parseInt(new URL(u, 'http://x').searchParams.get('dias'), 10); return n >= 1 && n <= 90 ? n : 14; };
 const json = (res, obj, code = 200) => { res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(obj)); };
 const corpo = req => new Promise(r => { let s = ''; req.on('data', d => { s += d; if (s.length > 1e5) req.destroy(); }); req.on('end', () => { try { r(JSON.parse(s || '{}')); } catch { r({}); } }); });
 
@@ -155,7 +159,13 @@ http.createServer(async (req, res) => {
       if (url === '/api/estado')  return json(res, estado());
       if (url === '/api/conexao') return json(res, { rodando: !!conn.proc, chip: conn.chip, txt: conn.txt });
       if (url === '/api/campanhas') return json(res, { campanhas: gestao.listarCampanhas(0).slice(0, 12) });
-      if (url === '/api/gestao') return json(res, await rodarGestao(['--gestao']));
+      if (url === '/api/gestao') return json(res, await rodarGestao(['--gestao', `--dias=${diasParam(req.url)}`]));
+      if (url === '/api/tpm') return json(res, gestao.dadosGestao(diasParam(req.url)));
+      if (url === '/api/doc') {
+        const f = DOCS[new URL(req.url, 'http://x').searchParams.get('nome')];
+        if (!f) return json(res, { erro: 'documento inexistente' }, 404);
+        try { return json(res, { texto: fs.readFileSync(path.join(DIR, f), 'utf8') }); } catch { return json(res, { erro: 'documento não encontrado' }, 404); }
+      }
       if (url === '/api/erros') {
         const erros = gestao.lerJsonl('erros', 7), cont = {};
         for (const e of erros) cont[`${e.tipo} · ${e.evento}`] = (cont[`${e.tipo} · ${e.evento}`] || 0) + 1;
@@ -189,7 +199,7 @@ http.createServer(async (req, res) => {
     json(res, { erro: 'método não permitido' }, 405);
   } catch (e) { json(res, { erro: e.message }, 500); }
 }).listen(PORT, '127.0.0.1', () => {
-  const u = `http://localhost:${PORT}`;
+  const u = `http://localhost:${PORT}#${VISAO}`;
   console.log(`Painel pronto em ${u}  (Ctrl+C para fechar)`);
   if (process.platform === 'win32') spawn('cmd', ['/c', 'start', '', u], { windowsHide: true });
 });

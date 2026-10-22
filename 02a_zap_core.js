@@ -204,7 +204,7 @@ function traduzirMensagem(msg) {
   const m = String(msg || '').trim();
   if (m.length > 3) return { mensagem: m, codigoBruto: null };
   return {
-    mensagem: `Erro interno do WhatsApp Web (código "${m || '?'}") — provável incompatibilidade com a biblioteca; tente o menu [16] (atualizar biblioteca)`,
+    mensagem: `Erro interno do WhatsApp Web (código "${m || '?'}") — provável incompatibilidade com a biblioteca; tente o menu [Z4] (atualizar biblioteca)`,
     codigoBruto: m,
   };
 }

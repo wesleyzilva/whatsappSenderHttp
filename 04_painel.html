@@ -7,12 +7,14 @@
 <style>
 :root{--bg:#f4f5f7;--card:#fff;--tx:#1b1f24;--mut:#6b7280;--bd:#e2e5ea;--ok:#15803d;--warn:#b45309;--err:#b91c1c;--pri:#0f766e;--prit:#fff;--bar:#e5e7eb}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1317;--card:#171c22;--tx:#e8eaed;--mut:#9aa3ad;--bd:#262d36;--ok:#4ade80;--warn:#fbbf24;--err:#f87171;--pri:#2dd4bf;--prit:#06201d;--bar:#2a323c}}
+body[data-modo="tpm"]{--pri:#4338ca;--prit:#fff}
+@media (prefers-color-scheme:dark){body[data-modo="tpm"]{--pri:#a5b4fc;--prit:#1e1b4b}}
 :root{color-scheme:light dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:1000px;margin:0 auto;padding:16px}
+main{max-width:1040px;margin:0 auto;padding:16px}
 h1{font-size:20px;margin:0}h2{font-size:14px;margin:0 0 10px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
-.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .badge{padding:3px 10px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid var(--bd)}
@@ -31,80 +33,109 @@ select,input[type=text],input[type=number]{background:var(--card);border:1px sol
 .kpi{display:flex;gap:22px;flex-wrap:wrap}.kpi div b{display:block;font-size:22px}
 pre{margin:0;white-space:pre-wrap;word-break:break-word}
 #log{background:#0b0f13;color:#d1d5db;border-radius:8px;padding:10px;height:260px;overflow:auto;font:12px/1.4 ui-monospace,Consolas,monospace}
+/* alternador de visão: Operacional x TPM */
+.modos{display:flex;gap:8px;margin-bottom:10px}
+.modos button{flex:1;padding:12px 14px;font-size:16px;font-weight:700;border-radius:12px;text-align:left;border-width:2px}
+.modos button small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
+.modos button.sel{background:var(--pri);color:var(--prit);border-color:var(--pri)}
+.modos button.sel small{color:inherit;opacity:.85}
+.faixa{border-left:5px solid var(--pri);background:var(--card);border-radius:0 10px 10px 0;padding:8px 12px;margin-bottom:12px;font-size:13px;color:var(--mut)}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .tabs button{border-radius:99px;padding:6px 14px}
 .tabs button.sel{background:var(--pri);color:var(--prit);border-color:var(--pri);font-weight:600}
+.sub{display:none}.sub.sel{display:flex}
 .tab{display:none}.tab.sel{display:block}
 .acao{border-left:4px solid var(--bd);padding:6px 10px;margin:6px 0;border-radius:4px;background:var(--bg)}
 .acao.alta{border-color:var(--err)}.acao.media{border-color:var(--warn)}.acao.info{border-color:var(--pri)}
 .acao b{display:block}
 .camp{border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:10px}
 .camp .bar{height:10px}
-.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid var(--bd)}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid var(--bd);white-space:nowrap}
 .cnt{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0}.cnt span b{font-size:18px;margin-right:4px}
-table.t{border-collapse:collapse;width:100%}table.t td,table.t th{border-bottom:1px solid var(--bd);padding:5px 8px;text-align:left;font-size:13px}
+table.t{border-collapse:collapse;width:100%}table.t td,table.t th{border-bottom:1px solid var(--bd);padding:5px 8px;text-align:left;font-size:13px;vertical-align:top}
+table.t th{color:var(--mut);font-weight:600}
+#tcamp td:last-child{min-width:300px}#tcamp td:first-child{min-width:170px;word-break:break-all}
 .txt{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;max-height:60vh;overflow:auto;font:12px/1.4 ui-monospace,Consolas,monospace}
 .guia h3{margin:14px 0 4px;font-size:15px}.guia ul{margin:4px 0 8px;padding-left:20px}.guia li{margin:2px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-bottom:14px}
+.kc{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;border-top:4px solid var(--bd)}
+.kc.ok{border-top-color:var(--ok)}.kc.warn{border-top-color:var(--warn)}.kc.err{border-top-color:var(--err)}.kc.pri{border-top-color:var(--pri)}
+.kc .t{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.kc .v{font-size:26px;font-weight:700;line-height:1.2}
+.kc .s{font-size:12px;color:var(--mut)}
+.chart{display:flex;align-items:flex-end;gap:4px;height:150px;padding-top:6px}
+.chart .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.chart .c i{display:block;width:100%;background:var(--pri);border-radius:4px 4px 0 0;min-height:1px}
+.chart .c i.z{background:var(--bar)}
+.chart .c span{font-size:10px;color:var(--mut);margin-top:3px;white-space:nowrap}
+.chart .c em{font-style:normal;font-size:10px;color:var(--mut)}
+.stack{display:flex;height:16px;border-radius:99px;overflow:hidden;background:var(--bar);margin:8px 0}
+.stack i{display:block;height:100%}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut)}.leg b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
 dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;max-width:94vw}
 #qr{background:#000;color:#fff;padding:10px;font:9px/9px ui-monospace,Consolas,monospace;white-space:pre;overflow:auto;max-height:70vh}
 </style>
 </head>
-<body>
+<body data-modo="op">
 <main>
   <div class="top">
     <h1>WhatsApp Sender · Painel</h1>
     <span id="st" class="badge off">carregando…</span>
   </div>
 
-  <div class="tabs" id="tabs">
-    <button data-t="op" class="sel">Operação</button>
-    <button data-t="camp">Campanhas</button>
-    <button data-t="ges">Gestão (TPM)</button>
-    <button data-t="guia">Guia rápido</button>
+  <div class="modos" id="modos">
+    <button data-m="op" class="sel">Operacional<small>fazer acontecer: enviar, conectar, acompanhar o dia</small></button>
+    <button data-m="tpm">TPM · Gestão do projeto<small>indicadores, riscos, política e decisões</small></button>
   </div>
 
-  <section class="tab sel" id="t-op">
-  <div class="card">
-    <h2>O que fazer agora</h2>
-    <div id="acoes" class="sm">carregando…</div>
+  <div class="tabs sub sel" id="sub-op">
+    <button data-s="hoje" class="sel">Hoje</button>
+    <button data-s="camp">Campanhas</button>
+    <button data-s="guia">Guia da secretária</button>
+  </div>
+  <div class="tabs sub" id="sub-tpm">
+    <button data-s="visao" class="sel">Visão geral</button>
+    <button data-s="camp">Campanhas (fechamento)</button>
+    <button data-s="riscos">Riscos e erros</button>
+    <button data-s="zaps">Saúde dos zaps</button>
+    <button data-s="politica">Política e limites</button>
+    <button data-s="docs">Relatório e documentos</button>
   </div>
 
-  <div class="card">
-    <h2>Operação</h2>
-    <div class="row">
-      <button class="p" id="ini">▶ Iniciar modo contínuo</button>
-      <button class="d" id="par">■ Parar com segurança</button>
-      <label class="sm">Modo <select id="modo"><option value="">padrão</option><option value="sequencial">sequencial</option><option value="paralelo">paralelo</option></select></label>
-      <label class="sm">DDD <input id="ddd" type="text" size="3" maxlength="2" placeholder="todos"></label>
-      <label class="sm"><input id="ign" type="checkbox"> enviar a qualquer horário (agora)</label>
+  <!-- ===================== OPERACIONAL ===================== -->
+  <section class="tab sel" id="t-op-hoje">
+    <div class="faixa">Visão operacional: tudo que é preciso fazer hoje para as mensagens saírem. Indicadores, riscos e política ficam na aba <b>TPM</b>.</div>
+    <div class="card">
+      <h2>O que fazer agora</h2>
+      <div id="acoes" class="sm">carregando…</div>
     </div>
-    <p class="sm" id="hor" style="margin:10px 0 0"></p>
-  </div>
 
-  <div class="card">
-    <h2>Resumo geral</h2>
-    <div class="kpi"><div><b id="k1">–</b><span class="sm">enviados</span></div><div><b id="k2">–</b><span class="sm">não têm WhatsApp</span></div><div><b id="k3">–</b><span class="sm">falhas</span></div></div>
-  </div>
-
-  <div class="card">
-    <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Zaps (números)</h2><button id="add">+ Adicionar zap</button></div>
-    <div class="grid" id="zaps"></div>
-  </div>
-
-  <div class="card">
-    <h2>Configuração</h2>
-    <div class="row">
-      <label class="sm">Margem de segurança <input id="mar" type="number" min="0" max="20" style="width:64px"></label>
-      <button id="smar">Salvar margem</button>
-      <span class="sm" id="lim"></span>
+    <div class="card">
+      <h2>Envio</h2>
+      <div class="row">
+        <button class="p" id="ini">▶ Iniciar modo contínuo</button>
+        <button class="d" id="par">■ Parar com segurança</button>
+        <label class="sm">Modo <select id="modo"><option value="">padrão</option><option value="sequencial">sequencial</option><option value="paralelo">paralelo</option></select></label>
+        <label class="sm">DDD <input id="ddd" type="text" size="3" maxlength="2" placeholder="todos"></label>
+        <label class="sm"><input id="ign" type="checkbox"> enviar a qualquer horário (agora)</label>
+      </div>
+      <p class="sm" id="hor" style="margin:10px 0 0"></p>
     </div>
-    <div class="row" style="margin-top:10px"><label class="sm"><input id="hat" type="checkbox"> respeitar janelas de horário (editar as janelas: 05_config/chips.json)</label></div>
-  </div>
 
-  <div class="card"><h2>Log</h2><div id="log"></div></div>
+    <div class="card">
+      <h2>Resumo geral</h2>
+      <div class="kpi"><div><b id="k1">–</b><span class="sm">enviados</span></div><div><b id="k2">–</b><span class="sm">não têm WhatsApp</span></div><div><b id="k3">–</b><span class="sm">falhas</span></div></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Zaps (números)</h2><button id="add">+ Adicionar zap</button></div>
+      <div class="grid" id="zaps"></div>
+    </div>
+
+    <div class="card"><h2>Log</h2><div id="log"></div></div>
   </section>
 
-  <section class="tab" id="t-camp">
+  <section class="tab" id="t-op-camp">
     <div class="card">
       <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Campanhas (as 3 mais recentes)</h2><button id="vtodas">Ver todas</button></div>
       <p class="sm" style="margin-top:0">"Processado" = enviado + sem WhatsApp + falha. "Entregue" conta só os enviados. Uma campanha só está realmente 100% quando não há falhas nem pendentes.</p>
@@ -118,23 +149,11 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
     </div>
   </section>
 
-  <section class="tab" id="t-ges">
-    <div class="card">
-      <h2>Erros dos últimos 7 dias</h2>
-      <div id="erros" class="sm">carregando…</div>
-    </div>
-    <div class="card">
-      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Relatório de gestão</h2><button class="p" id="bges">Gerar relatório</button></div>
-      <p class="sm" style="margin-top:0">Funil da campanha, vazão por dia, saúde dos zaps, perdas de tempo, erros mais frequentes e riscos com ação recomendada. Também fica salvo em 03_log/relatorio_gestao_AAAA-MM-DD.md.</p>
-      <pre class="txt" id="rges" style="display:none"></pre>
-    </div>
-  </section>
-
-  <section class="tab" id="t-guia">
+  <section class="tab" id="t-op-guia">
     <div class="card guia">
       <h2>Rotina da secretária (5 minutos)</h2>
       <ul>
-        <li>Abra a aba <b>Operação</b> e leia <b>O que fazer agora</b>: vermelho = precisa de ação, amarelo = atenção, azul = só informativo.</li>
+        <li>Na aba <b>Hoje</b>, leia <b>O que fazer agora</b>: vermelho = precisa de ação, amarelo = atenção, azul = só informativo.</li>
         <li>Se algum zap pedir QR: clique em <b>Conectar (QR)</b> no cartão do zap e escaneie com o celular daquele número (WhatsApp › Aparelhos conectados).</li>
         <li>Clique em <b>▶ Iniciar modo contínuo</b> e deixe o computador ligado. Ele envia até o teto de cada zap, troca de zap sozinho e <b>encerra quando a campanha termina</b>.</li>
         <li>No fim do dia, abra <b>Campanhas</b> para ver o progresso e avise o gestor se houver falhas ou pendências.</li>
@@ -142,9 +161,9 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
       </ul>
       <h2>O que cada aba mostra</h2>
       <ul>
-        <li><b>Operação</b>: tarefas do dia, iniciar/parar, resumo geral, cada zap (número, situação, envios nas últimas 24h), margem de segurança e log ao vivo.</li>
+        <li><b>Hoje</b>: tarefas do dia, iniciar/parar, resumo geral, cada zap (número, situação, envios nas últimas 24h) e log ao vivo.</li>
         <li><b>Campanhas</b>: as 3 listas mais recentes (enviados, sem WhatsApp, falhas, pendentes, previsão de término), devolver falhas à fila e gerar o convite do grupo.</li>
-        <li><b>Gestão (TPM)</b>: erros por tipo e relatório completo com riscos e recomendações.</li>
+        <li><b>TPM · Gestão do projeto</b>: é a visão do gestor (indicadores, riscos, política de limites). A secretária não precisa dela para operar.</li>
       </ul>
       <h2>Regras que o sistema aplica sozinho</h2>
       <ul>
@@ -154,7 +173,93 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
         <li>O modo contínuo não usa listas de meses anteriores (evita reenviar para quem já recebeu).</li>
       </ul>
       <h2>Menu de texto (03_disparar.ps1)</h2>
-      <p class="sm">Tudo isto também está no menu do PowerShell: <b>[A]</b> o que fazer agora, <b>[H]</b> guia, <b>[19]</b> fechamento da campanha, <b>[20]</b> retentar falhas, <b>[21]</b> relatório de gestão, <b>[22]</b> convite para o grupo.</p>
+      <p class="sm">O mesmo está no menu do PowerShell, organizado por área: <b>A</b> o que fazer agora, <b>O</b> operação diária, <b>C</b> campanhas (C2 fechamento, C3 retentar falhas, C4 convite), <b>E</b> envio manual, <b>Z</b> zaps (Z1 conectar QR), <b>G</b> gestão/TPM, <b>M</b> manutenção, <b>H</b> guia.</p>
+    </div>
+  </section>
+
+  <!-- ===================== TPM ===================== -->
+  <section class="tab" id="t-tpm-visao">
+    <div class="faixa">Visão de gestão do projeto: acompanhamento e decisão. <b>Nada aqui envia mensagens</b> (a operação fica na aba Operacional).</div>
+    <div class="row" style="margin-bottom:10px">
+      <label class="sm">Período <select class="dias"><option value="7">7 dias</option><option value="14" selected>14 dias</option><option value="30">30 dias</option></select></label>
+      <button id="rtpm">Atualizar</button><span class="sm" id="tpmts"></span>
+    </div>
+    <div class="cards" id="kpis"></div>
+    <div class="card">
+      <h2>Funil da campanha ativa</h2>
+      <div id="funil" class="sm">carregando…</div>
+    </div>
+    <div class="card">
+      <h2>Vazão: envios por dia</h2>
+      <div class="chart" id="chart"></div>
+      <p class="sm" id="chartsum" style="margin:8px 0 0"></p>
+    </div>
+  </section>
+
+  <section class="tab" id="t-tpm-camp">
+    <div class="card">
+      <h2>Campanhas: fechamento e decisão</h2>
+      <p class="sm" style="margin-top:0">Para decidir se pode seguir para a próxima campanha. Para retentar falhas ou gerar o convite, use a aba Operacional › Campanhas.</p>
+      <div style="overflow:auto"><table class="t" id="tcamp"></table></div>
+    </div>
+  </section>
+
+  <section class="tab" id="t-tpm-riscos">
+    <div class="card">
+      <h2>Riscos e recomendações (priorizadas)</h2>
+      <div style="overflow:auto"><table class="t" id="trecs"></table></div>
+    </div>
+    <div class="card">
+      <h2>Perdas de tempo e erros</h2>
+      <div id="perdas" class="sm" style="margin-bottom:10px"></div>
+      <div style="overflow:auto"><table class="t" id="terrtop"></table></div>
+    </div>
+    <div class="card">
+      <h2>Erros dos últimos 7 dias</h2>
+      <div id="erros" class="sm">carregando…</div>
+    </div>
+  </section>
+
+  <section class="tab" id="t-tpm-zaps">
+    <div class="card">
+      <h2>Saúde dos zaps</h2>
+      <div style="overflow:auto"><table class="t" id="tzaps"></table></div>
+    </div>
+  </section>
+
+  <section class="tab" id="t-tpm-politica">
+    <div class="card">
+      <h2>Política de envio</h2>
+      <p class="sm" style="margin-top:0">Estes ajustes valem para todos os zaps. São decisão de gestão: aumentar o volume (menor margem) eleva o risco de bloqueio dos números. A secretária não precisa mexer aqui.</p>
+      <div class="row">
+        <label class="sm">Margem de segurança <input id="mar" type="number" min="0" max="20" style="width:64px"></label>
+        <button id="smar">Salvar margem</button>
+        <span class="sm" id="lim"></span>
+      </div>
+      <div class="row" style="margin-top:10px"><label class="sm"><input id="hat" type="checkbox"> respeitar janelas de horário (editar as janelas: 05_config/chips.json)</label></div>
+    </div>
+    <div class="card guia">
+      <h2>Regras vigentes</h2>
+      <ul>
+        <li>Teto por zap: limite do WhatsApp (50) menos a margem; janela móvel de 24h.</li>
+        <li>1 mensagem por telefone por mês (qualquer campanha). Blacklist sempre respeitada.</li>
+        <li>2 falhas seguidas de conexão: zap em quarentena por 6h.</li>
+        <li>Modo contínuo recusa lista de mês anterior e encerra ao concluir a campanha.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tab" id="t-tpm-docs">
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Relatório de gestão</h2>
+        <div class="row"><select class="dias"><option value="7">7 dias</option><option value="14" selected>14 dias</option><option value="30">30 dias</option></select><button class="p" id="bges">Gerar relatório</button></div></div>
+      <p class="sm" style="margin-top:0">Funil da campanha, vazão por dia, saúde dos zaps, perdas de tempo, erros mais frequentes e riscos com ação recomendada. Também fica salvo em 03_log/relatorio_gestao_AAAA-MM-DD.md.</p>
+      <pre class="txt" id="rges" style="display:none"></pre>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Documentos</h2>
+        <div class="row"><button data-doc="gestao" class="p">Gestão do projeto (TPM)</button><button data-doc="secretaria">Operação da secretária</button></div></div>
+      <pre class="txt" id="rdoc" style="display:none"></pre>
     </div>
   </section>
 </main>
@@ -168,11 +273,34 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
 
 <script>
 const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
 const post = (u, b) => fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Painel': '1' }, body: JSON.stringify(b || {}) }).then(r => r.json());
 const dh = ms => new Date(ms).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
 const txt = (el, t) => { if (el.textContent !== t) el.textContent = t; };
+const el = (tag, cls, t) => { const e = document.createElement(tag); if (cls) e.className = cls; if (t !== undefined) e.textContent = t; return e; };
 let S = null, editando = false;
 
+/* ---------- navegação: visão (op/tpm) + aba ---------- */
+const PADRAO = { op: 'hoje', tpm: 'visao' };
+const lembrada = { op: PADRAO.op, tpm: PADRAO.tpm };
+function ir(modo, sub) {
+  if (!PADRAO[modo]) modo = 'op';
+  sub = sub || lembrada[modo];
+  if (!$(`#t-${modo}-${sub}`)) sub = PADRAO[modo];
+  lembrada[modo] = sub;
+  document.body.dataset.modo = modo;
+  for (const b of $$('#modos button')) b.classList.toggle('sel', b.dataset.m === modo);
+  for (const s of $$('.sub')) s.classList.toggle('sel', s.id === 'sub-' + modo);
+  for (const b of $$(`#sub-${modo} button`)) b.classList.toggle('sel', b.dataset.s === sub);
+  for (const t of $$('.tab')) t.classList.toggle('sel', t.id === `t-${modo}-${sub}`);
+  history.replaceState(null, '', '#' + modo + (sub === PADRAO[modo] ? '' : '/' + sub));
+  if (modo === 'op' && sub === 'camp') carregarCampanhas();
+  if (modo === 'tpm') { if (sub === 'visao' || sub === 'riscos' || sub === 'zaps') carregarTPM(); if (sub === 'camp') carregarTabelaCampanhas(); if (sub === 'riscos') carregarErros(); }
+}
+for (const b of $$('#modos button')) b.onclick = () => ir(b.dataset.m);
+for (const b of $$('.sub button')) b.onclick = () => ir(b.closest('.sub').id.slice(4), b.dataset.s);
+
+/* ---------- OPERACIONAL: estado ao vivo ---------- */
 async function atualizar() {
   try { S = await (await fetch('/api/estado', { cache: 'no-store' })).json(); } catch { txt($('#st'), 'painel offline'); return; }
   const st = $('#st');
@@ -180,10 +308,10 @@ async function atualizar() {
   txt(st, S.rodando ? '● modo contínuo rodando' : '○ parado');
   $('#ini').disabled = S.rodando; $('#par').disabled = !S.rodando;
   const c = S.cfg;
-  txt($('#hor'), `Teto: ${c.ef} envios por zap a cada ${c.janelaHoras}h (limite ${c.limite} − margem ${c.margem}). Horário de envio: ${c.horarioAtivo ? c.horario : 'a qualquer hora'}. ` +
+  txt($('#hor'), `Teto: ${c.ef} envios por zap a cada ${c.janelaHoras}h. Horário de envio: ${c.horarioAtivo ? c.horario : 'a qualquer hora'}. ` +
     (c.horarioAtivo ? (c.dentro ? 'Agora está DENTRO do horário.' : `Agora está fora do horário — próxima abertura ${dh(c.proxima)}.`) : ''));
   txt($('#k1'), S.tot.sent); txt($('#k2'), S.tot.skipped_not_registered); txt($('#k3'), S.tot.failed);
-  txt($('#lim'), `Uso real: ${c.ef} por zap.`);
+  txt($('#lim'), `Limite ${c.limite} − margem ${c.margem} = teto efetivo de ${c.ef} por zap a cada ${c.janelaHoras}h.`);
   renderAcoes(S.acoes || []);
   if (!editando) { $('#mar').value = c.margem; $('#hat').checked = c.horarioAtivo; }
   $('#add').disabled = !c.podeAdicionar;
@@ -251,6 +379,7 @@ function renderAcoes(lista) {
   }
 }
 
+/* ---------- OPERACIONAL: campanhas (com ações) ---------- */
 const pill = { concluida: ['concluída', 'on'], concluida_com_ressalvas: ['concluída com ressalvas', 'w'], em_andamento: ['em andamento', ''], nao_iniciada: ['não iniciada', 'off'], aguardando_mes: ['aguarda o mês virar', 'w'], vazio: ['vazia', 'off'] };
 let todasCamp = false, CAMP = [];
 function cartaoCampanha(a) {
@@ -284,8 +413,12 @@ function cartaoCampanha(a) {
   }
   return d;
 }
+async function buscarCampanhas() {
+  try { CAMP = (await (await fetch('/api/campanhas', { cache: 'no-store' })).json()).campanhas || []; } catch { /* mantém a última lista */ }
+  return CAMP;
+}
 async function carregarCampanhas() {
-  try { CAMP = (await (await fetch('/api/campanhas', { cache: 'no-store' })).json()).campanhas || []; } catch { return; }
+  await buscarCampanhas();
   const box = $('#campanhas'); box.textContent = '';
   const lista = todasCamp ? CAMP : CAMP.slice(0, 3);
   if (!lista.length) box.textContent = 'Nenhuma lista em 02_disparos.';
@@ -293,6 +426,87 @@ async function carregarCampanhas() {
   $('#vtodas').textContent = todasCamp ? 'Ver só as 3 mais recentes' : 'Ver todas';
 }
 $('#vtodas').onclick = () => { todasCamp = !todasCamp; carregarCampanhas(); };
+$('#bgrupo').onclick = async () => {
+  const pre = $('#rgrupo'); pre.style.display = 'block'; pre.textContent = 'Gerando…';
+  const r = await post('/api/convite-grupo', { link: $('#lgrupo').value, ddd: $('#dgrupo').value.trim() });
+  pre.textContent = r.erro || r.texto || 'sem resposta'; carregarCampanhas();
+};
+
+/* ---------- TPM ---------- */
+function tabela(t, cab, linhas) {
+  t.textContent = '';
+  const hr = t.insertRow(); for (const c of cab) { const th = el('th', '', c); hr.append(th); }
+  for (const l of linhas) { const tr = t.insertRow(); for (const v of l) { const td = tr.insertCell(); if (v instanceof Node) td.append(v); else td.textContent = v; } }
+  if (!linhas.length) { const tr = t.insertRow(); const td = tr.insertCell(); td.colSpan = cab.length; td.textContent = 'Sem dados no período.'; td.className = 'sm'; }
+}
+const diasSel = () => $('#t-tpm-visao .dias').value;
+let TPM = null;
+async function carregarTPM() {
+  try { TPM = await (await fetch('/api/tpm?dias=' + diasSel(), { cache: 'no-store' })).json(); } catch { return; }
+  txt($('#tpmts'), 'atualizado às ' + new Date(TPM.geradoEm).toLocaleTimeString('pt-BR'));
+  renderKpis(TPM); renderFunil(TPM); renderChart(TPM); renderRiscos(TPM); renderZapsTPM(TPM);
+}
+function kc(t, v, s, nivel) {
+  const d = el('div', 'kc ' + (nivel || '')); d.append(el('div', 't', t), el('div', 'v', v), el('div', 's', s)); return d;
+}
+function renderKpis(d) {
+  const box = $('#kpis'); box.textContent = '';
+  const c = d.camp;
+  if (c) {
+    const nv = { concluida: 'ok', concluida_com_ressalvas: 'warn', em_andamento: 'pri', aguardando_mes: 'warn' }[c.status] || '';
+    box.append(kc('Campanha processada', c.pctProcessado + '%', (pill[c.status] || ['?'])[0], nv));
+    box.append(kc('Entregue de fato', c.pctEntregue + '%', `${c.enviados} de ${c.unicos} contatos`, c.pctEntregue >= 95 ? 'ok' : 'warn'));
+    box.append(kc('Falhas na campanha', c.falhas, c.unicos ? Math.round(c.falhas / c.unicos * 1000) / 10 + '% dos contatos' : '', c.falhas ? 'warn' : 'ok'));
+    box.append(kc('Pendentes', c.pendentes, c.previsaoDias ? `previsão: ~${c.previsaoDias} dia(s)` : (c.pendentes ? 'sem previsão' : 'nada a enviar'), c.pendentes ? 'pri' : 'ok'));
+  } else box.append(kc('Campanha ativa', '–', 'nenhuma lista em 02_disparos', 'warn'));
+  box.append(kc('Utilização da capacidade', d.utilizacaoPct + '%', `média do período · potencial ${d.capPotencial}/dia`, d.utilizacaoPct >= 60 ? 'ok' : 'warn'));
+  box.append(kc('Dias com envio', `${d.diasAtivos}/${d.dias}`, `média ${d.mediaDiaAtivo}/dia nos dias ativos`, d.diasAtivos >= Math.min(d.dias, 7) ? 'ok' : 'warn'));
+  box.append(kc('Zaps prontos', `${d.zapsProntos}/${d.zapsAtivos}`, `capacidade ${d.capDiaria}/dia agora`, d.zapsProntos ? 'ok' : 'err'));
+  box.append(kc('Lotes sem envio', d.lotes.vazios, `${Math.round(d.lotes.segVazios / 60)} min perdidos de ${d.lotes.total} lotes`, d.lotes.vazios ? 'warn' : 'ok'));
+  box.append(kc('Sem internet', (d.offlineS / 3600).toFixed(1) + ' h', 'tempo detectado no período', d.offlineS > 3600 ? 'warn' : 'ok'));
+  box.append(kc('Taxa de falha (histórico)', d.taxaFalhaPct + '%', `${d.totais.failed} de ${d.totalLog} registros`, d.taxaFalhaPct > 5 ? 'warn' : 'ok'));
+  box.append(kc('Blacklist', d.blacklist, d.blacklist ? 'números protegidos' : 'ninguém registrado ainda', d.blacklist ? 'ok' : 'warn'));
+}
+function renderFunil(d) {
+  const box = $('#funil'); box.textContent = '';
+  const c = d.camp;
+  if (!c || !c.unicos) { box.textContent = 'Sem campanha com contatos.'; return; }
+  const seg = [['enviados', c.enviados, 'var(--ok)'], ['sem WhatsApp', c.semWhatsapp, 'var(--warn)'], ['falhas', c.falhas, 'var(--err)'], ['pendentes', c.pendentes, 'var(--bar)']];
+  const st = el('div', 'stack');
+  for (const [, v, cor] of seg) { const i = document.createElement('i'); i.style.width = (v / c.unicos * 100) + '%'; i.style.background = cor; st.append(i); }
+  const lg = el('div', 'leg');
+  for (const [k, v, cor] of seg) { const s = document.createElement('span'); const b = document.createElement('b'); b.style.background = cor; s.append(b, `${v} ${k}`); lg.append(s); }
+  box.append(el('div', '', `${c.arquivo} — ${c.veredito}`), st, lg, el('div', '', 'Próximo passo: ' + c.proximoPasso));
+  box.lastChild.style.marginTop = '8px';
+}
+function renderChart(d) {
+  const box = $('#chart'); box.textContent = '';
+  const max = Math.max(1, ...d.serie.map(x => x.n));
+  for (const x of d.serie) {
+    const c = el('div', 'c'); const i = document.createElement('i');
+    i.style.height = Math.max(1, Math.round(x.n / max * 110)) + 'px'; if (!x.n) i.className = 'z';
+    c.append(el('em', '', x.n || ''), i, el('span', '', x.dia));
+    box.append(c);
+  }
+  txt($('#chartsum'), `Total no período: ${d.totalPeriodo} · dias com envio: ${d.diasAtivos}/${d.dias} · média nos dias ativos: ${d.mediaDiaAtivo}/dia · capacidade potencial: ${d.capPotencial}/dia.`);
+}
+function renderRiscos(d) {
+  const cor = { P1: 'e', P2: 'w' };
+  tabela($('#trecs'), ['Prioridade', 'Risco / achado', 'Ação recomendada'], d.recs.map(r => { const p = el('span', 'pill ' + (cor[r.prioridade] || 'on'), r.prioridade); return [p, r.achado, r.acao]; }));
+  txt($('#perdas'), `${d.lotes.vazios} lote(s) sem nenhum envio (${Math.round(d.lotes.segVazios / 60)} min) · ${(d.offlineS / 3600).toFixed(1)} h sem internet` +
+    (d.socket ? ` · causa raiz recorrente: ${d.socket.n}× "reading 'Socket'" (sessão corrompida) em ${d.socket.chips}` : '') + '.');
+  tabela($('#terrtop'), ['Erros mais frequentes', 'Qtde'], d.topErros.map(([k, v]) => [k, String(v)]));
+}
+function renderZapsTPM(d) {
+  const cl = { ok: 'on', aviso: 'w', erro: 'e', off: 'off' };
+  tabela($('#tzaps'), ['Zap', 'Situação', 'Enviados 24h', 'Último envio', 'Falhas de conexão (período)', 'Quedas de sessão', 'Último erro'],
+    d.zaps.map(z => { const s = el('span', 'pill ' + (cl[z.situacao.nivel] || ''), z.situacao.txt); return [z.rotulo, s, `${z.enviados24h}/${z.cap}`, z.ultimoEnvioMs ? dh(z.ultimoEnvioMs) : 'nunca', String(z.falhasConexaoPeriodo), String(z.quedasPeriodo), z.ultimoErro || '–']; }));
+}
+async function carregarTabelaCampanhas() {
+  await buscarCampanhas();
+  tabela($('#tcamp'), ['Arquivo', 'Situação', 'Contatos', 'Enviados', 'Sem WhatsApp', 'Falhas', 'Pendentes', '% proc.', '% entregue', 'Decisão / próximo passo'],
+    CAMP.map(a => { const p = pill[a.status] || ['?', 'off']; return [a.arquivo, el('span', 'pill ' + p[1], p[0]), String(a.unicos), String(a.enviados), String(a.semWhatsapp), String(a.falhas), String(a.pendentes), a.pctProcessado + '%', a.pctEntregue + '%', a.proximoPasso]; }));
+}
 async function carregarErros() {
   let e; try { e = await (await fetch('/api/erros', { cache: 'no-store' })).json(); } catch { return; }
   const box = $('#erros'); box.textContent = '';
@@ -302,24 +516,22 @@ async function carregarErros() {
   for (const x of e.ultimos) { const tr = tb.insertRow(); for (const v of [dh(Date.parse(x.ts)), x.tipo, x.evento, x.mensagem]) tr.insertCell().textContent = v; }
   box.append(tb);
 }
+$('#rtpm').onclick = carregarTPM;
+$('#t-tpm-visao .dias').onchange = carregarTPM;
 $('#bges').onclick = async () => {
   const pre = $('#rges'); pre.style.display = 'block'; pre.textContent = 'Gerando…';
-  const r = await (await fetch('/api/gestao', { cache: 'no-store' })).json(); pre.textContent = r.texto || 'sem dados';
+  const r = await (await fetch('/api/gestao?dias=' + $('#t-tpm-docs .dias').value, { cache: 'no-store' })).json(); pre.textContent = r.texto || 'sem dados';
 };
-$('#bgrupo').onclick = async () => {
-  const pre = $('#rgrupo'); pre.style.display = 'block'; pre.textContent = 'Gerando…';
-  const r = await post('/api/convite-grupo', { link: $('#lgrupo').value, ddd: $('#dgrupo').value.trim() });
-  pre.textContent = r.erro || r.texto || 'sem resposta'; carregarCampanhas();
-};
-for (const b of document.querySelectorAll('#tabs button')) b.onclick = () => {
-  for (const x of document.querySelectorAll('#tabs button')) x.classList.toggle('sel', x === b);
-  for (const t of document.querySelectorAll('.tab')) t.classList.toggle('sel', t.id === 't-' + b.dataset.t);
-  if (b.dataset.t === 'camp') carregarCampanhas();
-  if (b.dataset.t === 'ges') carregarErros();
+for (const b of $$('[data-doc]')) b.onclick = async () => {
+  for (const x of $$('[data-doc]')) x.classList.toggle('p', x === b);
+  const pre = $('#rdoc'); pre.style.display = 'block'; pre.textContent = 'Carregando…';
+  const r = await (await fetch('/api/doc?nome=' + b.dataset.doc, { cache: 'no-store' })).json(); pre.textContent = r.texto || r.erro || 'sem dados';
 };
 
+/* ---------- início ---------- */
+{ const [m, s] = location.hash.slice(1).split('/'); ir(PADRAO[m] ? m : 'op', s); }
 atualizar(); setInterval(atualizar, 3000);
-{ const b = document.querySelector(`#tabs button[data-t="${location.hash.slice(1)}"]`); if (b) b.click(); }
+setInterval(() => { if (document.body.dataset.modo === 'tpm' && document.visibilityState === 'visible') { const s = lembrada.tpm; if (s === 'visao' || s === 'riscos' || s === 'zaps') carregarTPM(); } }, 30000);
 </script>
 </body>
 </html>

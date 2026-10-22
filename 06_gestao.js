@@ -114,7 +114,7 @@ function categoriaDoErro(msg) {
   const s = String(msg || '');
   if (/detached Frame|Target closed|Session closed|Execution context|Protocol error|Browser has disconnected|Page crashed/i.test(s)) return 'Navegador travou durante o envio (a mensagem PODE ter sido entregue)';
   if (/timed out|Timeout/i.test(s)) return 'Tempo esgotado no WhatsApp Web';
-  if (/getChat|undefined|null/i.test(s)) return 'Falha interna da biblioteca (atualizar menu [16])';
+  if (/getChat|undefined|null/i.test(s)) return 'Falha interna da biblioteca (atualizar menu [Z4])';
   if (/LOGOUT|QR|auth/i.test(s)) return 'Sessão do zap caiu (reler QR)';
   return 'Outro motivo';
 }
@@ -172,7 +172,7 @@ function analisarCampanha(csvPath, { mes, sentLog, blacklist, zaps } = {}) {
     mesRef, idadeH: Math.floor((Date.now() - st.mtimeMs) / 3_600_000), mtimeMs: st.mtimeMs, tamanhoKB: Math.round(st.size / 1024),
   };
   let carregado;
-  try { carregado = carregarCsv(csvPath); } catch (e) { return { ...base, unicos: 0, status: 'vazio', veredito: `CSV ilegível: ${e.message}`, proximoPasso: 'Gere a lista novamente (menu [3]).' }; }
+  try { carregado = carregarCsv(csvPath); } catch (e) { return { ...base, unicos: 0, status: 'vazio', veredito: `CSV ilegível: ${e.message}`, proximoPasso: 'Gere a lista novamente (menu [C1]).' }; }
 
   const porNumero = new Map();
   for (const r of carregado.records) { const n = soDigitos(r.numero); if (!porNumero.has(n)) porNumero.set(n, r); }
@@ -204,27 +204,27 @@ function analisarCampanha(csvPath, { mes, sentLog, blacklist, zaps } = {}) {
   const capDia = zaps ? capacidadeDiaria(zaps) : 0;
   if (unicos === 0) {
     res.status = 'vazio'; res.veredito = 'Arquivo vazio';
-    res.proximoPasso = 'Nada a enviar: gere uma nova lista (menu [3]).';
+    res.proximoPasso = 'Nada a enviar: gere uma nova lista (menu [C1]).';
   } else if (a.bloqueadosMes > 0 && processados === 0 && a.pendentes === 0) {
     res.status = 'aguardando_mes'; res.veredito = 'AGUARDANDO VIRADA DO MÊS — todos já receberam outra mensagem neste mês';
     res.proximoPasso = 'Regra de 1 mensagem por telefone/mês: esta lista só poderá ser enviada a partir do dia 1 do próximo mês.';
   } else if (processados === 0 && a.pendentes > 0) {
     res.status = 'nao_iniciada'; res.veredito = 'NÃO INICIADA';
-    res.proximoPasso = 'Faça um dry-run (menu [6]) e depois envie ([5] ou [17] modo contínuo).';
+    res.proximoPasso = 'Faça um dry-run (menu [E2]) e depois envie ([E1] ou [O1] modo contínuo).';
   } else if (a.pendentes > 0) {
     res.status = 'em_andamento'; res.veredito = `EM ANDAMENTO — ${res.pctProcessado}% processada`;
     const dias2 = capDia > 0 ? Math.ceil(a.pendentes / capDia) : null;
     res.previsaoDias = dias2;
     res.proximoPasso = capDia > 0
       ? `Faltam ${a.pendentes} contatos. Com ${zaps.filter(z => z.pronto).length} zap(s) pronto(s) (${capDia}/dia) termina em ~${dias2} dia(s).`
-      : `Faltam ${a.pendentes} contatos e NENHUM zap está pronto — conecte um zap (menu [13]).`;
+      : `Faltam ${a.pendentes} contatos e NENHUM zap está pronto — conecte um zap (menu [Z1]).`;
   } else if (a.falhas === 0) {
     res.status = 'concluida'; res.veredito = 'CONCLUÍDA — 100% dos contatos foram processados, sem falhas';
-    res.proximoPasso = 'Pode seguir para a próxima campanha: gere a nova lista (menu [3]).';
+    res.proximoPasso = 'Pode seguir para a próxima campanha: gere a nova lista (menu [C1]).';
   } else {
     res.status = 'concluida_com_ressalvas';
     res.veredito = `CONCLUÍDA COM RESSALVAS — todos processados, mas ${a.falhas} falharam (${pct(a.falhas, unicos)}%)`;
-    res.proximoPasso = `Decida: retentar as ${a.falhas} falhas (menu [20]) ou aceitar a perda e seguir para a próxima campanha. `
+    res.proximoPasso = `Decida: retentar as ${a.falhas} falhas (menu [C3]) ou aceitar a perda e seguir para a próxima campanha. `
       + 'Atenção: falhas de "navegador travou" podem ter entregue a mensagem; retentar pode duplicar.';
   }
   return res;
@@ -297,12 +297,12 @@ function acoesNecessarias() {
   if (semConexao.length) {
     add('alta', semConexao.length === 1 ? `${semConexao[0].rotulo} perdeu a conexão e precisa ler o QR de novo.`
       : `${semConexao.length} zaps perderam a conexão e precisam ler o QR de novo: ${semConexao.map(z => z.rotulo).join(' · ')}.`,
-    'Menu [13] ou botão "Conectar (QR)" no painel; desative os zaps que não for usar.');
+    'Menu [Z1] ou botão "Conectar (QR)" no painel; desative os zaps que não for usar.');
   }
   for (const z of ativos.filter(z => z.bloqueadoAte)) add('alta', `${z.rotulo} está pausado até ${fmtDH(Date.parse(z.bloqueadoAte))} (limite do WhatsApp ou falhas seguidas).`, 'Não force: aguarde a pausa terminar.');
   const vazios = ativos.filter(z => !z.sessao && !z.precisaQR && !z.numero);
   if (vazios.length) add('info', `${vazios.length} slot(s) vazio(s), nunca conectado(s): ${vazios.map(z => z.rotulo).join(' · ')}.`, 'Só conecte se for usar; senão desative para não poluir os relatórios.');
-  if (prontos.length === 0) add('alta', 'Nenhum zap está pronto para enviar.', 'Conecte pelo menos um zap (menu [13]).');
+  if (prontos.length === 0) add('alta', 'Nenhum zap está pronto para enviar.', 'Conecte pelo menos um zap (menu [Z1]).');
   else if (comVaga.length === 0) {
     const prox = Math.min(...prontos.map(z => z.liberaEm || Infinity));
     add('info', `Todos os zaps prontos atingiram o teto de ${prontos[0].cap} envios em 24h.`, Number.isFinite(prox) ? `Próxima vaga abre em ${fmtDH(prox)}. Nada a fazer até lá.` : 'Aguarde a janela de 24h.');
@@ -312,19 +312,19 @@ function acoesNecessarias() {
   let campanha = null;
   if (csvs.length) {
     campanha = analisarCampanha(csvs[0].p, { sentLog: log, blacklist: bl, zaps });
-    if (campanha.status === 'concluida') add('media', `Campanha ${campanha.arquivo} está 100% concluída.`, 'Gere a próxima lista (menu [3]) e confira se o modo contínuo já encerrou.');
-    else if (campanha.status === 'concluida_com_ressalvas') add('media', `Campanha ${campanha.arquivo} terminou, mas ${campanha.falhas} contatos falharam.`, 'Veja o fechamento (menu [19]) e decida: retentar (menu [20]) ou seguir adiante.');
-    else if (campanha.status === 'em_andamento' && comVaga.length) add('info', `Campanha ${campanha.arquivo}: faltam ${campanha.pendentes} contatos e há ${comVaga.reduce((s, z) => s + z.vagas, 0)} vagas livres agora.`, 'Inicie/mantenha o modo contínuo (menu [17] ou painel).');
+    if (campanha.status === 'concluida') add('media', `Campanha ${campanha.arquivo} está 100% concluída.`, 'Gere a próxima lista (menu [C1]) e confira se o modo contínuo já encerrou.');
+    else if (campanha.status === 'concluida_com_ressalvas') add('media', `Campanha ${campanha.arquivo} terminou, mas ${campanha.falhas} contatos falharam.`, 'Veja o fechamento (menu [C2]) e decida: retentar (menu [C3]) ou seguir adiante.');
+    else if (campanha.status === 'em_andamento' && comVaga.length) add('info', `Campanha ${campanha.arquivo}: faltam ${campanha.pendentes} contatos e há ${comVaga.reduce((s, z) => s + z.vagas, 0)} vagas livres agora.`, 'Inicie/mantenha o modo contínuo (menu [O1] ou painel).');
     const mArq = mesDoArquivo(campanha.arquivo);
-    if (mArq && mArq < mesLocal() && campanha.status !== 'vazio') add('media', `A lista mais recente (${campanha.dataArquivo}) é de um mês anterior.`, 'Gere uma lista nova (menu [3]); o modo contínuo recusa listas antigas para não reenviar para quem já recebeu.');
-  } else add('media', 'Não há nenhuma lista em 02_disparos.', 'Gere uma lista (menu [3]).');
+    if (mArq && mArq < mesLocal() && campanha.status !== 'vazio') add('media', `A lista mais recente (${campanha.dataArquivo}) é de um mês anterior.`, 'Gere uma lista nova (menu [C1]); o modo contínuo recusa listas antigas para não reenviar para quem já recebeu.');
+  } else add('media', 'Não há nenhuma lista em 02_disparos.', 'Gere uma lista (menu [C1]).');
 
   const semWhats = new Set(Object.values(log).filter(e => e.status === 'skipped_not_registered').map(e => semDDI(e.numero)));
   const naoExportados = [...semWhats].filter(n => !bl.has(n)).length;
-  if (naoExportados > 0) add('info', `${naoExportados} número(s) sem WhatsApp ainda não estão na blacklist (vão ser tentados de novo no mês que vem).`, 'Menu [10] exporta todos para a blacklist.');
+  if (naoExportados > 0) add('info', `${naoExportados} número(s) sem WhatsApp ainda não estão na blacklist (vão ser tentados de novo no mês que vem).`, 'Menu [M3] exporta todos para a blacklist.');
 
   const erros24 = lerJsonl('erros', 1);
-  if (erros24.length >= 10) add('media', `${erros24.length} erros registrados nas últimas 24h.`, 'Menu [15] mostra os erros; avise o responsável técnico se continuarem.');
+  if (erros24.length >= 10) add('media', `${erros24.length} erros registrados nas últimas 24h.`, 'Menu [G2] mostra os erros; avise o responsável técnico se continuarem.');
 
   const ordem = { alta: 0, media: 1, info: 2 };
   acoes.sort((x, y) => ordem[x.nivel] - ordem[y.nivel]);
@@ -350,21 +350,98 @@ function cmdHoje() {
   console.log('');
 }
 
-// ── Relatório de gestão (TPM) ────────────────────────────────────────────────
-function relatorioGestao(dias = 14) {
+/** Dados estruturados da visão de gestão (TPM). Fonte única do relatório em texto e do painel. */
+function dadosGestao(dias = 14) {
   const cfg = core.lerConfig();
   const log = lerSentLog();
   const zaps = infoZaps(cfg, log);
   const bl = carregarBlacklist();
   const eventos = lerJsonl('eventos', dias);
   const erros = lerJsonl('erros', dias);
+  const csvs = arquivosCsv();
+  const camp = csvs.length ? analisarCampanha(csvs[0].p, { sentLog: log, blacklist: bl, zaps }) : null;
+  const capZap = zaps[0] ? zaps[0].cap : 0;
+
+  const porDia = {};
+  for (const e of Object.values(log)) {
+    if (e.status !== 'sent') continue;
+    const t = Date.parse(e.sentAt || '');
+    if (!Number.isFinite(t) || t < Date.now() - dias * 86_400_000) continue;
+    const d = core.diaLocal(new Date(t));
+    porDia[d] = (porDia[d] || 0) + 1;
+  }
+  const serie = [];
+  let totalPeriodo = 0, diasAtivos = 0;
+  for (let i = dias - 1; i >= 0; i--) {
+    const d = new Date(Date.now() - i * 86_400_000);
+    const n = porDia[core.diaLocal(d)] || 0;
+    totalPeriodo += n; if (n) diasAtivos++;
+    serie.push({ dia: fmtDia(d), iso: core.diaLocal(d), n });
+  }
+  const capPotencial = Math.max(zaps.filter(z => z.ativo && z.numero).length * capZap, 1);
+
+  const zapsSaude = zaps.map(z => ({
+    ...z,
+    situacao: situacaoZap(z),
+    falhasConexaoPeriodo: erros.filter(e => e.evento === 'conexao_falhou' && e.chip === z.id).length,
+    quedasPeriodo: erros.filter(e => e.evento === 'desconectado' && e.chip === z.id).length,
+  }));
+
+  const fins = eventos.filter(e => e.evento === 'run_fim');
+  const vazios = fins.filter(e => e.sent === 0 && e.total > 0);
+  const segVazios = vazios.reduce((s, e) => s + (e.duracaoSeg || 0), 0);
+  const offlineS = eventos.filter(e => e.evento === 'internet_voltou').reduce((s, e) => s + (e.offline_s || 0), 0);
+  const porEvento = {};
+  for (const e of erros) { const k = `${e.tipo} · ${e.evento}`; porEvento[k] = (porEvento[k] || 0) + 1; }
+  const topErros = Object.entries(porEvento).sort((x, y) => y[1] - x[1]).slice(0, 8);
+  const socketErr = erros.filter(e => /reading 'Socket'/.test(e.mensagem || ''));
+  const socket = socketErr.length ? { n: socketErr.length, chips: [...new Set(socketErr.map(e => e.chip))].join(', ') } : null;
+
+  const totais = { sent: 0, failed: 0, skipped_not_registered: 0 };
+  for (const e of Object.values(log)) if (totais[e.status] !== undefined) totais[e.status]++;
+  const totalLog = totais.sent + totais.failed + totais.skipped_not_registered;
+
+  const recs = [];
+  if (!bl.size) recs.push({ prioridade: 'P1', achado: 'A blacklist está vazia: nenhum pedido de saída foi registrado até hoje.', acao: 'Confirme se há respostas "SAIR"/"não quero" nos zaps e registre cada uma no arquivo 01_fontes/blacklist.txt no mesmo dia.' });
+  if (camp) {
+    try {
+      const msg = (carregarCsv(path.join(DISPAROS, camp.arquivo)).records[0] || {}).mensagem || '';
+      if (!/\bsair\b|n[aã]o (quer|deseja)|parar de receber|descadastr/i.test(msg)) recs.push({ prioridade: 'P1', achado: `A mensagem da campanha ${camp.arquivo} não oferece forma de sair da lista.`, acao: 'Acrescentar "Responda SAIR para não receber mais mensagens" e usar o convite para o grupo de promoções (menu [C4]) como canal opt-in.' });
+    } catch { /* CSV ilegível já aparece no fechamento */ }
+  }
+  if (vazios.length) recs.push({ prioridade: 'P1', achado: `${vazios.length} lote(s) terminaram sem nenhum envio (${Math.round(segVazios / 60)} min de execução).`, acao: 'Costuma ser zap com sessão corrompida sendo tentado em loop. O sistema agora põe o zap em quarentena após 2 falhas seguidas de conexão; releia o QR ou desative o zap.' });
+  const semQR = zaps.filter(z => z.ativo && z.numero && !z.pronto);
+  if (semQR.length) recs.push({ prioridade: 'P1', achado: `${semQR.length} zap(s) com número configurado sem conexão válida (${semQR.map(z => z.rotulo).join('; ')}) — capacidade ociosa de ${semQR.length * capZap} envios/dia.`, acao: 'Reler o QR dos que serão usados e desativar os demais.' });
+  if (camp && camp.falhas) recs.push({ prioridade: 'P2', achado: `${camp.falhas} falha(s) na campanha ativa sem retentativa.`, acao: 'Menu [C3] devolve as falhas à fila; avalie o risco de duplicidade antes.' });
+  if (diasAtivos < Math.min(dias, 7)) recs.push({ prioridade: 'P2', achado: 'Poucos dias com envio no período: a operação depende de alguém manter o modo contínuo aberto no PC.', acao: 'Rodar o painel/modo contínuo em máquina dedicada (ou tarefa agendada) e seguir o checklist diário.' });
+  if (!recs.length) recs.push({ prioridade: '—', achado: 'Nenhum risco operacional detectado nos dados do período.', acao: 'Manter a rotina diária.' });
+
+  return {
+    dias, geradoEm: Date.now(), camp, zaps: zapsSaude, serie, totalPeriodo, diasAtivos,
+    mediaDiaAtivo: diasAtivos ? Math.round(totalPeriodo / diasAtivos) : 0,
+    capPotencial, capDiaria: capacidadeDiaria(zaps), utilizacaoPct: pct(totalPeriodo / dias, capPotencial),
+    zapsProntos: zaps.filter(z => z.pronto).length, zapsAtivos: zaps.filter(z => z.ativo).length, zapsCadastrados: zaps.length,
+    lotes: { total: fins.length, vazios: vazios.length, segVazios }, offlineS, topErros, socket,
+    totais, totalLog, taxaFalhaPct: pct(totais.failed, totalLog), taxaEntregaPct: pct(totais.sent, totalLog),
+    blacklist: bl.size, recs,
+  };
+}
+
+/** Semáforo de uma linha para o topo do menu: quantas tarefas urgentes/atenção/info existem. */
+function semaforo() {
+  const { acoes } = acoesNecessarias();
+  const n = nivel => acoes.filter(a => a.nivel === nivel).length;
+  return { urgentes: n('alta'), atencao: n('media'), info: n('info'), proxima: acoes[0] ? acoes[0].texto : null };
+}
+
+// ── Relatório de gestão (TPM) ────────────────────────────────────────────────
+function relatorioGestao(dias = 14) {
+  const d = dadosGestao(dias);
+  const camp = d.camp;
   const L = [];
   const h = t => L.push('', `## ${t}`, '');
   const hoje = new Date();
   L.push(`# Relatório de gestão — ${fmtDia(hoje)}/${hoje.getFullYear()} (últimos ${dias} dias)`);
-
-  const csvs = arquivosCsv();
-  const camp = csvs.length ? analisarCampanha(csvs[0].p, { sentLog: log, blacklist: bl, zaps }) : null;
 
   h('1. Resumo executivo');
   if (camp) {
@@ -376,80 +453,34 @@ function relatorioGestao(dias = 14) {
     }
     L.push(`- Próximo passo: ${camp.proximoPasso}`);
   } else L.push('- Nenhuma lista encontrada em 02_disparos.');
-  const prontos = zaps.filter(z => z.pronto);
-  L.push(`- Zaps: ${prontos.length} pronto(s) de ${zaps.filter(z => z.ativo).length} ativo(s) (${zaps.length} cadastrados) · capacidade ${capacidadeDiaria(zaps)}/dia.`);
+  L.push(`- Zaps: ${d.zapsProntos} pronto(s) de ${d.zapsAtivos} ativo(s) (${d.zapsCadastrados} cadastrados) · capacidade ${d.capDiaria}/dia.`);
 
   h('2. Vazão (envios por dia)');
-  const porDia = {};
-  for (const e of Object.values(log)) {
-    if (e.status !== 'sent') continue;
-    const t = Date.parse(e.sentAt || '');
-    if (!Number.isFinite(t) || t < Date.now() - dias * 86_400_000) continue;
-    const d = core.diaLocal(new Date(t));
-    porDia[d] = (porDia[d] || 0) + 1;
-  }
-  const capPotencial = Math.max(zaps.filter(z => z.ativo && z.numero).length * (zaps[0] ? zaps[0].cap : 0), 1);
-  const maxDia = Math.max(1, ...Object.values(porDia));
+  const maxDia = Math.max(1, ...d.serie.map(x => x.n));
   L.push('| Dia | Enviados | Gráfico |', '|---|---:|---|');
-  let totalPeriodo = 0, diasAtivos = 0;
-  for (let i = dias - 1; i >= 0; i--) {
-    const d = new Date(Date.now() - i * 86_400_000);
-    const n = porDia[core.diaLocal(d)] || 0;
-    totalPeriodo += n; if (n) diasAtivos++;
-    L.push(`| ${fmtDia(d)} | ${n} | ${'█'.repeat(Math.round((n / maxDia) * 20))} |`);
-  }
-  L.push('', `- Total no período: **${totalPeriodo}** · dias com envio: **${diasAtivos}/${dias}** · média nos dias ativos: **${diasAtivos ? Math.round(totalPeriodo / diasAtivos) : 0}**/dia.`);
-  L.push(`- Capacidade potencial (zaps com número configurado × teto de 24h): **${capPotencial}/dia** · utilização média no período: **${pct(totalPeriodo / dias, capPotencial)}%**.`);
+  for (const x of d.serie) L.push(`| ${x.dia} | ${x.n} | ${'█'.repeat(Math.round((x.n / maxDia) * 20))} |`);
+  L.push('', `- Total no período: **${d.totalPeriodo}** · dias com envio: **${d.diasAtivos}/${dias}** · média nos dias ativos: **${d.mediaDiaAtivo}**/dia.`);
+  L.push(`- Capacidade potencial (zaps com número configurado × teto de 24h): **${d.capPotencial}/dia** · utilização média no período: **${d.utilizacaoPct}%**.`);
 
   h('3. Saúde dos zaps');
   L.push('| Zap | Situação | Enviados 24h | Último envio | Falhas de conexão (período) | Quedas de sessão |', '|---|---|---:|---|---:|---:|');
-  for (const z of zaps) {
-    const falhas = erros.filter(e => e.evento === 'conexao_falhou' && e.chip === z.id).length;
-    const quedas = erros.filter(e => e.evento === 'desconectado' && e.chip === z.id).length;
-    L.push(`| ${z.rotulo} | ${situacaoZap(z).txt} | ${z.enviados24h}/${z.cap} | ${fmtDH(z.ultimoEnvioMs)} | ${falhas} | ${quedas} |`);
-  }
+  for (const z of d.zaps) L.push(`| ${z.rotulo} | ${z.situacao.txt} | ${z.enviados24h}/${z.cap} | ${fmtDH(z.ultimoEnvioMs)} | ${z.falhasConexaoPeriodo} | ${z.quedasPeriodo} |`);
 
   h('4. Desperdício e perdas');
-  const fins = eventos.filter(e => e.evento === 'run_fim');
-  const vazios = fins.filter(e => e.sent === 0 && e.total > 0);
-  const segVazios = vazios.reduce((s, e) => s + (e.duracaoSeg || 0), 0);
-  const offline = eventos.filter(e => e.evento === 'internet_voltou').reduce((s, e) => s + (e.offline_s || 0), 0);
-  L.push(`- Lotes executados: **${fins.length}** · lotes que terminaram com **0 envios**: **${vazios.length}** (${Math.round(segVazios / 60)} min de execução sem resultado).`);
-  L.push(`- Tempo sem internet detectado: **${(offline / 3600).toFixed(1)} h**.`);
-  const porEvento = {};
-  for (const e of erros) { const k = `${e.tipo} · ${e.evento}`; porEvento[k] = (porEvento[k] || 0) + 1; }
-  const top = Object.entries(porEvento).sort((x, y) => y[1] - x[1]).slice(0, 8);
-  if (top.length) { L.push('', '| Erros mais frequentes | Qtde |', '|---|---:|', ...top.map(([k, v]) => `| ${k} | ${v} |`)); }
-  const socket = erros.filter(e => /reading 'Socket'/.test(e.mensagem || ''));
-  if (socket.length) {
-    const quem = [...new Set(socket.map(e => e.chip))].join(', ');
-    L.push('', `- **Causa raiz recorrente:** ${socket.length}× "reading 'Socket'" (sessão corrompida) no(s) zap(s) ${quem}. Cada tentativa gasta ~15 s e, em modo contínuo, repetia a cada hora sem enviar nada. A ação correta é reler o QR (ou desativar o zap), não insistir.`);
+  L.push(`- Lotes executados: **${d.lotes.total}** · lotes que terminaram com **0 envios**: **${d.lotes.vazios}** (${Math.round(d.lotes.segVazios / 60)} min de execução sem resultado).`);
+  L.push(`- Tempo sem internet detectado: **${(d.offlineS / 3600).toFixed(1)} h**.`);
+  if (d.topErros.length) { L.push('', '| Erros mais frequentes | Qtde |', '|---|---:|', ...d.topErros.map(([k, v]) => `| ${k} | ${v} |`)); }
+  if (d.socket) {
+    L.push('', `- **Causa raiz recorrente:** ${d.socket.n}× "reading 'Socket'" (sessão corrompida) no(s) zap(s) ${d.socket.chips}. Cada tentativa gasta ~15 s e, em modo contínuo, repetia a cada hora sem enviar nada. A ação correta é reler o QR (ou desativar o zap), não insistir.`);
   }
 
   h('5. Qualidade dos dados e da entrega');
-  const totais = { sent: 0, failed: 0, skipped_not_registered: 0 };
-  for (const e of Object.values(log)) if (totais[e.status] !== undefined) totais[e.status]++;
-  const totalLog = totais.sent + totais.failed + totais.skipped_not_registered;
-  L.push(`- Histórico completo: ${totalLog} registros → ${totais.sent} enviados (${pct(totais.sent, totalLog)}%), ${totais.skipped_not_registered} sem WhatsApp (${pct(totais.skipped_not_registered, totalLog)}%), ${totais.failed} falhas (${pct(totais.failed, totalLog)}%).`);
+  L.push(`- Histórico completo: ${d.totalLog} registros → ${d.totais.sent} enviados (${d.taxaEntregaPct}%), ${d.totais.skipped_not_registered} sem WhatsApp (${pct(d.totais.skipped_not_registered, d.totalLog)}%), ${d.totais.failed} falhas (${d.taxaFalhaPct}%).`);
   if (camp && camp.falhas) { L.push(`- Falhas da campanha ativa por causa:`); for (const [k, v] of Object.entries(camp.falhasPorCausa)) L.push(`  - ${v}× ${k}`); }
-  L.push(`- Blacklist: **${bl.size}** número(s) cadastrado(s).`);
+  L.push(`- Blacklist: **${d.blacklist}** número(s) cadastrado(s).`);
 
   h('6. Riscos e recomendações (priorizadas)');
-  const recs = [];
-  if (!bl.size) recs.push(['P1', 'A blacklist está vazia: nenhum pedido de saída foi registrado até hoje.', 'Confirme se há respostas "SAIR"/"não quero" nos zaps e registre cada uma no arquivo 01_fontes/blacklist.txt no mesmo dia.']);
-  if (camp) {
-    try {
-      const msg = (carregarCsv(path.join(DISPAROS, camp.arquivo)).records[0] || {}).mensagem || '';
-      if (!/\bsair\b|n[aã]o (quer|deseja)|parar de receber|descadastr/i.test(msg)) recs.push(['P1', `A mensagem da campanha ${camp.arquivo} não oferece forma de sair da lista.`, 'Acrescentar "Responda SAIR para não receber mais mensagens" e usar o convite para o grupo de promoções (menu [22]) como canal opt-in.']);
-    } catch { /* CSV ilegível já aparece no fechamento */ }
-  }
-  if (vazios.length) recs.push(['P1', `${vazios.length} lote(s) terminaram sem nenhum envio (${Math.round(segVazios / 60)} min de execução).`, 'Costuma ser zap com sessão corrompida sendo tentado em loop. O sistema agora põe o zap em quarentena após 2 falhas seguidas de conexão; releia o QR ou desative o zap.']);
-  const semQR = zaps.filter(z => z.ativo && z.numero && !z.pronto);
-  if (semQR.length) recs.push(['P1', `${semQR.length} zap(s) com número configurado sem conexão válida (${semQR.map(z => z.rotulo).join('; ')}) — capacidade ociosa de ${semQR.length * (zaps[0] ? zaps[0].cap : 0)} envios/dia.`, 'Reler o QR dos que serão usados e desativar os demais.']);
-  if (camp && camp.falhas) recs.push(['P2', `${camp.falhas} falha(s) na campanha ativa sem retentativa.`, 'Menu [20] devolve as falhas à fila; avalie o risco de duplicidade antes.']);
-  if (diasAtivos < Math.min(dias, 7)) recs.push(['P2', 'Poucos dias com envio no período: a operação depende de alguém manter o modo contínuo aberto no PC.', 'Rodar o painel/modo contínuo em máquina dedicada (ou tarefa agendada) e seguir o checklist diário.']);
-  if (!recs.length) recs.push(['—', 'Nenhum risco operacional detectado nos dados do período.', 'Manter a rotina diária.']);
-  L.push('| Prioridade | Risco / achado | Ação recomendada |', '|---|---|---|', ...recs.map(r => `| ${r[0]} | ${r[1]} | ${r[2]} |`));
+  L.push('| Prioridade | Risco / achado | Ação recomendada |', '|---|---|---|', ...d.recs.map(r => `| ${r.prioridade} | ${r.achado} | ${r.acao} |`));
   L.push('');
   return L.join('\n');
 }
@@ -493,7 +524,7 @@ async function cmdRetentarFalhas(csvPath, { sim = false } = {}) {
   for (const k of chaves) delete log[k];
   fs.writeFileSync(SENT_LOG, JSON.stringify(log, null, 2), 'utf8');
   console.log(green(`\n  ✅ ${chaves.length} contato(s) voltaram para a fila. Backup do log: ${path.relative(DIR, bkp)}`));
-  console.log('  Agora rode o envio normalmente (menu [5] ou [17]).\n');
+  console.log('  Agora rode o envio normalmente (menu [E1] ou [O1]).\n');
 }
 
 // ── Convite para o grupo de promoções ────────────────────────────────────────
@@ -549,7 +580,7 @@ function cmdConviteGrupo({ link, de, ddd }) {
   console.log(`  Arquivo gerado    : ${cyan(path.relative(DIR, destino))}\n`);
   console.log(bold('  Prévia da mensagem:\n'));
   console.log(mensagem.split('\n').map(l => '    ' + l).join('\n') + '\n');
-  console.log(dim('  Próximos passos: dry-run (menu [6]) → envio (menu [5] ou [17]).\n'));
+  console.log(dim('  Próximos passos: dry-run (menu [E2]) → envio (menu [E1] ou [O1]).\n'));
 }
 
 // ── CLI ──────────────────────────────────────────────────────────────────────
@@ -574,6 +605,7 @@ function jsonAscii(obj) {
 async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--hoje')) return cmdHoje();
+  if (args.includes('--semaforo')) { console.log(jsonAscii(semaforo())); return; }
   if (args.includes('--gestao')) return cmdGestao(parseInt(argVal(args, 'dias'), 10) || 14);
   const csvs = argVal(args, 'csvs');
   if (csvs !== undefined) { console.log(jsonAscii(listarCampanhas(csvs === true ? 0 : parseInt(csvs, 10) || 0))); return; }
@@ -590,11 +622,11 @@ async function main() {
     return cmdRetentarFalhas(csv, { sim: args.includes('--yes') });
   }
   if (args.includes('--convite-grupo')) return cmdConviteGrupo({ link: argVal(args, 'link'), de: argVal(args, 'de'), ddd: argVal(args, 'ddd') });
-  console.log('Uso: node 06_gestao.js --hoje | --fechamento [csv] | --gestao [--dias=14] | --csvs[=N] | --retentar-falhas [csv] | --convite-grupo --link=URL');
+  console.log('Uso: node 06_gestao.js --hoje | --semaforo | --fechamento [csv] | --gestao [--dias=14] | --csvs[=N] | --retentar-falhas [csv] | --convite-grupo --link=URL');
 }
 
 module.exports = {
-  analisarCampanha, imprimirFechamento, listarCampanhas, acoesNecessarias, infoZaps, situacaoZap, capacidadeDiaria,
+  dadosGestao, semaforo, analisarCampanha, imprimirFechamento, listarCampanhas, acoesNecessarias, infoZaps, situacaoZap, capacidadeDiaria,
   carregarBlacklist, semDDI, mesLocal, mesDoArquivo, relatorioGestao, cmdRetentarFalhas, arquivosCsv, lerJsonl, stripAnsi,
 };
 

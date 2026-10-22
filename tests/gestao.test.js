@@ -90,3 +90,26 @@ test('erros minificados do WhatsApp Web ganham explicacao', () => {
   assert.strictEqual(core.traduzirMensagem('r').codigoBruto, 'r');
   assert.strictEqual(core.traduzirMensagem('Timeout real').codigoBruto, null);
 });
+
+test('dadosGestao devolve a estrutura usada pela visao TPM do painel', () => {
+  const d = gestao.dadosGestao(7);
+  assert.strictEqual(d.serie.length, 7);
+  assert.strictEqual(d.serie.reduce((s, x) => s + x.n, 0), d.totalPeriodo);
+  assert.ok(Array.isArray(d.recs) && d.recs.length > 0);
+  assert.ok(d.recs.every(r => r.prioridade && r.achado && r.acao));
+  assert.ok(d.utilizacaoPct >= 0);
+  for (const k of ['zaps', 'lotes', 'topErros', 'totais', 'capPotencial', 'blacklist']) assert.ok(k in d, k);
+});
+
+test('relatorio em texto continua com as 6 secoes e usa as chaves novas do menu', () => {
+  const md = gestao.relatorioGestao(7);
+  for (let i = 1; i <= 6; i++) assert.match(md, new RegExp(`## ${i}\\. `));
+  assert.doesNotMatch(md, /menu \[\d+\]/);
+});
+
+test('semaforo conta as tarefas por nivel', () => {
+  const s = gestao.semaforo();
+  assert.strictEqual(typeof s.urgentes, 'number');
+  assert.strictEqual(typeof s.atencao, 'number');
+  assert.strictEqual(typeof s.info, 'number');
+});
