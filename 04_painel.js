@@ -9,8 +9,9 @@
 const http = require('http');
 const fs   = require('fs');
 const path = require('path');
-const { spawn } = require('child_process');
+const { spawn, execFile } = require('child_process');
 const core = require('./02a_zap_core');
+const gestao = require('./06_gestao');
 
 const DIR  = __dirname;
 const PORT = Number(process.env.PORTA) || 3737;
@@ -74,6 +75,27 @@ function conectar(id) {
   return null;
 }
 
+// ── Visões de campanha e gestão (06_gestao.js) ───────────────────────────────
+let _acoes = { t: 0, v: { acoes: [] } };
+function acoesCache() {
+  if (Date.now() - _acoes.t > 10_000) {
+    try { _acoes = { t: Date.now(), v: gestao.acoesNecessarias() }; } catch { _acoes = { t: Date.now(), v: { acoes: [] } }; }
+  }
+  return _acoes.v;
+}
+
+function arquivoCsvValido(nome) {
+  return /^[\w.-]+\.csv$/.test(String(nome || '')) && fs.existsSync(path.join(DIR, '02_disparos', nome)) ? nome : null;
+}
+
+/** Roda o 06_gestao.js e devolve o texto (sem cores). Argumentos sempre em array: nada passa por shell. */
+function rodarGestao(args) {
+  return new Promise(resolve => {
+    execFile(process.execPath, [path.join(DIR, '06_gestao.js'), ...args], { cwd: DIR, windowsHide: true, timeout: 60_000, maxBuffer: 4e6 },
+      (err, out, errOut) => resolve({ ok: !err, texto: strip(String(out || '') + String(errOut || '')).trim() }));
+  });
+}
+
 // ── Estado para a tela ───────────────────────────────────────────────────────
 function estado() {
   const cfg = core.lerConfig();
@@ -83,15 +105,17 @@ function estado() {
   for (const e of Object.values(sl)) if (tot[e.status] !== undefined) tot[e.status]++;
   const zaps = cfg.chips.map((c, i) => {
     const st = est[c.id] || {}, n = jan[c.id] || 0;
+    const numero = core.obterNumeroChip(c, est, sl);
     return {
-      id: c.id, idx: i + 1, apelido: c.apelido, ativo: c.ativo, numero: st.numero || null,
+      id: c.id, idx: i + 1, apelido: c.apelido, ativo: c.ativo, numero,
+      rotulo: core.identificadorZap({ id: c.id, apelido: c.apelido, numero }),
       sessao: core.sessaoExiste(c.id), precisaQR: !!st.precisaQR,
       bloqueadoAte: st.bloqueadoAte && Date.parse(st.bloqueadoAte) > Date.now() ? st.bloqueadoAte : null,
       enviados: n, cap: ef, liberaEm: n >= ef ? core.quandoTemVagas(c.id, 1, sl, cfg) : null,
     };
   });
   return {
-    rodando: !!proc, zaps, tot, log: logs.slice(-200),
+    rodando: !!proc, zaps, tot, log: logs.slice(-200), acoes: acoesCache().acoes,
     cfg: {
       limite: cfg.limiteDiario, margem: cfg.margemSeguranca, ef, janelaHoras: cfg.janelaHoras,
       horarioAtivo: cfg.horario.ativo, horario: core.descreverHorario(cfg),
@@ -130,6 +154,13 @@ http.createServer(async (req, res) => {
       if (url === '/' || url === '/index.html') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }); return res.end(fs.readFileSync(path.join(DIR, '04_painel.html'))); }
       if (url === '/api/estado')  return json(res, estado());
       if (url === '/api/conexao') return json(res, { rodando: !!conn.proc, chip: conn.chip, txt: conn.txt });
+      if (url === '/api/campanhas') return json(res, { campanhas: gestao.listarCampanhas(0).slice(0, 12) });
+      if (url === '/api/gestao') return json(res, await rodarGestao(['--gestao']));
+      if (url === '/api/erros') {
+        const erros = gestao.lerJsonl('erros', 7), cont = {};
+        for (const e of erros) cont[`${e.tipo} · ${e.evento}`] = (cont[`${e.tipo} · ${e.evento}`] || 0) + 1;
+        return json(res, { total: erros.length, porTipo: Object.entries(cont).sort((a, b) => b[1] - a[1]).slice(0, 10), ultimos: erros.slice(-10).reverse().map(e => ({ ts: e.ts, evento: e.evento, tipo: e.tipo, mensagem: String(e.mensagem || '').slice(0, 160), chip: e.chip || null })) });
+      }
       return json(res, { erro: 'não encontrado' }, 404);
     }
     if (req.method === 'POST') {
@@ -141,6 +172,16 @@ http.createServer(async (req, res) => {
       else if (url === '/api/config')   erro = salvarCfg(b);
       else if (url === '/api/conectar') erro = conectar(String(b.id || ''));
       else if (url === '/api/cancelar-conexao') { if (conn.proc) try { conn.proc.stdin.write('\n'); } catch { /* */ } }
+      else if (url === '/api/retentar-falhas') {
+        const arq = arquivoCsvValido(b.arquivo);
+        if (!arq) erro = 'Arquivo inválido.';
+        else if (proc) erro = 'Pare o modo contínuo antes de devolver falhas à fila.';
+        else { const r = await rodarGestao(['--retentar-falhas', path.join('02_disparos', arq), '--yes']); return json(res, { ok: r.ok, texto: r.texto }); }
+      }
+      else if (url === '/api/convite-grupo') {
+        const r = await rodarGestao(['--convite-grupo', `--link=${String(b.link || '').trim()}`, ...(b.ddd && /^\d{2}$/.test(String(b.ddd)) ? [`--ddd=${b.ddd}`] : [])]);
+        return json(res, { ok: r.ok, texto: r.texto });
+      }
       else if (url === '/api/adicionar') { try { core.adicionarChip(core.lerConfig(), String(b.apelido || '')); } catch (e) { erro = e.message; } }
       else erro = 'rota desconhecida';
       return json(res, erro ? { erro } : { ok: true }, erro ? 400 : 200);

@@ -16,23 +16,49 @@ function Show-Banner {
     Write-Host ""
 }
 
+# Lista de campanhas (CSVs de 02_disparos) ja analisadas pelo 06_gestao.js. Limite 0 = todas.
+function Get-Campanhas {
+    param([int]$Limite = 0)
+    $arg = if ($Limite -gt 0) { "--csvs=$Limite" } else { "--csvs" }
+    try {
+        $json = (& node "$DIR\06_gestao.js" $arg 2>$null | Out-String).Trim()
+        if ([string]::IsNullOrWhiteSpace($json)) { return @() }
+        $obj = ConvertFrom-Json -InputObject $json
+        return @($obj)
+    } catch { return @() }
+}
+
+function Get-CampanhaRotulo {
+    param($c)
+    switch ($c.status) {
+        "concluida"               { return @("CONCLUIDA 100%", "Green") }
+        "concluida_com_ressalvas" { return @("CONCLUIDA COM RESSALVAS ($($c.falhas) falhas)", "Yellow") }
+        "em_andamento"            { return @("EM ANDAMENTO $($c.pctProcessado)%", "Cyan") }
+        "nao_iniciada"            { return @("nao iniciada", "DarkGray") }
+        "aguardando_mes"          { return @("AGUARDA VIRADA DO MES", "Yellow") }
+        default                   { return @("vazia", "DarkRed") }
+    }
+}
+
 function Show-CSVAlert {
-    $csvFiles = Get-ChildItem -Path "$DIR\02_disparos" -Filter "*.csv" -ErrorAction SilentlyContinue |
-                Sort-Object LastWriteTime -Descending
     Write-Host "  Data atual : $(Get-Date -Format 'dd/MM/yyyy  HH:mm')" -ForegroundColor Gray
     $zapsLinha = & node "$DIR\02_sender.js" --zaps-resumo 2>$null
     if ($zapsLinha) { Write-Host "  $zapsLinha" -ForegroundColor Gray }
-    if ($csvFiles.Count -eq 0) {
-        Write-Host "  Lista CSV  : [!!] Nenhum CSV encontrado — use opcao [3] para gerar" -ForegroundColor Red
+    $camp = @(Get-Campanhas 1)
+    if ($camp.Count -eq 0) {
+        Write-Host "  Campanha   : [!!] Nenhum CSV encontrado - use opcao [3] para gerar" -ForegroundColor Red
     } else {
-        $newest = $csvFiles[0]
-        $age    = (Get-Date) - $newest.LastWriteTime
-        if ($age.TotalHours -ge 24) {
-            Write-Host "  Lista CSV  : [!!] $($newest.Name)  ($([int]$age.TotalHours)h atras) — CSV antigo, gere nova lista (opcao 3)" -ForegroundColor Yellow
-        } else {
-            Write-Host "  Lista CSV  : [OK] $($newest.Name)  (recente)" -ForegroundColor Green
+        $c = $camp[0]
+        $rot = Get-CampanhaRotulo $c
+        $marca = if ($c.status -in @("concluida", "concluida_com_ressalvas", "aguardando_mes")) { "[!!]" } else { "[OK]" }
+        Write-Host "  Campanha   : $marca $($c.arquivo) - $($rot[0])  (enviados $($c.enviados) | sem WhatsApp $($c.semWhatsapp) | falhas $($c.falhas) | pendentes $($c.pendentes))" -ForegroundColor $rot[1]
+        if ($c.status -eq "concluida") {
+            Write-Host "               Proxima campanha: gere uma nova lista (opcao 3)." -ForegroundColor DarkGray
+        } elseif ($c.status -eq "concluida_com_ressalvas") {
+            Write-Host "               Veja [19] fechamento e decida: retentar falhas [20] ou gerar nova lista [3]." -ForegroundColor DarkGray
         }
     }
+    Write-Host "  Dica       : [A] mostra o que fazer agora  |  [H] explica cada opcao do menu" -ForegroundColor DarkGray
     Write-Host ""
 }
 
@@ -67,91 +93,41 @@ function Parse-CsvMeta ($fileName) {
 # Selecionar arquivo CSV com meta-info
 # ---------------------------------------------------------------------------
 function Select-CSV {
-    $csvFiles = Get-ChildItem -Path "$DIR\02_disparos" -Filter "*.csv" -ErrorAction SilentlyContinue |
-                Sort-Object LastWriteTime -Descending
-    if ($csvFiles.Count -eq 0) {
+    $totalArquivos = @(Get-ChildItem -Path "$DIR\02_disparos" -Filter "*.csv" -ErrorAction SilentlyContinue).Count
+    if ($totalArquivos -eq 0) {
         Write-Host "  Nenhum CSV encontrado em .\02_disparos\" -ForegroundColor Red
         return $null
     }
-
-    # Carrega sent_log uma vez para calcular breakdown por status
-    # $sentLog[chave] = "sent" | "failed" | "skipped_not_registered" | ...
-    $sentLog = @{}
-    $sentLogPath = "$DIR\03_log\sent_log.json"
-    if (Test-Path $sentLogPath) {
-        try {
-            $obj = Get-Content $sentLogPath -Raw -Encoding UTF8 | ConvertFrom-Json
-            $obj.PSObject.Properties | ForEach-Object { $sentLog[$_.Name] = $_.Value.status }
-        } catch {}
-    }
-
-    Write-Host "  Arquivos disponiveis (mais recentes primeiro):" -ForegroundColor Cyan
-    $i = 1
-    foreach ($file in $csvFiles) {
-        $age      = (Get-Date) - $file.LastWriteTime
-        $ageLabel = if ($age.TotalHours -lt 24) { "recente" } else { "$([int]$age.TotalHours)h atras" }
-        $color    = if ($age.TotalHours -lt 24) { "Green" } else { "DarkYellow" }
-        $meta     = Parse-CsvMeta $file.Name
-
-        # Le linhas nao-vazias (mais rapido que Import-Csv para grandes arquivos)
-        $allLines  = [System.IO.File]::ReadAllLines($file.FullName, [System.Text.Encoding]::UTF8)
-        $dataLines = $allLines | Where-Object { $_.Trim() -ne "" }
-        $registros = [Math]::Max(0, $dataLines.Count - 1)
-        $tamanho   = if ($file.Length -ge 1MB) { "{0:N1} MB" -f ($file.Length / 1MB) } `
-                     elseif ($file.Length -ge 1KB) { "{0:N0} KB" -f ($file.Length / 1KB) } `
-                     else { "$($file.Length) B" }
-
-        # Calcula breakdown cruzando com sent_log (chave: numero_YYYYMM)
-        $statusEnvio = ""
-        $statusColor = "DarkGray"
-        $mesLog = if ($file.Name -match '_(\d{6})\d{2}\.csv$') { $Matches[1] } else { "" }
-        if ($registros -gt 0 -and $mesLog -ne "" -and $sentLog.Count -gt 0) {
-            $header = ($dataLines[0] -split ',') | ForEach-Object { $_.Trim().Trim('"') }
-            $numIdx = [Array]::IndexOf([string[]]$header, 'numero')
-            $qSent = 0; $qFailed = 0; $qSkipped = 0
-            if ($numIdx -ge 0) {
-                for ($li = 1; $li -lt $dataLines.Count; $li++) {
-                    $cols = $dataLines[$li] -split ','
-                    if ($cols.Count -gt $numIdx) {
-                        $tel = ($cols[$numIdx].Trim().Trim('"')) -replace '\D', ''
-                        if ($tel -ne "") {
-                            $st = $sentLog["${tel}_${mesLog}"]
-                            switch ($st) {
-                                "sent"                   { $qSent++ }
-                                "failed"                 { $qFailed++ }
-                                "skipped_not_registered" { $qSkipped++ }
-                            }
-                        }
-                    }
-                }
-            }
-            $tocados = $qSent + $qFailed + $qSkipped
-            $pct = if ($registros -gt 0) { [int]($tocados * 100 / $registros) } else { 0 }
-            if ($tocados -eq 0) {
-                $statusEnvio = "  [nenhum enviado]"
-                $statusColor = "DarkGray"
-            } elseif ($tocados -eq $registros) {
-                $statusEnvio = "  [CONCLUIDO] ✅$qSent ⚠️$qSkipped ❌$qFailed"
-                $statusColor = if ($qFailed -gt 0 -or $qSkipped -gt 0) { "Yellow" } else { "Green" }
-            } else {
-                $statusEnvio = "  [$tocados/$registros - $pct%] ✅$qSent ⚠️$qSkipped ❌$qFailed"
-                $statusColor = if ($pct -ge 50) { "Yellow" } else { "DarkYellow" }
-            }
-        } elseif ($registros -eq 0) {
-            $statusEnvio = "  [vazio]"
-            $statusColor = "DarkRed"
+    $todas = $false
+    while ($true) {
+        $lista = @(Get-Campanhas $(if ($todas) { 0 } else { 3 }))
+        if ($lista.Count -eq 0) {
+            Write-Host "  Nao consegui ler as listas (verifique o Node.js)." -ForegroundColor Red
+            return $null
         }
-
-        Write-Host "  [$i] $($file.Name)" -ForegroundColor $color
-        Write-Host -NoNewline "      campanha: $($meta.campanha)  |  segmento: $($meta.segmento)  |  gerado: $($meta.data)  ($ageLabel)  |  $registros registros  |  $tamanho" -ForegroundColor DarkGray
-        Write-Host $statusEnvio -ForegroundColor $statusColor
-        $i++
-    }
-    Write-Host ""
-    $sel = Read-Host "  Selecione o numero do arquivo"
-    if ($sel -match "^\d+$" -and [int]$sel -ge 1 -and [int]$sel -le $csvFiles.Count) {
-        return $csvFiles[[int]$sel - 1].FullName
-    } else {
+        $titulo = if ($todas) { "Todas as listas (mais recentes primeiro):" } else { "As 3 listas mais recentes (as demais ficam no log / opcao T):" }
+        Write-Host "  $titulo" -ForegroundColor Cyan
+        $i = 1
+        foreach ($c in $lista) {
+            $rot = Get-CampanhaRotulo $c
+            $idade = if ($c.idadeH -lt 24) { "recente" } else { "$($c.idadeH)h atras" }
+            Write-Host "  [$i] $($c.arquivo)   <$($rot[0])>" -ForegroundColor $rot[1]
+            Write-Host "      campanha: $($c.campanha)  |  segmento: $($c.segmento)  |  gerado: $($c.dataArquivo) ($idade)  |  $($c.unicos) contatos unicos" -ForegroundColor DarkGray
+            if ($c.unicos -gt 0) {
+                Write-Host "      enviados: $($c.enviados)  |  sem WhatsApp: $($c.semWhatsapp)  |  falhas: $($c.falhas)  |  pendentes: $($c.pendentes)" -ForegroundColor DarkGray
+            }
+            $i++
+        }
+        if (-not $todas -and $totalArquivos -gt $lista.Count) {
+            Write-Host "  [T] Ver todas as listas ($totalArquivos)" -ForegroundColor Yellow
+        }
+        Write-Host ""
+        $sel = Read-Host "  Selecione o numero do arquivo (Enter = [1] mais recente)"
+        if ($sel -ieq "t" -and -not $todas) { $todas = $true; Write-Host ""; continue }
+        if ([string]::IsNullOrWhiteSpace($sel)) { $sel = "1" }
+        if ($sel -match "^\d+$" -and [int]$sel -ge 1 -and [int]$sel -le $lista.Count) {
+            return (Join-Path "$DIR\02_disparos" $lista[[int]$sel - 1].arquivo)
+        }
         Write-Host "  Opcao invalida." -ForegroundColor Red
         return $null
     }
@@ -243,35 +219,83 @@ function Show-Menu {
     Show-Banner
     Show-CSVAlert
 
-    Write-Host "  === VERIFICACAO ===" -ForegroundColor Cyan
-    Write-Host "  [1] Ver status de envios (onde parou)"           -ForegroundColor Cyan
-    Write-Host "  [2] Gerar relatorio de disparo"                  -ForegroundColor Cyan
+    Write-Host "  === ROTINA DIARIA (comece por aqui) ===" -ForegroundColor Green
+    Write-Host "  [A]  O que fazer agora (checklist do dia)"                     -ForegroundColor Green
+    Write-Host "  [18] PAINEL no navegador (operar por botoes - recomendado)"    -ForegroundColor Green
+    Write-Host "  [17] MODO CONTINUO - envia sozinho e encerra ao concluir"      -ForegroundColor Green
+    Write-Host "  [1]  Ver status de envios (onde parou)"                        -ForegroundColor Green
+    Write-Host "  [11] Ver numeros e saldo do dia"                               -ForegroundColor Green
+    Write-Host "  [13] Conectar numero / adicionar zap (QR Code)"                -ForegroundColor Green
     Write-Host ""
-    Write-Host "  === PREPARACAO ===" -ForegroundColor Yellow
-    Write-Host "  [3] Gerar lista de disparo (campanha + letra)"   -ForegroundColor Yellow
-    Write-Host "  [4] Gerar listas Customer Match (Google Ads)"    -ForegroundColor Yellow
+    Write-Host "  === CAMPANHA ===" -ForegroundColor Yellow
+    Write-Host "  [3]  Gerar lista de disparo (campanha + letra)"                -ForegroundColor Yellow
+    Write-Host "  [19] Fechamento: a campanha terminou? pode ir para a proxima?" -ForegroundColor Yellow
+    Write-Host "  [20] Retentar contatos que falharam"                           -ForegroundColor Yellow
+    Write-Host "  [22] Convite para o grupo de promocoes (Harmonizacao Orofacial)" -ForegroundColor Yellow
+    Write-Host "  [2]  Gerar relatorio de disparo"                               -ForegroundColor Yellow
+    Write-Host "  [4]  Gerar listas Customer Match (Google Ads)"                 -ForegroundColor Yellow
     Write-Host ""
-    Write-Host "  === ENVIO ===" -ForegroundColor Green
-    Write-Host "  [5] Enviar mensagens (disparo completo)"         -ForegroundColor Green
-    Write-Host "  [6] Dry-run (simular sem enviar)"                -ForegroundColor Green
-    Write-Host "  [7] Enviar com limite (parcial)"                 -ForegroundColor Green
+    Write-Host "  === ENVIO MANUAL ===" -ForegroundColor Cyan
+    Write-Host "  [5]  Enviar mensagens (disparo completo)"                      -ForegroundColor Cyan
+    Write-Host "  [6]  Dry-run (simular sem enviar)"                             -ForegroundColor Cyan
+    Write-Host "  [7]  Enviar com limite (parcial)"                              -ForegroundColor Cyan
     Write-Host ""
     Write-Host "  === ZAPS (NUMEROS) - teto 48 envios por zap a cada 24h (limite 50 - margem 2) ===" -ForegroundColor Magenta
-    Write-Host "  [11] Ver numeros e saldo do dia"                 -ForegroundColor Magenta
-    Write-Host "  [12] Testar conexao com o zap"                   -ForegroundColor Magenta
-    Write-Host "  [13] Conectar numero / adicionar zap (QR Code)"  -ForegroundColor Magenta
-    Write-Host "  [14] Desconectar numero"                         -ForegroundColor Magenta
-    Write-Host "  [15] Ver log de erros"                           -ForegroundColor Magenta
+    Write-Host "  [12] Testar conexao com o zap"                                 -ForegroundColor Magenta
+    Write-Host "  [14] Desconectar numero"                                       -ForegroundColor Magenta
     Write-Host "  [16] Atualizar biblioteca do WhatsApp (corrige autentica e nao conecta)" -ForegroundColor Magenta
-    Write-Host "  [17] MODO CONTINUO - roda direto (troca de zap sozinho, espera as 24h)" -ForegroundColor Green
-    Write-Host "  [18] PAINEL no navegador (operar por botoes)" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "  === GESTAO / TPM ===" -ForegroundColor White
+    Write-Host "  [21] Relatorio de gestao (KPIs, perdas, riscos, recomendacoes)" -ForegroundColor White
+    Write-Host "  [15] Ver log de erros"                                         -ForegroundColor White
     Write-Host ""
     Write-Host "  === MANUTENCAO ===" -ForegroundColor Red
-    Write-Host "  [8]  Resetar historico de envios"                -ForegroundColor DarkRed
-    Write-Host "  [9]  Remover runId especifico"                   -ForegroundColor DarkRed
-    Write-Host "  [10] Exportar sem-WhatsApp para blacklist"       -ForegroundColor DarkRed
+    Write-Host "  [8]  Resetar historico de envios"                              -ForegroundColor DarkRed
+    Write-Host "  [9]  Remover runId especifico"                                 -ForegroundColor DarkRed
+    Write-Host "  [10] Exportar sem-WhatsApp para blacklist"                     -ForegroundColor DarkRed
     Write-Host ""
-    Write-Host "  [0] Sair"                                        -ForegroundColor DarkGray
+    Write-Host "  [H] Guia: o que cada opcao faz e o que posso verificar"        -ForegroundColor DarkGray
+    Write-Host "  [0] Sair"                                                      -ForegroundColor DarkGray
+    Write-Host ""
+}
+
+function Show-Guia {
+    Write-Host "  ================= GUIA DO MENU =================" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "  ROTINA DIARIA (secretaria)" -ForegroundColor Green
+    Write-Host "   [A]  Lista o que precisa ser feito AGORA: zaps sem conexao, campanha terminada, falhas, erros."
+    Write-Host "   [18] Abre o painel no navegador com 4 abas: Operacao, Campanhas, Gestao (TPM) e Guia rapido."
+    Write-Host "   [17] Liga o envio continuo: usa os zaps conectados, respeita o teto de 24h e ENCERRA quando a lista acaba."
+    Write-Host "   [1]  Status geral: total enviado, por zap, por categoria e por dia."
+    Write-Host "   [11] Saldo de cada numero: enviados nas ultimas 24h e quando libera a proxima vaga."
+    Write-Host "   [13] Le o QR Code para conectar (ou reconectar) um numero. Enter cancela."
+    Write-Host ""
+    Write-Host "  CAMPANHA" -ForegroundColor Yellow
+    Write-Host "   [3]  Gera uma lista nova (deduplica por telefone/mes e aplica a blacklist)."
+    Write-Host "   [19] FECHAMENTO: mostra enviados, sem WhatsApp, falhas e pendentes e diz se pode seguir para a proxima campanha."
+    Write-Host "   [20] Devolve para a fila os contatos que falharam (faz backup do log antes)."
+    Write-Host "   [22] Monta a lista de convite para o grupo de promocoes a partir do link do grupo."
+    Write-Host "   [2]  Relatorio de execucoes anteriores e progresso de um arquivo."
+    Write-Host "   [4]  Exporta contatos enviados para o Google Ads (Customer Match)."
+    Write-Host ""
+    Write-Host "  ENVIO MANUAL" -ForegroundColor Cyan
+    Write-Host "   [5] envia a lista escolhida | [6] simula sem enviar | [7] envia so uma quantidade."
+    Write-Host ""
+    Write-Host "  ZAPS" -ForegroundColor Magenta
+    Write-Host "   [12] testa a conexao | [14] apaga a sessao de um numero | [16] atualiza a biblioteca (quando nao conecta)."
+    Write-Host ""
+    Write-Host "  GESTAO / TPM" -ForegroundColor White
+    Write-Host "   [21] Relatorio completo: funil, vazao por dia, saude dos zaps, desperdicio, riscos e proximas acoes."
+    Write-Host "   [15] Erros dos ultimos 7 dias."
+    Write-Host ""
+    Write-Host "  MANUTENCAO" -ForegroundColor Red
+    Write-Host "   [8] apaga TODO o historico (perigoso!) | [9] remove uma execucao | [10] manda numeros sem WhatsApp para a blacklist."
+    Write-Host ""
+    Write-Host "  REGRAS AUTOMATICAS" -ForegroundColor Gray
+    Write-Host "   - 48 envios por zap a cada 24h; 1 mensagem por telefone por mes; blacklist nunca recebe."
+    Write-Host "   - Zap desconectado ou em quarentena nao e tentado. Apos 2 falhas de conexao seguidas: quarentena de 6h."
+    Write-Host "   - Modo continuo nao usa listas de meses anteriores (evita reenvio) e encerra quando a campanha termina."
+    Write-Host "   - Documentacao completa: docs\OPERACAO_SECRETARIA.md (rotina) e docs\GESTAO_TPM.md (gestao)."
     Write-Host ""
 }
 
@@ -462,6 +486,55 @@ while ($true) {
             Read-Host "  Pressione Enter para voltar"
         }
 
+        # ---- ROTINA / GESTAO ----
+
+        "a" {
+            node "$DIR\06_gestao.js" --hoje
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "h" {
+            Show-Guia
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "19" {
+            $csv = Select-CSV
+            Write-Host ""
+            if ($csv) { node "$DIR\06_gestao.js" --fechamento "$csv" }
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "20" {
+            $csv = Select-CSV
+            Write-Host ""
+            if ($csv) { node "$DIR\06_gestao.js" --retentar-falhas "$csv" }
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "21" {
+            $dias = Read-Host "  Quantos dias analisar? (Enter = 14)"
+            if ($dias -notmatch "^\d+$") { $dias = "14" }
+            node "$DIR\06_gestao.js" --gestao "--dias=$dias"
+            Read-Host "  Pressione Enter para voltar"
+        }
+
+        "22" {
+            Write-Host "  Convite para o grupo de promocoes de Harmonizacao Orofacial (Pato Branco)." -ForegroundColor Cyan
+            Write-Host "  Modelo da mensagem: 01_fontes\mensagem_grupo_harmonizacao.txt" -ForegroundColor DarkGray
+            Write-Host "  No WhatsApp: abra o grupo > Convidar via link > Copiar link." -ForegroundColor DarkGray
+            Write-Host ""
+            $link = Read-Host "  Cole o link do grupo (https://chat.whatsapp.com/...)"
+            if (-not [string]::IsNullOrWhiteSpace($link)) {
+                $dddG = Read-Host "  DDD dos contatos (Enter = 46)"
+                if ($dddG -notmatch "^\d{2}$") { $dddG = "46" }
+                node "$DIR\06_gestao.js" --convite-grupo "--link=$($link.Trim())" "--ddd=$dddG"
+            }
+            Write-Host ""
+            Read-Host "  Pressione Enter para voltar"
+        }
+
         # ---- SAIR ----
 
         "0" {
@@ -536,13 +609,16 @@ while ($true) {
 
         "17" {
             Write-Host "  MODO CONTINUO: o programa fica rodando, envia ate o teto de cada zap," -ForegroundColor Green
+            Write-Host "  e ENCERRA sozinho quando a campanha terminar (mostrando o fechamento)." -ForegroundColor Green
             Write-Host "  passa para o proximo zap e, se nenhum estiver livre, ESPERA (nao executa) ate a vaga abrir." -ForegroundColor Green
             Write-Host "  Para parar com seguranca: digite P e Enter na janela do envio." -ForegroundColor DarkGray
             Write-Host ""
             $csvC = $null
             $usaMaisRecente = Read-Host "  Usar sempre o CSV mais recente da pasta 02_disparos? (S/n)"
             if ($usaMaisRecente -imatch '^n') { $csvC = Select-CSV; if (-not $csvC) { Read-Host "  Pressione Enter para voltar"; continue } }
-            $ddd    = Read-DDD -Default "16"
+            $arqRef = if ($csvC) { $csvC } else { $recentes = @(Get-Campanhas 1); if ($recentes.Count -gt 0) { $recentes[0].arquivo } else { "" } }
+            $dddPad = if ($arqRef) { Get-DefaultDdd $arqRef } else { "16" }
+            $ddd    = Read-DDD -Default $dddPad
             $extraC = @(Read-EnvioArgs)
             $argsC  = @()
             if ($csvC) { $argsC += "$csvC" }

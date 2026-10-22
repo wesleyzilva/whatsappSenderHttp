@@ -79,17 +79,21 @@ function formatarNumero(n) {
   return `+${d}`;
 }
 
+/** "Chip 1", "chip3" → apelido genérico (não agrega informação quando o número já é conhecido). */
+function apelidoGenerico(ap) { return /^chip\s*\d*$/i.test(String(ap || '').trim()); }
+
 /**
- * Identificador principal pelo número de telefone (ex: "+55 16 99721-2966 [wes trabalho]").
- * Se o apelido já for o próprio número, mostra apenas o número formatado.
+ * Identificador principal do zap:
+ *  - número conhecido  → "+55 16 99721-2966" (apelido só aparece se for um nome útil, ex.: "wes trabalho")
+ *  - número desconhecido → "Chip 3 (vazio)" — slot ainda não configurado/conectado
  */
 function identificadorZap( { id, apelido, numero } = {}) {
   const numFmt = formatarNumero(numero);
   const ap     = String(apelido || id || '').trim();
-  if (!numFmt) return `${ap} (sem nº identificado)`;
+  if (!numFmt) return `${ap || 'Chip'} (vazio)`;
   const digAp  = limparDigitos(ap);
   const digNum = limparDigitos(numero);
-  if (digAp && (digNum.endsWith(digAp) || digAp.endsWith(digNum))) {
+  if (apelidoGenerico(ap) || !ap || (digAp && (digNum.endsWith(digAp) || digAp.endsWith(digNum)))) {
     return numFmt;
   }
   return `${numFmt} (${ap})`;
@@ -195,13 +199,26 @@ function logEvento(evento, dados = {}) {
   escreverJsonl('eventos', { ts: new Date().toISOString(), evento, runId: RUN_ID, ...dados });
 }
 
+/** O WhatsApp Web minificado devolve erros como "r" ou "t": sem tradução o log fica inutilizável. */
+function traduzirMensagem(msg) {
+  const m = String(msg || '').trim();
+  if (m.length > 3) return { mensagem: m, codigoBruto: null };
+  return {
+    mensagem: `Erro interno do WhatsApp Web (código "${m || '?'}") — provável incompatibilidade com a biblioteca; tente o menu [16] (atualizar biblioteca)`,
+    codigoBruto: m,
+  };
+}
+
 function logErro(evento, err, dados = {}) {
   const msg = err && err.message ? err.message : String(err);
+  const trad = traduzirMensagem(msg);
   escreverJsonl('erros', {
     ts: new Date().toISOString(),
     evento,
     tipo: classificar(msg),
-    mensagem: msg.slice(0, 500),
+    mensagem: trad.mensagem.slice(0, 500),
+    ...(trad.codigoBruto !== null ? { codigoBruto: trad.codigoBruto } : {}),
+    erroNome: (err && err.name) || null,
     stack: String((err && err.stack) || '').split('\n').slice(0, 6).join('\n'),
     runId: RUN_ID,
     internet: netState.ok,
@@ -839,7 +856,7 @@ class Zap {
 
 module.exports = {
   Zap, MAX_CHIPS, DEFAULT_CAP, LEGACY_CHIP_ID, ERR_DIR, CFG_DIR,
-  sleep, withTimeout, diaLocal, dataHoraLocal, primeiraLinha, formatarNumero, identificadorZap, obterNumeroChip, mascarar,
+  sleep, withTimeout, diaLocal, dataHoraLocal, primeiraLinha, formatarNumero, identificadorZap, obterNumeroChip, mascarar, traduzirMensagem,
   classificar, checarInternet, esperarInternet, iniciarMonitorInternet,
   setRunId, logEvento, logErro, instalarProtecaoGlobal, versaoLib,
   lerConfig, salvarConfig, resolverChip, adicionarChip, lerEstado, patchEstado,
