@@ -293,9 +293,15 @@ function acoesNecessarias() {
   const ativos = zaps.filter(z => z.ativo);
   const prontos = ativos.filter(z => z.pronto);
   const comVaga = prontos.filter(z => z.vagas > 0);
-  for (const z of ativos.filter(z => z.precisaQR || (!z.sessao && z.numero))) add('alta', `${z.rotulo} perdeu a conexão e precisa ler o QR de novo.`, 'Menu [13] ou botão "Conectar (QR)" no painel; ou desative este zap se não for usar.');
+  const semConexao = ativos.filter(z => z.precisaQR || (!z.sessao && z.numero));
+  if (semConexao.length) {
+    add('alta', semConexao.length === 1 ? `${semConexao[0].rotulo} perdeu a conexão e precisa ler o QR de novo.`
+      : `${semConexao.length} zaps perderam a conexão e precisam ler o QR de novo: ${semConexao.map(z => z.rotulo).join(' · ')}.`,
+    'Menu [13] ou botão "Conectar (QR)" no painel; desative os zaps que não for usar.');
+  }
   for (const z of ativos.filter(z => z.bloqueadoAte)) add('alta', `${z.rotulo} está pausado até ${fmtDH(Date.parse(z.bloqueadoAte))} (limite do WhatsApp ou falhas seguidas).`, 'Não force: aguarde a pausa terminar.');
-  for (const z of ativos.filter(z => !z.sessao && !z.precisaQR && !z.numero)) add('info', `${z.rotulo} é um slot vazio (nunca foi conectado).`, 'Só conecte se for usar; senão desative para não poluir os relatórios.');
+  const vazios = ativos.filter(z => !z.sessao && !z.precisaQR && !z.numero);
+  if (vazios.length) add('info', `${vazios.length} slot(s) vazio(s), nunca conectado(s): ${vazios.map(z => z.rotulo).join(' · ')}.`, 'Só conecte se for usar; senão desative para não poluir os relatórios.');
   if (prontos.length === 0) add('alta', 'Nenhum zap está pronto para enviar.', 'Conecte pelo menos um zap (menu [13]).');
   else if (comVaga.length === 0) {
     const prox = Math.min(...prontos.map(z => z.liberaEm || Infinity));

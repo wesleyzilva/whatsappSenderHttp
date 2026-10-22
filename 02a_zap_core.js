@@ -856,7 +856,7 @@ class Zap {
 
 module.exports = {
   Zap, MAX_CHIPS, DEFAULT_CAP, LEGACY_CHIP_ID, ERR_DIR, CFG_DIR,
-  sleep, withTimeout, diaLocal, dataHoraLocal, primeiraLinha, formatarNumero, identificadorZap, obterNumeroChip, mascarar,
+  sleep, withTimeout, diaLocal, dataHoraLocal, primeiraLinha, formatarNumero, identificadorZap, obterNumeroChip, mascarar, traduzirMensagem,
   classificar, checarInternet, esperarInternet, iniciarMonitorInternet,
   setRunId, logEvento, logErro, instalarProtecaoGlobal, versaoLib,
   lerConfig, salvarConfig, resolverChip, adicionarChip, lerEstado, patchEstado,

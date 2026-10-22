@@ -31,6 +31,20 @@ select,input[type=text],input[type=number]{background:var(--card);border:1px sol
 .kpi{display:flex;gap:22px;flex-wrap:wrap}.kpi div b{display:block;font-size:22px}
 pre{margin:0;white-space:pre-wrap;word-break:break-word}
 #log{background:#0b0f13;color:#d1d5db;border-radius:8px;padding:10px;height:260px;overflow:auto;font:12px/1.4 ui-monospace,Consolas,monospace}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{border-radius:99px;padding:6px 14px}
+.tabs button.sel{background:var(--pri);color:var(--prit);border-color:var(--pri);font-weight:600}
+.tab{display:none}.tab.sel{display:block}
+.acao{border-left:4px solid var(--bd);padding:6px 10px;margin:6px 0;border-radius:4px;background:var(--bg)}
+.acao.alta{border-color:var(--err)}.acao.media{border-color:var(--warn)}.acao.info{border-color:var(--pri)}
+.acao b{display:block}
+.camp{border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:10px}
+.camp .bar{height:10px}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid var(--bd)}
+.cnt{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0}.cnt span b{font-size:18px;margin-right:4px}
+table.t{border-collapse:collapse;width:100%}table.t td,table.t th{border-bottom:1px solid var(--bd);padding:5px 8px;text-align:left;font-size:13px}
+.txt{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;max-height:60vh;overflow:auto;font:12px/1.4 ui-monospace,Consolas,monospace}
+.guia h3{margin:14px 0 4px;font-size:15px}.guia ul{margin:4px 0 8px;padding-left:20px}.guia li{margin:2px 0}
 dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;max-width:94vw}
 #qr{background:#000;color:#fff;padding:10px;font:9px/9px ui-monospace,Consolas,monospace;white-space:pre;overflow:auto;max-height:70vh}
 </style>
@@ -40,6 +54,19 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
   <div class="top">
     <h1>WhatsApp Sender · Painel</h1>
     <span id="st" class="badge off">carregando…</span>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button data-t="op" class="sel">Operação</button>
+    <button data-t="camp">Campanhas</button>
+    <button data-t="ges">Gestão (TPM)</button>
+    <button data-t="guia">Guia rápido</button>
+  </div>
+
+  <section class="tab sel" id="t-op">
+  <div class="card">
+    <h2>O que fazer agora</h2>
+    <div id="acoes" class="sm">carregando…</div>
   </div>
 
   <div class="card">
@@ -75,6 +102,61 @@ dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-
   </div>
 
   <div class="card"><h2>Log</h2><div id="log"></div></div>
+  </section>
+
+  <section class="tab" id="t-camp">
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Campanhas (as 3 mais recentes)</h2><button id="vtodas">Ver todas</button></div>
+      <p class="sm" style="margin-top:0">"Processado" = enviado + sem WhatsApp + falha. "Entregue" conta só os enviados. Uma campanha só está realmente 100% quando não há falhas nem pendentes.</p>
+      <div id="campanhas">carregando…</div>
+    </div>
+    <div class="card">
+      <h2>Convite para o grupo de promoções (Harmonização Orofacial · Pato Branco)</h2>
+      <p class="sm" style="margin-top:0">Cole o link de convite do grupo (WhatsApp › grupo › Convidar via link). O painel monta a lista a partir da campanha de Pato Branco, já sem blacklist e sem números sem WhatsApp. A regra de 1 mensagem por telefone/mês continua valendo.</p>
+      <div class="row"><input id="lgrupo" type="text" size="44" placeholder="https://chat.whatsapp.com/..."><label class="sm">DDD <input id="dgrupo" type="text" size="3" maxlength="2" value="46"></label><button class="p" id="bgrupo">Gerar lista do convite</button></div>
+      <pre class="txt" id="rgrupo" style="display:none;margin-top:10px"></pre>
+    </div>
+  </section>
+
+  <section class="tab" id="t-ges">
+    <div class="card">
+      <h2>Erros dos últimos 7 dias</h2>
+      <div id="erros" class="sm">carregando…</div>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Relatório de gestão</h2><button class="p" id="bges">Gerar relatório</button></div>
+      <p class="sm" style="margin-top:0">Funil da campanha, vazão por dia, saúde dos zaps, perdas de tempo, erros mais frequentes e riscos com ação recomendada. Também fica salvo em 03_log/relatorio_gestao_AAAA-MM-DD.md.</p>
+      <pre class="txt" id="rges" style="display:none"></pre>
+    </div>
+  </section>
+
+  <section class="tab" id="t-guia">
+    <div class="card guia">
+      <h2>Rotina da secretária (5 minutos)</h2>
+      <ul>
+        <li>Abra a aba <b>Operação</b> e leia <b>O que fazer agora</b>: vermelho = precisa de ação, amarelo = atenção, azul = só informativo.</li>
+        <li>Se algum zap pedir QR: clique em <b>Conectar (QR)</b> no cartão do zap e escaneie com o celular daquele número (WhatsApp › Aparelhos conectados).</li>
+        <li>Clique em <b>▶ Iniciar modo contínuo</b> e deixe o computador ligado. Ele envia até o teto de cada zap, troca de zap sozinho e <b>encerra quando a campanha termina</b>.</li>
+        <li>No fim do dia, abra <b>Campanhas</b> para ver o progresso e avise o gestor se houver falhas ou pendências.</li>
+        <li>Se alguém responder "SAIR"/"não quero receber": anote o número em <b>01_fontes/blacklist.txt</b> no mesmo dia.</li>
+      </ul>
+      <h2>O que cada aba mostra</h2>
+      <ul>
+        <li><b>Operação</b>: tarefas do dia, iniciar/parar, resumo geral, cada zap (número, situação, envios nas últimas 24h), margem de segurança e log ao vivo.</li>
+        <li><b>Campanhas</b>: as 3 listas mais recentes (enviados, sem WhatsApp, falhas, pendentes, previsão de término), devolver falhas à fila e gerar o convite do grupo.</li>
+        <li><b>Gestão (TPM)</b>: erros por tipo e relatório completo com riscos e recomendações.</li>
+      </ul>
+      <h2>Regras que o sistema aplica sozinho</h2>
+      <ul>
+        <li>Teto de envios por zap a cada 24h (limite − margem). Zap que atinge o teto é pulado; o próximo assume.</li>
+        <li>Zap desconectado ou em quarentena não é tentado (economiza tempo). Após 2 falhas seguidas de conexão o zap fica 6h em quarentena.</li>
+        <li>Quem está na blacklist nunca recebe. Quem já recebeu mensagem no mês não recebe outra no mesmo mês.</li>
+        <li>O modo contínuo não usa listas de meses anteriores (evita reenviar para quem já recebeu).</li>
+      </ul>
+      <h2>Menu de texto (03_disparar.ps1)</h2>
+      <p class="sm">Tudo isto também está no menu do PowerShell: <b>[A]</b> o que fazer agora, <b>[H]</b> guia, <b>[19]</b> fechamento da campanha, <b>[20]</b> retentar falhas, <b>[21]</b> relatório de gestão, <b>[22]</b> convite para o grupo.</p>
+    </div>
+  </section>
 </main>
 
 <dialog id="dlg">
@@ -102,6 +184,7 @@ async function atualizar() {
     (c.horarioAtivo ? (c.dentro ? 'Agora está DENTRO do horário.' : `Agora está fora do horário — próxima abertura ${dh(c.proxima)}.`) : ''));
   txt($('#k1'), S.tot.sent); txt($('#k2'), S.tot.skipped_not_registered); txt($('#k3'), S.tot.failed);
   txt($('#lim'), `Uso real: ${c.ef} por zap.`);
+  renderAcoes(S.acoes || []);
   if (!editando) { $('#mar').value = c.margem; $('#hat').checked = c.horarioAtivo; }
   $('#add').disabled = !c.podeAdicionar;
   const box = $('#zaps'); box.textContent = '';
@@ -114,8 +197,8 @@ async function atualizar() {
     else if (z.precisaQR) situ = ['precisa ler o QR de novo', 'e'];
     const pct = Math.min(100, Math.round(z.enviados / z.cap * 100));
     d.innerHTML = '<b></b> <span class="num"></span><div class="sm"></div><div class="bar"><i></i></div><div class="sm"></div>';
-    d.querySelector('b').textContent = z.apelido;
-    d.querySelector('.num').textContent = z.numero ? '+' + z.numero : '(número ainda não identificado)';
+    d.querySelector('b').textContent = z.rotulo;
+    d.querySelector('.num').textContent = z.numero ? '' : 'slot vazio — conecte um número para usar';
     const s1 = d.querySelectorAll('.sm')[0]; s1.textContent = situ[0]; s1.className = 'sm ' + situ[1];
     d.querySelector('i').style.width = pct + '%';
     d.querySelectorAll('.sm')[1].textContent = `${z.enviados}/${z.cap} nas últimas ${c.janelaHoras}h` + (z.liberaEm ? ` · próxima vaga ${dh(z.liberaEm)}` : '');
@@ -144,7 +227,7 @@ async function conectar(z) {
   if (S.rodando && !confirm('O modo contínuo está rodando. Conectar OUTRO zap é seguro, mas não conecte o mesmo zap que está enviando. Continuar?')) return;
   const r = await post('/api/conectar', { id: z.id });
   if (r.erro) { alert(r.erro); return; }
-  $('#dt').textContent = 'Conectar ' + z.apelido; $('#qr').textContent = 'Abrindo o WhatsApp Web… aguarde o código aparecer.';
+  $('#dt').textContent = 'Conectar ' + z.rotulo; $('#qr').textContent = 'Abrindo o WhatsApp Web… aguarde o código aparecer.';
   $('#dlg').showModal();
   clearInterval(pollQR);
   pollQR = setInterval(async () => {
@@ -156,7 +239,87 @@ async function conectar(z) {
 $('#dc').onclick = () => post('/api/cancelar-conexao');
 $('#dx').onclick = () => { clearInterval(pollQR); $('#dlg').close(); atualizar(); };
 
+function renderAcoes(lista) {
+  const box = $('#acoes'); box.textContent = '';
+  if (!lista.length) { box.textContent = '✅ Nada pendente. Operação saudável.'; return; }
+  const rot = { alta: 'URGENTE', media: 'ATENÇÃO', info: 'INFO' };
+  for (const a of lista) {
+    const d = document.createElement('div'); d.className = 'acao ' + a.nivel;
+    const b = document.createElement('b'); b.textContent = rot[a.nivel] + ' · ' + a.texto;
+    const t = document.createElement('span'); t.textContent = '→ ' + a.acao;
+    d.append(b, t); box.append(d);
+  }
+}
+
+const pill = { concluida: ['concluída', 'on'], concluida_com_ressalvas: ['concluída com ressalvas', 'w'], em_andamento: ['em andamento', ''], nao_iniciada: ['não iniciada', 'off'], aguardando_mes: ['aguarda o mês virar', 'w'], vazio: ['vazia', 'off'] };
+let todasCamp = false, CAMP = [];
+function cartaoCampanha(a) {
+  const d = document.createElement('div'); d.className = 'camp';
+  const p = pill[a.status] || ['?', 'off'];
+  const h = document.createElement('div'); h.className = 'row'; h.style.justifyContent = 'space-between';
+  const t = document.createElement('b'); t.textContent = a.arquivo;
+  const pl = document.createElement('span'); pl.className = 'pill ' + p[1]; pl.textContent = p[0];
+  h.append(t, pl); d.append(h);
+  const m = document.createElement('div'); m.className = 'sm'; m.textContent = `campanha ${a.campanha} · segmento ${a.segmento} · gerada em ${a.dataArquivo}`; d.append(m);
+  if (a.unicos > 0) {
+    const bar = document.createElement('div'); bar.className = 'bar'; const i = document.createElement('i'); i.style.width = a.pctProcessado + '%'; bar.append(i); d.append(bar);
+    const c = document.createElement('div'); c.className = 'cnt';
+    for (const [k, v, cl] of [['enviados', a.enviados, 'on'], ['sem WhatsApp', a.semWhatsapp, 'w'], ['falhas', a.falhas, 'e'], ['pendentes', a.pendentes, ''], ['aguardam o mês', a.bloqueadosMes || 0, 'off']]) {
+      if (k === 'aguardam o mês' && !v) continue;
+      const sp = document.createElement('span'); const b = document.createElement('b'); b.className = cl; b.textContent = v; sp.append(b, k); c.append(sp);
+    }
+    d.append(c);
+    const r = document.createElement('div'); r.className = 'sm'; r.textContent = `${a.unicos} contatos únicos · ${a.pctProcessado}% processado · ${a.pctEntregue}% entregue`; d.append(r);
+  }
+  const pp = document.createElement('div'); pp.style.marginTop = '6px'; pp.textContent = a.proximoPasso; d.append(pp);
+  const causas = Object.entries(a.falhasPorCausa || {});
+  if (causas.length) { const f = document.createElement('div'); f.className = 'sm'; f.textContent = 'Falhas: ' + causas.map(([k, v]) => `${v}× ${k}`).join(' · '); d.append(f); }
+  if (a.falhas > 0) {
+    const bt = document.createElement('button'); bt.className = 'd'; bt.style.marginTop = '8px'; bt.textContent = `Devolver ${a.falhas} falha(s) à fila`;
+    bt.onclick = async () => {
+      if (!confirm('Devolver as falhas à fila? Falhas do tipo "navegador travou" podem ter sido entregues — o contato pode receber duas vezes. Um backup do log é feito antes.')) return;
+      const r2 = await post('/api/retentar-falhas', { arquivo: a.arquivo }); alert(r2.erro || r2.texto || 'ok'); carregarCampanhas();
+    };
+    d.append(bt);
+  }
+  return d;
+}
+async function carregarCampanhas() {
+  try { CAMP = (await (await fetch('/api/campanhas', { cache: 'no-store' })).json()).campanhas || []; } catch { return; }
+  const box = $('#campanhas'); box.textContent = '';
+  const lista = todasCamp ? CAMP : CAMP.slice(0, 3);
+  if (!lista.length) box.textContent = 'Nenhuma lista em 02_disparos.';
+  for (const a of lista) box.append(cartaoCampanha(a));
+  $('#vtodas').textContent = todasCamp ? 'Ver só as 3 mais recentes' : 'Ver todas';
+}
+$('#vtodas').onclick = () => { todasCamp = !todasCamp; carregarCampanhas(); };
+async function carregarErros() {
+  let e; try { e = await (await fetch('/api/erros', { cache: 'no-store' })).json(); } catch { return; }
+  const box = $('#erros'); box.textContent = '';
+  if (!e.total) { box.textContent = '✅ Nenhum erro nos últimos 7 dias.'; return; }
+  const p = document.createElement('div'); p.textContent = `${e.total} erro(s). Mais frequentes: ` + e.porTipo.map(([k, v]) => `${v}× ${k}`).join(' · '); box.append(p);
+  const tb = document.createElement('table'); tb.className = 't';
+  for (const x of e.ultimos) { const tr = tb.insertRow(); for (const v of [dh(Date.parse(x.ts)), x.tipo, x.evento, x.mensagem]) tr.insertCell().textContent = v; }
+  box.append(tb);
+}
+$('#bges').onclick = async () => {
+  const pre = $('#rges'); pre.style.display = 'block'; pre.textContent = 'Gerando…';
+  const r = await (await fetch('/api/gestao', { cache: 'no-store' })).json(); pre.textContent = r.texto || 'sem dados';
+};
+$('#bgrupo').onclick = async () => {
+  const pre = $('#rgrupo'); pre.style.display = 'block'; pre.textContent = 'Gerando…';
+  const r = await post('/api/convite-grupo', { link: $('#lgrupo').value, ddd: $('#dgrupo').value.trim() });
+  pre.textContent = r.erro || r.texto || 'sem resposta'; carregarCampanhas();
+};
+for (const b of document.querySelectorAll('#tabs button')) b.onclick = () => {
+  for (const x of document.querySelectorAll('#tabs button')) x.classList.toggle('sel', x === b);
+  for (const t of document.querySelectorAll('.tab')) t.classList.toggle('sel', t.id === 't-' + b.dataset.t);
+  if (b.dataset.t === 'camp') carregarCampanhas();
+  if (b.dataset.t === 'ges') carregarErros();
+};
+
 atualizar(); setInterval(atualizar, 3000);
+{ const b = document.querySelector(`#tabs button[data-t="${location.hash.slice(1)}"]`); if (b) b.click(); }
 </script>
 </body>
 </html>

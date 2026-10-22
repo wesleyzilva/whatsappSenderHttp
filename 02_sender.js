@@ -22,6 +22,10 @@ const {
   dentroDoHorario, proximaAbertura, descreverHorario, sessaoExiste,
 } = require('./02a_zap_core');
 
+const {
+  analisarCampanha, imprimirFechamento, carregarBlacklist, semDDI, mesLocal, mesDoArquivo,
+} = require('./06_gestao');
+
 instalarProtecaoGlobal();
 
 // ── Configurações ─────────────────────────────────────────────────────────────
@@ -75,6 +79,9 @@ const CMD_DESCONECTAR = argVal('desconectar');
 const MODO_ARG        = argVal('modo');
 const CHIPS_ARG       = argVal('chips');
 const CONTINUO        = args.includes('--continuo');
+const AGUARDAR_NOVO_CSV    = args.includes('--aguardar-novo-csv');
+const PERMITIR_LISTA_ANTIGA = args.includes('--permitir-lista-antiga');
+const FALHAS_CONEXAO_MAX   = 2;
 const USAR_HORARIO    = args.includes('--usar-horario');
 // Por padrão, ignora restrição de horário do dia e respeita apenas a janela móvel de 24h de cada número
 const IGNORAR_HORARIO = !USAR_HORARIO || args.includes('--ignorar-horario');
@@ -168,9 +175,9 @@ function writeSentLog(log) {
   fs.writeFileSync(SENT_LOG, JSON.stringify(log, null, 2), 'utf8');
 }
 
+/** Chave de deduplicação: telefone + mês LOCAL (igual ao 01_gerar_lista.py; UTC trocava o mês 3h antes da meia-noite). */
 function logKey(numero) {
-  const ym = new Date().toISOString().slice(0, 7).replace('-', '');
-  return `${String(numero).replace(/\D/g, '')}_${ym}`;
+  return `${String(numero).replace(/\D/g, '')}_${mesLocal()}`;
 }
 
 function formatPhone(numero) {
@@ -356,19 +363,8 @@ function showResumo(csvFile) {
     console.log(bold(`  Progresso em: ${path.basename(csvFile)}`));
     console.log('');
     try {
-      const { records } = loadCSV(csvFile);
       const sentLog = readSentLog();
-      const pending = records.filter(c => !sentLog[logKey(c.numero)]);
-      const sentCount = records.length - pending.length;
-      const p = records.length > 0 ? Math.round(sentCount / records.length * 100) : 0;
-      const filled = Math.round(p / 5);
-      const b = '█'.repeat(filled) + '░'.repeat(20 - filled);
-
-      console.log(`  Total no CSV:   ${records.length}`);
-      console.log(`  Já processados: ${green(sentCount)} (${p}%)`);
-      console.log(`  Pendentes:      ${yellow(pending.length)}`);
-      console.log(`  Progresso:      [${b}] ${p}%`);
-      console.log('');
+      imprimirFechamento(analisarCampanha(csvFile, { sentLog }), { compacto: true });
 
       const cfgR  = lerConfig();
       const infoR = infoChips(cfgR, sentLog).filter(c => c.ativo);
@@ -658,6 +654,11 @@ async function cmdConectar(sel) {
   try {
     await zap.conectar({ permitirQR: true, qrTimeoutMs: 180_000, limparTela: true, dicaCancelar: 'ENTER = cancelar' });
     console.log(green(`\n  ✅ Conectado com sucesso: ${bold(zap.rotulo)}`));
+    const est = lerEstado()[chip.id] || {};
+    if (est.bloqueioMotivo === 'quarentena_conexao') {
+      patchEstado(chip.id, { bloqueadoAte: null, bloqueioMotivo: null, falhasConexao: 0 });
+      console.log(green('  Quarentena de conexão removida: o zap voltou a ser usado nos envios.'));
+    }
   } catch (e) {
     if (zap.cancelado) console.log(yellow('\n  Cancelado. Voltando ao menu.\n'));
     else console.log(red(`\n  ❌ Não conectou: ${primeiraLinha(e.message)}\n`));
@@ -791,15 +792,21 @@ function montarPlano(csvFile, cfg, continuo) {
     selecionados = infoAll.filter(c => c.ativo);
   }
 
+  const blacklist = carregarBlacklist();
+  let bloqueadosBlacklist = 0, pendentesForaDoFiltro = 0;
   const toSend = records.filter(c => {
     if (sentLog[logKey(c.numero)]) return false;
-    if (DDD_FILTER && (c.ddd || getDDD(c.numero)) !== DDD_FILTER) return false;
+    if (blacklist.has(semDDI(c.numero))) { bloqueadosBlacklist++; return false; }
+    if (DDD_FILTER && (c.ddd || getDDD(c.numero)) !== DDD_FILTER) { pendentesForaDoFiltro++; return false; }
     return true;
   });
   const jaEnviados = records.filter(c => sentLog[logKey(c.numero)]).length;
 
   const agora  = Date.now();
   const avisos = [];
+  if (bloqueadosBlacklist > 0) {
+    avisos.push(`${bloqueadosBlacklist} contato(s) da lista estão na blacklist (opt-out) e NÃO serão enviados.`);
+  }
 
   // Filtra cada número respeitando apenas:
   // 1) se não está pausado por bloqueio
@@ -864,7 +871,7 @@ function montarPlano(csvFile, cfg, continuo) {
     proxima = IGNORAR_HORARIO ? t : proximaAbertura(cfg, Math.max(t, agora));
   }
 
-  return { records, duplicates, total, sentLog, selecionados, elegiveis, avisos, toSend, limited, capacidade, jaEnviados, proxima, motivoEspera };
+  return { records, duplicates, total, sentLog, selecionados, elegiveis, avisos, toSend, limited, capacidade, jaEnviados, proxima, motivoEspera, pendentesForaDoFiltro };
 }
 
 // ── Execução de um lote ──────────────────────────────────────────────────────
@@ -885,6 +892,11 @@ async function rodarLote({ csvPath: csvFile, cfg, continuo = false, confirmar = 
   const ef = limiteEfetivo(cfg);
 
   if (limited.length === 0 || elegiveis.length === 0) {
+    if (toSend.length === 0 && P.pendentesForaDoFiltro > 0) {
+      const msg = `Nenhum contato pendente com DDD ${DDD_FILTER}, mas ainda restam ${P.pendentesForaDoFiltro} de outros DDDs neste arquivo. A campanha NÃO terminou: rode de novo com DDD "todos".`;
+      logHora(yellow(`⚠️  ${msg}`));
+      return { tipo: 'filtro_ddd', motivo: msg, pendentes: P.pendentesForaDoFiltro };
+    }
     const concluido = toSend.length === 0;
     if (continuo) {
       return { tipo: concluido ? 'concluido' : 'aguardando', proximaMs: P.proxima, motivo: P.motivoEspera, pendentes: toSend.length, avisos, selecionados };
@@ -892,9 +904,9 @@ async function rodarLote({ csvPath: csvFile, cfg, continuo = false, confirmar = 
     console.log(`📋 ${bold('CSV:')} ${path.basename(csvFile)}   ·   únicos: ${records.length}   ·   já processados: ${jaEnviados}   ·   pendentes: ${toSend.length}\n`);
     if (concluido) {
       console.log('═'.repeat(50));
-      console.log(green(bold('  🏁 ARQUIVO CONCLUÍDO!')));
+      console.log(green(bold('  🏁 TODOS OS CONTATOS FORAM PROCESSADOS')));
       console.log('═'.repeat(50));
-      showStatus();
+      imprimirFechamento(analisarCampanha(csvFile, { mes: mesLocal() }), { compacto: true });
     } else {
       logHora(red(bold('⛔ NÃO EXECUTADO — nenhum número liberado agora.')));
       for (const a of avisos) console.log(yellow(`   ⚠️  ${a}`));
@@ -998,15 +1010,27 @@ async function rodarLote({ csvPath: csvFile, cfg, continuo = false, confirmar = 
     logHora(`🔌 Conectando ${bold(zap.rotulo)}…`);
     try {
       await zap.conectar({ permitirQR: !continuo });
+      if ((lerEstado()[zap.id] || {}).falhasConexao) patchEstado(zap.id, { falhasConexao: 0 });
       logHora(green(`✅ ${bold(zap.rotulo)} conectado e pronto para enviar (quota: ${zap.quota} envios)`));
       return true;
     } catch (e) {
       const msg = primeiraLinha(e.message);
       zap.ultimoErro = msg;
       logHora(red(`❌ ${bold(zap.rotulo)} NÃO CONECTOU: ${msg}`));
-      if (classificar(msg) === 'logout') {
+      const tipoConexao = classificar(msg);
+      if (tipoConexao === 'logout') {
         patchEstado(zap.id, { precisaQR: true, ultimoErro: msg });
         logHora(yellow(`   ↳ Sessão expirada/corrompida em ${zap.rotulo} — marcado para ler QR Code novamente (opção 13).`));
+      } else if (tipoConexao !== 'rede' && !zap.cancelado) {
+        // Disjuntor: não insistir num zap que falha seguidamente (cada tentativa custa ~15-90 s e, no modo contínuo, se repetia sem fim).
+        const n = ((lerEstado()[zap.id] || {}).falhasConexao || 0) + 1;
+        if (n >= FALHAS_CONEXAO_MAX) {
+          patchEstado(zap.id, { falhasConexao: 0, ultimoErro: msg, bloqueioMotivo: 'quarentena_conexao', bloqueadoAte: new Date(Date.now() + PAUSA_SUSPEITA_H * 3_600_000).toISOString() });
+          logHora(red(`🚫 ${zap.rotulo}: ${n} falhas seguidas de conexão — em quarentena por ${PAUSA_SUSPEITA_H}h. Releia o QR (opção 13) para liberar antes.`));
+          logEvento('zap_quarentena', { chip: zap.id, numero: zap.numero, motivo: msg, horas: PAUSA_SUSPEITA_H });
+        } else {
+          patchEstado(zap.id, { falhasConexao: n, ultimoErro: msg });
+        }
       }
       dicaAtualizarLib(msg);
       zap.motivoParada = `nao_conectou (${msg.slice(0, 60)})`;
@@ -1290,8 +1314,14 @@ async function modoContinuo() {
     const csv = escolherCsvContinuo();
     let espera = 10 * 60_000;
 
+    const mesCsv = csv ? mesDoArquivo(path.basename(csv)) : null;
     if (!csv) {
       logHora(yellow('Nenhum CSV em 02_disparos — aguardando nova lista...'));
+    } else if (!csvArg && !PERMITIR_LISTA_ANTIGA && mesCsv && mesCsv < mesLocal()) {
+      logHora(red(`🛑 A lista mais recente (${path.basename(csv)}) é de um mês anterior. Para não reenviar automaticamente para quem já recebeu, o modo contínuo não vai usá-la.`));
+      logHora(yellow('   → Gere uma lista nova (menu [3]) ou, se for proposital, rode com --permitir-lista-antiga.'));
+      logEvento('continuo_lista_antiga_recusada', { csv: path.basename(csv) });
+      break;
     } else {
       let r;
       try { r = await rodarLote({ csvPath: csv, cfg, continuo: true, confirmar: false }); }
@@ -1318,9 +1348,25 @@ async function modoContinuo() {
           for (const a of r.avisos) logHora(yellow(`   • ${a}`));
         }
         logHora(cyan(`   → Próxima liberação prevista: ${bold(fmtDataHora(ate))} (${r.motivo || 'aguardando 24h'}) · rechecagem em ${Math.round(espera / 60_000)} min.`));
+        if (/nenhum número conectado/i.test(r.motivo || '')) {
+          logHora(red('🔴 AÇÃO NECESSÁRIA: nenhum zap está conectado. Conecte um zap (menu [13] ou botão "Conectar (QR)" no painel); o modo contínuo não consegue enviar sozinho.'));
+          logEvento('acao_necessaria', { motivo: 'nenhum_zap_conectado', pendentes: r.pendentes });
+        }
       } else if (r.tipo === 'concluido') {
-        logHora(green(`🏁 Lista ${path.basename(csv)} 100% concluída! Aguardando novo CSV em 02_disparos (rechecagem em 10 min).`));
+        const fech = analisarCampanha(csv, { mes: mesLocal() });
+        logEvento('continuo_campanha_concluida', { csv: path.basename(csv), status: fech.status, enviados: fech.enviados, semWhatsapp: fech.semWhatsapp, falhas: fech.falhas });
+        logHora(green(`🏁 Lista ${path.basename(csv)} totalmente processada.`));
+        imprimirFechamento(fech, { compacto: true });
+        if (!AGUARDAR_NOVO_CSV) {
+          logHora(green('Modo contínuo encerrado: a campanha terminou. Gere a próxima lista (menu [3]) e inicie de novo quando quiser.'));
+          logEvento('continuo_fim', { motivo: 'campanha_concluida', csv: path.basename(csv) });
+          break;
+        }
+        logHora(cyan('Aguardando novo CSV em 02_disparos (rechecagem em 10 min) — modo --aguardar-novo-csv.'));
         espera = 10 * 60_000;
+      } else if (r.tipo === 'filtro_ddd') {
+        logEvento('continuo_fim', { motivo: 'sem_pendentes_no_ddd', pendentes: r.pendentes });
+        break;
       } else if (r.tipo === 'erro') {
         espera = r.esperaMs;
         logHora(red(`❌ Erro no lote (${r.motivo}) — nova tentativa em ${Math.round(espera / 60_000)} min.`));
